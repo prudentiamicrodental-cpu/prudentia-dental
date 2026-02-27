@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.prudentiamicrodental.in
+
+# Sitemaps
+Sitemap: https://www.prudentiamicrodental.in/sitemap.xml

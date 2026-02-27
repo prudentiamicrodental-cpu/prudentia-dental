@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // For static export
-  /* config options here */
+  output: 'export',
   reactStrictMode: true,
   images: {
-    unoptimized: true,// Required for static export
-    domains: ['ik.imagekit.io'], // Add the hostname here
+    unoptimized: true,
   },
 };
 

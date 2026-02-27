@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
+import { Variants } from "framer-motion";
 
 
 export default function DentalJewelry() {
@@ -33,18 +34,19 @@ export default function DentalJewelry() {
     },
   };
 
-  const shimmer = {
-    hidden: { opacity: 0.3, scale: 0.98 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        yoyo: Infinity,
-        duration: 2,
-        ease: "easeInOut",
-      },
+const shimmer: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      repeat: Infinity,
+      repeatType: "reverse", // replaces yoyo
+      duration: 1,
+      ease: "easeInOut",
     },
-  };
+  },
+};
 
   return (
     <div className="bg-gradient-to-b from-purple-50  to-white overflow-hidden min-h-screen">
