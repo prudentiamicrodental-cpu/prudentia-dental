@@ -1,0 +1,62 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Dental Jewelry",
+    "subtitle": "Add Sparkle to Your Smile",
+    "tagline": "Unleash the Shine and Shine Bright with Dental Jewelry",
+    "button": "Book Your Sparkle Session",
+    "image": "hero/Services/cosmetic/4. Tooth jewellery/tooth-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg"
+  },
+  "introduction": {
+    "text": "Looking for a way to add some extra sparkle to your smile? At Prudentia Micro Dental Care, Pimple Saudagar we bring you the latest trend in cosmetic dentistry, Dental Jewelry. This exciting new craze lets you express your unique style with high-quality, stunning tooth embellishments that light up your smile. Your smile is a reflection of your inner beauty, and we're here to help you enhance it with something truly dazzling!"
+  },
+  "howItWorks": {
+    "title": "How Does It Work?",
+    "description": "Dental jewelry is applied with the same precision and safety as placing an orthodontic bracket, a well- established, effective procedure that has been trusted for years.",
+    "intro": "Here's how we do it:",
+    "steps": [
+      {
+        "title": "Thorough Cleaning",
+        "description": "We first clean the selected spot on your tooth, ensuring it's sterile and dry for optimal adhesion."
+      },
+      {
+        "title": "Placement of the Jewel",
+        "description": "Using a special adhesive, we gently place the sparkling jewel onto your tooth without causing any harm to the tooth structure."
+      }
+    ],
+    "footer": "It's painless, quick, and completely non-invasive!",
+    "image": "hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg",
+    "imageCaption": "The dental jewelry application process"
+  },
+  "advantages": {
+    "title": "Advantages of Dental Jewelry",
+    "image": "hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellerys-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpeg",
+    "items": [
+      {
+        "title": "No Drilling, No Damage",
+        "description": "The procedure is entirely tooth-friendly - no drilling, so your tooth structure remains intact."
+      },
+      {
+        "title": "Quick & Painless",
+        "description": "The process takes less than 15 minutes and is completely comfortable."
+      },
+      {
+        "title": "Customizable & Removable",
+        "description": "Want a change? No problem! The jewelry can be removed or replaced at any time, allowing you to keep your smile fresh and stylish."
+      }
+    ]
+  },
+  "safeAndStunning": {
+    "title": "Safe & Stunning",
+    "description": "Rest assured, the jewelry used is safe, and the procedure is gentle and secure. It bonds seamlessly to your tooth, leaving you with a beautiful, lasting addition to your smile without compromising your dental health."
+  },
+  "cta": {
+    "title": "Ready to Sparkle?",
+    "description": "Want to add a touch of glamour to your smile? Visit Prudentia Micro Dental Care today and let us help you shine brighter than ever before with our luxurious dental jewelry.",
+    "button": "Schedule your appointment now",
+    "footer": "Take the first step toward a truly one-of-a-kind smile."
+  }
+}

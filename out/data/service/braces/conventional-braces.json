@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Conventional Braces Treatment | Prudentia Micro Dental Care",
+    "description": "Professional orthodontic treatment with conventional braces in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Orthodontic Treatment with Conventional Braces",
+    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
+    "description": "While many people think of orthodontic treatment as just traditional braces, the truth is that today's advancements in design and technology make conventional braces more comfortable and effective than ever before! Traditional braces use metal brackets bonded to the front of your teeth, connected by a flexible archwire, to gradually align your teeth and improve your bite."
+  },
+  "duration": {
+    "title": "How Long Does Treatment Take?",
+    "description": "The duration of orthodontic treatment with conventional braces varies based on your unique needs, but on average, treatment typically takes between 12 to 24 months. The exact timeline will depend on your specific orthodontic goals."
+  },
+  "types": {
+    "title": "Types of Conventional Braces:",
+    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-sceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
+    "items": [
+      {
+        "title": "Self Ligating Metal Braces",
+        "description": "Traditional metal braces are made with durable stainless steel brackets and archwires. While they may have been bulky in the past, today's metal braces are smaller, lighter, and more comfortable than ever. These braces have a built-in sliding mechanism that adjusts automatically as your teeth shift. This reduces the need for frequent adjustments, making them a comfortable and efficient option for some patients."
+      },
+      {
+        "title": "Ceramic Braces",
+        "description": "For a more discreet look, ceramic braces blend in with the color of your teeth. These braces are an excellent option for those who prefer aesthetics while still receiving effective treatment."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Transform Your Smile with our Classic Braces",
+    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metals-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
+    "description": "While they may be a classic, traditional braces are still an incredibly effective way to straighten teeth and correct bites. Whether you opt for metal, ceramic, or self-ligating braces, we'll create a bespoke treatment plan tailored to your unique needs.",
+    "button": "Schedule Your Consultation",
+    "footer": "Ready to take the next step? Contact us at Prudentia Micro Dental Care, Pimple Saudagar today to schedule your consultation and start your journey toward a beautiful, aligned smile!"
+  }
+}

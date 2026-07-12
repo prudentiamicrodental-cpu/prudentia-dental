@@ -1,89 +1,109 @@
+
 'use client'
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiZoomIn, FiShield, FiActivity, FiClock, FiEye } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
 
+
+const iconMap: Record<string, React.ReactElement> = {
+  FiEye: <FiEye className="text-2xl sm:text-3xl text-purple-600" />,
+  FiZoomIn: <FiZoomIn className="text-2xl sm:text-3xl text-purple-600" />,
+  FiShield: <FiShield className="text-2xl sm:text-3xl text-purple-600" />,
+  FiActivity: <FiActivity className="text-2xl sm:text-3xl text-purple-600" />,
+  FiClock: <FiClock className="text-2xl sm:text-3xl text-purple-600" />,
+};
+
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface ProcedureStep {
+  title: string;
+  description: string;
+}
+
+interface ComparisonRow {
+  feature: string;
+  micro: string;
+  conventional: string;
+}
+
+interface MicroRootData {
+  meta: { title: string; description: string };
+  hero: { titleHighlight: string; titleRest: string; paragraph: string; button: string; image: string; imageCaption: string };
+  whatIs: { image: string; titlePrefix: string; titleHighlight: string; titleSuffix: string; paragraph: string; whyChooseTitle: string; whyChooseItems: string[]; closingParagraph: string };
+  microscopeAdvantage: { titlePrefix: string; titleHighlight: string; paragraph: string; image: string; advantagesTitle: string; advantages: string[]; invasiveTitle: string; invasiveParagraph: string };
+  specialist: { titlePrefix: string; titleHighlight: string; titleSuffix: string; paragraph: string; expertiseTitle: string; expertiseItems: string[]; image: string };
+  procedure: { titlePrefix: string; titleHighlight: string; paragraph: string; steps: ProcedureStep[]; painTitle: string; painParagraph1: string; painParagraph2: string };
+  benefitsSection: { titlePrefix: string; titleHighlight: string };
+  benefits: Benefit[];
+  comparisonSection: { titlePrefix: string; titleHighlight: string; paragraph: string; closingTitle: string; closingParagraph1: string; closingParagraph2: string };
+  comparisonData: ComparisonRow[];
+  cta: { titlePrefix: string; titleHighlight: string; paragraph: string; button: string; footnote: string };
+}
 
 const MicroRootTreatmentPage = () => {
     const { handleOpenChatbot } = useChatbot();
+  const [content, setContent] = useState<MicroRootData | null>(null);
 
-  const benefits = [
-    {
-      icon: <FiEye className="text-2xl sm:text-3xl text-purple-600" />,
-      title: "Early Diagnosis",
-      description: "Spot cracks, fractures, or hidden decay before symptoms start"
-    },
-    {
-      icon: <FiZoomIn className="text-2xl sm:text-3xl text-purple-600" />,
-      title: "Precision Treatment",
-      description: "Clean and seal canals thoroughly with 30x magnification"
-    },
-    {
-      icon: <FiShield className="text-2xl sm:text-3xl text-purple-600" />,
-      title: "Painless Procedure",
-      description: "Advanced anesthesia and minimally invasive tools"
-    },
-    {
-      icon: <FiActivity className="text-2xl sm:text-3xl text-purple-600" />,
-      title: "Faster Healing",
-      description: "Less trauma means quicker recovery"
-    },
-    {
-      icon: <FiClock className="text-2xl sm:text-3xl text-purple-600" />,
-      title: "Tooth Preservation",
-      description: "Often eliminates need for crowns or caps"
-    }
-  ];
+  useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/root/microroot.json";
 
-  const procedureSteps = [
-    {
-      title: "Electronic Anesthesia",
-      description: "Pain-free numbing without traditional injections"
-    },
-    {
-      title: "Microscopic Examination",
-      description: "30x magnification identifies all root canals"
-    },
-    {
-      title: "Ultrasonic Cleaning",
-      description: "Precision removal of infected tissue"
-    },
-    {
-      title: "3D Thermal Filling",
-      description: "Perfect seal prevents reinfection"
-    }
-  ];
+      const LOCAL_URL = "/data/service/root/microroot.json";
 
-  const comparisonData = [
-    {
-      feature: "Magnification",
-      micro: "30x with microscope",
-      conventional: "None or loupes (2-4x)"
-    },
-    {
-      feature: "Canal Detection",
-      micro: "Finds all canals (including hidden)",
-      conventional: "May miss complex anatomy"
-    },
-    {
-      feature: "Tissue Preservation",
-      micro: "Minimally invasive",
-      conventional: "More tooth structure removed"
-    },
-    {
-      feature: "Success Rate",
-      micro: "Nearly 100% when maintained",
-      conventional: "85-90% average"
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: MicroRootData = await res.json();
+        setContent(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: MicroRootData = await localRes.json();
+          setContent(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
     }
-  ];
+
+    loadData();
+  }, []);
+
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
+  const benefits = content.benefits;
+  const procedureSteps = content.procedure.steps;
+  const comparisonData = content.comparisonData;
 
   return (
     <>
       <Head>
-        <title>Micro-Root Treatment | Prudentia Micro Dental Care</title>
-        <meta name="description" content="Experience painless, microscope-enhanced root canal treatment with nearly 100% success rate at Prudentia Micro Dental Care." />
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
       </Head>
 
       <div className="min-h-screen py-16 sm:py-10 overflow-hidden bg-gradient-to-b from-purple-50 to-white">
@@ -98,18 +118,18 @@ const MicroRootTreatmentPage = () => {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  <span className="text-purple-600">Micro-Root Treatment</span>: Root Canal Redefined with Precision
+                  <span className="text-purple-600"><Markdown inline>{content.hero.titleHighlight}</Markdown></span><Markdown inline>{content.hero.titleRest}</Markdown>
                 </h1>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
-                  A modern, microscope-enhanced procedure designed to save infected teeth with minimal discomfort and maximum precision.
-                </p>
+                <Markdown className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
+                  {content.hero.paragraph}
+                </Markdown>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleOpenChatbot}
                   className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 flex items-center w-full sm:w-auto justify-center"
                 >
-                  Book Your Consultation <FiArrowRight className="ml-2" />
+                  {content.hero.button} <FiArrowRight className="ml-2" />
                 </motion.button>
               </motion.div>
 
@@ -122,7 +142,7 @@ const MicroRootTreatmentPage = () => {
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl shadow-lg mb-4 sm:mb-8 overflow-hidden">
                   <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/root/1. Micro-Root Treatment/painless-root-canal-treatment-under-microscope-prudentia-dental-care-pune.jpg"
+                  src={content.hero.image}
                     alt="Modern micro-root treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -130,7 +150,7 @@ const MicroRootTreatmentPage = () => {
                     priority
                   />                    
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 sm:p-6">
-                    <p className="text-white text-sm sm:text-base lg:text-lg font-medium">Nearly 100% success rate when properly maintained</p>
+                    <p className="text-white text-sm sm:text-base lg:text-lg font-medium">{content.hero.imageCaption}</p>
                   </div>
                 </div>
               </motion.div>
@@ -152,7 +172,7 @@ const MicroRootTreatmentPage = () => {
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
                   <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/root/1. Micro-Root Treatment/magnified-dental-operating-field-under-microscope-prudentia-dental-care-pune.jpg"
+                  src={content.whatIs.image}
                     alt="Microscope in root canal treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -163,31 +183,25 @@ const MicroRootTreatmentPage = () => {
               </div>
               <div className="lg:w-1/2">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  What is a <span className="text-purple-600">Micro-Root Treatment</span>?
+                  <Markdown inline>{content.whatIs.titlePrefix}</Markdown> <span className="text-purple-600"><Markdown inline>{content.whatIs.titleHighlight}</Markdown></span><Markdown inline>{content.whatIs.titleSuffix}</Markdown>
                 </h2>
-                <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                  A root canal performed under a Dental Operating Microscope, combined with advanced technologies like electronic anesthesia and digital imaging for maximum precision and minimal trauma.
-                </p>
+                <Markdown inline className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+                  {content.whatIs.paragraph}
+                </Markdown>
                 <div className="bg-purple-50 p-4 sm:p-6 rounded-xl border border-purple-100 mb-6 sm:mb-8">
-                  <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3">Why Choose Micro-Root Treatment?</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3"><Markdown>{content.whatIs.whyChooseTitle}</Markdown></h3>
                   <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Pain-free experience with electronic anesthesia</span>
-                    </li>
-                    <li className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Single-visit completion for most cases</span>
-                    </li>
-                    <li className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Preserves more natural tooth structure</span>
-                    </li>
+                    {content.whatIs.whyChooseItems.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
+                        <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  Gone are the days of lengthy, uncomfortable root canals. At Prudentia, we deliver high-success-rate treatments ensuring long-term preservation of your natural teeth.
-                </p>
+                <Markdown inline className="text-gray-600 text-sm sm:text-base">
+                  {content.whatIs.closingParagraph}
+                </Markdown>
               </div>
             </motion.div>
           </div>
@@ -204,11 +218,12 @@ const MicroRootTreatmentPage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                How the Microscope <span className="text-purple-600">Enhances Precision</span>
+                <Markdown inline>{content.microscopeAdvantage.titlePrefix}</Markdown> <span className="text-purple-600">
+                  <Markdown inline>{content.microscopeAdvantage.titleHighlight}</Markdown></span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                The Dental Operating Microscope offers up to 30x magnification, illuminating even the tiniest structures within your tooth.
-              </p>
+              <Markdown inline className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                {content.microscopeAdvantage.paragraph}
+              </Markdown>
             </motion.div>
 
             <div className="flex flex-col lg:flex-row items-center">
@@ -222,7 +237,7 @@ const MicroRootTreatmentPage = () => {
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
                   <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/root/1. Micro-Root Treatment/dental-microscope-magnification-currency-note-demo-prudentia-pune..jpg"
+                  src={content.microscopeAdvantage.image}
                     alt="Microscope precision in root canal"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -240,31 +255,21 @@ const MicroRootTreatmentPage = () => {
               >
                 <div className="space-y-6">
                   <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">Microscopic Advantages</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3"><Markdown>{content.microscopeAdvantage.advantagesTitle}</Markdown></h3>
                     <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base">Accurately identify and clean all root canals (including hidden ones)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base">Minimize removal of healthy tooth tissue</span>
-                      </li>
-                      <li className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base">Avoid complications like untreated areas</span>
-                      </li>
-                      <li className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base">Often eliminates the need for a full crown</span>
-                      </li>
+                      {content.microscopeAdvantage.advantages.map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
+                          <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   <div className="bg-purple-50 p-4 sm:p-6 rounded-xl border border-purple-100">
-                    <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3">Minimally Invasive Endodontics</h3>
-                    <p className="text-gray-700 text-sm sm:text-base">
-                      This approach helps preserve the strength and natural structure of your tooth while effectively treating infection.
-                    </p>
+                    <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3"><Markdown inline>{content.microscopeAdvantage.invasiveTitle}</Markdown></h3>
+                    <Markdown inline className="text-gray-700 text-sm sm:text-base">
+                      {content.microscopeAdvantage.invasiveParagraph}
+                    </Markdown>
                   </div>
                 </div>
               </motion.div>
@@ -284,30 +289,24 @@ const MicroRootTreatmentPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  Why Choose a <span className="text-purple-600">Specialist in Microsurgical Endodontics</span>?
+                  <Markdown inline>{content.specialist.titlePrefix}</Markdown> 
+                  <span className="text-purple-600">
+                    <Markdown inline>{content.specialist.titleHighlight}</Markdown>
+                    </span>
+                    <Markdown inline>{content.specialist.titleSuffix}</Markdown>
                 </h2>
-                <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                  Every tooth has unique anatomy, especially molars and premolars with multiple curved or hidden canals. Treating these without a microscope risks failed treatments.
-                </p>
+                <Markdown inline className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+                  {content.specialist.paragraph}
+                </Markdown>
                 <div className="bg-gray-50 p-4 sm:p-6 rounded-xl">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">Dr. Bhushan&apos;s Expertise</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">{content.specialist.expertiseTitle}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Complex or curved root canals</span>
-                    </div>
-                    <div className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Extra or calcified canals</span>
-                    </div>
-                    <div className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Failed previous root treatments</span>
-                    </div>
-                    <div className="flex items-start">
-                      <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                      <span className="text-sm sm:text-base">Fractured instruments in canals</span>
-                    </div>
+                    {content.specialist.expertiseItems.map((item, index) => (
+                      <div key={index} className="flex items-start">
+                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
+                        <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </motion.div>
@@ -321,7 +320,7 @@ const MicroRootTreatmentPage = () => {
                 <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg">
                  <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/root/1. Micro-Root Treatment/closeup-dr-bhushan-mahajan-working-under-microscope-prudentia-pune.jpg"
+                  src={content.specialist.image}
                     alt="Specialist performing micro-root treatment"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
@@ -345,11 +344,11 @@ const MicroRootTreatmentPage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                What to Expect During <span className="text-purple-600">Treatment</span>
+                <Markdown inline>{content.procedure.titlePrefix}</Markdown> <span className="text-purple-600"><Markdown inline>{content.procedure.titleHighlight}</Markdown></span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                Our Micro-Root Treatment process is designed for comfort and precision
-              </p>
+              <Markdown inline className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                {content.procedure.paragraph}
+              </Markdown>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -363,8 +362,8 @@ const MicroRootTreatmentPage = () => {
                   className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 text-center"
                 >
                   <div className="text-purple-600 font-bold text-2xl sm:text-3xl mb-4">{index + 1}</div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">{step.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3"><Markdown inline>{step.title}</Markdown></h3>
+                  <p className="text-gray-600 text-sm sm:text-base"><Markdown inline>{step.description}</Markdown></p>
                 </motion.div>
               ))}
             </div>
@@ -376,13 +375,13 @@ const MicroRootTreatmentPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-12 sm:mt-16 bg-purple-600 text-white p-6 sm:p-8 rounded-xl max-w-4xl mx-auto"
             >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4">Does a Root Canal Hurt?</h3>
-              <p className="mb-4 text-sm sm:text-base">
-                Thanks to modern anesthetics and technology, the procedure is virtually painless. We use Sunshine USA Electronic Anesthesia for targeted and controlled numbing—a major upgrade over traditional injections.
-              </p>
-              <p className="text-sm sm:text-base">
-                In rare cases when a tooth is too inflamed, we place temporary calming medication and complete the treatment at a follow-up visit, ensuring your comfort every step.
-              </p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-4">{content.procedure.painTitle}</h3>
+              <Markdown inline className="mb-4 text-sm sm:text-base">
+                {content.procedure.painParagraph1}
+             </Markdown>
+              <Markdown inline className="text-sm sm:text-base">
+                {content.procedure.painParagraph2}
+              </Markdown>
             </motion.div>
           </div>
         </section>
@@ -397,9 +396,14 @@ const MicroRootTreatmentPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Key Benefits of <span className="text-purple-600">Micro-Root Treatment</span>
-              </h2>
+              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                <Markdown inline>
+                  {content.benefitsSection.titlePrefix} 
+                  </Markdown>
+                <span className="text-purple-600">
+                  <Markdown inline>{content.benefitsSection.titleHighlight}</Markdown>
+                  </span>
+              </div>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
@@ -413,10 +417,10 @@ const MicroRootTreatmentPage = () => {
                   className="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200 text-center"
                 >
                   <div className="flex justify-center mb-4">
-                    {benefit.icon}
+                    {iconMap[benefit.icon]}
                   </div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">{benefit.description}</p>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2"><Markdown inline>{benefit.title}</Markdown></h3>
+                  <p className="text-gray-600 text-sm sm:text-base"><Markdown inline>{benefit.description}</Markdown></p>
                 </motion.div>
               ))}
             </div>
@@ -433,12 +437,16 @@ const MicroRootTreatmentPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                Micro-Root vs <span className="text-purple-200">Conventional Root Canal</span>
-              </h2>
-              <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-                Our advanced technologies dramatically improve outcomes compared to traditional methods
-              </p>
+              <div className="text-2xl sm:text-3xl font-bold mb-4">
+                <Markdown inline>
+                  {content.comparisonSection.titlePrefix} 
+                  </Markdown>
+                <span className="text-purple-200">
+                  <Markdown inline>{content.comparisonSection.titleHighlight}</Markdown></span>
+              </div>
+              <Markdown inline className="text-lg sm:text-xl max-w-3xl mx-auto">
+                {content.comparisonSection.paragraph}
+             </Markdown>
             </motion.div>
 
             <div className="bg-white text-gray-900 rounded-xl overflow-hidden shadow-2xl max-w-4xl mx-auto overflow-x-auto">
@@ -457,9 +465,9 @@ const MicroRootTreatmentPage = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className={`grid grid-cols-3 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
                   >
-                    <div className="p-3 sm:p-4 font-medium text-sm sm:text-base">{row.feature}</div>
-                    <div className="p-3 sm:p-4 text-purple-600 text-center text-xs sm:text-sm">{row.micro}</div>
-                    <div className="p-3 sm:p-4 text-gray-600 text-center text-xs sm:text-sm">{row.conventional}</div>
+                    <div className="p-3 sm:p-4 font-medium text-sm sm:text-base"><Markdown>{row.feature}</Markdown></div>
+                    <div className="p-3 sm:p-4 text-purple-600 text-center text-xs sm:text-sm"><Markdown>{row.micro}</Markdown></div>
+                    <div className="p-3 sm:p-4 text-gray-600 text-center text-xs sm:text-sm"><Markdown>{row.conventional}</Markdown></div>
                   </motion.div>
                 ))}
               </div>
@@ -472,13 +480,13 @@ const MicroRootTreatmentPage = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-12 sm:mt-16 bg-white/10 p-6 sm:p-8 rounded-xl max-w-4xl mx-auto backdrop-blur-sm"
             >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4">Better Than Extraction—Better Than Conventional</h3>
-              <p className="mb-4 text-sm sm:text-base">
-                Tooth extraction may seem like an easy fix, but replacing a tooth with a bridge or implant is expensive, more invasive, and never quite the same as keeping your natural tooth.
-              </p>
-              <p className="font-medium text-sm sm:text-base">
-                A Micro-Root Treatment is your best chance to preserve what nature gave you.
-              </p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-4">{content.comparisonSection.closingTitle}</h3>
+              <Markdown inline className="mb-4 text-sm sm:text-base">
+                {content.comparisonSection.closingParagraph1}
+              </Markdown>
+              <Markdown inline className="font-medium text-sm sm:text-base">
+                {content.comparisonSection.closingParagraph2}
+              </Markdown>
             </motion.div>
           </div>
         </section>
@@ -493,22 +501,25 @@ const MicroRootTreatmentPage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Take the First Step Toward a <span className="text-purple-600">Pain-Free, Healthy Smile</span>
+                <Markdown inline>
+                  {content.cta.titlePrefix} 
+                  </Markdown>
+                <span className="text-purple-600"><Markdown inline>{content.cta.titleHighlight}</Markdown></span>
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto">
-                Dr. Bhushan is an expert in microscope-enhanced dental care, with every treatment tailored for comfort, precision, and long-term success.
-              </p>
+              <Markdown className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto">
+                {content.cta.paragraph}
+              </Markdown>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleOpenChatbot}
                 className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-base sm:text-lg w-full sm:w-auto justify-center"
               >
-                Book Your Micro-Root Consultation Today <FiArrowRight className="ml-2" />
+                {content.cta.button} <FiArrowRight className="ml-2" />
               </motion.button>
-              <p className="text-gray-500 mt-4 sm:mt-6 text-sm sm:text-base">
-                Your natural smile deserves the best care available
-              </p>
+              <Markdown className="text-gray-500 mt-4 sm:mt-6 text-sm sm:text-base">
+                {content.cta.footnote}
+            </Markdown>
             </motion.div>
           </div>
         </section>

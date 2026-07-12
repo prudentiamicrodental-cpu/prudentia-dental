@@ -1,0 +1,95 @@
+[
+  {
+    "mainTitle": "Microscope",
+    "title": "Precision. Comfort. Care.",
+    "subtitle": "Experience the Power of 30x Magnification Dentistry",
+    "description": "At Prudentia Micro Dental Care, we use one of the few Dental Operating Microscopes in the country to deliver:",
+    "features": [
+      "Ultra-accurate diagnosis",
+      "Early cavity detection",
+      "Minimally invasive treatments",
+      "Faster healing process"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Preventive. Holistic. Exceptional Care.",
+    "image": "hero/WhyPrudentia/dental-operating-microscope-benefits-prudentia-micro-dental-care-Pimple-saudagar.jpg"
+  },
+  {
+    "mainTitle": "Caries",
+    "title": "Catch Cavities Before They Strike",
+    "subtitle": "No Guesswork. No Extra X-Rays. Just Precision.",
+    "description": "With our advanced Caries Detection Probe and Dental Microscope, we spot hidden decay long before it causes damage or pain.",
+    "features": [
+      "Ultra-early cavity detection",
+      "No unnecessary X-rays",
+      "Quick, accurate, pain-free scanning"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Scan your smile today — protect your pearly whites with confidence.",
+    "image": "hero/WhyPrudentia/caries-detection-probe-early-cavity-prudentia-micro-dental-care-pimple-saudagar.jpg"
+  },
+  {
+    "mainTitle": "Electronic Anesthesia",
+    "title": "Fear Needles? Not Anymore.",
+    "subtitle": "Painless Dental Anesthesia Is Here.",
+    "description": "At Prudentia Micro Dental Care, we use Electronic Anesthesia and soothing topical gels to deliver a virtually pain-free, stress-free experience—no sharp pricks, no anxiety.",
+    "features": [
+      "Gentle, automated numbing",
+      "No more fear of needles",
+      "Maximum comfort, zero stress"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Relax. We've made dentistry pain-free.",
+    "image": "hero/WhyPrudentia/electronic-anesthesia-painless-dental-injection-prudentia-micro-dental-care-pimple-saudagar.jpg"
+  },
+  {
+    "mainTitle": "Digital Xrays",
+    "title": "Safe. Smart. Seamless Dental Scans.",
+    "subtitle": "Worried About X-ray Radiation? We've Got You Covered.",
+    "description": "Our DC Digital X-Ray system uses 80% less radiation than traditional machines—without compromising on image clarity or comfort.",
+    "features": [
+      "Ultra-low radiation exposure",
+      "High-definition digital images",
+      "Compact sensors for a better fit",
+      "Instant results & easy digital records"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Instant results & easy digital records",
+    "image": "hero/WhyPrudentia/digital-dental-xray-portable-dc-low-radiation-prudentia-micro-dental-care-pimple-saudagar.jpg"
+  },
+  {
+    "mainTitle": "Advanced Root Treatments",
+    "title": "Root Canal, Reinvented.",
+    "subtitle": "High Success. Zero Stress. Precision-Driven Care.",
+    "description": "At Prudentia Micro Dental Care, we perform routine and complex root canal treatments using the latest in microscopic and ultrasonic technology—ensuring long-term success with minimal discomfort.",
+    "features": [
+      "Microscope-guided precision",
+      "Advanced rotary & irrigation systems",
+      "Maximum comfort, faster healing",
+      "Trusted success, even in re-treatments"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Experience high-grade, evidence-based root care—done right the first time.",
+    "image": "hero/WhyPrudentia/advanced-root-canal-instruments-apex-endo-motor-prudentia-micro-dental-pimple-saudagar.jpg"
+  },
+  {
+    "mainTitle": "High end Sterilization",
+    "title": "Your Safety Is Our Standard.",
+    "subtitle": "World-Class Sterilization. Zero Compromise.",
+    "description": "At Prudentia Micro Dental Care, we follow international hygiene protocols using advanced tools like a Class B Autoclave, Ultrasonic Cleanser, and UV Cabinet—ensuring a sterile, infection-free environment.",
+    "features": [
+      "Sealed & sterilized instruments",
+      "Hospital-grade disinfection",
+      "Strict cross-infection control"
+    ],
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Learn More",
+    "tagline": "Feel safe. Stay protected. Dental care you can trust.",
+    "image": "hero/WhyPrudentia/dental-sterilization-classb-autoclave-ultrasonic-uv-prudentia-micro-dental-pune.jpg"
+  }
+]

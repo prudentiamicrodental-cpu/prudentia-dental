@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -27,15 +27,20 @@ const AppointmentChatbot: React.FC<AppointmentChatbotProps> = ({ onClose, isOpen
         message: ''
     });
 
-    const services = [
-        "General Checkup",
-        "Teeth Cleaning",
-        "Dental Implants",
-        "Teeth Whitening",
-        "Orthodontics",
-        "Emergency Care",
-        "Other"
-    ];
+    const [services, setServices] = useState<string[]>([]);
+
+    useEffect(() => {
+        let isMounted = true;
+        fetch('/data/home/chatbot-services.json')
+            .then((res) => res.json())
+            .then((data: string[]) => {
+                if (isMounted) setServices(data);
+            })
+            .catch((err) => console.error('Failed to load chatbot services:', err));
+        return () => {
+            isMounted = false;
+        };
+    }, []);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;

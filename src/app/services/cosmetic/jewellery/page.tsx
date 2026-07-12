@@ -5,14 +5,86 @@ import { motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
 import { Variants } from "framer-motion";
+import Markdown from '@/components/markdown';
+import Head from "next/head";
 
+interface JewelleryData {
+   meta: { title: string, description: string};
+  hero: {
+    title: string;
+    subtitle: string;
+    tagline: string;
+    button: string;
+    image: string;
+  };
+  introduction: {
+    text: string;
+  };
+  howItWorks: {
+    title: string;
+    description: string;
+    intro: string;
+    steps: { title: string; description: string }[];
+    footer: string;
+    image: string;
+    imageCaption: string;
+  };
+  advantages: {
+    title: string;
+    image: string;
+    items: { title: string; description: string }[];
+  };
+  safeAndStunning: {
+    title: string;
+    description: string;
+  };
+  cta: {
+    title: string;
+    description: string;
+    button: string;
+    footer: string;
+  };
+}
 
 export default function DentalJewelry() {
   const { handleOpenChatbot } = useChatbot();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [content, setContent] = useState<JewelleryData | null>(null);
 
   useEffect(() => {
-    setIsLoaded(true);
+    async function loadData() {
+      setIsLoaded(true);
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/cosmetic/dental-jewellery.json";
+
+      const LOCAL_URL = "/data/service/cosmetic/dental-jewellery.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: JewelleryData = await res.json();
+        setContent(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: JewelleryData = await localRes.json();
+          setContent(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
   }, []);
 
   const fadeIn = {
@@ -48,8 +120,20 @@ const shimmer: Variants = {
   },
 };
 
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gradient-to-b from-purple-50  to-white overflow-hidden min-h-screen">
+         <Head>
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
+      </Head>
       {/* Hero Section */}
       <motion.div
         initial="hidden"
@@ -94,19 +178,19 @@ const shimmer: Variants = {
                 variants={fadeIn}
                 className="text-5xl font-bold text-purple-900 leading-tight mb-6"
               >
-                Dental Jewelry
+                <Markdown inline>{content.hero.title}</Markdown>
               </motion.h1>
               <motion.h2
                 variants={fadeIn}
                 className="text-2xl font-medium text-purple-700 mb-12"
               >
-                Add Sparkle to Your Smile
+                <Markdown inline>{content.hero.subtitle}</Markdown>
               </motion.h2>
               <motion.p
                 variants={fadeIn}
                 className="text-xl text-purple-800 font-light mb-10"
               >
-                Unleash the Shine and Shine Bright with Dental Jewelry
+                <Markdown inline>{content.hero.tagline}</Markdown>
               </motion.p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -114,7 +198,7 @@ const shimmer: Variants = {
                 onClick={handleOpenChatbot}
                 className="bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
               >
-                Book Your Sparkle Session
+                {content.hero.button}
               </motion.button>
             </div>
             <motion.div
@@ -124,7 +208,7 @@ const shimmer: Variants = {
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl  shadow-lg mb-8">
                 <Image
                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/cosmetic/4. Tooth jewellery/tooth-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg"
+                  src={content.hero.image}
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -161,13 +245,7 @@ const shimmer: Variants = {
             variants={fadeIn}
             className="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto text-center"
           >
-            Looking for a way to add some extra sparkle to your smile? At
-            Prudentia Micro Dental Care, Pimple Saudagar we bring you the latest
-            trend in cosmetic dentistry, Dental Jewelry. This exciting new craze
-            lets you express your unique style with high-quality, stunning tooth
-            embellishments that light up your smile. Your smile is a reflection
-            of your inner beauty, and we&apos;re here to help you enhance it
-            with something truly dazzling!
+            <Markdown inline>{content.introduction.text}</Markdown>
           </motion.p>
         </div>
       </motion.section>
@@ -185,23 +263,21 @@ const shimmer: Variants = {
             variants={fadeIn}
             className="text-3xl font-bold text-center text-purple-900 mb-16"
           >
-            How Does It Work?
+            <Markdown inline>{content.howItWorks.title}</Markdown>
           </motion.h2>
 
           <motion.p
             variants={fadeIn}
             className="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-12"
           >
-            Dental jewelry is applied with the same precision and safety as
-            placing an orthodontic bracket, a well- established, effective
-            procedure that has been trusted for years.
+            <Markdown inline>{content.howItWorks.description}</Markdown>
           </motion.p>
 
           <motion.p
             variants={fadeIn}
             className="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-8"
           >
-            Here&apos;s how we do it:
+            <Markdown inline>{content.howItWorks.intro}</Markdown>
           </motion.p>
 
           <div className="flex flex-wrap items-center mb-12">
@@ -210,51 +286,33 @@ const shimmer: Variants = {
               className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0 order-2 lg:order-1"
             >
               <ol className="space-y-10">
-                <motion.li
-                  variants={fadeIn}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                    <span className="text-purple-600 font-bold">1</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                      Thorough Cleaning
-                    </h3>
-                    <p className="text-gray-700">
-                      We first clean the selected spot on your tooth, ensuring
-                      it&apos;s sterile and dry for optimal adhesion.
-                    </p>
-                  </div>
-                </motion.li>
-
-                <motion.li
-                  variants={fadeIn}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                    <span className="text-purple-600 font-bold">2</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                      Placement of the Jewel
-                    </h3>
-                    <p className="text-gray-700">
-                      Using a special adhesive, we gently place the sparkling
-                      jewel onto your tooth without causing any harm to the
-                      tooth structure.
-                    </p>
-                  </div>
-                </motion.li>
+                {content.howItWorks.steps.map((step, index) => (
+                  <motion.li
+                    key={index}
+                    variants={fadeIn}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start"
+                  >
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                      <span className="text-purple-600 font-bold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-purple-800 mb-2">
+                        <Markdown inline>{step.title}</Markdown>
+                      </h3>
+                      <p className="text-gray-700">
+                        <Markdown inline>{step.description}</Markdown>
+                      </p>
+                    </div>
+                  </motion.li>
+                ))}
               </ol>
 
               <motion.p
                 variants={fadeIn}
                 className="mt-10 text-xl text-center lg:text-left text-purple-700 font-medium"
               >
-                It&apos;s painless, quick, and completely non-invasive!
+                <Markdown inline>{content.howItWorks.footer}</Markdown>
               </motion.p>
             </motion.div>
 
@@ -265,7 +323,7 @@ const shimmer: Variants = {
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellery-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpg"
+                  src={content.howItWorks.image}
                   alt="Modern denture solutions"
                   fill
                   className="object-cover"
@@ -279,8 +337,7 @@ const shimmer: Variants = {
                   className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-900 to-transparent p-4"
                 >
                   <p className="text-white">
-                    {" "}
-                    The dental jewelry application process
+                    <Markdown inline>{content.howItWorks.imageCaption}</Markdown>
                   </p>
                 </motion.div>
               </div>
@@ -302,7 +359,7 @@ const shimmer: Variants = {
             variants={fadeIn}
             className="text-3xl font-bold text-center text-purple-900 mb-16"
           >
-            Advantages of Dental Jewelry
+            <Markdown inline>{content.advantages.title}</Markdown>
           </motion.h2>
 
           <div className="flex flex-wrap items-center">
@@ -313,7 +370,7 @@ const shimmer: Variants = {
               <div className="relative h-80 md:h-96 w-full shadow-2xl rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/cosmetic/4. Tooth jewellery/tooths-jewellerys-smile-enhancement-cosmetic-dentistry-prudentia-pune.jpeg"
+                  src={content.advantages.image}
                   alt="Modern denture solutions"
                   fill
                   className="object-contain"
@@ -340,63 +397,26 @@ const shimmer: Variants = {
 
             <motion.div variants={fadeIn} className="w-full lg:w-1/2 px-4">
               <ul className="space-y-8">
-                <motion.li
-                  variants={fadeIn}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                    <span className="text-purple-600 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                      No Drilling, No Damage
-                    </h3>
-                    <p className="text-gray-700">
-                      The procedure is entirely tooth-friendly - no drilling, so
-                      your tooth structure remains intact.
-                    </p>
-                  </div>
-                </motion.li>
-
-                <motion.li
-                  variants={fadeIn}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                    <span className="text-purple-600 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                      Quick & Painless
-                    </h3>
-                    <p className="text-gray-700">
-                      The process takes less than 15 minutes and is completely
-                      comfortable.
-                    </p>
-                  </div>
-                </motion.li>
-
-                <motion.li
-                  variants={fadeIn}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                    <span className="text-purple-600 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                      Customizable & Removable
-                    </h3>
-                    <p className="text-gray-700">
-                      Want a change? No problem! The jewelry can be removed or
-                      replaced at any time, allowing you to keep your smile
-                      fresh and stylish.
-                    </p>
-                  </div>
-                </motion.li>
+                {content.advantages.items.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    variants={fadeIn}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start"
+                  >
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                      <span className="text-purple-600 text-xl">✓</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-purple-800 mb-2">
+                        <Markdown inline>{item.title}</Markdown>
+                      </h3>
+                      <p className="text-gray-700">
+                        <Markdown inline>{item.description}</Markdown>
+                      </p>
+                    </div>
+                  </motion.li>
+                ))}
               </ul>
             </motion.div>
           </div>
@@ -416,7 +436,7 @@ const shimmer: Variants = {
             variants={fadeIn}
             className="text-3xl font-bold text-center text-purple-900 mb-10"
           >
-            Safe & Stunning
+            <Markdown inline>{content.safeAndStunning.title}</Markdown>
           </motion.h2>
 
           <motion.div
@@ -437,10 +457,7 @@ const shimmer: Variants = {
             ></motion.div>
 
             <p className="text-lg text-gray-700 leading-relaxed relative z-10">
-              Rest assured, the jewelry used is safe, and the procedure is
-              gentle and secure. It bonds seamlessly to your tooth, leaving you
-              with a beautiful, lasting addition to your smile without
-              compromising your dental health.
+              <Markdown inline>{content.safeAndStunning.description}</Markdown>
             </p>
           </motion.div>
         </div>
@@ -456,16 +473,14 @@ const shimmer: Variants = {
       >
         <div className="container mx-auto px-4 text-center">
           <motion.h2 variants={fadeIn} className="text-3xl font-bold mb-6">
-            Ready to Sparkle?
+            <Markdown inline>{content.cta.title}</Markdown>
           </motion.h2>
 
           <motion.p
             variants={fadeIn}
             className="text-lg max-w-3xl mx-auto mb-10"
           >
-            Want to add a touch of glamour to your smile? Visit Prudentia Micro
-            Dental Care today and let us help you shine brighter than ever
-            before with our luxurious dental jewelry.
+            <Markdown inline>{content.cta.description}</Markdown>
           </motion.p>
 
           <motion.div variants={fadeIn} className="mt-8">
@@ -479,10 +494,10 @@ const shimmer: Variants = {
               transition={{ duration: 0.2 }}
               className="bg-purple-800 text-white font-bold px-10 py-4 rounded-lg text-lg border-2 border-white/20 shadow-lg"
             >
-              Schedule your appointment now
+              {content.cta.button}
             </motion.button>
             <motion.p variants={fadeIn} className="mt-6 text-purple-200">
-              Take the first step toward a truly one-of-a-kind smile.
+              <Markdown inline>{content.cta.footer}</Markdown>
             </motion.p>
           </motion.div>
         </div>

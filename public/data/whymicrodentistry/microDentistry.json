@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "banner": {
+    "image": "hero/MicroDentistry/zoomed-dental-microscope-prudentia-why-micro-dentistry-page-pimple-saudagar.jpg",
+    "title": "Precision. Prevention. Preservation.",
+    "subtitle": "Experience the Future of Dental Care"
+  },
+  "whyChoose": {
+    "title": "Why Choose Micro-Dentistry?",
+    "description": "Micro-Dentistry is a cutting-edge approach that uses advanced magnification (up to 30x) and intense illumination to detect and treat dental issues with unmatched accuracy. By integrating dental operating microscopes, we can spot early signs of tooth decay, cracked teeth, and gum disease often before they cause pain or visible damage.",
+    "image": "hero/MicroDentistry/Image1.png",
+    "listTitle": "This minimally invasive technique empowers us to:",
+    "items": [
+      "Detect cavities before they appear on X-rays",
+      "Perform root canal treatments with maximum precision",
+      "Carry out cosmetic dental procedures with minimal tissue damage",
+      "Conserve more of your natural teeth and gums"
+    ]
+  },
+  "benefits": {
+    "title": "How You Benefit from Micro-Dentistry",
+    "description": "Every dental visit becomes an opportunity for early detection and conservative treatment. Whether it's a minor cavity or a full-mouth restoration, micro-dentistry ensures:",
+    "image": "hero/MicroDentistry/dentist-patient-treatment-explanation-screen-visual-consultation-prudentia-pune.jpg",
+    "items": [
+      "Less pain, faster healing",
+      "Minimal trauma to teeth and gums",
+      "Greater preservation of healthy tooth structure",
+      "Enhanced outcomes using fluorescence technology for early diagnosis",
+      "Real-time video explanations of your treatment"
+    ],
+    "note": "By catching problems early, we prevent complex procedures later often avoiding root canals or extractions altogether. You'll experience better oral health, improved hygiene, and more predictable results."
+  },
+  "treatments": {
+    "title": "Treatments Performed with Micro-Dentistry",
+    "description": "Dr. Bhushan is extensively trained in micro-dentistry and uses this high-precision method for:",
+    "image": "hero/MicroDentistry/dr-bhushan-microscope-dental-treatment-painless-relaxing-environment-prudentia-pimple-saudagar.jpg",
+    "items": [
+      "Early cavity detection and tooth decay treatment",
+      "Root canal therapy and re-treatment of failed root canals",
+      "Dental fillings, crowns, and bridges",
+      "Cosmetic enhancements: veneers, tooth reshaping, stain removal",
+      "Correction of chipped, discolored, or misaligned teeth",
+      "General dentistry procedures with minimally invasive techniques"
+    ]
+  },
+  "cta": {
+    "title": "Experience the Future of Dental Care",
+    "description": "At our clinic, micro-dentistry is more than a tool, it's a philosophy of preservation, comfort, and long-term health. Ready for precise, patient-focused care?",
+    "button": "Book your Micro-Consultation today!",
+    "footer": "See the difference at Prudentia Micro Dental Care, Pimple Saudagar!"
+  }
+}

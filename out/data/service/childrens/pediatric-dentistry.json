@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "Pediatric Root Canals | Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Pediatric Dentistry:",
+    "titleLine2": "Gentle Care for Growing Smiles",
+    "description": "Taking your child to a pediatric dentist is an excellent choice for their oral health. Pediatric dentists are specially trained to provide the best care tailored to children's needs. They make dental visits more comfortable and ensure that young patients maintain healthy smiles as they grow."
+  },
+  "introImage": {
+    "image": "hero/Services/childrens/kids-dentist-pediatric-dental-care-pimple-saudagar-prudentia-micro-dental-care.jpg",
+    "caption": "Creating positive dental experiences for children"
+  },
+  "procedures": {
+    "title": "Common Pediatric Dental Procedures",
+    "intro": "While pediatric dentistry shares many similarities with adult care, the procedures often have a child-friendly approach to make them easier and less stressful. Here are some of the most common pediatric dental procedures:",
+    "items": [
+      {
+        "number": "1",
+        "title": "Fillings",
+        "content": "Children's teeth are more vulnerable to cavities due to sugary snacks and sometimes less-than-perfect oral hygiene. When cavities develop, fillings are used to restore the tooth and prevent further decay. This simple, quick procedure ensures that your child's tooth stays healthy and functional.",
+        "icon": "Shield",
+        "iconColor": "text-blue-600",
+        "color": "bg-blue-50 border-blue-200"
+      },
+      {
+        "number": "2",
+        "title": "Dental Cleanings",
+        "content": "Routine teeth cleanings are vital for children since they are more prone to cavities. A professional cleaning helps remove plaque buildup, which is crucial for preventing tooth decay. Cleanings also provide an opportunity for the dentist to spot any early signs of problems.",
+        "icon": "Smile",
+        "iconColor": "text-green-600",
+        "color": "bg-green-50 border-green-200"
+      },
+      {
+        "number": "3",
+        "title": "Extractions",
+        "content": "Though it might sound intimidating, tooth extractions are occasionally necessary for children. Whether it's because of an infected tooth or overcrowding, extractions help maintain a healthy, growing mouth. Pediatric dentists are skilled in performing this procedure with minimal discomfort, using localized numbing techniques to keep the process as pain-free as possible.",
+        "icon": "Heart",
+        "iconColor": "text-red-600",
+        "color": "bg-red-50 border-red-200"
+      },
+      {
+        "number": "4",
+        "title": "Pediatric Root Canals and Dental Crowns",
+        "content": "When a tooth is severely infected, a root canal may be required to remove the infection and preserve the tooth. After a root canal, a dental crown is placed to protect and restore the tooth's function. This procedure helps prevent further damage and ensures your child's tooth stays healthy.",
+        "icon": "Star",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50 border-purple-200"
+      }
+    ]
+  },
+  "safeHands": {
+    "title": "Your Child's Smile is in Safe Hands",
+    "description": "We understand that visiting the dentist can be a big step for children, but our pediatric dental team is here to ensure that your child feels comfortable and well cared for throughout the process. We take a gentle, friendly approach to each procedure, making dental visits a positive experience.",
+    "features": [
+      { "icon": "Smile", "title": "Gentle Approach", "description": "Child-friendly techniques" },
+      { "icon": "Shield", "title": "Expert Care", "description": "Specialized pediatric training" },
+      { "icon": "Star", "title": "Positive Experience", "description": "Making visits enjoyable" }
+    ]
+  },
+  "contact": {
+    "title": "Schedule Your Child's Appointment Today!",
+    "description": "Contact us today to schedule your child's appointment at Prudentia Micro Dental Care, Pimple Saudagar and ensure their smile stays bright and healthy for years to come!",
+    "cards": [
+      { "icon": "Phone", "title": "Call Us", "description": "Book Your Child's Visit" },
+      { "icon": "Mail", "title": "Email Us", "description": "Ask Questions" },
+      { "icon": "MapPin", "title": "Visit Us", "description": "Pimple Saudagar, Pune" }
+    ],
+    "button": "Schedule your consultation today"
+  }
+}

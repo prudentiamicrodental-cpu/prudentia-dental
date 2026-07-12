@@ -1,12 +1,173 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ChevronDown, Heart, Shield, Leaf, Users } from "lucide-react";
+import { ChevronDown, Heart, Shield, Leaf, Users, LucideIcon } from "lucide-react";
 import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
+import Markdown from '@/components/markdown';
+import Head from "next/head";
+
+const iconMap: { [key: string]: LucideIcon } = {
+  Heart,
+  Shield,
+  Leaf,
+  Users,
+};
+
+const renderIcon = (name: string, className: string) => {
+  const IconComponent = iconMap[name];
+  if (!IconComponent) return null;
+  return <IconComponent className={className} />;
+};
+
+interface ApproachItem {
+  icon: string;
+  iconColor: string;
+  title: string;
+}
+
+interface WhyChooseItem {
+  icon: string;
+  iconColor: string;
+  text: string;
+  spanClass: string;
+}
+
+
+interface MetaData{
+  title: string;
+  description: string 
+};
+
+interface HeroData {
+  titleLine1: string;
+  titleHighlight: string;
+  subtitle: string;
+  image: string;
+}
+
+interface IntroData {
+  paragraphs: string[];
+  approaches: ApproachItem[];
+  closingParagraph: string;
+}
+
+interface DifferentData {
+  title: string;
+  paragraph: string;
+  image: string;
+}
+
+interface MercuryData {
+  title: string;
+  images: string[];
+  contentParagraphs: string[];
+  commitmentTitle: string;
+  commitmentItems: string[];
+}
+
+interface DietData {
+  image: string;
+  title: string;
+  paragraphs: string[];
+}
+
+interface LifestyleData {
+  title: string;
+  introParagraph: string;
+  items: string[];
+  closingParagraph: string;
+  image: string;
+}
+
+interface WhyChooseData {
+  title: string;
+  items: WhyChooseItem[];
+}
+
+interface CtaBoxData {
+  title: string;
+  paragraph: string;
+}
+
+interface LocationData {
+  title: string;
+  paragraph: string;
+  ctaBox: CtaBoxData;
+  image: string;
+}
+
+interface ContactData {
+  title: string;
+  paragraph: string;
+  buttonText: string;
+}
+
+interface HolisticData {
+  meta: MetaData;
+  hero: HeroData;
+  intro: IntroData;
+  different: DifferentData;
+  mercury: MercuryData;
+  diet: DietData;
+  lifestyle: LifestyleData;
+  whyChoose: WhyChooseData;
+  location: LocationData;
+  contact: ContactData;
+}
+
+const EMPTY_DATA: HolisticData = {
+  meta: { title: '', description: '' },
+  hero: { titleLine1: "", titleHighlight: "", subtitle: "", image: "" },
+  intro: { paragraphs: [], approaches: [], closingParagraph: "" },
+  different: { title: "", paragraph: "", image: "" },
+  mercury: { title: "", images: [], contentParagraphs: [], commitmentTitle: "", commitmentItems: [] },
+  diet: { image: "", title: "", paragraphs: [] },
+  lifestyle: { title: "", introParagraph: "", items: [], closingParagraph: "", image: "" },
+  whyChoose: { title: "", items: [] },
+  location: { title: "", paragraph: "", ctaBox: { title: "", paragraph: "" }, image: "" },
+  contact: { title: "", paragraph: "", buttonText: "" },
+};
 
 const HolisticDentistryPage = () => {
   const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const [data, setData] = useState<HolisticData>(EMPTY_DATA);
+
+ useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/preventive/holistic.json";
+
+      const LOCAL_URL = "/data/service/preventive/holistic.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: HolisticData = await res.json();
+        setData(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: HolisticData = await localRes.json();
+          setData(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
+  }, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,7 +188,7 @@ const HolisticDentistryPage = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [data]);
 
   const fadeInUp = (id: string) => ({
     opacity: isVisible[id] ? 1 : 0,
@@ -49,6 +210,10 @@ const HolisticDentistryPage = () => {
 
   return (
     <div className="min-h-screen overflow-hidden py-5 bg-gradient-to-br from-purple-50 to-white overflow-x-hidden">
+      <Head>
+        <title>{data.meta.title}</title>
+        <meta name="description" content={data.meta.description} />
+      </Head>
       {/* Hero Section */}
       <section className="relative  bg-gradient-to-r from-purple-600 to-purple-600 text-white">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -60,23 +225,25 @@ const HolisticDentistryPage = () => {
             style={fadeInUp("hero")}
           >
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight break-words">
-              Holistic Dentistry at
+              <Markdown inline>{data.hero.titleLine1}</Markdown>
               <br />
-              <span className="text-pink-300">Prudentia Micro Dental Care</span>
+              <span className="text-pink-300"><Markdown inline>{data.hero.titleHighlight}</Markdown></span>
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 break-words">
-              Healing Beyond the Smile. A Whole-Body Approach to Oral Health.
+              <Markdown inline>{data.hero.subtitle}</Markdown>
             </p>
-            <div className="bg-white bg-opacity-20 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8 rounded-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm border border-white border-opacity-30">
-              <Image
-                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Services/preventive/3. Holistic Dental Treatments/holistic-dental-care-prudentia-pune.jpg"
-                alt="Modern denture solutions"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+            {data.hero.image && (
+              <div className="bg-white bg-opacity-20 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8 rounded-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm border border-white border-opacity-30">
+                <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src={data.hero.image}
+                  alt="Modern denture solutions"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -93,42 +260,33 @@ const HolisticDentistryPage = () => {
             data-animate
             style={fadeInUp("intro")}
           >
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8 px-2">
-              Holistic healing is the art and science of treating the whole
-              person ie. body, breath, mind, intellect, and the state of inner
-              bliss to achieve complete health and wellness.
-            </p>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 sm:mb-12 px-2">
-              At Prudentia Micro Dental Care, we embrace this philosophy through
-              holistic dentistry, a progressive approach that integrates modern
-              dental science with natural healing principles.
-            </p>
+            {data.intro.paragraphs.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8 px-2"
+              >
+                <Markdown inline>{paragraph}</Markdown>
+              </p>
+            ))}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Leaf className="w-10 h-10 sm:w-12 sm:h-12 text-green-600 mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
-                  Alternative Dentistry
-                </h3>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-purple-600 mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
-                  Biocompatible Dentistry
-                </h3>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 sm:col-span-2 md:col-span-1">
-                <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-red-600 mx-auto mb-3 sm:mb-4" />
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
-                  Integrative or Natural Dentistry
-                </h3>
-              </div>
+              {data.intro.approaches.map((approach, index) => (
+                <div
+                  key={index}
+                  className={`bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
+                    index === data.intro.approaches.length - 1 ? "sm:col-span-2 md:col-span-1" : ""
+                  }`}
+                >
+                  {renderIcon(approach.icon, "w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 " + approach.iconColor)}
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                    <Markdown inline>{approach.title}</Markdown>
+                  </h3>
+                </div>
+              ))}
             </div>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed px-2">
-              This form of care recognizes the deep interconnection between oral
-              health and overall well-being, offering solutions that nurture the
-              body and mind in harmony.
+              <Markdown inline>{data.intro.closingParagraph}</Markdown>
             </p>
           </div>
         </div>
@@ -146,15 +304,10 @@ const HolisticDentistryPage = () => {
                 className="order-2 lg:order-1"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2 text-center lg:text-left">
-                  What Makes Holistic Dentistry Different?
+                  <Markdown inline>{data.different.title}</Markdown>
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed px-2">
-                  Unlike traditional dentistry, holistic dental care takes a
-                  broader view by considering the impact of dental materials,
-                  procedures, and lifestyle choices on your entire body. We
-                  focus on prevention, biocompatibility, and minimally invasive
-                  treatments that support your total health - physically,
-                  emotionally, and spiritually.
+                  <Markdown inline>{data.different.paragraph}</Markdown>
                 </p>
               </div>
               <div
@@ -163,14 +316,16 @@ const HolisticDentistryPage = () => {
                 data-animate
                 style={slideInRight("different-img")}
               >
-                <Image
-                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/preventive/3. Holistic Dental Treatments/holistics-dental-care-prudentia-pune.jpg"
-                  alt="Modern denture solutions"
-                  fill
-                  className="object-contain"
-                  priority
-                />
+                {data.different.image && (
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.different.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -188,29 +343,21 @@ const HolisticDentistryPage = () => {
               style={fadeInUp("mercury-title")}
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2">
-                Working Towards a Mercury-Free World
+                <Markdown inline>{data.mercury.title}</Markdown>
               </h2>
               <div className="flex  flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0 w-full max-w-4xl mx-auto">
-                <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src="hero/Services/preventive/3. Holistic Dental Treatments/mercury-free-dentistry-prudentia-pune.jpg"
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src="hero/Services/preventive/3. Holistic Dental Treatments/mercurys-free-dentistry-prudentia-pune.jpg"
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                {data.mercury.images.map((image, index) => (
+                  <div key={index} className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -220,15 +367,11 @@ const HolisticDentistryPage = () => {
               data-animate
               style={fadeInUp("mercury-content")}
             >
-              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                One of the foundational principles of holistic dentistry is the
-                avoidance of mercury in any dental procedure.
-              </p>
-              <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Mercury, a component of traditional &quot;silver&quot; amalgam
-                fillings, is a neurotoxic metal with well-documented long-term
-                health risks, including metal toxicity.
-              </p>
+              {data.mercury.contentParagraphs.map((paragraph, index) => (
+                <p key={index} className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
+                  <Markdown inline>{paragraph}</Markdown>
+                </p>
+              ))}
             </div>
 
             <div
@@ -238,29 +381,17 @@ const HolisticDentistryPage = () => {
               style={fadeInUp("mercury-commitment")}
             >
               <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6">
-                We are committed to:
+                <Markdown inline>{data.mercury.commitmentTitle}</Markdown>
               </h3>
               <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0"></div>
-                  <p className="text-base sm:text-lg text-gray-700">
-                    Never using mercury-based materials
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0"></div>
-                  <p className="text-base sm:text-lg text-gray-700">
-                    Safely replacing old amalgam fillings with non-toxic, modern
-                    alternatives such as composite resins or ceramic
-                    restorations
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0"></div>
-                  <p className="text-base sm:text-lg text-gray-700">
-                    Ensuring every material used is biocompatible with your body
-                  </p>
-                </div>
+                {data.mercury.commitmentItems.map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0"></div>
+                    <p className="text-base sm:text-lg text-gray-700">
+                      <Markdown inline>{item}</Markdown>
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -279,14 +410,16 @@ const HolisticDentistryPage = () => {
                 style={slideInLeft("diet-img")}
               >
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src="hero/Services/preventive/3. Holistic Dental Treatments/Image5.jpg"
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+                  {data.diet.image && (
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={data.diet.image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
               <div
@@ -296,19 +429,20 @@ const HolisticDentistryPage = () => {
                 style={slideInRight("diet-content")}
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2 text-center lg:text-left">
-                  Your Diet. Your Health. Your Smile.
+                  <Markdown inline>{data.diet.title}</Markdown>
                 </h2>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6 px-2">
-                  Holistic dental care goes far beyond the dental chair. At
-                  Prudentia, we provide personalized nutritional guidance,
-                  helping you understand how your diet plays a crucial role in
-                  your oral and systemic health.
-                </p>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed px-2">
-                  From reducing processed sugars to supporting gut health,
-                  we&apos;ll help you build a balanced, sustainable eating
-                  pattern that protects both your teeth and your body.
-                </p>
+                {data.diet.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className={
+                      index < data.diet.paragraphs.length - 1
+                        ? "text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6 px-2"
+                        : "text-base sm:text-lg text-gray-700 leading-relaxed px-2"
+                    }
+                  >
+                    <Markdown inline>{paragraph}</Markdown>
+                  </p>
+                ))}
               </div>
             </div>
           </div>
@@ -327,37 +461,23 @@ const HolisticDentistryPage = () => {
                 className="order-2 lg:order-1"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2 text-center lg:text-left">
-                  A Lifestyle-Based Approach to Dental Wellness
+                  <Markdown inline>{data.lifestyle.title}</Markdown>
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6 px-2">
-                  Holistic dentistry also addresses lifestyle choices that
-                  impact long-term health. During your consultation, we&apos;ll
-                  openly discuss habits such as:
+                  <Markdown inline>{data.lifestyle.introParagraph}</Markdown>
                 </p>
                 <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 px-2">
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-3 sm:mr-4 flex-shrink-0"></div>
-                    <span className="text-base sm:text-lg text-gray-700">
-                      Smoking and tobacco use
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-3 sm:mr-4 flex-shrink-0"></div>
-                    <span className="text-base sm:text-lg text-gray-700">
-                      Excessive alcohol consumption
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-3 sm:mr-4 flex-shrink-0"></div>
-                    <span className="text-base sm:text-lg text-gray-700">
-                      Chronic stress and poor sleep
-                    </span>
-                  </div>
+                  {data.lifestyle.items.map((item, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mr-3 sm:mr-4 flex-shrink-0"></div>
+                      <span className="text-base sm:text-lg text-gray-700">
+                        <Markdown inline>{item}</Markdown>
+                      </span>
+                    </div>
+                  ))}
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed px-2">
-                  These factors not only affect your general health but are also
-                  major contributors to conditions like gum disease, tooth
-                  decay, and oral cancers.
+                  <Markdown inline>{data.lifestyle.closingParagraph}</Markdown>
                 </p>
               </div>
               <div
@@ -367,14 +487,16 @@ const HolisticDentistryPage = () => {
                 style={slideInRight("lifestyle-img")}
               >
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src="hero/Services/preventive/3. Holistic Dental Treatments/holistisc-dental-care-prudentia-pune.jpg"
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+                  {data.lifestyle.image && (
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={data.lifestyle.image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -392,7 +514,7 @@ const HolisticDentistryPage = () => {
               data-animate
               style={fadeInUp("why-choose-title")}
             >
-              Why Choose Holistic Dentistry?
+              <Markdown inline>{data.whyChoose.title}</Markdown>
             </h2>
             <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
@@ -400,36 +522,17 @@ const HolisticDentistryPage = () => {
               data-animate
               style={fadeInUp("why-choose-grid")}
             >
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-purple-600 mx-auto mb-3 sm:mb-4" />
-                <p className="text-base sm:text-lg text-gray-700">
-                  Mercury-free and metal-free dental care
-                </p>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-red-600 mx-auto mb-3 sm:mb-4" />
-                <p className="text-base sm:text-lg text-gray-700">
-                  Emphasis on prevention, not just treatment
-                </p>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 sm:col-span-2 lg:col-span-1">
-                <Users className="w-10 h-10 sm:w-12 sm:h-12 text-green-600 mx-auto mb-3 sm:mb-4" />
-                <p className="text-base sm:text-lg text-gray-700">
-                  Personalized guidance for diet, lifestyle, and wellness
-                </p>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <Leaf className="w-10 h-10 sm:w-12 sm:h-12 text-green-600 mx-auto mb-3 sm:mb-4" />
-                <p className="text-base sm:text-lg text-gray-700">
-                  Mindful and minimally invasive procedures
-                </p>
-              </div>
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 sm:col-span-2 lg:col-span-2">
-                <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-purple-600 mx-auto mb-3 sm:mb-4" />
-                <p className="text-base sm:text-lg text-gray-700">
-                  Biocompatible materials and safe treatment protocols
-                </p>
-              </div>
+              {data.whyChoose.items.map((item, index) => (
+                <div
+                  key={index}
+                  className={`bg-white p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${item.spanClass}`}
+                >
+                  {renderIcon(item.icon, "w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 " + item.iconColor)}
+                  <p className="text-base sm:text-lg text-gray-700">
+                    <Markdown inline>{item.text}</Markdown>
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -447,23 +550,17 @@ const HolisticDentistryPage = () => {
                 className="order-2 lg:order-1"
               >
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 sm:mb-6 px-2 text-center lg:text-left">
-                  Where Can You Find Holistic Dentistry in Pune?
+                  <Markdown inline>{data.location.title}</Markdown>
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8 px-2">
-                  Prudentia Micro Dental Care, Pimple Saudagar is among the few
-                  practices in Pune offering a truly holistic dental experience.
-                  Dr. Bhushan and our expert team combine advanced training,
-                  modern technologies, and holistic principles to offer care
-                  that restores not just your teeth but your entire sense of
-                  well-being.
+                  <Markdown inline>{data.location.paragraph}</Markdown>
                 </p>
                 <div className="bg-gradient-to-r from-purple-600 to-purple-600 text-white p-4 sm:p-6 rounded-lg mx-2">
                   <p className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-                    Discover the power of healing dentistry.
+                    <Markdown inline>{data.location.ctaBox.title}</Markdown>
                   </p>
                   <p className="text-base sm:text-lg opacity-90">
-                    Contact us today to learn more about our Holistic Dental
-                    Services or to book a Micro-Consultation.
+                    <Markdown inline>{data.location.ctaBox.paragraph}</Markdown>
                   </p>
                 </div>
               </div>
@@ -474,14 +571,16 @@ const HolisticDentistryPage = () => {
                 style={slideInRight("location-img")}
               >
                 <div className="relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src="hero/Services/preventive/3. Holistic Dental Treatments/prudentia-dental-clinics-exterior-pune.jpg"
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
+                  {data.location.image && (
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={data.location.image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -499,16 +598,16 @@ const HolisticDentistryPage = () => {
             style={fadeInUp("contact")}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 px-2">
-              Ready to Transform Your Dental Experience?
+              <Markdown inline>{data.contact.title}</Markdown>
             </h2>
             <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90 px-2">
-              Take the first step towards holistic dental wellness today.
+              <Markdown inline>{data.contact.paragraph}</Markdown>
             </p>
             <button
               onClick={handleOpenChatbot}
               className="bg-white text-purple-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
             >
-              Schedule Your Consultation
+              {data.contact.buttonText}
             </button>
           </div>
         </div>

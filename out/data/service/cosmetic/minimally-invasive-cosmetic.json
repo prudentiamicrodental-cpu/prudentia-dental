@@ -1,0 +1,115 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Minimally  Invasive Cosmetic Dentistry",
+    "subtitle": "Transform Your Smile - Naturally and Gently",
+    "button": "Book Consultation",
+    "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/smile-dental-mirror-checkup-patient-prudentia-dental-pune.jpg"
+  },
+
+  "introduction": {
+    "text": "Gone are the days of aggressive drilling and long recovery times. At Prudentia Micro Dental Care, Pimple Saudagar we offer minimally invasive cosmetic dentistry, a modern approach to smile enhancement that focuses on preserving your natural teeth while delivering stunning results."
+  },
+
+  "whatIs": {
+    "title": "What Is Minimally Invasive Cosmetic Dentistry?",
+    "description": "Minimally invasive cosmetic dentistry involves advanced treatments designed to improve the aesthetics of your smile, with little to no tooth reduction, minimal anesthesia, and often completed in just one visit. This approach is ideal for correcting:",
+    "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg",
+    "points": [
+      "Discolored or stained teeth",
+      "Chipped or cracked teeth",
+      "Crooked or misaligned teeth",
+      "Gaps between teeth",
+      "Minor shape or size inconsistencies"
+    ],
+    "footer": "The goal is simple: Enhance your natural smile with maximum comfort and minimal intervention."
+  },
+
+  "treatments": {
+    "title": "How Does It Improve My Smile?",
+    "description": "At Prudentia, we use a combination of artistic vision and micro-precision to correct cosmetic flaws using the most advanced and conservative techniques available.",
+    "footer": "With our Micro-Dentistry tools and techniques, these treatments are not only effective but also preserve your tooth's structure, keeping your smile strong, healthy and beautiful.",
+
+    "cards": [
+      {
+        "title": "Cosmetic Dental Bonding",
+        "description": "Quickly repair chips, cracks, and small gaps using a tooth-colored resin—no extensive prep or drilling required.",
+        "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/same-day-composite-veneers-stained-front-teeth-correction-prudentia-pimple-saudagar.jpg"
+      },
+      {
+        "title": "Professional Teeth Whitening",
+        "description": "Brighten your smile instantly with our in-office or take-home options, delivering safe, effective, and noticeable results.",
+        "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/teeth-whitening-before-after-smile-prudentia-dental-pimple-saudagar.jpg"
+      },
+      {
+        "title": "Porcelain Veneers",
+        "description": "Ultra-thin and stain-resistant, veneers transform your smile by addressing multiple cosmetic issues, without excessive enamel removal.",
+        "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/veneers-smile-shade-selection-prudentia-dental-care-pune.jpg"
+      }
+    ]
+  },
+
+  "benefits": {
+    "title": "Why Choose Minimally Invasive Cosmetic Dentistry?",
+    "items": [
+      {
+        "title": "Preserves Natural Tooth Structure",
+        "description": "Less cutting = healthier teeth for life"
+      },
+      {
+        "title": "Comfort-Focused",
+        "description": "Little to no anesthesia, minimal sensitivity"
+      },
+      {
+        "title": "Faster Results",
+        "description": "Many treatments completed in just one visit"
+      },
+      {
+        "title": "Boosts Confidence",
+        "description": "A radiant smile with a natural look and feel"
+      },
+      {
+        "title": "Reduces Dental Anxiety",
+        "description": "Gentle techniques create a calm and stress-free experience"
+      }
+    ]
+  },
+
+  "gallery": {
+    "title": "Smile Transformations",
+    "images": [
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/before-after-chipped-tooth-composite-bonding-smile-makeover-prudentia-pimple-saudagar.jpg",
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/single-day-smile-makeover-chipped-teeth-gap-closure-prudentia-pimple-saudagar.jpg",
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/minimally-invasive-composite-discolored-tooth-restoration-prudentia-pimple-saudagar.jpg",
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/front-tooth-decay-cosmetic-composite-filling-restoration-prudentia-dental-pimple-saudagar.jpg",
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/diastema-closure-composite-gap-filling-front-teeth-smile-prudentia-pimple-saudagar.jpg",
+      "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/cosmetic-bonding-crooked-front-teeth-correction-smile-prudentia-pimple-saudagar.jpg"
+    ]
+  },
+
+  "candidate": {
+    "title": "Are You a Candidate?",
+    "description": "If you're looking to improve the appearance of your smile without aggressive dental procedures, minimally invasive cosmetic dentistry might be the perfect fit.",
+    "intro": "During your personalized smile consultation at Prudentia, we will:",
+    "image": "hero/Services/cosmetic/1. Minimally Invasive Smile Recreations/smile-dental-mirror-checkup-patient-prudentia-dental-pune.jpg",
+
+    "steps": [
+      "Evaluate your dental and oral health",
+      "Understand your aesthetic goals",
+      "Present the most effective, conservative options",
+      "Customize a treatment plan just for you"
+    ],
+
+    "footer": "Patients with good oral health and realistic expectations are often excellent candidates."
+  },
+
+  "cta": {
+    "title": "Let's Create the Smile You Deserve",
+    "description1": "At Prudentia Micro Dental Care, we've helped countless patients transform their smiles, comfortably, affordably, and beautifully.",
+    "description2": "Book your consultation today and take the first step toward the smile you've always dreamed of - naturally, gently, and confidently.",
+    "button": "Book Your Smile Consultation"
+  }
+}

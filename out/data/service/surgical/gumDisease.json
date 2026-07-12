@@ -1,0 +1,131 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Gum Disease Treatment:",
+    "titleHighlight": "Protect Your Smile with Proper Care",
+    "image": "hero/Services/surgical/3. Gum Care/professional-gum-care-cleaning-pune-prudentia-dental.jpg"
+  },
+  "intro": {
+    "paragraph": "Gum disease, also known as gingivitis, is a common oral health issue that can lead to severe damage if left untreated. In its early stages, gingivitis can be managed and reversed, but if it progresses, it can result in tooth loss and other serious complications."
+  },
+  "symptoms": {
+    "title": "Signs and Symptoms of Gum Disease to Watch For:",
+    "image": "hero/Services/surgical/3. Gum Care/gum-disease-treatment-periodontal-therapy-prudentia-dental-pune.jpg",
+    "items": [
+      {
+        "title": "Bleeding Gums",
+        "description": "Gums that bleed while brushing or flossing are a key sign of gingivitis.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-red-600",
+        "color": "bg-red-50 border-red-200"
+      },
+      {
+        "title": "Inflamed, Puffy Gums",
+        "description": "Swollen or puffy gums may indicate irritation from bacteria buildup.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-orange-600",
+        "color": "bg-orange-50 border-orange-200"
+      },
+      {
+        "title": "Dark Red or Purple Gums",
+        "description": "Healthy gums should appear light pink; dark red or purple gums may signal infection.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50 border-purple-200"
+      },
+      {
+        "title": "Receding Gum Line",
+        "description": "A receding gum line or teeth that look longer could be a sign of gum damage.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-yellow-600",
+        "color": "bg-yellow-50 border-yellow-200"
+      }
+    ],
+    "warning": {
+      "title": "Important Warning",
+      "paragraph": "The early stage of gum disease, gingivitis, is completely reversible and doesn't cause permanent damage. However, if left untreated, it can progress to periodontitis and advanced periodontitis, which may lead to irreversible damage, including loss of gum and bone support, and tooth mobility."
+    }
+  },
+  "treatmentApproach": {
+    "title": "Our Treatment Approach:",
+    "images": [
+      "hero/Services/surgical/3. Gum Care/professional-gum-care-cleaning-pune-prudentia-dental.jpeg",
+      "hero/Services/surgical/3. Gum Care/gums-disease-treatment-periodontal-therapy-prudentia-dental-pune.jpg"
+    ],
+    "paragraph": "At Prudentia Micro Dental Care, Pimple Saudagar we offer deep cleanings to help prevent the progression of gum disease. During this process, we remove plaque, tartar, and harmful bacteria from beneath the gums, stopping the infection and giving your teeth and gums a fresh start.",
+    "treatments": [
+      {
+        "title": "Deep Cleanings",
+        "description": "We use professional-grade tools to thoroughly clean your teeth, removing harmful substances and giving your smile a polished, glassy finish.",
+        "icon": "Shield",
+        "iconColor": "text-blue-600",
+        "color": "from-blue-50 to-blue-100"
+      },
+      {
+        "title": "Medication",
+        "description": "In certain cases, we may provide antibiotics or other medications to help control bacteria and support healing.",
+        "icon": "Stethoscope",
+        "iconColor": "text-purple-600",
+        "color": "from-purple-50 to-purple-100"
+      },
+      {
+        "title": "Advanced Gum Disease Treatment",
+        "description": "For more advanced stages of gum disease, we offer periodontal surgery, which may involve additional cleaning of the gums, teeth, and bone to address the underlying infection.",
+        "icon": "Activity",
+        "iconColor": "text-purple-600",
+        "color": "from-purple-50 to-purple-100"
+      }
+    ]
+  },
+  "whyVisits": {
+    "image": "hero/Services/surgical/3. Gum Care/professionals-gum-care-cleaning-pune-prudentia-dental.jpg",
+    "badges": [
+      {
+        "icon": "CheckCircle",
+        "iconColor": "text-purple-600",
+        "label": "Prevention"
+      },
+      {
+        "icon": "Shield",
+        "iconColor": "text-blue-600",
+        "label": "Protection"
+      },
+      {
+        "icon": "Heart",
+        "iconColor": "text-red-600",
+        "label": "Care"
+      }
+    ],
+    "title": "Why Regular Dental Visits Matter:",
+    "paragraphs": [
+      "Routine dental visits are essential to keep your gums healthy and prevent future complications. Early detection and treatment of gum disease can save your smile and protect your overall oral health.",
+      "We're committed to making every visit comfortable and informative, ensuring that you leave feeling confident about the health of your teeth and gums."
+    ],
+    "cards": [
+      {
+        "icon": "CheckCircle",
+        "iconColor": "text-purple-600",
+        "title": "Early Detection",
+        "description": "Catch problems before they worsen",
+        "borderColor": "border-purple-100"
+      },
+      {
+        "icon": "Heart",
+        "iconColor": "text-blue-600",
+        "title": "Comfortable Care",
+        "description": "Relaxing and informative visits",
+        "borderColor": "border-blue-100"
+      }
+    ]
+  },
+  "finalCta": {
+    "titleLine": "Take the First Step Toward a",
+    "titleHighlight": "Pain-Free, Healthy Smile",
+    "paragraph": "Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step toward a healthier, pain-free smile!",
+    "buttonText": "Book Your Micro-Root Consultation Today",
+    "footerText": "Your natural smile deserves the best care available"
+  }
+}

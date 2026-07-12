@@ -1,0 +1,77 @@
+{
+  "about": {
+    "name": "[Prudentia Dental](https://prudentiamicrodental.in)",
+    "description": "Providing exceptional dental care with cutting-edge technology and compassionate service in Pune since 2010.",
+    "badge": "ISO Certified Clinic"
+  },
+  "quickLinks": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/services/micro"
+    },
+    {
+      "label": "Our Practice",
+      "href": "/practice"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact"
+    }
+  ],
+  "serviceLinks": [
+    {
+      "label": "Micro Dentistry",
+      "href": "/services/micro"
+    },
+    {
+      "label": "Restorative Dentistry",
+      "href": "/services/restorative/coloured"
+    },
+    {
+      "label": "Preventive & Holistic Dentistry",
+      "href": "/services/preventive/oral"
+    },
+    {
+      "label": "Children's Dentistry",
+      "href": "/services/childrens"
+    }
+  ],
+  "contact": {
+    "phone": "+91 76200 03733",
+    "email": "prudentiamicrodental@gmail.com"
+  },
+  "socials": [
+    {
+      "name": "facebook",
+      "href": "https://www.facebook.com/prudentiamicrodental"
+    },
+    {
+      "name": "twitter",
+      "href": "https://twitter.com"
+    },
+    {
+      "name": "instagram",
+      "href": "https://www.instagram.com/prudentmicrodentist/"
+    }
+  ],
+  "legalLinks": [
+    {
+      "label": "Privacy Policy",
+      "href": "/privacy-policy"
+    },
+    {
+      "label": "Terms and conditions",
+      "href": "/terms-and-conditions"
+    },
+    {
+      "label": "Sitemap",
+      "href": "/"
+    }
+    
+  ]
+}
+

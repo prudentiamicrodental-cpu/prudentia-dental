@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Clear Aligners Treatment | Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Achieve a Beautiful, Confident Smile with Aligners",
+    "image": "hero/Services/braces/2. Aligners/clear-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpg",
+    "description": "A radiant smile is not only a reflection of your personality but also opens doors to new opportunities. Unfortunately, many people shy away from smiling due to crooked teeth or the discomfort and visibility of traditional braces. Thanks to advancements in cosmetic dentistry, aligners offer a comfortable, discreet, and effective solution to straighten your teeth often in half the time of metal braces!"
+  },
+  "whatAre": {
+    "title": "What Are Aligners?",
+    "image": "hero/Services/braces/2. Aligners/clear-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpeg",
+    "description": "Aligners are clear, durable plastic retainers that gently and gradually guide your teeth into their ideal alignment, all while remaining virtually invisible to those around you. Unlike traditional braces, aligners are easy to remove, giving you more flexibility in your daily routine."
+  },
+  "benefits": {
+    "title": "Benefits of Aligners:",
+    "image": "hero/Services/braces/2. Aligners/Aligners.jpg",
+    "items": [
+      { "title": "Removable", "content": "You can take them out whenever you need to, whether it's for eating, drinking, or special occasions." },
+      { "title": "Freedom to Eat & Drink", "content": "No need to avoid your favorite foods—simply remove the aligners to enjoy any meal or beverage." },
+      { "title": "Normal Oral Hygiene", "content": "With aligners, brushing and flossing is as easy as ever, helping you maintain excellent periodontal health throughout your treatment." },
+      { "title": "Fewer Office Visits", "content": "Aligners require fewer visits to the orthodontist, saving you time compared to traditional braces." },
+      { "title": "Virtually Invisible", "content": "The clear material of aligners makes them barely noticeable, allowing you to straighten your teeth without drawing attention." }
+    ]
+  },
+  "cta": {
+    "title": "Say Goodbye to Metal Braces",
+    "image": "hero/Services/braces/2. Aligners/clears-aligners-transparent-teeth-straightening-prudentia-dental-pune.jpg",
+    "description": "If you've been hesitant about traditional metal braces, aligners offer an appealing alternative. Don't let crooked teeth hold you back—visit us today at Prudentia Micro Dental Care, Pimple Saudagar to discuss your aligner treatment options and take the first step towards the smile you've always wanted!",
+    "button": "Book Your Consultation"
+  }
+}

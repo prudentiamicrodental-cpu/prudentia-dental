@@ -5,89 +5,90 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight, FiCheckCircle, FiPhoneCall } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
 
+
+
+interface TechFeature {
+  title: string;
+  description: string;
+  benefits: string[];
+  image: string;
+}
+
+interface TechData {
+  meta: { title: string; description: string };
+  hero: { titleMain: string; titleHighlight: string; titleEnd: string; paragraph: string; button: string; image: string };
+  fear: { title: string; paragraph1: string; paragraph2: string; callToAction: string; promiseTitle: string; promiseItems: string[] };
+  featuresSection: { title: string; subtitle: string };
+  features: TechFeature[];
+  sterilization: { image: string; title: string; paragraph: string; items: { title: string; description: string }[] };
+  cta: { title: string; paragraph: string; cards: { title: string; description: string }[]; button: string };
+}
 
 const DentalTechnologyPage = () => {
     const { handleOpenChatbot } = useChatbot();
   const [currentFeature, setCurrentFeature] = useState(0);
+  const [content, setContent] = useState<TechData | null>(null);
 
-  const features = [
-    {
-      title: "Dental Operating Microscope",
-      description: "High-Precision Dentistry You Can See. Magnifies your teeth up to 30x for early diagnosis and minimally invasive treatments.",
-      benefits: [
-        "Early diagnosis",
-        "Minimally invasive treatments",
-        "Faster healing, less discomfort",
-        "Live video demos"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/dental-microscope-collage-precision-painless-treatment-prudentia-dental-care-pimple-saudagar.jpg`
-    },
-    {
-      title: "Fluorescent Caries Detection",
-      description: "Spot Cavities Before They Spread. Uses fluorescent light to highlight decay in its earliest stage.",
-      benefits: [
-        "Accurate cavity detection",
-        "No radiation",
-        "Prevent major dental treatments"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/caries-detection-probe-early-cavity-diagnosis-prudentia-dental-technology-pimple-saudagar.jpg`
-    },
-    {
-      title: "Needle-Free Electronic Anesthesia",
-      description: "Say Goodbye to Painful Injections. Delivers a mild electrical pulse to numb the area.",
-      benefits: [
-        "No needle anxiety",
-        "Gentle, pain-free numbing",
-        "Ideal for kids and anxious patients"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/electronic-dental-anesthesia-painless-needle-free-treatment-prudentia-dental-care-pimple-saudagar.jpg`
-    },
-    {
-      title: "Advanced Root Canal Technology",
-      description: "Safe. Effective. Painless. Offers more accuracy, better cleaning, and faster recovery.",
-      benefits: [
-        "Higher success rates",
-        "Less discomfort",
-        "Minimal tissue damage"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/advanced-endodontic-dental-technology-collage-microscope-endo-motor-prudentia-dental-pune.jpg`
-    },
-    {
-      title: "Digital X-Rays",
-      description: "Instant, Safer, Sharper Diagnostics. Reduces radiation exposure by up to 80%.",
-      benefits: [
-        "Quick image capture",
-        "Enhanced digital analysis",
-        "Better, faster diagnosis",
-        "Safer for all ages"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/digital-xray-portable-dental-machine-low-radiation-prudentia-dental-care-pimple-saudagar.jpg`
-    },
-    {
-      title: "Ultrasonic Cleaning",
-      description: "Next-Level Dental Hygiene. Removes tough tartar without damaging your enamel.",
-      benefits: [
-        "Gentle yet thorough cleaning",
-        "Pain-free plaque removal",
-        "Whiter teeth, fresher breath"
-      ],
-      image: `${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/hero/Tech/ultrasonic-scaler-teeth-cleaning-whitening-prudentia-dental-care-pimple-Saudagar.jpg`
+useEffect(() => {
+  async function loadData() {
+    const GITHUB_URL =
+      "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/tech/tech.json";
+
+    const LOCAL_URL = "/data/tech/tech.json";
+
+    try {
+      const res = await fetch(GITHUB_URL);
+
+      if (!res.ok) throw new Error("GitHub fetch failed");
+
+      const data: TechData = await res.json();
+      setContent(data);
+    } catch (error) {
+      console.warn("Using local fallback:", error);
+
+      try {
+        const localRes = await fetch(LOCAL_URL);
+
+        if (!localRes.ok) {
+          throw new Error("Local fetch failed");
+        }
+
+        const localData: TechData = await localRes.json();
+        setContent(localData);
+      } catch (localError) {
+        console.error("Failed to load local fallback:", localError);
+      }
     }
-  ];
+  }
+
+  loadData();
+}, []);
+
+  const features = content?.features ?? [];
 
   useEffect(() => {
+    if (features.length === 0) return;
     const interval = setInterval(() => {
       setCurrentFeature((prev) => (prev + 1) % features.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [features.length]);
 
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <>
       <Head>
-        <title>Advanced Dental Technology | Prudentia Micro Dental Care</title>
-        <meta name="description" content="Experience modern dentistry with minimal pain and maximum precision at Prudentia Micro Dental Care." />
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
@@ -101,18 +102,26 @@ const DentalTechnologyPage = () => {
               className="max-w-3xl mx-auto text-center"
             >
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Modern Dentistry. <span className="text-purple-600">Minimal Pain.</span> Maximum Precision.
+                <Markdown inline>
+                  {content.hero.titleMain} 
+                </Markdown>
+                <span className="text-purple-600">
+                  <Markdown inline> 
+                    {content.hero.titleHighlight}
+                    </Markdown>
+                  </span> 
+                  <Markdown  >{content.hero.titleEnd}</Markdown>
               </h1>
-              <p className="text-xl text-gray-600 mb-10">
-                At Prudentia, we combine state-of-the-art dental technology with advanced skills to transform your experience into one that&apos;s comfortable, fast, and stress-free.
-              </p>
+              <Markdown className="text-xl text-gray-600 mb-10">
+                {content.hero.paragraph}
+              </Markdown>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleOpenChatbot}
                 className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
               >
-                Book Your Consultation
+                <Markdown>{content.hero.button}</Markdown>
               </motion.button>
             </motion.div>
 
@@ -124,7 +133,7 @@ const DentalTechnologyPage = () => {
             >
           <Image
           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Tech/dr-bhushan-mahajan-microscope-treatment-assistant-precision-dentistry-prudentia-pune.jpg"
+                src={content.hero.image}
                 alt="Modern denture solutions"
                 fill
                 className="object-contain"
@@ -145,18 +154,18 @@ const DentalTechnologyPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Fear of the dentist? You&apos;re not alone.
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  For many, just the sound of a dental drill or sight of a needle can trigger anxiety. But dentistry has changed dramatically.
-                </p>
-                <p className="text-gray-600 mb-8">
-                  From painless dental injections to microscope-assisted precision dentistry, here&apos;s how we&apos;re redefining modern dental care.
-                </p>
+                <Markdown inline className="text-3xl font-bold text-gray-900 mb-6">
+                  {content.fear.title}
+                </Markdown>
+                <Markdown inline className="text-gray-600 mb-6">
+                  {content.fear.paragraph1}
+                </Markdown>
+                <Markdown inline className="text-gray-600 mb-8">
+                  {content.fear.paragraph2}
+                </Markdown>
                 <div className="flex items-center space-x-4">
                   <FiPhoneCall className="text-purple-600 text-2xl" />
-                  <span className="text-lg font-medium">Call us to discuss your concerns</span>
+                  <span className="text-lg font-medium"><Markdown>{content.fear.callToAction}</Markdown></span>
                 </div>
               </motion.div>
               <motion.div 
@@ -167,24 +176,14 @@ const DentalTechnologyPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="bg-purple-50 p-8 rounded-xl border border-purple-100">
-                  <h3 className="text-xl font-semibold text-purple-800 mb-4">Our Pain-Free Promise</h3>
+                  <h3 className="text-xl font-semibold text-purple-800 mb-4"><Markdown>{content.fear.promiseTitle}</Markdown></h3>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Needle-free anesthesia options</span>
-                    </li>
-                    <li className="flex items-start">
-                      <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Gentle, compassionate care</span>
-                    </li>
-                    <li className="flex items-start">
-                      <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Clear explanations at every step</span>
-                    </li>
-                    <li className="flex items-start">
-                      <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Calming environment</span>
-                    </li>
+                    {content.fear.promiseItems.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
+                        <span><Markdown>{item}</Markdown></span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </motion.div>
@@ -203,11 +202,11 @@ const DentalTechnologyPage = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Advanced Dental Technology
+                <Markdown inline>{content.featuresSection.title}</Markdown>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover how our cutting-edge equipment enhances your dental experience
-              </p>
+              <Markdown inline className="text-xl text-gray-600 max-w-3xl mx-auto">
+                {content.featuresSection.subtitle}</Markdown>
+             
             </motion.div>
 
             <div className="flex flex-col lg:flex-row items-center">
@@ -222,16 +221,16 @@ const DentalTechnologyPage = () => {
                   >
                     <div className="bg-white p-8 rounded-xl shadow-lg">
                       <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        {features[currentFeature].title}
+                        <Markdown>{features[currentFeature].title}</Markdown>
                       </h3>
-                      <p className="text-gray-600 mb-6">
-                        {features[currentFeature].description}
-                      </p>
+                      <Markdown inline className="text-gray-600 mb-6">
+                        {features[currentFeature].description}</Markdown>
+                      
                       <ul className="space-y-2 mb-8">
                         {features[currentFeature].benefits.map((benefit, index) => (
                           <li key={index} className="flex items-start">
                             <FiCheckCircle className="text-purple-600 mt-1 mr-2 flex-shrink-0" />
-                            <span>{benefit}</span>
+                            <span><Markdown>{benefit}</Markdown></span>
                           </li>
                         ))}
                       </ul>
@@ -261,7 +260,7 @@ const DentalTechnologyPage = () => {
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentFeature}
-                      src={features[currentFeature].image}
+                      src={`${process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/${features[currentFeature].image}`}
                       alt={features[currentFeature].title}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -290,7 +289,7 @@ const DentalTechnologyPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-2xl aspect-square relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                  <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Tech/dental-sterilization-collage-classb-autoclave-uv-ultrasonic-prudentia-dental-care-pune.jpg"
+                src={content.sterilization.image}
                     alt="Modern denture solutions"
                     fill
                     className="object-contain"
@@ -306,52 +305,24 @@ const DentalTechnologyPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  European-Standard Sterilization Protocols
+                  <Markdown>{content.sterilization.title}</Markdown>
                 </h2>
-                <p className="text-gray-600 mb-8">
-                  Your Safety. Our Priority. We strictly follow IDA and European standards for sterilization.
-                </p>
+                <Markdown className="text-gray-600 mb-8">
+                  {content.sterilization.paragraph}</Markdown>
+                
                 
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-purple-100 p-3 rounded-full mr-4">
-                      <FiCheckCircle className="text-purple-600 text-xl" />
+                  {content.sterilization.items.map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="bg-purple-100 p-3 rounded-full mr-4">
+                        <FiCheckCircle className="text-purple-600 text-xl" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                        <p className="text-gray-600">{item.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Ultrasonic Cleaners</h4>
-                      <p className="text-gray-600">Eliminate contamination from instruments</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-purple-100 p-3 rounded-full mr-4">
-                      <FiCheckCircle className="text-purple-600 text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">Class B Autoclaves</h4>
-                      <p className="text-gray-600">Complete sterilization using vacuum technology</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-purple-100 p-3 rounded-full mr-4">
-                      <FiCheckCircle className="text-purple-600 text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">RO + UV filtered water</h4>
-                      <p className="text-gray-600">Used in all procedures</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="bg-purple-100 p-3 rounded-full mr-4">
-                      <FiCheckCircle className="text-purple-600 text-xl" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">UV Cabinets</h4>
-                      <p className="text-gray-600">Ensure sterile storage</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </motion.div>
             </div>
@@ -370,29 +341,18 @@ const DentalTechnologyPage = () => {
             >
                 
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Experience Next-Gen Dentistry at Prudentia Micro Dental Care
+                <Markdown>{content.cta.title}</Markdown>
               </h2>
-              <p className="text-xl mb-10 max-w-3xl mx-auto">
-                From painless anesthesia to microscope enhanced precision, we&apos;re proud to offer one of the most advanced dental experiences in the region.
-              </p>
+              <Markdown className="text-xl mb-10 max-w-3xl mx-auto">
+                {content.cta.paragraph}</Markdown>
               
               <div className="flex flex-wrap justify-center gap-6 mb-12">
-                <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm max-w-xs">
-                  <h3 className="font-semibold text-lg mb-2">Pain-Free Dentistry</h3>
-                  <p className="text-purple-100">No more fear of needles or pain</p>
-                </div>
-                <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm max-w-xs">
-                  <h3 className="font-semibold text-lg mb-2">Cutting-Edge Equipment</h3>
-                  <p className="text-purple-100">Latest technology for better results</p>
-                </div>
-                <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm max-w-xs">
-                  <h3 className="font-semibold text-lg mb-2">Faster Healing</h3>
-                  <p className="text-purple-100">Minimally invasive techniques</p>
-                </div>
-                <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm max-w-xs">
-                  <h3 className="font-semibold text-lg mb-2">Expert-Led Care</h3>
-                  <p className="text-purple-100">Highly trained professionals</p>
-                </div>
+                {content.cta.cards.map((card, index) => (
+                  <div key={index} className="bg-white/10 p-6 rounded-xl backdrop-blur-sm max-w-xs">
+                    <h3 className="font-semibold text-lg mb-2"><Markdown>{card.title}</Markdown></h3>
+                    <Markdown className="text-purple-100">{card.description}</Markdown>
+                  </div>
+                ))}
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -400,7 +360,7 @@ const DentalTechnologyPage = () => {
                 onClick={handleOpenChatbot}
                 className="bg-white text-purple-600 hover:bg-gray-100 font-semibold py-4 px-10 rounded-full shadow-lg transition-all duration-300 text-lg flex items-center mx-auto"
               >
-                Book your consultation today
+                {content.cta.button}
                 <FiArrowRight className="ml-2" />
               </motion.button>
             </motion.div>

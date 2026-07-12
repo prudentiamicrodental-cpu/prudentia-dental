@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Micro-Root Treatment | Prudentia Micro Dental Care",
+    "description": "Experience painless, microscope-enhanced root canal treatment with nearly 100% success rate at Prudentia Micro Dental Care."
+  },
+  "hero": {
+    "titleHighlight": "Micro-Root Treatment",
+    "titleRest": ": Root Canal Redefined with Precision",
+    "paragraph": "A modern, microscope-enhanced procedure designed to save infected teeth with minimal discomfort and maximum precision.",
+    "button": "Book Your Consultation",
+    "image": "hero/Services/root/1. Micro-Root Treatment/painless-root-canal-treatment-under-microscope-prudentia-dental-care-pune.jpg",
+    "imageCaption": "Nearly 100% success rate when properly maintained"
+  },
+  "whatIs": {
+    "image": "hero/Services/root/1. Micro-Root Treatment/magnified-dental-operating-field-under-microscope-prudentia-dental-care-pune.jpg",
+    "titlePrefix": "What is a",
+    "titleHighlight": "Micro-Root Treatment",
+    "titleSuffix": "?",
+    "paragraph": "A root canal performed under a Dental Operating Microscope, combined with advanced technologies like electronic anesthesia and digital imaging for maximum precision and minimal trauma.",
+    "whyChooseTitle": "Why Choose Micro-Root Treatment?",
+    "whyChooseItems": [
+      "Pain-free experience with electronic anesthesia",
+      "Single-visit completion for most cases",
+      "Preserves more natural tooth structure"
+    ],
+    "closingParagraph": "Gone are the days of lengthy, uncomfortable root canals. At Prudentia, we deliver high-success-rate treatments ensuring long-term preservation of your natural teeth."
+  },
+  "microscopeAdvantage": {
+    "titlePrefix": "How the Microscope",
+    "titleHighlight": "Enhances Precision",
+    "paragraph": "The Dental Operating Microscope offers up to 30x magnification, illuminating even the tiniest structures within your tooth.",
+    "image": "hero/Services/root/1. Micro-Root Treatment/dental-microscope-magnification-currency-note-demo-prudentia-pune..jpg",
+    "advantagesTitle": "Microscopic Advantages",
+    "advantages": [
+      "Accurately identify and clean all root canals (including hidden ones)",
+      "Minimize removal of healthy tooth tissue",
+      "Avoid complications like untreated areas",
+      "Often eliminates the need for a full crown"
+    ],
+    "invasiveTitle": "Minimally Invasive Endodontics",
+    "invasiveParagraph": "This approach helps preserve the strength and natural structure of your tooth while effectively treating infection."
+  },
+  "specialist": {
+    "titlePrefix": "Why Choose a",
+    "titleHighlight": "Specialist in Microsurgical Endodontics",
+    "titleSuffix": "?",
+    "paragraph": "Every tooth has unique anatomy, especially molars and premolars with multiple curved or hidden canals. Treating these without a microscope risks failed treatments.",
+    "expertiseTitle": "Dr. Bhushan's Expertise",
+    "expertiseItems": [
+      "Complex or curved root canals",
+      "Extra or calcified canals",
+      "Failed previous root treatments",
+      "Fractured instruments in canals"
+    ],
+    "image": "hero/Services/root/1. Micro-Root Treatment/closeup-dr-bhushan-mahajan-working-under-microscope-prudentia-pune.jpg"
+  },
+  "procedure": {
+    "titlePrefix": "What to Expect During",
+    "titleHighlight": "Treatment",
+    "paragraph": "Our Micro-Root Treatment process is designed for comfort and precision",
+    "steps": [
+      { "title": "Electronic Anesthesia", "description": "Pain-free numbing without traditional injections" },
+      { "title": "Microscopic Examination", "description": "30x magnification identifies all root canals" },
+      { "title": "Ultrasonic Cleaning", "description": "Precision removal of infected tissue" },
+      { "title": "3D Thermal Filling", "description": "Perfect seal prevents reinfection" }
+    ],
+    "painTitle": "Does a Root Canal Hurt?",
+    "painParagraph1": "Thanks to modern anesthetics and technology, the procedure is virtually painless. We use Sunshine USA Electronic Anesthesia for targeted and controlled numbing—a major upgrade over traditional injections.",
+    "painParagraph2": "In rare cases when a tooth is too inflamed, we place temporary calming medication and complete the treatment at a follow-up visit, ensuring your comfort every step."
+  },
+  "benefitsSection": {
+    "titlePrefix": "Key Benefits of",
+    "titleHighlight": "Micro-Root Treatment"
+  },
+  "benefits": [
+    { "icon": "FiEye", "title": "Early Diagnosis", "description": "Spot cracks, fractures, or hidden decay before symptoms start" },
+    { "icon": "FiZoomIn", "title": "Precision Treatment", "description": "Clean and seal canals thoroughly with 30x magnification" },
+    { "icon": "FiShield", "title": "Painless Procedure", "description": "Advanced anesthesia and minimally invasive tools" },
+    { "icon": "FiActivity", "title": "Faster Healing", "description": "Less trauma means quicker recovery" },
+    { "icon": "FiClock", "title": "Tooth Preservation", "description": "Often eliminates need for crowns or caps" }
+  ],
+  "comparisonSection": {
+    "titlePrefix": "Micro-Root vs",
+    "titleHighlight": "Conventional Root Canal",
+    "paragraph": "Our advanced technologies dramatically improve outcomes compared to traditional methods",
+    "closingTitle": "Better Than Extraction—Better Than Conventional",
+    "closingParagraph1": "Tooth extraction may seem like an easy fix, but replacing a tooth with a bridge or implant is expensive, more invasive, and never quite the same as keeping your natural tooth.",
+    "closingParagraph2": "A Micro-Root Treatment is your best chance to preserve what nature gave you."
+  },
+  "comparisonData": [
+    { "feature": "Magnification", "micro": "30x with microscope", "conventional": "None or loupes (2-4x)" },
+    { "feature": "Canal Detection", "micro": "Finds all canals (including hidden)", "conventional": "May miss complex anatomy" },
+    { "feature": "Tissue Preservation", "micro": "Minimally invasive", "conventional": "More tooth structure removed" },
+    { "feature": "Success Rate", "micro": "Nearly 100% when maintained", "conventional": "85-90% average" }
+  ],
+  "cta": {
+    "titlePrefix": "Take the First Step Toward a",
+    "titleHighlight": "Pain-Free, Healthy Smile",
+    "paragraph": "Dr. Bhushan is an expert in microscope-enhanced dental care, with every treatment tailored for comfort, precision, and long-term success.",
+    "button": "Book Your Micro-Root Consultation Today",
+    "footnote": "Your natural smile deserves the best care available"
+  }
+}

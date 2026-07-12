@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "title": "Dentures Treatment | Prudentia Micro Dental Care",
+    "description": "Modern denture solutions including traditional and implant-supported options in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Dentures at Prudentia Micro Dental Care: A Modern Solution for a Beautiful Smile",
+    "image": "hero/Services/dentures/premium-custom-dentures-oral-rehabilitation-prudentia-pune.jpg",
+    "description": "Dentures have been a time-tested solution for replacing missing teeth, and today, advancements in technology and design have made dentures even more convenient, comfortable, and natural-looking than ever before. At Prudentia Micro Dental Care, we offer both traditional and implant-supported dentures, ensuring that you can restore your smile and bite without the hassle or discomfort of older denture options."
+  },
+  "candidate": {
+    "title": "Are You a Candidate for Dentures?",
+    "paragraph1": "If you're missing most or all of your teeth, dentures may be an ideal solution for you. For patients with sporadic tooth loss and a good amount of healthy remaining teeth, partial dentures might be a better choice. If you're seeking a more permanent and durable option, implant-supported dentures are also available.",
+    "paragraph2": "During your consultation, we'll thoroughly evaluate your gums, jawbone, and remaining teeth to determine the best option for you. If issues like gum disease or tooth decay are present, we will address them before proceeding with denture treatment.",
+    "image": "hero/Services/dentures/premiums-custom-dentures-oral-rehabilitation-prudentia-pune.jpg"
+  },
+  "types": {
+    "title": "Types of Dentures",
+    "image": "hero/Services/dentures/premium-customs-dentures-oral-rehabilitation-prudentia-pune.jpg",
+    "items": [
+      {
+        "id": "full",
+        "title": "Traditional Full Dentures",
+        "content": "Traditional dentures are made with a gum-colored base and artificial teeth designed to match your natural tooth enamel for a seamless and realistic look. These dentures fit securely over your gums and are held in place by suction and a dental adhesive. For the best results, traditional dentures should be removed at night for cleaning and to allow your gums to rest."
+      },
+      {
+        "id": "partial",
+        "title": "Partial Dentures",
+        "content": "When multiple teeth are missing but healthy teeth remain, partial dentures provide a solution. These dentures feature a gum-colored acrylic base and natural-looking artificial teeth. They are affixed to a metal base with small clasps that secure the denture to nearby healthy teeth, ensuring it stays in place. Partial dentures can be easily removed for cleaning and resting your gums during sleep."
+      },
+      {
+        "id": "implant",
+        "title": "Implant-Supported Dentures",
+        "content": "Implant-supported dentures are a more permanent solution, supported by dental implants rather than resting on your gums or relying on nearby teeth. This option involves a surgical procedure where small titanium implant posts are placed into your jawbone. Over 4-6 months, the implants bond with your jawbone through a process called osseointegration, offering unparalleled stability and strength. Implant-supported dentures provide superior comfort, longer-lasting results, and improved oral health by preventing bone loss, a common side effect of missing teeth."
+      }
+    ]
+  },
+  "implantBenefits": {
+    "title": "Why Choose Implant-Supported Dentures?",
+    "image": "hero/Services/dentures/premium-custom-denturess-oral-rehabilitation-prudentia-pune.jpg",
+    "items": [
+      "Improved Support & Durability: Dental implants act like natural tooth roots, providing better functionality and durability.",
+      "Prevents Bone Loss: Unlike traditional dentures, implant-supported options help preserve your jawbone.",
+      "Better Comfort: With a more secure fit, implant-supported dentures are comfortable and stable.",
+      "Long-Term Results: Implants offer a longer-lasting solution, reducing the need for frequent adjustments or replacements."
+    ]
+  },
+  "cta": {
+    "title": "Ready to Restore Your Smile?",
+    "description": "Whether you're looking for traditional dentures, partial dentures, or a more permanent solution with implant-supported dentures, our team at Prudentia Micro Dental Care, Pimple Saudagar is here to guide you through the process. [Contact us](https://example.com)  today at (9768048056) to schedule a consultation and learn more about the best tooth replacement options for your needs.",
+    "button": "Schedule your consultation today"
+  }
+}

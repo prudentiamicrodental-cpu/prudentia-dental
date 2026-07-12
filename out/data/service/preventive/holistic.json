@@ -1,0 +1,126 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Holistic Dentistry at",
+    "titleHighlight": "Prudentia Micro Dental Care",
+    "subtitle": "Healing Beyond the Smile. A Whole-Body Approach to Oral Health.",
+    "image": "hero/Services/preventive/3. Holistic Dental Treatments/holistic-dental-care-prudentia-pune.jpg"
+  },
+  "intro": {
+    "paragraphs": [
+      "Holistic healing is the art and science of treating the whole person ie. body, breath, mind, intellect, and the state of inner bliss to achieve complete health and wellness.",
+      "At Prudentia Micro Dental Care, we embrace this philosophy through holistic dentistry, a progressive approach that integrates modern dental science with natural healing principles."
+    ],
+    "approaches": [
+      {
+        "icon": "Leaf",
+        "iconColor": "text-green-600",
+        "title": "Alternative Dentistry"
+      },
+      {
+        "icon": "Shield",
+        "iconColor": "text-purple-600",
+        "title": "Biocompatible Dentistry"
+      },
+      {
+        "icon": "Heart",
+        "iconColor": "text-red-600",
+        "title": "Integrative or Natural Dentistry"
+      }
+    ],
+    "closingParagraph": "This form of care recognizes the deep interconnection between oral health and overall well-being, offering solutions that nurture the body and mind in harmony."
+  },
+  "different": {
+    "title": "What Makes Holistic Dentistry Different?",
+    "paragraph": "Unlike traditional dentistry, holistic dental care takes a broader view by considering the impact of dental materials, procedures, and lifestyle choices on your entire body. We focus on prevention, biocompatibility, and minimally invasive treatments that support your total health - physically, emotionally, and spiritually.",
+    "image": "hero/Services/preventive/3. Holistic Dental Treatments/holistics-dental-care-prudentia-pune.jpg"
+  },
+  "mercury": {
+    "title": "Working Towards a Mercury-Free World",
+    "images": [
+      "hero/Services/preventive/3. Holistic Dental Treatments/mercury-free-dentistry-prudentia-pune.jpg",
+      "hero/Services/preventive/3. Holistic Dental Treatments/mercurys-free-dentistry-prudentia-pune.jpg"
+    ],
+    "contentParagraphs": [
+      "One of the foundational principles of holistic dentistry is the avoidance of mercury in any dental procedure.",
+      "Mercury, a component of traditional \"silver\" amalgam fillings, is a neurotoxic metal with well-documented long-term health risks, including metal toxicity."
+    ],
+    "commitmentTitle": "We are committed to:",
+    "commitmentItems": [
+      "Never using mercury-based materials",
+      "Safely replacing old amalgam fillings with non-toxic, modern alternatives such as composite resins or ceramic restorations",
+      "Ensuring every material used is biocompatible with your body"
+    ]
+  },
+  "diet": {
+    "image": "hero/Services/preventive/3. Holistic Dental Treatments/Image5.jpg",
+    "title": "Your Diet. Your Health. Your Smile.",
+    "paragraphs": [
+      "Holistic dental care goes far beyond the dental chair. At Prudentia, we provide personalized nutritional guidance, helping you understand how your diet plays a crucial role in your oral and systemic health.",
+      "From reducing processed sugars to supporting gut health, we'll help you build a balanced, sustainable eating pattern that protects both your teeth and your body."
+    ]
+  },
+  "lifestyle": {
+    "title": "A Lifestyle-Based Approach to Dental Wellness",
+    "introParagraph": "Holistic dentistry also addresses lifestyle choices that impact long-term health. During your consultation, we'll openly discuss habits such as:",
+    "items": [
+      "Smoking and tobacco use",
+      "Excessive alcohol consumption",
+      "Chronic stress and poor sleep"
+    ],
+    "closingParagraph": "These factors not only affect your general health but are also major contributors to conditions like gum disease, tooth decay, and oral cancers.",
+    "image": "hero/Services/preventive/3. Holistic Dental Treatments/holistisc-dental-care-prudentia-pune.jpg"
+  },
+  "whyChoose": {
+    "title": "Why Choose Holistic Dentistry?",
+    "items": [
+      {
+        "icon": "Shield",
+        "iconColor": "text-purple-600",
+        "text": "Mercury-free and metal-free dental care",
+        "spanClass": ""
+      },
+      {
+        "icon": "Heart",
+        "iconColor": "text-red-600",
+        "text": "Emphasis on prevention, not just treatment",
+        "spanClass": ""
+      },
+      {
+        "icon": "Users",
+        "iconColor": "text-green-600",
+        "text": "Personalized guidance for diet, lifestyle, and wellness",
+        "spanClass": "sm:col-span-2 lg:col-span-1"
+      },
+      {
+        "icon": "Leaf",
+        "iconColor": "text-green-600",
+        "text": "Mindful and minimally invasive procedures",
+        "spanClass": ""
+      },
+      {
+        "icon": "Shield",
+        "iconColor": "text-purple-600",
+        "text": "Biocompatible materials and safe treatment protocols",
+        "spanClass": "sm:col-span-2 lg:col-span-2"
+      }
+    ]
+  },
+  "location": {
+    "title": "Where Can You Find Holistic Dentistry in Pune?",
+    "paragraph": "Prudentia Micro Dental Care, Pimple Saudagar is among the few practices in Pune offering a truly holistic dental experience. Dr. Bhushan and our expert team combine advanced training, modern technologies, and holistic principles to offer care that restores not just your teeth but your entire sense of well-being.",
+    "ctaBox": {
+      "title": "Discover the power of healing dentistry.",
+      "paragraph": "Contact us today to learn more about our Holistic Dental Services or to book a Micro-Consultation."
+    },
+    "image": "hero/Services/preventive/3. Holistic Dental Treatments/prudentia-dental-clinics-exterior-pune.jpg"
+  },
+  "contact": {
+    "title": "Ready to Transform Your Dental Experience?",
+    "paragraph": "Take the first step towards holistic dental wellness today.",
+    "buttonText": "Schedule Your Consultation"
+  }
+}

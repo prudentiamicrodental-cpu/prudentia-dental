@@ -1,19 +1,49 @@
 'use client';
+import { useEffect, useState } from "react";
 import { Clock, Mail, MapPin, MessageCircleCode, Phone } from "lucide-react";
 import { useChatbot } from '@/components/chatbotContext';
+import Markdown from "./markdown";
 
+interface ContactInfo {
+  heading: string;
+  phone: string;
+  whatsapp: string;
+  email: string;
+  address: string;
+  hours: string;
+  mapEmbedUrl: string;
+  locationName: string;
+  directionsUrl: string;
+}
 
 const ContactUs = () => {
   const { handleOpenChatbot } = useChatbot();
+  const [info, setInfo] = useState<ContactInfo | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/data/contact/contact-info.json')
+      .then((res) => res.json())
+      .then((data: ContactInfo) => {
+        if (isMounted) setInfo(data);
+      })
+      .catch((err) => console.error('Failed to load contact info:', err));
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (!info) return null;
+
     return (
       <section id="contact" className="mt-10 py-5 px-10 bg-purple-100">
       <div className="container bg-white justify-center mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Contact Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="bg-purple-50  py-12 rounded-xl shadow-sm  ">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">
-              Get in Touch
-            </h3>
+            <Markdown className="text-3xl font-bold text-center text-gray-800 mb-8">
+              {info.heading}
+            </Markdown>
 
             <div className="space-y-6">
               {/* Phone */}
@@ -23,9 +53,9 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-500">Phone</p>
-                  <p className="text-xl font-semibold text-gray-800">
-                    +91 76200 03733
-                  </p>
+                  <Markdown className="text-xl font-semibold text-gray-800">
+                    {info.phone}
+                  </Markdown>
                 </div>
               </div>
 
@@ -38,9 +68,9 @@ const ContactUs = () => {
                   <p className="text-sm font-medium text-gray-500">
                     WhatsApp
                   </p>
-                  <p className="text-xl font-semibold text-gray-800">
-                    +91 97680 48056
-                  </p>
+                  <Markdown className="text-xl font-semibold text-gray-800">
+                    {info.whatsapp}
+                  </Markdown>
                 </div>
               </div>
 
@@ -54,11 +84,11 @@ const ContactUs = () => {
                   {/* Added min-w-0 to prevent overflow */}
                   <p className="text-sm font-medium text-gray-500">Email</p>
                   <a
-                    href="mailto:prudentiamicrodental@gmail.com"
+                    href={`mailto:${info.email}`}
                     className="text-base sm:text-xl font-semibold text-gray-800 
     hover:text-blue-600 transition-colors break-all"
                   >
-                    prudentiamicrodental@gmail.com
+                    {info.email}
                   </a>
                 </div>
               </div>
@@ -71,9 +101,7 @@ const ContactUs = () => {
                 <div>
                   <p className="text-sm font-medium text-gray-500">Address</p>
                   <p className="text-lg font-medium text-gray-800 leading-relaxed">
-                    Prudentia Micro Dental Care, Vision 9, Kunal Icon Road,
-                    <br />
-                    1st Floor, Shop no. 172 & 173, Pimple Saudagar, Pune 27.
+                    {info.address}
                   </p>
                 </div>
               </div>
@@ -87,9 +115,9 @@ const ContactUs = () => {
                   <p className="text-sm font-medium text-gray-500">
                     Working Hours
                   </p>
-                  <p className="text-xl font-semibold text-gray-800">
-                    Mon-Fri: 9:00 AM - 6:00 PM
-                  </p>
+                  <Markdown className="text-xl font-semibold text-gray-800">
+                    {info.hours}
+                  </Markdown>
                 </div>
               </div>
             </div>
@@ -120,7 +148,7 @@ const ContactUs = () => {
           <div className="relative w-full overflow-hidden rounded-xl shadow-xl border border-gray-200 dark:border-gray-700">
             <div className="aspect-w-16 aspect-h-9 w-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.3845796341922!2d73.7932683!3d18.594841799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b99cbd925e75%3A0xb603995efc275aea!2sPrudentia%20Micro%20Dental%20Care%2C%20Pimple%20Saudagar!5e0!3m2!1sen!2sin!4v1745422865195!5m2!1sen!2sin"
+                src={info.mapEmbedUrl}
                 className="w-full h-[400px] border-0"
                 allowFullScreen
                 loading="lazy"
@@ -132,11 +160,11 @@ const ContactUs = () => {
               <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                 Our Location
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mt-1">
-                Prudentia Micro Dental Care, Pimple Saudagar
-              </p>
+              <Markdown className="text-gray-600 dark:text-gray-300 mt-1">
+                {info.locationName}
+              </Markdown>
               <a
-                href="https://maps.google.com/?q=Prudentia+Micro+Dental+Care,+Pimple+Saudagar"
+                href={info.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center mt-3 text-blue-600 dark:text-blue-400 hover:underline"

@@ -1,0 +1,113 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Restore Your Smile with Natural-Looking Composite Fillings",
+    "subtitle": "Natural-Looking",
+    "tags": ["Durable", "Aesthetic", "Tooth-Preserving"],
+    "image": "hero/Services/restorative/1. Tooth coloured fillings/composite-syringe-dental-fillings-cosmetic-dentistry-prudentia-pune.jpg"
+  },
+  "introduction": {
+    "text": "At Prudentia Micro Dental Care, Pimple Saudagar we use composite (tooth-colored) fillings to repair teeth affected by decay, cracks, or fractures seamlessly blending with your natural tooth for a strong and beautiful result.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar"
+  },
+  "whatAreCompositeFillings": {
+    "title": "What Are Composite Fillings?",
+    "description": "Composite fillings are made from a tooth-colored resin material that bonds directly to your natural tooth. Unlike traditional metal fillings, they offer a more aesthetic and conservative solution. Composite fillings are strong, long-lasting, and ideal for restoring both function and appearance.",
+    "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimetic-composite-filling-natural-tooth-repair-pimple-saudagar.jpg",
+    "features": [
+      {
+        "title": "Strong",
+        "description": "Durable protection",
+        "icon": "Shield",
+        "color": "blue"
+      },
+      {
+        "title": "Natural",
+        "description": "Seamless blend",
+        "icon": "Smile",
+        "color": "teal"
+      },
+      {
+        "title": "Quick",
+        "description": "Single visit",
+        "icon": "Clock",
+        "color": "purple"
+      },
+      {
+        "title": "Aesthetic",
+        "description": "Beautiful results",
+        "icon": "Star",
+        "color": "orange"
+      }
+    ]
+  },
+  "recommendations": {
+    "title": "When Are Composite Fillings Recommended?",
+    "subtitle": "Composite fillings are an excellent choice for treating and repairing:",
+    "items": [
+      "Chipped or cracked teeth",
+      "Cavities and tooth decay",
+      "Gaps between teeth",
+      "Worn or eroded teeth",
+      "Minor reshaping or cosmetic corrections"
+    ],
+    "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimetics-composite-filling-natural-tooth-repair-pimple-saudagar.jpg"
+  },
+  "procedure": {
+    "title": "How Is the Procedure Done?",
+    "subtitle": "Most composite fillings can be completed in just one comfortable appointment.",
+    "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimeticss-composite-filling-natural-tooth-repair-pimple-saudagar.jpg",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Numbing",
+        "description": "The area is gently numbed to ensure a painless experience."
+      },
+      {
+        "step": "2",
+        "title": "Cleaning",
+        "description": "The decayed or damaged portion of the tooth is carefully removed."
+      },
+      {
+        "step": "3",
+        "title": "Preparation",
+        "description": "The tooth is cleaned and prepped. If the decay is close to the nerve, a protective liner may be applied."
+      },
+      {
+        "step": "4",
+        "title": "Filling Placement",
+        "description": "The composite material is applied in layers, shaped, hardened with a special light, and polished to perfection — restoring your tooth's natural shape and function."
+      }
+    ]
+  },
+  "aftercare": {
+    "title": "Aftercare & Longevity",
+    "subtitle": "With proper care, composite fillings can last for many years.",
+    "tips": [
+      {
+        "title": "Maintain good oral hygiene",
+        "description": "brush twice daily and floss regularly"
+      },
+      {
+        "title": "Follow healthy eating habits",
+        "description": "limit sugary and acidic foods"
+      },
+      {
+        "title": "Schedule regular dental visits",
+        "description": "early detection extends the life of your restorations"
+      }
+    ],
+    "closingText": "We will provide you with personalized care instructions after your appointment."
+  },
+  "cta": {
+    "title": "Book Your Appointment Today",
+    "description": "Whether it's a minor chip or a new cavity, composite fillings can restore your smile beautifully and discreetly.",
+    "callToAction": "Call us today to schedule your consultation at Prudentia Micro Dental Care where function meets aesthetics, and your smile gets the care it deserves.",
+    "highlightedText": "Prudentia Micro Dental Care",
+    "buttonText": "Schedule Online",
+    "buttonIcon": "Calendar"
+  }
+}

@@ -1,0 +1,91 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Oral Hygiene Instructions",
+    "subtitle": "Your First Step Toward a Healthier Smile",
+    "image": "hero/Services/preventive/1. oral hygiene measures/daily-oral-hygiene-flossing-tips-pune-prudentia-dental.jpg"
+  },
+  "intro": {
+    "title": "Prevention is the Foundation",
+    "paragraphs": [
+      "At Prudentia Micro Dental Care, we believe prevention is the foundation of long-lasting oral health. Maintaining a strong oral hygiene routine is the most effective way to prevent dental issues, preserve your natural teeth, and keep your smile radiant.",
+      "During your routine visits, we go beyond basic check-ups. Our team takes time to educate, demonstrate, and customize your home care regimen, empowering you to take control of your dental health and avoid future complications."
+    ]
+  },
+  "guidelinesHeader": {
+    "title": "General Oral Hygiene Guidelines:",
+    "image": "hero/Services/preventive/1. oral hygiene measures/daily-orals-hygiene-flossing-tips-pune-prudentia-dental.jpg"
+  },
+  "guidelines": [
+    {
+      "number": "1",
+      "title": "Brush Twice a Day",
+      "gradient": "from-purple-50 to-purple-50",
+      "image": null,
+      "paragraphs": [
+        "Use a soft-bristled toothbrush and herbal or natural toothpaste.",
+        "Hold your brush at a 45-degree angle to the gum line to remove plaque effectively.",
+        "Brush all surfaces outer, inner, and chewing and don't forget the back teeth."
+      ]
+    },
+    {
+      "number": "2",
+      "title": "Floss Twice Daily",
+      "gradient": "from-purple-50 to-green-50",
+      "image": "hero/Services/preventive/1. oral hygiene measures/gum-health-with-flossing-dental-care-pimple-saudagar.jpg",
+      "paragraphs": [
+        "Brushing alone can't clean between your teeth. Floss daily to remove debris and plaque from tight spaces.",
+        "Use about 12-18 inches of floss, wrap it around your fingers, and gently glide it between each tooth.",
+        "For added ease, consider interdental brushes or water flossers, especially if you have braces or limited dexterity."
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Clean Your Tongue",
+      "gradient": "from-purple-50 to-pink-50",
+      "image": null,
+      "paragraphs": [
+        "Your tongue harbors bacteria that contribute to bad breath and plaque formation.",
+        "Brush your tongue with your toothbrush or use a tongue scraper for a cleaner, fresher mouth."
+      ]
+    },
+    {
+      "number": "4",
+      "title": "Visit the Dentist Regularly",
+      "gradient": "from-orange-50 to-yellow-50",
+      "image": null,
+      "paragraphs": [
+        "Regular dental check-ups and professional cleanings are essential.",
+        "Most people benefit from biannual visits, but if you have gum disease, frequent cavities, or other concerns, we may recommend more frequent check-ins."
+      ]
+    },
+    {
+      "number": "5",
+      "title": "Avoid Tobacco Products",
+      "gradient": "from-red-50 to-pink-50",
+      "image": null,
+      "paragraphs": [
+        "Smoking is a major risk factor for gum disease, tooth loss, and oral cancer.",
+        "If you currently use tobacco and want to quit, we're here to guide you toward effective cessation strategies."
+      ]
+    }
+  ],
+  "whyMatters": {
+    "title": "Why This Matters:",
+    "image": "hero/Services/preventive/1. oral hygiene measures/gum-health-with-flossing-dental-care-pimple-saudagar.jpeg",
+    "paragraph": "A healthy mouth isn't just about a pretty smile, it's also vital to your overall health. Good oral hygiene reduces your risk of heart disease, diabetes complications, and systemic infections. The key is consistency and the right techniques."
+  },
+  "personalized": {
+    "title": "Let's Personalize Your Care",
+    "image": "hero/Services/preventive/1. oral hygiene measures/dailys-oral-hygiene-flossing-tips-pune-prudentia-dental.jpg",
+    "paragraph": "Every smile is unique. That's why we take time during your visit to design a custom oral hygiene routine suited to your specific needs, lifestyle, and dental history."
+  },
+  "cta": {
+    "title": "Ready to Start Your Journey?",
+    "paragraph": "Schedule a consultation at Prudentia Micro Dental Care, Pimple Saudagar to receive a personalized hygiene guide and get started on your journey to optimal oral health.",
+    "buttonText": "Schedule Your Consultation"
+  }
+}

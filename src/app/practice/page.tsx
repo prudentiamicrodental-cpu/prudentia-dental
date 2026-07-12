@@ -1,8 +1,39 @@
 "use client"
 
 import { useChatbot } from '@/components/chatbotContext';
+import Markdown from '@/components/markdown';
 import { Image } from '@imagekit/next';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
+import { useState, useEffect } from 'react';
+
+interface TeamMember {
+  image: string;
+  alt: string;
+  name: string;
+  credentials: string;
+  heading: string;
+  paragraphs: string[];
+  quote?: string;
+  expertise?: string;
+}
+
+interface PracticeData {
+   meta: { title: string; description: string };
+  hero: { image: string; alt: string; titleLine1: string; titleLine2: string; subtitle: string };
+  intro: { title: string; paragraph: string; quote: string; image: string; alt: string };
+  technology: {
+    title: string;
+    description: string;
+    image: string;
+    alt: string;
+    items: { title: string; description: string }[];
+    note: string;
+    button: string;
+  };
+  team: { title: string; members: TeamMember[] };
+  cta: { title: string; description: string; button: string };
+}
 
 // Animation variants
 const container = {
@@ -42,9 +73,59 @@ const scaleUp = {
 
 export default function PrudentiaMicroDentalCare() {
   const { handleOpenChatbot } = useChatbot();
+  const [content, setContent] = useState<PracticeData | null>(null);
+
+useEffect(() => {
+  async function loadData() {
+    const GITHUB_URL =
+      "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/practice/practice.json";
+
+    const LOCAL_URL = "/data/practice/practice.json";
+
+    try {
+      const res = await fetch(GITHUB_URL);
+
+      if (!res.ok) throw new Error("GitHub fetch failed");
+
+      const data: PracticeData = await res.json();
+      setContent(data);
+    } catch (error) {
+      console.warn("Using local fallback:", error);
+
+      try {
+        const localRes = await fetch(LOCAL_URL);
+
+        if (!localRes.ok) {
+          throw new Error("Local fetch failed");
+        }
+
+        const localData: PracticeData = await localRes.json();
+        setContent(localData);
+      } catch (localError) {
+        console.error("Failed to load local fallback:", localError);
+      }
+    }
+  }
+
+  loadData();
+}, []);
+
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
+  const [drBhushan, drDisha, ayesha] = content.team.members;
 
   return (
     <div className="bg-white">
+      <Head>
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
+      </Head>
       {/* Hero Banner with Tagline */}
       <motion.div 
         className="relative h-[70vh] min-h-[500px] w-full"
@@ -54,8 +135,8 @@ export default function PrudentiaMicroDentalCare() {
       >
         <Image
           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar.jpg"
-          alt="zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar"
+          src={content.hero.image}
+          alt={content.hero.alt}
           fill
           className="object-full"
           priority
@@ -67,11 +148,11 @@ export default function PrudentiaMicroDentalCare() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <p className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">
-            Magnifying Precision<br />
-            Recreating Compassionate Smiles
-          </p>
-          <p className="text-purple-100 font-medium">Prudentia Micro Dental Care</p>
+          <div className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">
+            <Markdown>{content.hero.titleLine1}</Markdown>
+            <Markdown>{content.hero.titleLine2}</Markdown>
+          </div>
+          <Markdown className="text-purple-100 font-medium">{content.hero.subtitle}</Markdown>
         </motion.div>
       </motion.div>
 
@@ -85,20 +166,20 @@ export default function PrudentiaMicroDentalCare() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div className="lg:w-1/2" variants={slideInFromLeft}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Precision Microscopic Dentistry in Pimple Saudagar
-            </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Prudentia Micro Dental Care is a cutting-edge dental clinic that boasts one of the very few Dental Operating Microscopes in the Country. This state-of-the-art technology allows us to detect dental issues early, perform treatments with unmatched precision, and ensure the most comfortable experience for our patients.
-            </p>
+            <Markdown className="text-3xl font-bold text-gray-900 mb-6">
+              {content.intro.title}
+            </Markdown>
+            <Markdown className="text-lg text-gray-600 mb-6">
+              {content.intro.paragraph}
+            </Markdown>
             <motion.div 
               className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <p className="text-purple-800 font-medium">
-                &quot;With magnification levels of 2x-30x, the Dental Operating Microscope enables detailed examinations, uncovering hidden problems that might otherwise go unnoticed.&quot;
-              </p>
+              <Markdown className="text-purple-800 font-medium">
+                {content.intro.quote}
+              </Markdown>
             </motion.div>
           </motion.div>
           <motion.div 
@@ -109,8 +190,8 @@ export default function PrudentiaMicroDentalCare() {
           >
             <Image
               urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar.jpg"
-              alt="dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar"
+          src={content.intro.image}
+              alt={content.intro.alt}
               width={600}
               height={400}
               className="w-full h-auto"
@@ -129,7 +210,7 @@ export default function PrudentiaMicroDentalCare() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Advanced Technology</h2>
+            <Markdown className="text-3xl font-bold text-gray-900 mb-4">{content.technology.title}</Markdown>
             <motion.div 
               className="w-20 h-1 bg-purple-600 mx-auto mb-6"
               initial={{ scaleX: 0 }}
@@ -137,9 +218,9 @@ export default function PrudentiaMicroDentalCare() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Along with the microscope, we offer a suite of advanced technology that enhances your care
-            </p>
+            <Markdown className="text-lg text-gray-600 max-w-3xl mx-auto">
+              {content.technology.description}
+            </Markdown>
           </motion.div>
 
           <motion.div 
@@ -157,8 +238,8 @@ export default function PrudentiaMicroDentalCare() {
             >
               <Image
                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar.jpg"
-                alt="prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar"
+          src={content.technology.image}
+                alt={content.technology.alt}
                 width={600}
                 height={400}
                 className="w-full h-auto"
@@ -166,54 +247,16 @@ export default function PrudentiaMicroDentalCare() {
             </motion.div>
             <motion.div className="lg:w-1/2" variants={slideInFromRight}>
               <motion.ul className="space-y-4" variants={container}>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Caries Probe:</span> Detects hidden cavities early.</p>
-                </motion.li>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Electronic Anesthesia:</span> Painless, automated injections.</p>
-                </motion.li>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Root Canal Excellence:</span> Advanced tools for precision root canal treatments.</p>
-                </motion.li>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Micro-Endodontics:</span> For treating failed root canals and microsurgeries.</p>
-                </motion.li>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Portable DC X-Ray:</span> High-quality, low-radiation dental scans.</p>
-                </motion.li>
-                <motion.li className="flex items-start" variants={item}>
-                  <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="ml-3 text-lg text-gray-700"><span className="font-semibold">Top-Notch Sterilization:</span> Adhering to strict IDA standards with UV and RO filtered water.</p>
-                </motion.li>
+                {content.technology.items.map((tech, index) => (
+                  <motion.li className="flex items-start" variants={item} key={index}>
+                    <div className="flex-shrink-0 h-6 w-6 text-purple-600 mt-1">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div className="ml-3 text-lg text-gray-700"><span className="font-semibold"><Markdown>{tech.title}</Markdown></span> <Markdown>{tech.description}</Markdown></div>
+                  </motion.li>
+                ))}
               </motion.ul>
 
               <motion.div 
@@ -221,16 +264,16 @@ export default function PrudentiaMicroDentalCare() {
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <p className="text-lg text-gray-700 mb-4">
-                  We&apos;re committed to your oral health with the most advanced technology and a pain-free, stress-free experience.
-                </p>
+                <Markdown className="text-lg text-gray-700 mb-4">
+                  {content.technology.note}
+               </Markdown>
                 <motion.button 
                   onClick={handleOpenChatbot} 
                   className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300 font-medium"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Call us today to schedule your appointment
+                  <Markdown>{content.technology.button}</Markdown>
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -247,7 +290,7 @@ export default function PrudentiaMicroDentalCare() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Expert Team</h2>
+          <Markdown className="text-3xl font-bold text-gray-900 mb-4">{content.team.title}</Markdown>
           <motion.div 
             className="w-20 h-1 bg-purple-600 mx-auto"
             initial={{ scaleX: 0 }}
@@ -269,25 +312,25 @@ export default function PrudentiaMicroDentalCare() {
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/dr-bhushan-mahajan-confident-dental-microscope-prudentia-pimple-saudagar.JPG"
-                alt="Dr. Bhushan Mahajan"
+          src={drBhushan.image}
+                alt={drBhushan.alt}
                 width={400}
                 height={500}
                 className="w-full h-auto"
               />
             </div>
-            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">Dr. Bhushan Mahajan</h3>
-            <p className="text-center text-purple-600">BDS, M Res.</p>
+            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">{drBhushan.name}</h3>
+            <p className="text-center text-purple-600">{drBhushan.credentials}</p>
           </motion.div>
           <motion.div className="lg:w-2/3" variants={fadeIn}>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Transforming Smiles with the Precision of Micro Dentistry
+              {drBhushan.heading}
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Dr. Bhushan Mahajan brings cutting-edge dental care to Prudentia Micro Dental Care. After earning his BDS from Mumbai and completing a mini-residency in Microsurgical Endodontics at University of Buffalo, NY, Dr. Bhushan has dedicated his career to offering world-class, pain-free dental treatments.
+              {drBhushan.paragraphs[0]}
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              His mission is clear: deliver evidence-based, minimally invasive dentistry using the latest technology to preserve your natural smile. He&apos;s trained with international experts like Dr. Clifford Ruddle and Dr. Adham Azim to bring the best techniques to your care.
+              {drBhushan.paragraphs[1]}
             </p>
             <motion.div 
               className="bg-gray-50 p-6 rounded-lg"
@@ -297,7 +340,7 @@ export default function PrudentiaMicroDentalCare() {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               <p className="text-gray-700 italic">
-                &quot;In the U.S., dental procedures performed with a Dental Operating Microscope are the standard of care, and Dr. Bhushan brings this level of excellence to Prudentia.&quot;
+                {drBhushan.quote}
               </p>
             </motion.div>
           </motion.div>
@@ -315,25 +358,25 @@ export default function PrudentiaMicroDentalCare() {
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/dr-disha-mahajan-dental-loupes-compassionate-dentist-portrait-prudentia-pimple-saudagar.JPG"
-                alt="Dr. Disha Avhad Mahajan"
+          src={drDisha.image}
+                alt={drDisha.alt}
                 width={400}
                 height={500}
                 className="w-full h-auto"
               />
             </div>
-            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">Dr. Disha Avhad Mahajan</h3>
-            <p className="text-center text-purple-600">BDS</p>
+            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">{drDisha.name}</h3>
+            <p className="text-center text-purple-600">{drDisha.credentials}</p>
           </motion.div>
           <motion.div className="lg:w-2/3" variants={fadeIn}>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Specialist in Advanced Root Canal Treatment & General Dentistry
+              {drDisha.heading}
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              With over 10 years of clinical experience, Dr. Disha Avhad Mahajan is a trusted name in general dentistry and a leading provider of advanced root canal treatments in Pune. A graduate of the prestigious Government Dental College, Mumbai, Dr. Disha is known for her gentle chairside manner and unwavering dedication to precision-driven care.
+              {drDisha.paragraphs[0]}
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              At Prudentia Micro Dental Care, Pimple Saudagar she combines state-of-the-art dental technology with a compassionate, patient-centered approach. Whether you&apos;re coming in for a routine dental check-up, a complex root canal therapy, or a complete smile transformation, Dr. Disha ensures every treatment is delivered with meticulous care and long-lasting results.
+              {drDisha.paragraphs[1]}
             </p>
             <motion.div 
               className="flex items-center space-x-4"
@@ -348,7 +391,7 @@ export default function PrudentiaMicroDentalCare() {
                 </svg>
               </div>
               <p className="text-gray-700">
-                <span className="font-semibold">Expertise:</span> Microscopic endodontics and pain-free root canal procedures
+                <span className="font-semibold">Expertise:</span> {drDisha.expertise}
               </p>
             </motion.div>
           </motion.div>
@@ -366,28 +409,28 @@ export default function PrudentiaMicroDentalCare() {
             <div className="rounded-xl overflow-hidden shadow-xl">
               <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-          src="hero/Practice/smiling-dental-assistant-prudentia-gentle-supportive-team-pimple-saudagar.jpg"
-                alt="Ayesha S"
+          src={ayesha.image}
+                alt={ayesha.alt}
                 width={400}
                 height={500}
                 className="w-full h-auto"
               />
             </div>
-            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">Ayesha S</h3>
-            <p className="text-center text-purple-600">Dental Assistant & Appointment Coordinator</p>
+            <h3 className="mt-4 text-2xl font-bold text-center text-gray-900">{ayesha.name}</h3>
+            <p className="text-center text-purple-600">{ayesha.credentials}</p>
           </motion.div>
           <motion.div className="lg:w-2/3" variants={fadeIn}>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              The Smile Behind the Smiles
+              {ayesha.heading}
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              A calm and caring presence, Ayesha keeps both patients and the clinic running smoothly at Prudentia Micro Dental Care, Pimple Saudagar.
+              {ayesha.paragraphs[0]}
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              As our dental assistant and appointment coordinator, she&apos;s the friendly face who welcomes you in, supports treatments chairside, and ensures your visits are well-organized and stress-free.
+              {ayesha.paragraphs[1]}
             </p>
             <p className="text-lg text-gray-600">
-              With her gentle touch, positive spirit, and ever-present smile, Ayesha makes every patient feel at ease, from the first hello to the next appointment.
+              {ayesha.paragraphs[2]}
             </p>
           </motion.div>
         </motion.div>
@@ -409,17 +452,17 @@ export default function PrudentiaMicroDentalCare() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Ready for a Precision Dental Experience?
+            <Markdown>{content.cta.title}</Markdown>
           </motion.h2>
-          <motion.p 
+          <motion.h1 
             className="text-xl mb-8 max-w-3xl mx-auto"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Contact us today to schedule your consultation and experience microscopic dentistry at its finest.
-          </motion.p>
+            <Markdown>{content.cta.description}</Markdown>
+          </motion.h1>
           <motion.div 
             className="flex flex-col sm:flex-row justify-center gap-4"
             initial={{ y: 30, opacity: 0 }}
@@ -433,7 +476,7 @@ export default function PrudentiaMicroDentalCare() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Book an Appointment
+              <Markdown>{content.cta.button}</Markdown>
             </motion.button>
           </motion.div>
         </div>

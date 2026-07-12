@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "title": "Mouthguards for Teeth Grinding & Sports | Prudentia Dental",
+    "description": "Custom night guards and sport mouthguards to protect your teeth from grinding and injuries. Prevent dental damage with our precision-fit solutions."
+  },
+  "hero": {
+    "title": "Mouthguards for Teeth Grinding & Sports Injuries",
+    "subtitle": "Protect Your Smile. Prevent Future Damage.",
+    "image": "hero/Services/preventive/2. Mouth guards and sport guards/teeth-grinding-treatment-night-guard-pune-prudentia.jpg"
+  },
+  "intro": {
+    "text": "Many people unknowingly grind their teeth during stressful moments or while sleeping, a condition known as bruxism. While this habit is involuntary, the pressure it places on your teeth and jaw can lead to long-term dental issues, including microfractures, enamel wear, and TMJ problems."
+  },
+  "symptoms": {
+    "title": "Common Symptoms of Teeth Grinding:",
+    "image": "hero/Services/preventive/2. Mouth guards and sport guards/teeths-grinding-treatment-night-guard-pune-prudentia.jpg",
+    "items": [
+      "Worn-down or flattened tooth enamel",
+      "Increased tooth sensitivity",
+      "Jaw pain or stiffness",
+      "Tired or tight jaw muscles",
+      "Headaches, especially upon waking",
+      "Interrupted sleep or discomfort at night"
+    ]
+  },
+  "nightGuard": {
+    "title": "Night Guards: Protection While You Sleep",
+    "image": "hero/Services/preventive/2. Mouth guards and sport guards/customs-sports-mouthguard-dental-protection-pune.jpg",
+    "description": "At Prudentia Micro Dental Care, we provide customized night guards tailored to your unique bite. These are designed to:",
+    "items": [
+      "Prevent premature enamel wear",
+      "Alleviate jaw tension and morning headaches",
+      "Reduce the risk of developing Temporomandibular Joint (TMJ) issues",
+      "Improve overall sleep quality and comfort"
+    ],
+    "footer": "Each night guard is precision-fit to your mouth for maximum comfort and effectiveness, ensuring restful sleep and long-term protection."
+  },
+  "sportGuard": {
+    "title": "Custom Sport Guards: Protection During Physical Activity",
+    "image": "hero/Services/preventive/2. Mouth guards and sport guards/custom-sportss-mouthguard-dental-protection-pune.jpg",
+    "description": "Whether you're on the field or at the gym, dental injuries are common during contact sports and high-impact activities. A custom sport mouthguard acts as a shield over your upper teeth, lowering the risk of:",
+    "items": [
+      "Broken or chipped teeth",
+      "Gum injuries",
+      "Jaw trauma",
+      "Tooth loss"
+    ],
+    "footer": "Our sport guards are designed for athletes of all ages and are crafted for optimal fit, durability, and comfort."
+  },
+  "benefits": {
+    "title": "Why Choose a Custom-Fitted Mouthguard?",
+    "image": "hero/Services/preventive/2. Mouth guards and sport guards/custom-sportsss-mouthguard-dental-protection-pune.jpg",
+    "items": [
+      "Superior comfort compared to over-the-counter guards",
+      "Designed specifically for your bite and jaw alignment",
+      "Better compliance and ease of use",
+      "Provides muscle relaxation and helps relieve clenching-induced stress"
+    ]
+  },
+  "cta": {
+    "title": "Ready to Protect Your Teeth?",
+    "description": "Whether you're managing nighttime grinding or need protection during sports, a custom mouthguard is a smart, preventive solution. At Prudentia Micro Dental Care, Pimple Saudagar we're here to help you safeguard your smile with comfort and precision.",
+    "button": "Book a Micro-Consultation today to find the right mouthguard for you."
+  }
+}

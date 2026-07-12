@@ -1,0 +1,36 @@
+{
+  "before": [
+    {
+      "label": "Home",
+      "href": "/",
+      "type": "link"
+    },
+    {
+      "label": "Our Practice",
+      "href": "/practice",
+      "type": "link"
+    },
+    {
+      "label": "Why Micro Dentistry",
+      "href": "/microDentistry",
+      "type": "link"
+    }
+  ],
+  "after": [
+    {
+      "label": "Tech",
+      "href": "/tech",
+      "type": "link"
+    },
+    {
+      "label": "Gallery",
+      "href": "/gallery",
+      "type": "link"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact",
+      "type": "contact"
+    }
+  ]
+}

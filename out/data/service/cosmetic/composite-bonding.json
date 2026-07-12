@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Composite Bonding",
+    "subtitle": "Are discolored, uneven, or chipped front teeth making you feel self-conscious? Composite bonding is a quick, affordable, and effective solution to transform your smile and restore your confidence. This cosmetic dental treatment can address a wide range of imperfections, leaving you with a natural, radiant smile without the need for invasive procedures.",
+    "button": "Schedule Consultation",
+    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.JPG"
+  },
+  "whatIs": {
+    "title": "What Is Composite Bonding?",
+    "paragraph1": "Composite bonding is a non-invasive cosmetic treatment that uses a tooth-colored resin to reshape, rebuild, and restore your teeth. Whether it's covering discoloration, fixing chips, closing gaps, or correcting crooked teeth, this treatment enhances your smile with minimal tooth alteration.",
+    "paragraph2": "It's one of the most conservative and effective methods to improve the color, shape, and overall appearance of your teeth particularly for the front teeth, which have the most impact on your smile.",
+    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.jpg"
+  },
+  "discoloredTeeth": {
+    "title": "How Does Composite Bonding Fix Discolored Teeth?",
+    "intro": "Teeth discoloration is a common issue caused by:",
+    "causes": [
+      { "icon": "☕", "title": "Food & Lifestyle", "description": "Coffee, wine, and smoking" },
+      { "icon": "💊", "title": "Medical", "description": "Medication side effects" },
+      { "icon": "🪥", "title": "Hygiene", "description": "Poor oral hygiene" }
+    ],
+    "footer": "If you find yourself with yellowed or stained front teeth but aren't ready for costly whitening treatments, composite bonding is the perfect alternative. The resin used in bonding can effectively conceal discoloration, restoring the whiteness and brightness of your smile without damaging your natural enamel."
+  },
+  "improveSmile": {
+    "title": "How Does Bonding Improve Your Smile?",
+    "intro": "Crooked, misaligned, or gapped teeth can affect more than just your appearance, they can lower your self-esteem. Composite bonding offers a non-invasive, rapid solution to correct imperfections like:",
+    "points": [
+      "Crooked or rotated teeth",
+      "Teeth with gaps",
+      "Chipped or fractured teeth"
+    ],
+    "footer": "This simple procedure allows you to reshape your teeth for a more harmonious, confident smile, all without the need for extensive dental work. Once complete, you'll have a beautiful, natural-looking smile that you'll want to show off at every opportunity!",
+    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
+  },
+  "gallery": {
+    "title": "Transform Your Smile",
+    "images": [
+      {
+        "src": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-composite-fillings-front-teeth-gap-closure-prudentia-micro-dental-care-pimple-saudagar.jpg",
+        "caption": "Patient smile transformation"
+      },
+      {
+        "src": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/non-invasive-chipped-tooth-repair-composite-contouring-prudentia-dental-care-pune.jpg",
+        "caption": "Gap closure with bonding"
+      },
+      {
+        "src": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-bonding-chipped-tooth-before-after-aesthetic-repair-prudentia-pimple-saudagar.jpg",
+        "caption": "Chip repair example"
+      },
+      {
+        "src": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/front-tooth-missing-fiber-reinforced-bridge-no-drill-smile-restoration-prudentia-pimple-saudagar.jpg",
+        "caption": "Complete smile makeover"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Enhance Your Smile?",
+    "description": "Your front teeth are crucial to your appearance, and composite bonding is one of the fastest and most affordable ways to correct any imperfections and achieve a flawless smile. At Prudentia Micro Dental Care, Pimple Saudagar we specialize in providing quick, precise, and effective bonding treatments to enhance your smile and your confidence.",
+    "button": "Schedule your consultation today",
+    "footer": "Take the first step toward the smile you deserve."
+  }
+}

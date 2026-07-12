@@ -1,4 +1,9 @@
+'use client';
+
 import Image, { StaticImageData } from 'next/image';
+import { useEffect, useState } from 'react';
+import Markdown from './markdown';
+
 
 interface TechnologyCardProps {
   image: StaticImageData | string;
@@ -19,14 +24,29 @@ const TechnologyCard = ({ image, title, description }: TechnologyCardProps) => {
         />
       </div>
       <div className="p-6">
-        <h3 className="mb-2 text-xl font-semibold text-gray-900">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <Markdown className="mb-2 text-xl font-semibold text-gray-900">{title}</Markdown>
+        <Markdown className="text-gray-600">{description}</Markdown>
       </div>
     </div>
   );
 };
 
 export default function TechnologySection() {
+  const [features, setFeatures] = useState<TechnologyCardProps[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/data/home/technology-features.json')
+      .then((res) => res.json())
+      .then((data: TechnologyCardProps[]) => {
+        if (isMounted) setFeatures(data);
+      })
+      .catch((err) => console.error('Failed to load technology features:', err));
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <section className="bg-gradient-to-b from-purple-100 to-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -40,31 +60,9 @@ export default function TechnologySection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          <TechnologyCard
-            image="/images/unique1.png"
-            title="Micro-Dentistry. Maximum Precision."
-            description="Less drilling, more preserving. Our advanced magnification tech delivers painless, long-lasting results."
-          />
-          <TechnologyCard
-            image="/images/unique2.png"
-            title="Tech That Transforms Care"
-            description="From cavity detection to sterilization—we use the best:
-Caries Probe, Electronic Anesthesia
-Digital X-rays (80% less radiation)
-Sonic tools & Class B Sterilization"
-          />
-          <TechnologyCard
-            image="/images/unique3.png"
-            title="Root Canals, Reimagined"
-            description="Save your tooth—no crowns, no stress.
-Precise, pain-free, fast healing
-High success, even in tough cases"
-          />
-          <TechnologyCard
-            image="/images/unique4.png"
-            title="Smile Brighter, Naturally"
-            description="Fix chips, gaps, stains & misalignment—minimally."
-          />
+          {features.map((feature) => (
+            <TechnologyCard key={feature.title} {...feature} />
+          ))}
         </div>
 
         <div className="mt-12 md:mt-16 text-center">

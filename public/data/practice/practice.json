@@ -1,0 +1,82 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "image": "hero/Practice/zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar.jpg",
+    "alt": "zoomed-dental-microscope-banner-prudentia-our-practice-pimple-saudagar",
+    "titleLine1": "Magnifying Precision",
+    "titleLine2": "Recreating Compassionate Smiles",
+    "subtitle": "Prudentia Micro Dental Care"
+  },
+  "intro": {
+    "title": "Precision Microscopic Dentistry in Pimple Saudagar",
+    "paragraph": "Prudentia Micro Dental Care is a cutting-edge dental clinic that boasts one of the very few Dental Operating Microscopes in the Country. This state-of-the-art technology allows us to detect dental issues early, perform treatments with unmatched precision, and ensure the most comfortable experience for our patients.",
+    "quote": "\"With magnification levels of 2x-30x, the Dental Operating Microscope enables detailed examinations, uncovering hidden problems that might otherwise go unnoticed.\"",
+    "image": "hero/Practice/dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar.jpg",
+    "alt": "dr-bhushan-mahajan-microscope-dental-treatment-patient-comfort-prudentia-pimple-saudagar"
+  },
+  "technology": {
+    "title": "Our Advanced Technology",
+    "description": "Along with the microscope, we offer a suite of advanced technology that enhances your care",
+    "image": "hero/Practice/prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar.jpg",
+    "alt": "prudentia-dental-technology-collage-digital-xray-sterilizer-microscope-pimple-saudagar",
+    "items": [
+      { "title": "Caries Probe:", "description": "Detects hidden cavities early." },
+      { "title": "Electronic Anesthesia:", "description": "Painless, automated injections." },
+      { "title": "Root Canal Excellence:", "description": "Advanced tools for precision root canal treatments." },
+      { "title": "Micro-Endodontics:", "description": "For treating failed root canals and microsurgeries." },
+      { "title": "Portable DC X-Ray:", "description": "High-quality, low-radiation dental scans." },
+      { "title": "Top-Notch Sterilization:", "description": "Adhering to strict IDA standards with UV and RO filtered water." }
+    ],
+    "note": "We're committed to your oral health with the most advanced technology and a pain-free, stress-free experience.",
+    "button": "Call us today to schedule your appointment"
+  },
+  "team": {
+    "title": "Our Expert Team",
+    "members": [
+      {
+        "image": "hero/Practice/dr-bhushan-mahajan-confident-dental-microscope-prudentia-pimple-saudagar.JPG",
+        "alt": "Dr. Bhushan Mahajan",
+        "name": "Dr. Bhushan Mahajan",
+        "credentials": "BDS, M Res.",
+        "heading": "Transforming Smiles with the Precision of Micro Dentistry",
+        "paragraphs": [
+          "Dr. Bhushan Mahajan brings cutting-edge dental care to Prudentia Micro Dental Care. After earning his BDS from Mumbai and completing a mini-residency in Microsurgical Endodontics at University of Buffalo, NY, Dr. Bhushan has dedicated his career to offering world-class, pain-free dental treatments.",
+          "His mission is clear: deliver evidence-based, minimally invasive dentistry using the latest technology to preserve your natural smile. He's trained with international experts like Dr. Clifford Ruddle and Dr. Adham Azim to bring the best techniques to your care."
+        ],
+        "quote": "\"In the U.S., dental procedures performed with a Dental Operating Microscope are the standard of care, and Dr. Bhushan brings this level of excellence to Prudentia.\""
+      },
+      {
+        "image": "hero/Practice/dr-disha-mahajan-dental-loupes-compassionate-dentist-portrait-prudentia-pimple-saudagar.JPG",
+        "alt": "Dr. Disha Avhad Mahajan",
+        "name": "Dr. Disha Avhad Mahajan",
+        "credentials": "BDS",
+        "heading": "Specialist in Advanced Root Canal Treatment & General Dentistry",
+        "paragraphs": [
+          "With over 10 years of clinical experience, Dr. Disha Avhad Mahajan is a trusted name in general dentistry and a leading provider of advanced root canal treatments in Pune. A graduate of the prestigious Government Dental College, Mumbai, Dr. Disha is known for her gentle chairside manner and unwavering dedication to precision-driven care.",
+          "At Prudentia Micro Dental Care, Pimple Saudagar she combines state-of-the-art dental technology with a compassionate, patient-centered approach. Whether you're coming in for a routine dental check-up, a complex root canal therapy, or a complete smile transformation, Dr. Disha ensures every treatment is delivered with meticulous care and long-lasting results."
+        ],
+        "expertise": "Microscopic endodontics and pain-free root canal procedures"
+      },
+      {
+        "image": "hero/Practice/smiling-dental-assistant-prudentia-gentle-supportive-team-pimple-saudagar.jpg",
+        "alt": "Ayesha S",
+        "name": "Ayesha S",
+        "credentials": "Dental Assistant & Appointment Coordinator",
+        "heading": "The Smile Behind the Smiles",
+        "paragraphs": [
+          "A calm and caring presence, Ayesha keeps both patients and the clinic running smoothly at Prudentia Micro Dental Care, Pimple Saudagar.",
+          "As our dental assistant and appointment coordinator, she's the friendly face who welcomes you in, supports treatments chairside, and ensures your visits are well-organized and stress-free.",
+          "With her gentle touch, positive spirit, and ever-present smile, Ayesha makes every patient feel at ease, from the first hello to the next appointment."
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready for a Precision Dental Experience?",
+    "description": "Contact us today to schedule your consultation and experience microscopic dentistry at its finest.",
+    "button": "Book an Appointment"
+  }
+}

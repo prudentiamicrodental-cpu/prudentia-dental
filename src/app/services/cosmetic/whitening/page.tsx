@@ -3,11 +3,93 @@ import React, { useState, useEffect } from 'react';
 import { Star, Shield, Clock, Sparkles, Heart } from 'lucide-react';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
+import Head from 'next/head';
+
+interface WhiteningData {
+  meta: { title: string, description: string};
+  hero: {
+    titleLine1: string;
+    titleLine2: string;
+    tagline: string;
+    image: string;
+    description: string;
+  };
+  whyChoose: {
+    title: string;
+    intro: string;
+    image: string;
+    benefits: { icon: string; text: string; color: string }[];
+    footer: string;
+  };
+  safety: {
+    title: string;
+    highlight: string;
+    paragraph1: string;
+    paragraph2: string;
+  };
+  sideEffects: {
+    title: string;
+    description: string;
+    proTipTitle: string;
+    proTipText: string;
+  };
+  revealSmile: {
+    title: string;
+    image: string;
+    paragraph: string;
+    ctaText: string;
+    ctaButton: string;
+  };
+}
+
+const iconMap: { [key: string]: React.ReactNode } = {
+  Star: <Star className="w-6 h-6" />,
+  Clock: <Clock className="w-6 h-6" />,
+  Sparkles: <Sparkles className="w-6 h-6" />,
+  Shield: <Shield className="w-6 h-6" />,
+};
 
 const TeethWhiteningPage = () => {
      const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
-  
+  const [content, setContent] = useState<WhiteningData | null>(null);
+
+  useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/cosmetic/teeth-whitening.json";
+
+      const LOCAL_URL = "/data/service/cosmetic/teeth-whitening.json.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: WhiteningData = await res.json();
+        setContent(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: WhiteningData = await localRes.json();
+          setContent(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,7 +109,7 @@ const TeethWhiteningPage = () => {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [content]);
 
   const fadeInUp = (id: string) => ({
     opacity: isVisible[id] ? 1 : 0,
@@ -47,8 +129,21 @@ const TeethWhiteningPage = () => {
     transition: 'all 0.8s ease-out'
   });
 
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen overflow-hidden py-5 bg-gradient-to-br from-purple-50 via-white to-purple-50">
+      <Head>
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
+      </Head>
+      
       {/* Header/Hero Section */}
       <header className="relative overflow-hidden bg-gradient-to-r from-purple-400 via-purple-500 to-red-500">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -66,22 +161,21 @@ const TeethWhiteningPage = () => {
             className="text-center text-white"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Brighten Your Smile at<br />
-              <span className="text-purple-200">Prudentia Micro Dental Care</span>
+              <Markdown inline>{content.hero.titleLine1}</Markdown><br />
+              <span className="text-purple-200"><Markdown inline>{content.hero.titleLine2}</Markdown></span>
             </h1>
             <div className="flex items-center justify-center mb-8">
               <Sparkles className="w-8 h-8 text-purple-200 mr-3" />
               <p className="text-2xl md:text-3xl font-light">
-                Whiter Teeth. Brighter Confidence. Younger You.
+                <Markdown inline>{content.hero.tagline}</Markdown>
               </p>
               <Sparkles className="w-8 h-8 text-purple-200 ml-3" />
             </div>
             
             <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
-              {/* <img src="/images/services/cosmetic/whitening/Image1.png" alt="Bright Smile" className="rounded-full" /> */}
                   <Image
                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                                              src="hero/Services/cosmetic/7. teeth whitening/teeth-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg"
+                                              src={content.hero.image}
                                               alt="Modern denture solutions"
                                               fill
                                               className="object-cover"
@@ -90,7 +184,7 @@ const TeethWhiteningPage = () => {
             </div>
             
             <p className="text-lg md:text-xl text-purple-100 max-w-4xl mx-auto leading-relaxed">
-              Ready to light up the room with your smile? At Prudentia Micro Dental Care, our professional teeth whitening treatments are designed to remove years of stains and discoloration safely, effectively, and with minimal sensitivity.
+              <Markdown inline>{content.hero.description}</Markdown>
             </p>
           </div>
         </div>
@@ -114,11 +208,11 @@ const TeethWhiteningPage = () => {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Why Choose Professional Teeth Whitening?
+              <Markdown inline>{content.whyChoose.title}</Markdown>
             </h2>
             <div className="w-20 h-1 bg-purple-500 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Whether you&apos;re preparing for a big event or simply want to refresh your smile, our whitening treatments can:
+              <Markdown inline>{content.whyChoose.intro}</Markdown>
             </p>
           </div>
           
@@ -130,10 +224,9 @@ const TeethWhiteningPage = () => {
             >
               <div className="relative">
                 <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8"></div>
-                {/* <img src="/images/services/cosmetic/whitening/Image2.jpg" alt="Professional Teeth Whitening" className="relative w-full rounded-2xl shadow-2xl" /> */}
                     <Image
                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                                                src="hero/Services/cosmetic/7. teeth whitening/teeths-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg"
+                                                src={content.whyChoose.image}
                                                 alt="Modern denture solutions"
                                                 fill
                                                 className="object-contain"
@@ -148,26 +241,21 @@ const TeethWhiteningPage = () => {
               style={slideInRight('benefits-right')}
               className="space-y-6"
             >
-              {[
-                { icon: <Star className="w-6 h-6" />, text: "Lift stubborn stains caused by coffee, tea, wine, smoking, and more", color: "bg-purple-100 text-purple-600" },
-                { icon: <Clock className="w-6 h-6" />, text: "Be performed in-office for instant results, or at-home for your convenience", color: "bg-blue-100 text-blue-600" },
-                { icon: <Sparkles className="w-6 h-6" />, text: "Be tailored to your desired level of brightness", color: "bg-purple-100 text-purple-600" },
-                { icon: <Shield className="w-6 h-6" />, text: "Offer safe, dentist-supervised whitening with minimal to no sensitivity", color: "bg-purple-100 text-purple-600" }
-              ].map((benefit, index) => (
+              {content.whyChoose.benefits.map((benefit, index) => (
                 <div 
                   key={index} 
                   className="flex items-start bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className={`w-12 h-12 ${benefit.color} rounded-full flex items-center justify-center mr-4 flex-shrink-0`}>
-                    {benefit.icon}
+                    {iconMap[benefit.icon]}
                   </div>
-                  <p className="text-gray-700 text-lg leading-relaxed">{benefit.text}</p>
+                  <p className="text-gray-700 text-lg leading-relaxed"><Markdown inline>{benefit.text}</Markdown></p>
                 </div>
               ))}
               
               <div className="bg-gradient-to-r from-purple-500 to-red-500 text-white p-6 rounded-xl shadow-lg mt-8">
                 <p className="text-lg leading-relaxed">
-                  Our advanced formulas and precise application methods ensure that your enamel stays strong while your smile becomes visibly whiter.
+                  <Markdown inline>{content.whyChoose.footer}</Markdown>
                 </p>
               </div>
             </div>
@@ -185,17 +273,17 @@ const TeethWhiteningPage = () => {
             <div className="grid lg:grid-cols-1 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Is Teeth Whitening Safe?
+                  <Markdown inline>{content.safety.title}</Markdown>
                 </h2>
                 <div className="w-20 h-1 bg-purple-200 mb-8"></div>
                 <div className="text-2xl font-bold mb-6 text-purple-100">
-                  Absolutely.
+                  <Markdown inline>{content.safety.highlight}</Markdown>
                 </div>
                 <p className="text-lg mb-6 text-purple-100 leading-relaxed">
-                  At Prudentia, your comfort and safety come first. Dr. Bhushan personally ensures that your treatment is customized for your teeth type and aesthetic goals.
+                  <Markdown inline>{content.safety.paragraph1}</Markdown>
                 </p>
                 <p className="text-lg text-purple-100 leading-relaxed">
-                  We use protective barriers to shield your gums and soft tissues and guide you through the entire process from pre-treatment care to post-whitening maintenance.
+                  <Markdown inline>{content.safety.paragraph2}</Markdown>
                 </p>
               </div>
             </div>
@@ -212,7 +300,7 @@ const TeethWhiteningPage = () => {
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Are There Any Side Effects?
+                <Markdown inline>{content.sideEffects.title}</Markdown>
               </h2>
               <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
             </div>
@@ -220,16 +308,18 @@ const TeethWhiteningPage = () => {
             <div className="grid md:grid-cols-1 gap-8 items-center">
               <div>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Teeth whitening is generally well tolerated, but you may experience temporary sensitivity to hot or cold foods and drinks. This usually resolves within a few days.
+                  <Markdown inline>{content.sideEffects.description}</Markdown>
                 </p>
                 
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
                   <div className="flex items-start">
                     <Heart className="w-6 h-6 text-blue-500 mt-1 mr-3 flex-shrink-0" />
                     <div>
-                      <h3 className="font-bold text-blue-800 mb-2">Pro Tip:</h3>
+                      <h3 className="font-bold text-blue-800 mb-2">
+                        <Markdown inline>{content.sideEffects.proTipTitle}</Markdown>
+                      </h3>
                       <p className="text-blue-700">
-                        We recommend using a sensitivity-friendly toothpaste to ease any discomfort during recovery.
+                        <Markdown inline>{content.sideEffects.proTipText}</Markdown>
                       </p>
                     </div>
                   </div>
@@ -250,14 +340,13 @@ const TeethWhiteningPage = () => {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Reveal Your Radiant Smile
+              <Markdown inline>{content.revealSmile.title}</Markdown>
             </h2>
             <div className="w-20 h-1 bg-purple-500 mx-auto mb-8"></div>
             <div className="relative h-80 md:h-96 max-w-full shadow-2xl rounded-xl  shadow-lg mb-8">
-              {/* <img src="/images/services/cosmetic/whitening/Image3.jpg" alt="Radiant Smile Transformation" className="w-full rounded-2xl shadow-2xl mb-8" /> */}
                   <Image
                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                                              src="hero/Services/cosmetic/7. teeth whitening/teeth-whitenings-treatment-cosmetic-dentistry-prudentia-pune.jpg"
+                                              src={content.revealSmile.image}
                                               alt="Modern denture solutions"
                                               fill
                                               className="object-contain"
@@ -268,17 +357,17 @@ const TeethWhiteningPage = () => {
           
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              A brighter smile can take years off your appearance and give your confidence a real boost. If you&apos;ve been hiding your smile due to discoloration, it&apos;s time to rediscover your sparkle.
+              <Markdown inline>{content.revealSmile.paragraph}</Markdown>
             </p>
             
             <div className="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-800 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
               <p className="text-xl mb-8 leading-relaxed">
-                Contact us today at Prudentia Micro Dental Care, Pimple Saudagar to schedule your whitening consultation — and get ready to smile with complete confidence!
+                <Markdown inline>{content.revealSmile.ctaText}</Markdown>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button onClick={handleOpenChatbot} className="bg-white text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
-                  Schedule Consultation
+                  {content.revealSmile.ctaButton}
                 </button>
               </div>
             </div>

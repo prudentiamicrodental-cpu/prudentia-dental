@@ -1,14 +1,155 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Smile, Shield, Heart, CheckCircle, Award, Star, Users } from 'lucide-react';
+import { Smile, Shield, Heart, CheckCircle, Award, Star, Users, LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
+import { Metadata } from 'next';
+import Head from 'next/head';
+
+const iconMap: { [key: string]: LucideIcon } = {
+  Shield,
+  Heart,
+  CheckCircle,
+  Award,
+  Star,
+  Users,
+};
+
+const renderIcon = (name: string, className: string) => {
+  const IconComponent = iconMap[name];
+  if (!IconComponent) return null;
+  return <IconComponent className={className} />;
+};
+
+interface ImplantPart {
+  number: string;
+  title: string;
+  description: string;
+  icon: string;
+  iconColor: string;
+  color: string;
+  borderColor: string;
+}
+
+interface BenefitItem {
+  title: string;
+  description: string;
+  icon: string;
+  iconColor: string;
+  color: string;
+}
+
+interface Badge {
+  icon: string;
+  iconColor: string;
+  label: string;
+}
+interface MetaData{
+  title: string;
+  description: string 
+};
+
+interface HeroData {
+  titleLine1: string;
+  titleHighlight: string;
+  image: string;
+}
+
+interface IntroData {
+  paragraphs: string[];
+}
+
+interface PartsData {
+  title: string;
+  image: string;
+  items: ImplantPart[];
+  conclusion: string;
+}
+
+interface BenefitsData {
+  title: string;
+  image: string;
+  items: BenefitItem[];
+}
+
+interface RightForYouData {
+  title: string;
+  paragraphs: string[];
+  image: string;
+  badges: Badge[];
+}
+
+interface FinalCtaData {
+  titleLine: string;
+  titleHighlight: string;
+  paragraph: string;
+  buttonText: string;
+  footerText: string;
+}
+
+interface ImplantsData {
+  meta: MetaData;
+  hero: HeroData;
+  intro: IntroData;
+  parts: PartsData;
+  benefits: BenefitsData;
+  rightForYou: RightForYouData;
+  finalCta: FinalCtaData;
+}
+
+const EMPTY_DATA: ImplantsData = {
+  meta: { title: '', description: '' },
+  hero: { titleLine1: '', titleHighlight: '', image: '' },
+  intro: { paragraphs: [] },
+  parts: { title: '', image: '', items: [], conclusion: '' },
+  benefits: { title: '', image: '', items: [] },
+  rightForYou: { title: '', paragraphs: [], image: '', badges: [] },
+  finalCta: { titleLine: '', titleHighlight: '', paragraph: '', buttonText: '', footerText: '' },
+};
 
 const DentalImplantsPage = () => {
-    const { handleOpenChatbot } = useChatbot();
+  const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const [data, setData] = useState<ImplantsData>(EMPTY_DATA);
+
+ useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/surgical/implants.json";
+
+      const LOCAL_URL = "/data/service/surgical/implants.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: ImplantsData = await res.json();
+        setData(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: ImplantsData = await localRes.json();
+          setData(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
+  }, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,7 +170,7 @@ const DentalImplantsPage = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [data]);
 
   const fadeInUp = (id: string) => ({
     opacity: isVisible[id] ? 1 : 0,
@@ -49,62 +190,13 @@ const DentalImplantsPage = () => {
     transition: 'opacity 0.8s ease, transform 0.8s ease'
   });
 
-  const implantParts = [
-    {
-      number: "1",
-      title: "The Post",
-      description: "The implant post acts as a replacement for your natural tooth's root. Made of medical-grade titanium, it fuses with your jawbone during the healing process, providing a solid foundation for the restoration.",
-      icon: <Shield className="w-10 h-10 text-purple-600" />,
-      color: "from-purple-50 to-purple-100",
-      borderColor: "border-purple-200"
-    },
-    {
-      number: "2",
-      title: "The Abutment",
-      description: "The abutment is a connector that links the post to your custom replacement tooth (or teeth).",
-      icon: <Award className="w-10 h-10 text-green-600" />,
-      color: "from-green-50 to-green-100",
-      borderColor: "border-green-200"
-    },
-    {
-      number: "3",
-      title: "The Crown",
-      description: "The crown is a custom-designed tooth replacement that blends seamlessly with your natural teeth, providing a beautiful and functional restoration.",
-      icon: <Star className="w-10 h-10 text-purple-600" />,
-      color: "from-purple-50 to-purple-100",
-      borderColor: "border-purple-200"
-    }
-  ];
-
-  const benefits = [
-    {
-      title: "No Impact on Adjacent Teeth",
-      description: "Unlike traditional bridges, which require alteration of neighboring teeth, dental implants only affect the missing tooth site.",
-      icon: <Shield className="w-8 h-8 text-purple-600" />,
-      color: "bg-purple-50 border-purple-200"
-    },
-    {
-      title: "Stability and Functionality",
-      description: "Implants restore your ability to eat, speak, and smile with complete confidence, just like natural teeth.",
-      icon: <CheckCircle className="w-8 h-8 text-green-600" />,
-      color: "bg-green-50 border-green-200"
-    },
-    {
-      title: "Prevention of Bone Atrophy",
-      description: "By fusing with your jawbone, dental implants help prevent the bone loss that often occurs when teeth are missing.",
-      icon: <Heart className="w-8 h-8 text-red-600" />,
-      color: "bg-red-50 border-red-200"
-    },
-    {
-      title: "No Removable Parts",
-      description: "Implants are permanently fixed in place, offering comfort and stability without the need for unsightly, removable dentures.",
-      icon: <Star className="w-8 h-8 text-purple-600" />,
-      color: "bg-purple-50 border-purple-200"
-    }
-  ];
-
   return (
     <div className="min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50">
+      <Head>
+        <title>{data.meta.title}</title>
+        <meta name="description" content={data.meta.description} />
+      </Head>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-slate-700 via-purple-800 to-indigo-800 text-white">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -121,10 +213,10 @@ const DentalImplantsPage = () => {
                 </div>
                 <div>
                   <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                    Dental Implants:
+                    <Markdown inline>{data.hero.titleLine1}</Markdown>
                   </h1>
                   <p className="text-2xl lg:text-3xl text-yellow-300 font-semibold">
-                    Restore Your Smile with Confidence
+                    <Markdown inline>{data.hero.titleHighlight}</Markdown>
                   </p>
                 </div>
               </div>
@@ -136,19 +228,16 @@ const DentalImplantsPage = () => {
               style={slideInRight('hero-image')}
             >
               <div className="bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-sm relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src="/images/services/surgical/implants/Image1.jpg" 
-                  alt="Dental Implants Overview" 
-                  className="rounded-xl shadow-2xl"
-                /> */}
-       <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/2. implants/titanium-dental-implant-placement-pune-prudentia-micro-dental.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />                 
+                {data.hero.image && (
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.hero.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -165,14 +254,14 @@ const DentalImplantsPage = () => {
             data-animate
             style={fadeInUp('intro')}
           >
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-              Dental implants are a reliable and natural-looking solution for those looking to replace missing teeth. 
-              Whether you&apos;ve lost a single tooth or several, dental implants offer a predictable and effective restoration.
-            </p>
-            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-              A dental implant is a three-part system designed to replace one, several, or even a full set of missing 
-              teeth. Here&apos;s how it works:
-            </p>
+            {data.intro.paragraphs.map((paragraph, index) => (
+              <p
+                key={index}
+                className={index === 0 ? "text-lg lg:text-xl text-gray-700 leading-relaxed mb-8" : "text-lg lg:text-xl text-gray-700 leading-relaxed"}
+              >
+                <Markdown inline>{paragraph}</Markdown>
+              </p>
+            ))}
           </div>
         </div>
       </section>
@@ -188,27 +277,24 @@ const DentalImplantsPage = () => {
               style={fadeInUp('parts-title')}
             >
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8 ">
-                The Three Parts of a Dental Implant:
+                <Markdown inline>{data.parts.title}</Markdown>
               </h2>
-              <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src="/images/services/surgical/implants/Image2.jpg" 
-                  alt="Three Parts of Dental Implant" 
-                  className="w-full rounded-2xl shadow-xl"
-                /> */}
-       <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/2. implants/titanium-dental-implants-placement-pune-prudentia-micro-dental.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />                 
-              </div>
+              {data.parts.image && (
+                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.parts.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
             </div>
 
             <div className="space-y-8 mb-12">
-              {implantParts.map((part, index) => (
+              {data.parts.items.map((part, index) => (
                 <div 
                   key={index}
                   className={`bg-gradient-to-r ${part.color} rounded-2xl shadow-lg border-2 ${part.borderColor} overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}
@@ -219,18 +305,18 @@ const DentalImplantsPage = () => {
                   <div className="lg:flex">
                     <div className="lg:w-1/4 p-8 flex flex-col items-center justify-center text-center bg-white bg-opacity-50">
                       <div className="bg-white rounded-full p-4 shadow-lg mb-4">
-                        {part.icon}
+                        {renderIcon(part.icon, `w-10 h-10 ${part.iconColor}`)}
                       </div>
                       <div className="text-4xl font-bold text-gray-800 mb-2">
                         {part.number}
                       </div>
                       <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
-                        {part.title}
+                        <Markdown inline>{part.title}</Markdown>
                       </h3>
                     </div>
                     <div className="lg:w-3/4 p-8 flex items-center">
                       <p className="text-lg text-gray-700 leading-relaxed">
-                        {part.description}
+                        <Markdown inline>{part.description}</Markdown>
                       </p>
                     </div>
                   </div>
@@ -245,8 +331,7 @@ const DentalImplantsPage = () => {
               style={fadeInUp('parts-conclusion')}
             >
               <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                The fusion of the implant post with the jawbone creates a secure, long-lasting foundation for single-tooth 
-                crowns, multi-tooth bridges, or even full fixed dentures.
+                <Markdown inline>{data.parts.conclusion}</Markdown>
               </p>
             </div>
           </div>
@@ -264,27 +349,24 @@ const DentalImplantsPage = () => {
               style={fadeInUp('benefits-title')}
             >
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8 ">
-                Benefits of Dental Implants:
+                <Markdown inline>{data.benefits.title}</Markdown>
               </h2>
-              <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src="/images/services/surgical/implants/Image3.jpg" 
-                  alt="Benefits of Dental Implants" 
-                  className="w-full rounded-2xl shadow-xl"
-                /> */}
-                       <Image
-                         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/2. implants/natural-looking-dentals-implants-smile-restoration-prudentia-dental.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />  
-              </div>
+              {data.benefits.image && (
+                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.benefits.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => (
+              {data.benefits.items.map((benefit, index) => (
                 <div 
                   key={index}
                   className={`bg-white rounded-2xl shadow-lg border-2 ${benefit.color} p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
@@ -294,14 +376,14 @@ const DentalImplantsPage = () => {
                 >
                   <div className="flex items-start space-x-4">
                     <div className="bg-white p-3 rounded-xl shadow-md flex-shrink-0">
-                      {benefit.icon}
+                      {renderIcon(benefit.icon, `w-8 h-8 ${benefit.iconColor}`)}
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-800 mb-3">
-                        {benefit.title}
+                        <Markdown inline>{benefit.title}</Markdown>
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {benefit.description}
+                        <Markdown inline>{benefit.description}</Markdown>
                       </p>
                     </div>
                   </div>
@@ -323,20 +405,16 @@ const DentalImplantsPage = () => {
                 style={slideInLeft('right-content')}
               >
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8">
-                  Are Dental Implants Right for You?
+                  <Markdown inline>{data.rightForYou.title}</Markdown>
                 </h2>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-                  Dental implants are durable and long-lasting with proper care. Most patients who are healthy enough to 
-                  undergo a minor dental procedure, like a tooth extraction, can typically qualify for implants.
-                </p>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-                  At Prudentia Micro Dental Care, Pimple Saudagar our team will help you explore your options, whether 
-                  dental implants or other restoration treatments, and determine if you are a good candidate.
-                </p>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                  We provide a calm, welcoming environment and personalized care to ensure that your visit is 
-                  comfortable and your treatment is tailored to your needs.
-                </p>
+                {data.rightForYou.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className={index < data.rightForYou.paragraphs.length - 1 ? "text-lg lg:text-xl text-gray-700 leading-relaxed mb-8" : "text-lg lg:text-xl text-gray-700 leading-relaxed"}
+                  >
+                    <Markdown inline>{paragraph}</Markdown>
+                  </p>
+                ))}
               </div>
               <div 
                 className="flex justify-center"
@@ -345,33 +423,26 @@ const DentalImplantsPage = () => {
                 style={slideInRight('right-image')}
               >
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  {/* <img 
-                    src="/images/services/surgical/implants/Image4.jpg" 
-                    alt="Are Dental Implants Right for You" 
-                    className="w-full h-64 lg:h-80 object-cover"
-                  /> */}
-                         <Image
-                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/2. implants/natural-lookings-dental-implants-smile-restoration-prudentia-dental.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />  
+                  {data.rightForYou.image && (
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={data.rightForYou.image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  )}
                   <div className="p-6 bg-gradient-to-r from-purple-50 to-indigo-50">
                     <div className="flex justify-center space-x-4">
-                      <div className="text-center">
-                        <Users className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                        <p className="text-sm font-medium text-gray-700">Expert Team</p>
-                      </div>
-                      <div className="text-center">
-                        <Heart className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                        <p className="text-sm font-medium text-gray-700">Personalized Care</p>
-                      </div>
-                      <div className="text-center">
-                        <Shield className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                        <p className="text-sm font-medium text-gray-700">Safe Environment</p>
-                      </div>
+                      {data.rightForYou.badges.map((badge, index) => (
+                        <div key={index} className="text-center">
+                          {renderIcon(badge.icon, `w-8 h-8 ${badge.iconColor} mx-auto mb-2`)}
+                          <p className="text-sm font-medium text-gray-700">
+                            <Markdown inline>{badge.label}</Markdown>
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -382,35 +453,34 @@ const DentalImplantsPage = () => {
       </section>
 
       {/* Contact Section */}
-     <section className="py-20 bg-white">
-          <div className="container mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <Markdown inline>{data.finalCta.titleLine}</Markdown> <span className="text-purple-600"><Markdown inline>{data.finalCta.titleHighlight}</Markdown></span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+              <Markdown inline>{data.finalCta.paragraph}</Markdown>
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleOpenChatbot}
+              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-lg"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Take the First Step Toward a <span className="text-purple-600">Pain-Free, Healthy Smile</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                 Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step 
-                toward a healthier, pain-free smile!
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                 onClick={handleOpenChatbot}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-lg"
-              >
-                Book Your Micro-Root Consultation Today <FiArrowRight className="ml-2" />
-              </motion.button>
-              <p className="text-gray-500 mt-6">
-                Your natural smile deserves the best care available
-              </p>
-            </motion.div>
-          </div>
-        </section>
+              {data.finalCta.buttonText} <FiArrowRight className="ml-2" />
+            </motion.button>
+            <p className="text-gray-500 mt-6">
+              <Markdown inline>{data.finalCta.footerText}</Markdown>
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

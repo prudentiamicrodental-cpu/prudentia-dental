@@ -1,63 +1,42 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Markdown from './markdown';
 
 interface MobileServicesDropdownProps {
   onClick?: () => void;
 }
 
+interface ServiceItem {
+  name: string;
+  href: string;
+}
+
+interface ServiceCategory {
+  category: string;
+  iconPaths: string[];
+  items: ServiceItem[];
+}
+
 const MobileServicesDropdown = ({ onClick }: MobileServicesDropdownProps) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openSubCategory, setOpenSubCategory] = useState<string | null>(null);
+  const [services, setServices] = useState<ServiceCategory[]>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const services = {
-    "Micro Examinations & Cleanings": [
-      { name: "Micro Examinations and Cleanings", href: "/services/micro" },
-    ],
-    "Contemporary Root Treatments": [
-      { name: "Micro-Root Treatment", href: "/services/root/microroot" },
-      { name: "Revisional Micro-Root Therapy", href: "/services/root/roottherapy" },
-      { name: "Micro-Surgical Root Therapy", href: "/services/root/microsurgical" },
-      { name: "Regenerative Root Procedures", href: "/services/root/rootprocedures" },
-    ],
-    "Minimally Invasive Cosmetic Dentistry": [
-      { name: "Smile Recreations", href: "/services/cosmetic/smile" },
-      { name: "Enamel Reshaping", href: "/services/cosmetic/enamel" },
-      { name: "Bonding (Tooth Colored Fillings)", href: "/services/cosmetic/bonding" },
-      { name: "Tooth Jewellery", href: "/services/cosmetic/jewellery" },
-      { name: "Sealants", href: "/services/cosmetic/sealants" },
-      { name: "Veneers", href: "/services/cosmetic/veneers" },
-      { name: "Teeth Whitening", href: "/services/cosmetic/whitening" },
-    ],
-    "Restorative Dentistry": [
-      { name: "Tooth Colored Fillings", href: "/services/restorative/coloured" },
-      { name: "Inlays and Onlays", href: "/services/restorative/inlays" },
-      { name: "Crowns and Bridges", href: "/services/restorative/crowns" },
-      { name: "Full Mouth Rehabilitation", href: "/services/restorative/rehabilitation" },
-    ],
-    "Preventive & Holistic Dentistry": [
-      { name: "Oral Hygiene Measures", href: "/services/preventive/oral" },
-      { name: "Mouth & Sport Guards", href: "/services/preventive/guards" },
-      { name: "Holistic Dental Treatments", href: "/services/preventive/holistic" },
-    ],
-    "Children's Dentistry": [
-      { name: "Children's Dental Services", href: "/services/childrens" },
-    ],
-    "Surgical": [
-      { name: "Wisdom Tooth Extraction", href: "/services/surgical/wisdom" },
-      { name: "Implants", href: "/services/surgical/implants" },
-      { name: "Gum Care", href: "/services/surgical/gumcare" },
-    ],
-    "Braces": [
-      { name: "Metal & Ceramic Braces", href: "/services/braces/braces" },
-      { name: "Aligners", href: "/services/braces/aligners" },
-    ],
-    "Dentures": [
-      { name: "Conventional Dentures & Implant Supported Dentures", href: "/services/dentures" },
-    ],
-  };
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/data/home/services-menu.json')
+      .then((res) => res.json())
+      .then((data: ServiceCategory[]) => {
+        if (isMounted) setServices(data);
+      })
+      .catch((err) => console.error('Failed to load services menu:', err));
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
@@ -100,7 +79,7 @@ const MobileServicesDropdown = ({ onClick }: MobileServicesDropdownProps) => {
       {/* Services Submenu */}
       {isServicesOpen && (
         <div className="pl-4 bg-gray-50">
-          {Object.entries(services).map(([category, items]) => (
+          {services.map(({ category, items }) => (
             <div key={category} className="border-b border-gray-200 last:border-b-0">
               {/* Category Button */}
               <button
@@ -133,13 +112,25 @@ const MobileServicesDropdown = ({ onClick }: MobileServicesDropdownProps) => {
                       className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-md transition-colors"
                       onClick={handleServiceClick} // Use the new handler here
                     >
-                      {service.name}
+                      <Markdown>{service.name}</Markdown>
                     </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
+          <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 sticky bottom-0">
+            <Link
+              href="https://blog.prudentiamicrodental.in/"
+              className="text-blue-600 font-medium text-sm hover:underline flex items-center"
+              onClick={() => setIsServicesOpen(false)}
+            >
+              All dental services
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       )}
     </div>

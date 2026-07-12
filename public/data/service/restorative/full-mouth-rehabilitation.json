@@ -1,0 +1,99 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Full Mouth Rehabilitation at Prudentia Micro Dental Care",
+    "highlightedText": "Prudentia Micro",
+    "subtitle": "Dental Care",
+    "tags": [
+      "Rebuild Your Smile",
+      "Restore Your Confidence"
+    ],
+    "image": "hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehab-smile-makeover-prudentia-pune.jpg"
+  },
+  "introduction": {
+    "paragraph1": "Sometimes, dental problems don't occur in isolation. When multiple teeth are damaged, missing, or decayed or when gum disease and bite issues are also involved, a full mouth rehabilitation may be the best path toward lasting oral health and a beautiful smile.",
+    "paragraph2": "At Prudentia Micro Dental Care, we specialize in comprehensive, minimally invasive treatment plans tailored to restore both function and aesthetics giving you back a smile that looks and feels natural.",
+    "highlightedText": "Prudentia Micro Dental Care"
+  },
+  "whatIs": {
+    "title": "What Is Full Mouth Rehabilitation?",
+    "image": "hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehabilitation-smile-makeover-prudentia-micro-dental-care.jpg",
+    "description": "Full mouth rehabilitation combines multiple restorative and cosmetic dental treatments to address complex dental issues in a cohesive, personalized plan. The goal is not just cosmetic enhancement, but also to:",
+    "goals": [
+      {
+        "icon": "Shield",
+        "title": "Strengthen weakened tooth structures"
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Repair damage and decay"
+      },
+      {
+        "icon": "Zap",
+        "title": "Improve bite alignment"
+      },
+      {
+        "icon": "Heart",
+        "title": "Restore healthy gum tissues"
+      },
+      {
+        "icon": "Smile",
+        "title": "Replace missing teeth for full functionality"
+      }
+    ],
+    "consultationText": "Every plan begins with a detailed consultation. Dr. Bhushan will evaluate your oral health, discuss your concerns, and recommend the best combination of treatments to conservatively rebuild your smile.",
+    "highlightedText": "Dr. Bhushan"
+  },
+  "whyEssential": {
+    "title": "Why Is Restorative Dentistry Essential?",
+    "highlight": "Unlike other parts of the body, teeth do not heal on their own.",
+    "description": "Left untreated, even minor issues like chips or cavities can worsen, leading to pain, infection, and tooth loss. Full mouth rehabilitation helps you get ahead of these problems with a long-term solution."
+  },
+  "treatments": {
+    "title": "Your Customized Treatment May Include:",
+    "items": [
+      "Tooth-Colored Fillings – to treat cavities discreetly",
+      "Dental Crowns – to strengthen and protect damaged teeth",
+      "Porcelain Veneers – for cosmetic enhancement and correction",
+      "Dental Implants – to permanently replace missing teeth",
+      "Gum Treatments – to eliminate infection and restore periodontal health",
+      "Inlays/Onlays, Bridges & More – depending on your unique case"
+    ]
+  },
+  "whyChoose": {
+    "title": "Why Choose Dr. Bhushan?",
+    "image": "hero/Services/restorative/4. Full mouth rehabilitation/dr-bhushan-full-mouth-rehab-microscope-prudentia-micro-dental-care.jpg",
+    "features": [
+      {
+        "icon": "Microscope",
+        "title": "Advanced Technology",
+        "description": "From dental microscopes to CAD-CAM design for precision and minimal invasiveness",
+        "gradient": "from-purple-500 to-indigo-600"
+      },
+      {
+        "icon": "Star",
+        "title": "Experience & Artistry",
+        "description": "Years of expertise in full mouth restorations and smile design",
+        "gradient": "from-purple-500 to-pink-600"
+      },
+      {
+        "icon": "Heart",
+        "title": "Compassionate Care",
+        "description": "A step-by-step, stress-free approach tailored to your comfort and goals",
+        "gradient": "from-purple-500 to-purple-600"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Take the First Step Toward a Healthier Smile",
+    "image": "hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehab-smile-makeover-prudentia-micro-dental-care-pimple-saudagar.jpg",
+    "description": "If you're struggling with multiple dental issues or feel like you've \"fallen behind\" on your oral health, you're not alone, and it's never too late. With full mouth rehabilitation, you can reclaim both the appearance and strength of your teeth in a way that feels truly transformative.",
+    "callToAction": "Contact Prudentia Micro Dental Care, Pimple Saudagar today to schedule a consultation and explore how we can help you smile again - confidently, comfortably and completely.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Schedule Consultation",
+    "buttonIcon": "Calendar"
+  }
+}

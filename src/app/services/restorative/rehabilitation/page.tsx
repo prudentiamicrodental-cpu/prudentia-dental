@@ -13,99 +13,190 @@ import {
 } from "lucide-react";
 import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
+import Markdown from '@/components/markdown';
+import Head from "next/head";
+
+interface RehabilitationGoal {
+  icon: string;
+  title: string;
+}
+
+interface WhyChooseFeature {
+  icon: string;
+  title: string;
+  description: string;
+  gradient: string;
+}
+
+interface FullMouthRehabilitationData {
+  meta: { title: '', description: '' },
+  hero: {
+    title: string;
+    highlightedText: string;
+    subtitle: string;
+    tags: string[];
+    image: string;
+  };
+  introduction: {
+    paragraph1: string;
+    paragraph2: string;
+    highlightedText: string;
+  };
+  whatIs: {
+    title: string;
+    image: string;
+    description: string;
+    goals: RehabilitationGoal[];
+    consultationText: string;
+    highlightedText: string;
+  };
+  whyEssential: {
+    title: string;
+    highlight: string;
+    description: string;
+  };
+  treatments: {
+    title: string;
+    items: string[];
+  };
+  whyChoose: {
+    title: string;
+    image: string;
+    features: WhyChooseFeature[];
+  };
+  cta: {
+    title: string;
+    image: string;
+    description: string;
+    callToAction: string;
+    highlightedText: string;
+    buttonText: string;
+    buttonIcon: string;
+  };
+}
+
+const iconMap: { [key: string]: React.ComponentType<any> } = {
+  Shield,
+  Heart,
+  Zap,
+  CheckCircle,
+  Microscope,
+  Star,
+  Calendar,
+  Smile,
+  RefreshCw,
+};
 
 export default function FullMouthRehabilitation() {
   const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState(false);
+  const [content, setContent] = useState<FullMouthRehabilitationData | null>(null);
 
-  useEffect(() => {
-    setIsVisible(true);
+ useEffect(() => {
+    async function loadData() {
+
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/restorative/full-mouth-rehabilitation.json";
+
+      const LOCAL_URL = "/data/service/restorative/full-mouth-rehabilitation.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: FullMouthRehabilitationData = await res.json();
+        setContent(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: FullMouthRehabilitationData = await localRes.json();
+          setContent(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
   }, []);
 
+
+  useEffect(() => {
+    if (content) {
+      setIsVisible(true);
+    }
+  }, [content]);
+
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-purple-50 via-white to-purple-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   const fadeInUp = {
-    initial: { opacity: 0, transform: "translateY(60px)" },
-    animate: { opacity: 1, transform: "translateY(0px)" },
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0px)" : "translateY(60px)",
     transition: "all 1s ease-out",
   };
 
   const staggerDelay = (index: number) => ({
-    ...fadeInUp,
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0px)" : "translateY(60px)",
     transition: `all 1s ease-out ${index * 0.25}s`,
   });
 
-  const rehabilitationGoals = [
-    { icon: Shield, title: "Strengthen weakened tooth structures" },
-    { icon: RefreshCw, title: "Repair damage and decay" },
-    { icon: Zap, title: "Improve bite alignment" },
-    { icon: Heart, title: "Restore healthy gum tissues" },
-    { icon: Smile, title: "Replace missing teeth for full functionality" },
-  ];
-
-  const treatments = [
-    "Tooth-Colored Fillings – to treat cavities discreetly",
-    "Dental Crowns – to strengthen and protect damaged teeth",
-    "Porcelain Veneers – for cosmetic enhancement and correction",
-    "Dental Implants – to permanently replace missing teeth",
-    "Gum Treatments – to eliminate infection and restore periodontal health",
-    "Inlays/Onlays, Bridges & More – depending on your unique case",
-  ];
-
-  const whyChooseFeatures = [
-    {
-      title: "Advanced Technology",
-      description:
-        "From dental microscopes to CAD-CAM design for precision and minimal invasiveness",
-      icon: Microscope,
-      gradient: "from-purple-500 to-indigo-600",
-    },
-    {
-      title: "Experience & Artistry",
-      description:
-        "Years of expertise in full mouth restorations and smile design",
-      icon: Star,
-      gradient: "from-purple-500 to-pink-600",
-    },
-    {
-      title: "Compassionate Care",
-      description:
-        "A step-by-step, stress-free approach tailored to your comfort and goals",
-      icon: Heart,
-      gradient: "from-purple-500 to-purple-600",
-    },
-  ];
-
   return (
     <div className="min-h-screen overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-50">
+      <Head>
+              <title>{content.meta.title}</title>
+              <meta name="description" content={content.meta.description} />
+        </Head>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-600 to-purple-600 text-white">
-        <div className="absolute inset-0  bg-opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
+        <div className="absolute inset-0 bg-opacity-10"></div>
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
           <div
             className="text-center space-y-10"
-            style={isVisible ? fadeInUp : {}}
+            style={fadeInUp}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-              Full Mouth Rehabilitation
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <Markdown inline>{content.hero.title.split(content.hero.highlightedText)[0]}</Markdown>
               <br />
-              at <span className="text-yellow-300">Prudentia Micro</span>
+              at <span className="text-yellow-300"><Markdown inline>{content.hero.highlightedText}</Markdown></span>
               <br />
-              Dental Care
+              <Markdown inline>{content.hero.subtitle}</Markdown>
             </h1>
             <div className="flex text-black flex-col sm:flex-row justify-center items-center gap-6 text-2xl md:text-3xl font-semibold">
-              <span className="bg-white bg-opacity-20 px-8 py-4 rounded-full backdrop-blur-sm border border-white/30">
-                Rebuild Your Smile
-              </span>
-              <span className="hidden sm:block text-3xl">•</span>
-              <span className="bg-white bg-opacity-20 px-8 py-4 rounded-full backdrop-blur-sm border border-white/30">
-                Restore Your Confidence
-              </span>
+              {content.hero.tags.map((tag, index) => (
+                <React.Fragment key={index}>
+                  <span className="bg-white bg-opacity-20 px-8 py-4 rounded-full backdrop-blur-sm border border-white/30">
+                    <Markdown inline>{tag}</Markdown>
+                  </span>
+                  {index < content.hero.tags.length - 1 && (
+                    <span className="hidden sm:block text-3xl">•</span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
             <div className="mt-16">
               <div className="bg-white bg-opacity-15 rounded-3xl p-10 backdrop-blur-sm border border-white/20 max-w-5xl mx-auto relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
                 <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src="hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehab-smile-makeover-prudentia-pune.jpg"
-                  alt="Modern denture solutions"
+                  src={content.hero.image}
+                  alt="Full mouth rehabilitation"
                   fill
                   className="object-contain"
                   priority
@@ -123,24 +214,18 @@ export default function FullMouthRehabilitation() {
         <section className="mb-32">
           <div
             className="text-center max-w-6xl mx-auto"
-            style={isVisible ? staggerDelay(1) : {}}
+            style={staggerDelay(1)}
           >
             <div className="bg-white rounded-3xl p-12 md:p-20 shadow-2xl border border-gray-100">
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">
-                Sometimes, dental problems don&apos;t occur in isolation. When
-                multiple teeth are damaged, missing, or decayed or when gum
-                disease and bite issues are also involved, a full mouth
-                rehabilitation may be the best path toward lasting oral health
-                and a beautiful smile.
+                <Markdown inline>{content.introduction.paragraph1}</Markdown>
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                At{" "}
+                <Markdown inline>{content.introduction.paragraph2.split(content.introduction.highlightedText)[0]}</Markdown>
                 <span className="font-bold text-purple-600">
-                  Prudentia Micro Dental Care
+                  <Markdown inline>{content.introduction.highlightedText}</Markdown>
                 </span>
-                , we specialize in comprehensive, minimally invasive treatment
-                plans tailored to restore both function and aesthetics giving
-                you back a smile that looks and feels natural.
+                <Markdown inline>{content.introduction.paragraph2.split(content.introduction.highlightedText)[1]}</Markdown>
               </p>
             </div>
           </div>
@@ -150,17 +235,17 @@ export default function FullMouthRehabilitation() {
         <section className="mb-32">
           <div
             className="text-center mb-20"
-            style={isVisible ? staggerDelay(2) : {}}
+            style={staggerDelay(2)}
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-16">
-              What Is Full Mouth Rehabilitation?
+              <Markdown inline>{content.whatIs.title}</Markdown>
             </h2>
 
             <div className="bg-white rounded-3xl p-10 shadow-2xl inline-block mb-16 border border-gray-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehabilitation-smile-makeover-prudentia-micro-dental-care.jpg"
-                alt="Modern denture solutions"
+                src={content.whatIs.image}
+                alt="Full mouth rehabilitation procedure"
                 fill
                 className="object-contain"
                 priority
@@ -169,40 +254,39 @@ export default function FullMouthRehabilitation() {
 
             <div className="bg-white rounded-3xl p-12 md:p-16 shadow-xl border border-gray-100 max-w-6xl mx-auto mb-16">
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-12">
-                Full mouth rehabilitation combines multiple restorative and
-                cosmetic dental treatments to address complex dental issues in a
-                cohesive, personalized plan. The goal is not just cosmetic
-                enhancement, but also to:
+                <Markdown inline>{content.whatIs.description}</Markdown>
               </p>
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {rehabilitationGoals.map((goal, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 text-center"
-                style={isVisible ? staggerDelay(3 + index) : {}}
-              >
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <goal.icon className="w-10 h-10 text-white" />
+            {content.whatIs.goals.map((goal, index) => {
+              const IconComponent = iconMap[goal.icon];
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 text-center"
+                  style={staggerDelay(3 + index)}
+                >
+                  <div className="bg-gradient-to-r from-purple-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    {IconComponent && <IconComponent className="w-10 h-10 text-white" />}
+                  </div>
+                  <p className="text-lg font-semibold text-gray-800 leading-relaxed">
+                    <Markdown inline>{goal.title}</Markdown>
+                  </p>
                 </div>
-                <p className="text-lg font-semibold text-gray-800 leading-relaxed">
-                  {goal.title}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div
             className="bg-gradient-to-r from-purple-600 to-purple-600 rounded-3xl p-12 md:p-16 text-white text-center"
-            style={isVisible ? staggerDelay(8) : {}}
+            style={staggerDelay(8)}
           >
             <p className="text-xl md:text-2xl leading-relaxed mb-8">
-              Every plan begins with a detailed consultation.{" "}
-              <span className="font-bold">Dr. Bhushan</span> will evaluate your
-              oral health, discuss your concerns, and recommend the best
-              combination of treatments to conservatively rebuild your smile.
+              <Markdown inline>{content.whatIs.consultationText.split(content.whatIs.highlightedText)[0]}</Markdown>
+              <span className="font-bold"><Markdown inline>{content.whatIs.highlightedText}</Markdown></span>
+              <Markdown inline>{content.whatIs.consultationText.split(content.whatIs.highlightedText)[1]}</Markdown>
             </p>
           </div>
         </section>
@@ -211,21 +295,18 @@ export default function FullMouthRehabilitation() {
         <section className="mb-32">
           <div
             className="bg-white rounded-3xl p-12 md:p-20 shadow-2xl border border-gray-100 text-center"
-            style={isVisible ? staggerDelay(9) : {}}
+            style={staggerDelay(9)}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-12">
-              Why Is Restorative Dentistry Essential?
+              <Markdown inline>{content.whyEssential.title}</Markdown>
             </h2>
 
             <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-10 border-l-8 border-red-500 mb-10">
               <p className="text-2xl font-bold text-gray-800 mb-6">
-                Unlike other parts of the body, teeth do not heal on their own.
+                <Markdown inline>{content.whyEssential.highlight}</Markdown>
               </p>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                Left untreated, even minor issues like chips or cavities can
-                worsen, leading to pain, infection, and tooth loss. Full mouth
-                rehabilitation helps you get ahead of these problems with a
-                long-term solution.
+                <Markdown inline>{content.whyEssential.description}</Markdown>
               </p>
             </div>
           </div>
@@ -235,26 +316,26 @@ export default function FullMouthRehabilitation() {
         <section className="mb-32">
           <div
             className="text-center mb-20"
-            style={isVisible ? staggerDelay(10) : {}}
+            style={staggerDelay(10)}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16">
-              Your Customized Treatment May Include:
+              <Markdown inline>{content.treatments.title}</Markdown>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {treatments.map((treatment, index) => (
+            {content.treatments.items.map((treatment, index) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
-                style={isVisible ? staggerDelay(11 + index) : {}}
+                style={staggerDelay(11 + index)}
               >
                 <div className="flex items-start space-x-4">
                   <div className="bg-gradient-to-r from-purple-500 to-purple-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-lg text-gray-700 font-medium leading-relaxed">
-                    {treatment}
+                    <Markdown inline>{treatment}</Markdown>
                   </p>
                 </div>
               </div>
@@ -266,17 +347,17 @@ export default function FullMouthRehabilitation() {
         <section className="mb-32">
           <div
             className="text-center mb-20"
-            style={isVisible ? staggerDelay(17) : {}}
+            style={staggerDelay(17)}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-16">
-              Why Choose Dr. Bhushan?
+              <Markdown inline>{content.whyChoose.title}</Markdown>
             </h2>
 
             <div className="bg-white rounded-3xl p-10 shadow-2xl inline-block mb-16 border border-gray-100 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Services/restorative/4. Full mouth rehabilitation/dr-bhushan-full-mouth-rehab-microscope-prudentia-micro-dental-care.jpg"
-                alt="Modern denture solutions"
+                src={content.whyChoose.image}
+                alt="Dr. Bhushan full mouth rehabilitation"
                 fill
                 className="object-contain"
                 priority
@@ -285,25 +366,28 @@ export default function FullMouthRehabilitation() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-10">
-            {whyChooseFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 text-center"
-                style={isVisible ? staggerDelay(18 + index) : {}}
-              >
+            {content.whyChoose.features.map((feature, index) => {
+              const IconComponent = iconMap[feature.icon];
+              return (
                 <div
-                  className={`bg-gradient-to-r ${feature.gradient} w-20 h-20 rounded-full flex items-center justify-center mb-8 mx-auto`}
+                  key={index}
+                  className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 text-center"
+                  style={staggerDelay(18 + index)}
                 >
-                  <feature.icon className="w-10 h-10 text-white" />
+                  <div
+                    className={`bg-gradient-to-r ${feature.gradient} w-20 h-20 rounded-full flex items-center justify-center mb-8 mx-auto`}
+                  >
+                    {IconComponent && <IconComponent className="w-10 h-10 text-white" />}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                    <Markdown inline>{feature.title}</Markdown>
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    <Markdown inline>{feature.description}</Markdown>
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                  {feature.title}
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -311,18 +395,18 @@ export default function FullMouthRehabilitation() {
         <section className="text-center">
           <div
             className="bg-gradient-to-r from-purple-600 via-purple-600 to-purple-600 rounded-3xl p-12 md:p-20 text-white shadow-2xl"
-            style={isVisible ? staggerDelay(21) : {}}
+            style={staggerDelay(21)}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-12">
-              Take the First Step Toward
+              <Markdown inline>{content.cta.title.split("a Healthier Smile")[0]}</Markdown>
               <br />a Healthier Smile
             </h2>
 
             <div className="bg-white bg-opacity-15 rounded-3xl p-10 backdrop-blur-sm border border-white/20 mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
               <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                src="hero/Services/restorative/4. Full mouth rehabilitation/full-mouth-rehab-smile-makeover-prudentia-micro-dental-care-pimple-saudagar.jpg"
-                alt="Modern denture solutions"
+                src={content.cta.image}
+                alt="Full mouth rehabilitation results"
                 fill
                 className="object-contain"
                 priority
@@ -331,20 +415,15 @@ export default function FullMouthRehabilitation() {
 
             <div className="max-w-5xl mx-auto space-y-8 mb-12">
               <p className="text-xl md:text-2xl leading-relaxed opacity-95">
-                If you&apos;re struggling with multiple dental issues or feel
-                like you&apos;ve &quot;fallen behind&quot; on your oral health,
-                you&apos;re not alone, and it&apos;s never too late. With full
-                mouth rehabilitation, you can reclaim both the appearance and
-                strength of your teeth in a way that feels truly transformative.
+                <Markdown inline>{content.cta.description}</Markdown>
               </p>
 
               <p className="text-lg md:text-xl leading-relaxed opacity-90">
-                Contact{" "}
+                <Markdown inline>{content.cta.callToAction.split(content.cta.highlightedText)[0]}</Markdown>
                 <span className="font-bold">
-                  Prudentia Micro Dental Care, Pimple Saudagar
-                </span>{" "}
-                today to schedule a consultation and explore how we can help you
-                smile again - confidently, comfortably and completely.
+                  <Markdown inline>{content.cta.highlightedText}</Markdown>
+                </span>
+                <Markdown inline>{content.cta.callToAction.split(content.cta.highlightedText)[1]}</Markdown>
               </p>
             </div>
 
@@ -354,7 +433,7 @@ export default function FullMouthRehabilitation() {
                 className="bg-purple-200 text-purple-900 px-12 py-5 rounded-full text-xl font-bold hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-4"
               >
                 <Calendar className="w-7 h-7" />
-                Schedule Consultation
+                {content.cta.buttonText}
               </button>
             </div>
           </div>

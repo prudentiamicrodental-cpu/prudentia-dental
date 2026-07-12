@@ -1,5 +1,6 @@
 import { Image } from '@imagekit/next';
 import { CheckCircleIcon } from 'lucide-react';
+import Markdown from './markdown';
 
 const ServiceCard = ({
   mainTitle,
@@ -41,22 +42,22 @@ const ServiceCard = ({
       <div className="p-6">
         <div className="mb-3 flex items-center gap-2">
           <div className="h-1 w-8 bg-blue-600"></div>
-          <span className="text-sm font-medium uppercase tracking-wider text-blue-600">
+          <Markdown className="text-sm font-medium uppercase tracking-wider text-blue-600">
             {mainTitle}
-          </span>
+          </Markdown>
         </div>
         
-        <h3 className="mb-2 text-xl font-bold text-gray-900">{title}</h3>
+        <Markdown className="mb-2 text-xl font-bold text-gray-900">{title}</Markdown>
         
-        <h4 className="mb-3 text-lg font-semibold text-gray-700">{subtitle}</h4>
+        <Markdown className="mb-3 text-lg font-semibold text-gray-700">{subtitle}</Markdown>
         
-        <p className="mb-4 text-gray-600">{description}</p>
+        <Markdown className="mb-4 text-gray-600">{description}</Markdown>
         
         <ul className="mb-6 space-y-2 text-gray-600">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
               <CheckCircleIcon className="mr-2 h-5 w-5 flex-shrink-0 text-blue-500" />
-              <span>{feature}</span>
+              <Markdown>{feature}</Markdown>
             </li>
           ))}
         </ul>
@@ -65,7 +66,7 @@ const ServiceCard = ({
             <div className="border-4 w-full border-purple-600 border-solid ..."></div>  
         </div>
         
-        <p className="mt-4 text-sm  font-medium text-gray-500">{tagline}</p>
+        <Markdown className="mt-4 text-sm  font-medium text-gray-500">{tagline}</Markdown>
       </div>
     </div>
   );

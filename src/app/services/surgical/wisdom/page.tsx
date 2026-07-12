@@ -1,14 +1,147 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, Shield, Heart, CheckCircle, Clock, Stethoscope } from 'lucide-react';
+import { AlertTriangle, Shield, Heart, CheckCircle, Clock, Stethoscope, LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
 import { FiArrowRight } from 'react-icons/fi';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
+import Head from 'next/head';
+
+const iconMap: { [key: string]: LucideIcon } = {
+  AlertTriangle,
+  Shield,
+  Heart,
+  CheckCircle,
+  Clock,
+  Stethoscope,
+};
+interface MetaData{
+  title: string;
+  description: string 
+};
+
+interface FeatureItem {
+  title: string;
+  description: string;
+  icon: string;
+  iconColor: string;
+  color: string;
+}
+
+interface HeroData {
+  titleLine1: string;
+  titleHighlight: string;
+  paragraph: string;
+}
+
+interface ProblemsData {
+  title: string;
+  image: string;
+  items: FeatureItem[];
+  conclusion: string;
+}
+
+interface ExtractionData {
+  title: string;
+  paragraph: string;
+  expectText: string;
+  image: string;
+  steps: FeatureItem[];
+}
+
+interface CtaBoxData {
+  title: string;
+  paragraph: string;
+  badges: string[];
+}
+
+interface DecisionData {
+  title: string;
+  paragraph: string;
+  ctaBox: CtaBoxData;
+  image: string;
+  imageCaption: string;
+}
+
+interface FinalCtaData {
+  titleLine: string;
+  titleHighlight: string;
+  paragraph: string;
+  buttonText: string;
+  footerText: string;
+}
+
+interface WisdomData {
+  meta: MetaData;
+  hero: HeroData;
+  problems: ProblemsData;
+  extraction: ExtractionData;
+  decision: DecisionData;
+  finalCta: FinalCtaData;
+}
+
+const EMPTY_DATA: WisdomData = {
+  meta: { title: '', description: '' },
+  hero: { titleLine1: '', titleHighlight: '', paragraph: '' },
+  problems: { title: '', image: '', items: [], conclusion: '' },
+  extraction: { title: '', paragraph: '', expectText: '', image: '', steps: [] },
+  decision: {
+    title: '',
+    paragraph: '',
+    ctaBox: { title: '', paragraph: '', badges: [] },
+    image: '',
+    imageCaption: '',
+  },
+  finalCta: { titleLine: '', titleHighlight: '', paragraph: '', buttonText: '', footerText: '' },
+};
+
+const renderIcon = (name: string, className: string) => {
+  const IconComponent = iconMap[name];
+  if (!IconComponent) return null;
+  return <IconComponent className={className} />;
+};
 
 const WisdomTeethExtractionPage = () => {
-      const { handleOpenChatbot } = useChatbot();
+  const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const [data, setData] = useState<WisdomData>(EMPTY_DATA);
+
+ useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/surgical/wisdom.json";
+
+      const LOCAL_URL = "/data/service/surgical/wisdom.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: WisdomData = await res.json();
+        setData(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: WisdomData = await localRes.json();
+          setData(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
+  }, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,7 +162,7 @@ const WisdomTeethExtractionPage = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [data]);
 
   const fadeInUp = (id: string) => ({
     opacity: isVisible[id] ? 1 : 0,
@@ -49,68 +182,13 @@ const WisdomTeethExtractionPage = () => {
     transition: 'opacity 0.8s ease, transform 0.8s ease'
   });
 
-  const problems = [
-    {
-      title: "Damage to Neighboring Teeth",
-      description: "Wisdom teeth can push against adjacent teeth, causing discomfort or even damage.",
-      icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
-      color: "bg-red-50 border-red-200"
-    },
-    {
-      title: "Gum Infection",
-      description: "The partially erupted wisdom tooth can cause gum irritation and infections.",
-      icon: <AlertTriangle className="w-8 h-8 text-orange-600" />,
-      color: "bg-orange-50 border-orange-200"
-    },
-    {
-      title: "Jaw Infections",
-      description: "If wisdom teeth are impacted, they can lead to painful jaw infections.",
-      icon: <AlertTriangle className="w-8 h-8 text-yellow-600" />,
-      color: "bg-yellow-50 border-yellow-200"
-    },
-    {
-      title: "Alignment Disruption",
-      description: "Impacted wisdom teeth may shift other teeth, affecting the alignment of your smile.",
-      icon: <AlertTriangle className="w-8 h-8 text-purple-600" />,
-      color: "bg-purple-50 border-purple-200"
-    }
-  ];
-
-  const careSteps = [
-    {
-      title: "Calm & Relaxing Environment",
-      description: "We perform the procedure in a stress-free setting to help you feel at ease.",
-      icon: <Heart className="w-8 h-8 text-blue-600" />,
-      color: "bg-blue-50"
-    },
-    {
-      title: "Personalized Anesthesia",
-      description: "Depending on your needs and comfort level, we will administer the appropriate anesthesia to ensure a painless experience.",
-      icon: <Stethoscope className="w-8 h-8 text-green-600" />,
-      color: "bg-green-50"
-    },
-    {
-      title: "Gentle Care",
-      description: "We're committed to addressing any concerns you have before, during, and after the procedure.",
-      icon: <Shield className="w-8 h-8 text-purple-600" />,
-      color: "bg-purple-50"
-    },
-    {
-      title: "Post-Procedure Care",
-      description: "After your extraction, we'll provide you with detailed instructions on how to care for the extraction site to ensure proper healing.",
-      icon: <CheckCircle className="w-8 h-8 text-teal-600" />,
-      color: "bg-teal-50"
-    },
-    {
-      title: "Follow-up Visit",
-      description: "We'll schedule a follow-up appointment to check on your progress and ensure the healing process is going smoothly.",
-      icon: <Clock className="w-8 h-8 text-indigo-600" />,
-      color: "bg-indigo-50"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br overflow-hidden from-purple-500 via-white to-purple-50">
+       <Head>
+        <title>{data.meta.title}</title>
+        <meta name="description" content={data.meta.description} />
+      </Head>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-indigo-700 to-purple-700 text-white">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -127,13 +205,11 @@ const WisdomTeethExtractionPage = () => {
               </div>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-              Wisdom Teeth Extraction:<br />
-              <span className="text-yellow-300">Safe, Comfortable Care for Your Smile</span>
+              <Markdown inline>{data.hero.titleLine1}</Markdown><br />
+              <span className="text-yellow-300"><Markdown inline>{data.hero.titleHighlight}</Markdown></span>
             </h1>
             <p className="text-lg lg:text-xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
-              Wisdom teeth are the third set of molars that typically emerge between the ages of 17 and 25. Due to 
-              their late appearance, there&apos;s often not enough room in the mouth for them to grow properly, leading to 
-              potential complications.
+              <Markdown inline>{data.hero.paragraph}</Markdown>
             </p>
           </div>
         </div>
@@ -151,27 +227,24 @@ const WisdomTeethExtractionPage = () => {
               style={fadeInUp('problems-title')}
             >
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8">
-                Common Wisdom Teeth Problems:
+                <Markdown inline>{data.problems.title}</Markdown>
               </h2>
-              <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src="/images/services/surgical/wisdom/Image1.jpg" 
-                  alt="Wisdom Teeth Problems" 
-                  className="w-full rounded-2xl shadow-xl"
-                /> */}
-                       <Image
-                           urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/1. Wisdom tooth extraction/painless-wisdom-tooth-extraction-recovery-prudentia-dental-pimple-saudagar.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />                
-              </div>
+              {data.problems.image && (
+                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.problems.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {problems.map((problem, index) => (
+              {data.problems.items.map((problem, index) => (
                 <div 
                   key={index}
                   className={`bg-white rounded-2xl shadow-lg border-2 ${problem.color} p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
@@ -181,14 +254,14 @@ const WisdomTeethExtractionPage = () => {
                 >
                   <div className="flex items-start space-x-4">
                     <div className="bg-white p-3 rounded-xl shadow-md flex-shrink-0">
-                      {problem.icon}
+                      {renderIcon(problem.icon, `w-8 h-8 ${problem.iconColor}`)}
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-800 mb-3">
-                        {problem.title}
+                        <Markdown inline>{problem.title}</Markdown>
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        {problem.description}
+                        <Markdown inline>{problem.description}</Markdown>
                       </p>
                     </div>
                   </div>
@@ -203,8 +276,7 @@ const WisdomTeethExtractionPage = () => {
               style={fadeInUp('problems-conclusion')}
             >
               <p className="text-lg text-gray-700 leading-relaxed">
-                While not all wisdom teeth require removal, if any of the above issues arise, extraction may be necessary 
-                to avoid further complications and preserve your oral health.
+                <Markdown inline>{data.problems.conclusion}</Markdown>
               </p>
             </div>
           </div>
@@ -222,34 +294,30 @@ const WisdomTeethExtractionPage = () => {
               style={fadeInUp('extraction-title')}
             >
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8">
-                Your Wisdom Teeth Extraction at Prudentia Micro Dental Care
+                <Markdown inline>{data.extraction.title}</Markdown>
               </h2>
               <p className="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
-                We understand that wisdom teeth extraction can feel intimidating, but we&apos;re here to ensure your 
-                experience is as smooth and comfortable as possible.
+                <Markdown inline>{data.extraction.paragraph}</Markdown>
               </p>
               <p className="text-xl font-semibold text-gray-800 mb-8">
-                Here&apos;s what you can expect:
+                <Markdown inline>{data.extraction.expectText}</Markdown>
               </p>
-              <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src="/images/services/surgical/wisdom/Image2.jpg" 
-                  alt="Comfortable Extraction Experience" 
-                  className="w-full rounded-2xl shadow-xl"
-                /> */}
-          <Image
-              urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/1. Wisdom tooth extraction/prudentia-dental-operatory-microscope-setup-pimple-saudagar.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />                 
-              </div>
+              {data.extraction.image && (
+                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.extraction.image}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
             </div>
 
             <div className="space-y-8">
-              {careSteps.map((step, index) => (
+              {data.extraction.steps.map((step, index) => (
                 <div 
                   key={index}
                   className={`bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
@@ -259,14 +327,14 @@ const WisdomTeethExtractionPage = () => {
                 >
                   <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-6">
                     <div className={`${step.color} p-4 rounded-xl shadow-md flex-shrink-0`}>
-                      {step.icon}
+                      {renderIcon(step.icon, `w-8 h-8 ${step.iconColor}`)}
                     </div>
                     <div className="flex-grow">
                       <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                        {step.title}
+                        <Markdown inline>{step.title}</Markdown>
                       </h3>
                       <p className="text-lg text-gray-700 leading-relaxed">
-                        {step.description}
+                        <Markdown inline>{step.description}</Markdown>
                       </p>
                     </div>
                   </div>
@@ -288,28 +356,26 @@ const WisdomTeethExtractionPage = () => {
                 style={slideInLeft('decision-content')}
               >
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8">
-                  Making the Right Decision for Your Oral Health
+                  <Markdown inline>{data.decision.title}</Markdown>
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
-                  While wisdom tooth extraction can be a big decision, it&apos;s an important one for your long-term dental 
-                  health. If you&apos;re experiencing pain or discomfort from your wisdom teeth, we&apos;re here to guide you through 
-                  the process.
+                  <Markdown inline>{data.decision.paragraph}</Markdown>
                 </p>
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-xl">
-                  <h3 className="text-2xl font-bold mb-4">Ready to Take Action?</h3>
+                  <h3 className="text-2xl font-bold mb-4">
+                    <Markdown inline>{data.decision.ctaBox.title}</Markdown>
+                  </h3>
                   <p className="text-lg opacity-90 mb-6">
-                    Don&apos;t let wisdom tooth pain affect your quality of life. Our expert team is here to help.
+                    <Markdown inline>{data.decision.ctaBox.paragraph}</Markdown>
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <div className="bg-indigo-900 bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
-                      <span className="text-sm  font-medium">✓ Expert Care</span>
-                    </div>
-                    <div className="bg-indigo-900 bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
-                      <span className="text-sm font-medium">✓ Pain-Free Experience</span>
-                    </div>
-                    <div className="bg-indigo-900 bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
-                      <span className="text-sm font-medium">✓ Comprehensive Care</span>
-                    </div>
+                    {data.decision.ctaBox.badges.map((badge, index) => (
+                      <div key={index} className="bg-indigo-900 bg-opacity-20 px-4 py-2 rounded-full backdrop-blur-sm">
+                        <span className="text-sm font-medium">
+                          <Markdown inline>{badge}</Markdown>
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -320,22 +386,19 @@ const WisdomTeethExtractionPage = () => {
                 style={slideInRight('decision-image')}
               >
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  {/* <img 
-                    src="/images/services/surgical/wisdom/Image3.png" 
-                    alt="Making the Right Decision" 
-                    className="w-full h-64 lg:h-80 object-contain"
-                  /> */}
-                            <Image
-                                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src="hero/Services/surgical/1. Wisdom tooth extraction/prudentias-dental-operatory-microscope-setup-pimple-saudagar.jpg" 
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        /> 
+                  {data.decision.image && (
+                    <Image
+                      urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                      src={data.decision.image}
+                      alt="Modern denture solutions"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  )}
                   <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50">
                     <p className="text-lg text-gray-700 font-medium text-center">
-                      Professional guidance for your oral health decisions
+                      <Markdown inline>{data.decision.imageCaption}</Markdown>
                     </p>
                   </div>
                 </div>
@@ -345,37 +408,35 @@ const WisdomTeethExtractionPage = () => {
         </div>
       </section>
 
- <section className="py-20 bg-white">
-          <div className="container mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <Markdown inline>{data.finalCta.titleLine}</Markdown> <span className="text-purple-600"><Markdown inline>{data.finalCta.titleHighlight}</Markdown></span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+              <Markdown inline>{data.finalCta.paragraph}</Markdown>
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleOpenChatbot}
+              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-lg"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Take the First Step Toward a <span className="text-purple-600">Pain-Free, Healthy Smile</span>
-              </h2>
-              <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-                 Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step 
-                toward a healthier, pain-free smile!
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                 onClick={handleOpenChatbot}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-lg"
-              >
-                Book Your Micro-Root Consultation Today <FiArrowRight className="ml-2" />
-              </motion.button>
-              <p className="text-gray-500 mt-6">
-                Your natural smile deserves the best care available
-              </p>
-            </motion.div>
-          </div>
-        </section>
+              {data.finalCta.buttonText} <FiArrowRight className="ml-2" />
+            </motion.button>
+            <p className="text-gray-500 mt-6">
+              <Markdown inline>{data.finalCta.footerText}</Markdown>
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
- 
     </div>
   );
 };

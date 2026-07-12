@@ -1,0 +1,122 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Dental Sealants",
+    "subtitle": "The Ultimate Protection for Your Teeth",
+    "tagline": "Guard Your Smile with a Simple, Effective Solution",
+    "button": "Book Protection Today",
+    "image": "hero/Services/cosmetic/5. Sealants/dental-sealants-cavity-prevention-children-prudentia-pune.jpeg"
+  },
+  "introduction": {
+    "paragraph1": "Preventing cavities before they start is the smartest way to protect your teeth. At Prudentia Micro Dental Care, we offer dental sealants, a fast, easy, and non-invasive solution to safeguard your teeth from decay.",
+    "paragraph2": "Dental sealants are thin resin coatings applied to the chewing surfaces of your back teeth (molars and premolars), effectively shielding them from cavities and decay."
+  },
+  "whoShouldGet": {
+    "title": "Who Should Get Dental Sealants?",
+    "intro": "Sealants are ideal for:",
+    "groups": [
+      {
+        "icon": "👶",
+        "title": "Children and teenagers",
+        "description": "Particularly when their permanent molars and premolars emerge. Sealants can protect these teeth during the cavity-prone years of ages 6-14."
+      },
+      {
+        "icon": "👨‍⚕️",
+        "title": "Adults",
+        "description": "If you have healthy molars without fillings or decay, sealants can still provide added protection."
+      }
+    ],
+    "footer": "By getting sealants early, you can keep your teeth safe as they grow and develop."
+  },
+  "whyImportant": {
+    "title": "Why Are Dental Sealants Important?",
+    "image": "hero/Services/cosmetic/5. Sealants/dental-sealants-cavity-prevention-children-prudentia-pune.jpg",
+    "imageCaption": "Vulnerable tooth grooves and fissures",
+    "intro": "The grooves and fissures on the chewing surfaces of molars and premolars are especially vulnerable to decay. These areas can be:",
+    "points": [
+      "Deep, narrow, and difficult to clean.",
+      "A perfect breeding ground for plaque and bacteria."
+    ],
+    "footer": "Dental sealants act as a protective barrier, covering the vulnerable grooves and preventing food particles and bacteria from getting stuck. The fluoride in the sealants also helps strengthen your tooth enamel, offering added protection against cavities."
+  },
+  "benefits": {
+    "title": "Key Benefits of Dental Sealants",
+    "items": [
+      {
+        "icon": "⚡",
+        "title": "Quick Application",
+        "description": "The process takes only 2-5 minutes per tooth."
+      },
+      {
+        "icon": "😊",
+        "title": "Painless & Comfortable",
+        "description": "No anesthesia or discomfort involved."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Long-Lasting Protection",
+        "description": "Sealants do not dissolve in saliva and offer years of protection."
+      },
+      {
+        "icon": "✅",
+        "title": "Safe & Reliable",
+        "description": "Trusted for decades to prevent decay in hard-to-reach areas of the teeth."
+      }
+    ]
+  },
+  "howLongLast": {
+    "title": "How Long Do Dental Sealants Last?",
+    "description": "Dental sealants are a proven solution to prevent cavities and have been effective since the 1970s. With proper care, sealants can last for many years, protecting your teeth through your most vulnerable years. If needed, sealants can be reapplied to continue providing a strong defense against decay."
+  },
+  "procedure": {
+    "title": "Is the Sealant Procedure Painful?",
+    "subtitle": "No, it's quick and painless!",
+    "intro": "Here's how we apply a dental sealant:",
+    "steps": [
+      "The tooth is cleaned to remove plaque, stains, and early decay.",
+      "A special gel is applied briefly to the tooth.",
+      "The tooth is rinsed, dried, and then the sealant is carefully painted onto the surface.",
+      "UV light is used to harden the sealant and form a protective shield."
+    ],
+    "footer": "It's a fast, safe, and gentle procedure that won't cause you any discomfort.",
+    "image": "hero/Services/cosmetic/5. Sealants/dentals-sealants-cavity-prevention-children-prudentia-pune.jpg",
+    "imageCaption": "Sealant application process"
+  },
+  "preventionTips": {
+    "title": "Additional Tips to Help Prevent Tooth Decay",
+    "image": "hero/Services/cosmetic/5. Sealants/toothbrushs-toothpaste-oral-hygiene-tips-prudentia-pune.jpg",
+    "imageCaption": "Comprehensive oral care",
+    "intro": "Along with dental sealants, here's how you can keep your teeth healthy:",
+    "tips": [
+      {
+        "icon": "🪥",
+        "strong": null,
+        "text": "Brush twice a day, especially along the gum line and all surfaces of your teeth."
+      },
+      {
+        "icon": "🥗",
+        "strong": null,
+        "text": "Eat a balanced diet with nutritious foods to support your dental health."
+      },
+      {
+        "icon": "🚫",
+        "strong": null,
+        "text": "Avoid sugary foods and drinks, particularly between meals."
+      },
+      {
+        "icon": "🏥",
+        "strong": "Regular dental check-ups:",
+        "text": "Let us help you keep track of your oral health and ensure your sealants are working effectively."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Protect Your Smile?",
+    "description": "Dental sealants offer a simple, effective way to prevent cavities and keep your teeth decay-free. Whether for yourself or your child, sealants are a smart choice for long-term dental health.",
+    "button": "Book your appointment with Prudentia Micro Dental Care, Pimple Saudagar today",
+    "footer": "Protect your smile for years to come!"
+  }
+}

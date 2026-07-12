@@ -1,0 +1,56 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Enameloplasty ",
+    "subtitle": "Tooth Contouring",
+    "tagline": "Refine. Reshape. Reveal Your Perfect Smile.",
+    "paragraph1": "Sometimes, the smallest imperfections can make the biggest difference in your smile. That's where Enameloplasty, also known as tooth reshaping or contouring comes in. This quick, painless cosmetic procedure gently refines the edges and surfaces of your teeth for a more symmetrical, smooth, and attractive smile.",
+    "paragraph2": "At Prudentia Micro Dental Care, Pimple Saudagar we specialize in precise, minimally invasive cosmetic enhancements using the latest micro-dentistry techniques.",
+    "button": "Schedule Consultation",
+    "image": "hero/Services/cosmetic/2. Enamel Reshaping/enamel-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg"
+  },
+  "whatIs": {
+    "title": "What Is Enameloplasty?",
+    "paragraph1": "Enameloplasty is a non-invasive cosmetic treatment that uses a specialized high-speed dental instrument to gently polish and shape the outer layer of your teeth enamel.",
+    "paragraph2": "Whether it's smoothing a slightly pointy tooth, refining uneven edges, or blending away a tiny chip, this technique sculpts your teeth with absolute precision without drilling or anesthesia.",
+    "paragraph3": "Often combined with treatments like cosmetic bonding, enameloplasty can dramatically enhance the balance and harmony of your smile in a single visit.",
+    "image": "hero/Services/cosmetic/2. Enamel Reshaping/enamels-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg"
+  },
+  "whatCanCorrect": {
+    "title": "What Can Enameloplasty Correct?",
+    "intro": "This subtle but powerful technique is ideal for correcting:",
+    "items": [
+      { "title": "Minor Chips & Edges", "icon": "⟐", "description": "Smooths rough edges and small chips for a more polished appearance" },
+      { "title": "Irregular Teeth", "icon": "⟐", "description": "Evens out teeth that have slight irregularities in size or shape" },
+      { "title": "Overlapping Teeth", "icon": "⟐", "description": "Refines areas where teeth slightly overlap for a more aligned look" },
+      { "title": "Pointy Contours", "icon": "⟐", "description": "Softens pointed canines or jagged edges for a friendlier smile" },
+      { "title": "Surface Flaws", "icon": "⟐", "description": "Addresses minor surface imperfections affecting aesthetics" },
+      { "title": "Balance & Harmony", "icon": "⟐", "description": "Creates better proportion and symmetry across your smile" }
+    ],
+    "footer": "Typically performed on the front teeth, enameloplasty can instantly make your smile look more aligned, balanced, and polished—without altering your natural tooth structure in a major way."
+  },
+  "treatmentExperience": {
+    "title": "What's the Treatment Like?",
+    "image": "hero/Services/cosmetic/2. Enamel Reshaping/enamelss-recontouring-enameloplasty-smile-enhancement-prudentia-dental-pune.jpg",
+    "points": [
+      { "title": "Fast & Comfortable", "description": "Most sessions take under 30 minutes" },
+      { "title": "No Drills or Injections", "description": "The process is so gentle that numbing isn't required" },
+      { "title": "Immediate Results", "description": "Leave the chair with a smoother, more refined smile" }
+    ],
+    "footer": "Our expert, Dr. Bhushan, uses specialized buffing tools under high magnification to ensure the most accurate and conservative enamel adjustments—preserving your tooth strength while enhancing its shape."
+  },
+  "safety": {
+    "title": "Is It Safe?",
+    "description": "Yes, absolutely safe and conservative. Enameloplasty only removes a microscopic amount of enamel, leaving your teeth healthy, strong, and fully functional. There's no pain, no downtime, and no long-term impact on tooth integrity.",
+    "subtitle": "A Subtle Touch for a Stunning Smile",
+    "footer": "If you're looking for a simple, quick, and affordable way to upgrade your smile, enameloplasty might be the perfect solution. It's ideal for patients who want cosmetic improvements without extensive dental work."
+  },
+  "cta": {
+    "title": "Ready to Refine Your Smile?",
+    "description": "Let Prudentia Micro Dental Care help you achieve a beautifully balanced smile with precision and care. Schedule your enameloplasty consultation today and take the first step toward a more confident, natural-looking smile.",
+    "button": "Book Online"
+  }
+}

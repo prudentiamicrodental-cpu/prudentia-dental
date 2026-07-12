@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Bhushan Mahajan",
+    "specialization": "The Micro-Dentist",
+    "qualifications": [
+      "BDS(Mumbai)",
+      "M Res.(USA)"
+    ],
+    "experience": "10+ years of experience",
+    "bio": "At the heart of Dr. Bhushan Mahajan's practice is a prevention-first approach, ensuring your smile stays healthy for life. With over a decade of experience and training from the University at Buffalo (USA), he specializes in advanced root treatments, smile makeovers, and using the latest technology for pain-free and minimally invasive care. From prevention to treatment, Dr. Mahajan combines cutting-edge techniques with compassionate care, delivering precise results that help you smile with confidence, now and in the future.",
+    "image": "hero/Doctors/dr-bhushan-mahajan-micro-dentist-prudentia-dental-pimple-saudagar.jpg",
+    "reverse": false
+  },
+  {
+    "name": "Disha Avhad Mahajan",
+    "specialization": "Compassion-Driven Expert",
+    "qualifications": [
+      "BDS(Mumbai)"
+    ],
+    "experience": "10+ years of experience",
+    "bio": "Expert in Advanced Root Canal Treatments & General Dentistry. With over 10 years of experience, Dr. Disha Avhad Mahajan offers expert care in pain-free root canals, microscopic endodontics, and comprehensive dental treatments. Based at Prudentia Micro Dental Care, Pimple Saudagar, she combines cutting-edge technology with a gentle, patient-first approach to help you achieve a healthier and brighter smile.",
+    "image": "hero/Doctors/dr-disha-mahajan-friendly-gentle-dentist-prudentia-dental-p.jpg",
+    "reverse": true
+  }
+]

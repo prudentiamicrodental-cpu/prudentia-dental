@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Microscope Dentistry | Prudentia Micro Dental Care",
+    "description": "Experience revolutionary microscope-assisted dental care with 30x magnification for precise, minimally invasive treatments."
+  },
+
+  "hero": {
+    "title": "Microscope Dentistry:",
+    "highlight": "See the Difference",
+    "description": "At Prudentia Micro Dental Care, we do dentistry differently with revolutionary Dental Operating Microscope (DOM) technology bringing 30x magnification to your care.",
+    "button": "Book Micro-Consultation",
+    "image": "hero/Services/micro/dental-microscope-operatory-prudentia-logo-modern-clinic-pimple-saudagar.jpg",
+    "imageCaption": "30x magnification for unparalleled precision"
+  },
+
+  "consultation": {
+    "title": "What Is a",
+    "highlight": "Micro-Consultation?",
+    "subtitle": "A modern dental examination powered by microscope technology to uncover issues invisible to the naked eye.",
+
+    "images": [
+      "hero/Services/micro/magnified-dental-cavity-microscope-vs-naked-eye-comparison-prudentia-dental-pune.jpg",
+      "hero/Services/micro/tooth-cavity-naked-eye-vs-microscope-detection-accuracy-prudentia-dental-pune.jpg"
+    ],
+
+    "philosophy": {
+      "title": "See More, Treat Less Philosophy",
+      "points": [
+        "Early diagnosis of micro-fractures and decay",
+        "Minimal intervention required",
+        "Maximum preservation of healthy tissues",
+        "Live video feeds for better understanding"
+      ]
+    },
+
+    "why": {
+      "title": "Why Microscopy Matters",
+      "description": "Dr. Bhushan uses high-powered magnification to detect early-stage tooth decay, micro-fractures, or subtle gum disease that conventional exams might miss.",
+
+      "items": [
+        {
+          "title": "Early Detection",
+          "description": "Spot problems before they become painful or require extensive treatment."
+        },
+        {
+          "title": "Informed Decisions",
+          "description": "See what we see and understand your treatment options."
+        },
+        {
+          "title": "Precision Treatment",
+          "description": "Target only the affected areas while preserving healthy tooth structure."
+        }
+      ]
+    }
+  },
+
+  "benefits": {
+    "title": "Why Choose",
+    "highlight": "Microscopic Dentistry?",
+    "description": "Here's what sets microscope-assisted dental care apart from conventional methods.",
+
+    "image": "hero/Services/micro/dr-bhushan-mahajan-microscope-dental-treatment-focused-view-prudentia-dental-pimple-saudagar-pune.jpg",
+
+    "items": [
+      {
+        "icon": "zoom",
+        "title": "30x Magnification",
+        "description": "See details invisible to the naked eye for precise diagnosis."
+      },
+      {
+        "icon": "eye",
+        "title": "Early Detection",
+        "description": "Spot cavities and cracks before symptoms appear."
+      },
+      {
+        "icon": "shield",
+        "title": "Minimally Invasive",
+        "description": "Preserve more healthy tooth structure."
+      },
+      {
+        "icon": "activity",
+        "title": "Faster Healing",
+        "description": "Precise treatments mean less trauma and quicker recovery."
+      }
+    ]
+  },
+
+  "cleaning": {
+    "title": "Advanced Dental Cleaning with a",
+    "highlight": "Precision Touch",
+    "subtitle": "Even routine procedures benefit from our microscope-enhanced approach.",
+
+    "image": "hero/Services/micro/advanced-teeth-cleaning-equipment-stain-tartar-removal-prudentia-dental-pune.jpg",
+
+    "process": {
+      "title": "Our Microscopic Cleaning Process",
+
+      "steps": [
+        {
+          "title": "Ultrasonic Scalers",
+          "description": "Break up tartar with gentle vibrations."
+        },
+        {
+          "title": "Air Polishers",
+          "description": "Remove plaque and stains with fine powder mist."
+        },
+        {
+          "title": "Desensitizing Rinse",
+          "description": "Strengthens enamel and protects against decay."
+        }
+      ]
+    },
+
+    "benefit": {
+      "title": "Long-Term Benefits",
+      "description": "By smoothing tooth surfaces under magnification, we help prevent plaque from reattaching, making it easier to maintain your oral health between visits."
+    }
+  },
+
+  "health": {
+    "title": "Your Mouth Reflects Your",
+    "highlight": "Overall Health",
+    "description": "The mouth is often the first place systemic diseases show early signs. During a Micro-Consultation, Dr. Bhushan may detect symptoms that indicate broader health issues well before they become serious.",
+    "footer": "This makes micro-dentistry not just about your teeth, but your total well-being.",
+    "button": "Book Your Health Assessment"
+  },
+
+  "cta": {
+    "title": "Discover the Power of",
+    "highlight": "Precision Dentistry",
+    "description": "Join the growing number of patients choosing minimally invasive, high-precision care. Experience dentistry that's gentler, smarter, and truly personalized.",
+
+    "steps": [
+      {
+        "title": "Initial Assessment",
+        "description": "Comprehensive examination with microscopic evaluation."
+      },
+      {
+        "title": "Live Visualization",
+        "description": "View your teeth in real-time on high-definition monitors."
+      },
+      {
+        "title": "Precision Treatment Plan",
+        "description": "Customized approach based on microscopic findings."
+      },
+      {
+        "title": "Gentle Execution",
+        "description": "Minimally invasive treatment with maximum precision."
+      }
+    ],
+
+    "button": "Book Your Micro-Consultation Today",
+
+    "footer": "Because early detection is everything!"
+  }
+}

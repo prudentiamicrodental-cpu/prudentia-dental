@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Preserve & Perfect Your Smile with Inlays and Onlays",
+    "highlightedText": "Inlays and Onlays",
+    "tags": [
+      "Stronger than a filling",
+      "More conservative than a crown"
+    ],
+    "image": "hero/Services/restorative/2. Inlays and Onlays/tooth-inlay-onlay-crown-prudentia-pune.jpg"
+  },
+  "introduction": {
+    "text": "At Prudentia Micro Dental Care, we use the latest in dental materials and techniques to restore your teeth with maximum strength and minimal intervention. Inlays and Onlays offer an ideal solution for teeth with moderate damage delivering the durability of a crown with the subtlety and conservation of a filling.",
+    "highlightedText": "Prudentia Micro Dental Care"
+  },
+  "whatAreInlaysOnlays": {
+    "title": "What Are Inlays and Onlays?",
+    "description": "Inlays and onlays are custom-made restorations used to repair areas of decay or damage that are too extensive for a filling, but don't require a full crown.",
+    "image": "hero/Services/restorative/2. Inlays and Onlays/tooth-inlay-onlay-crowns-prudentia-pune.jpg",
+    "types": [
+      {
+        "title": "Inlays",
+        "description": "fit within the cusps (the top edges) of the tooth",
+        "gradient": "from-indigo-500 to-purple-600"
+      },
+      {
+        "title": "Onlays",
+        "description": "cover one or more cusps or the entire biting surface",
+        "gradient": "from-blue-500 to-teal-600"
+      }
+    ],
+    "closingText": "Made from high-quality porcelain (ceramic) or tooth-colored composite resin, these restorations are fabricated in a lab to match your natural tooth structure and shade and then bonded to your tooth for a seamless and lasting result."
+  },
+  "whyChoose": {
+    "title": "Why Choose Inlays and Onlays?",
+    "subtitle": "Here's why many patients are choosing this advanced treatment option:",
+    "image": "hero/Services/restorative/2. Inlays and Onlays/tooths-inlay-onlay-crown-prudentia-pune.jpg",
+    "features": [
+      {
+        "icon": "Shield",
+        "title": "Minimal Tooth Reduction",
+        "description": "Only the damaged area is removed, preserving more of your healthy tooth structure",
+        "gradient": "from-blue-500 to-blue-600"
+      },
+      {
+        "icon": "Star",
+        "title": "Exceptional Strength",
+        "description": "Far more durable than traditional fillings, especially for back teeth under heavy chewing forces",
+        "gradient": "from-green-500 to-green-600"
+      },
+      {
+        "icon": "Eye",
+        "title": "Natural Aesthetics",
+        "description": "Designed to match the exact shape, color, and texture of your tooth that they're virtually invisible",
+        "gradient": "from-purple-500 to-purple-600"
+      },
+      {
+        "icon": "Clock",
+        "title": "Long-Term Protection",
+        "description": "Resistant to wear and stain, and precisely fit to minimize bacteria and future decay",
+        "gradient": "from-orange-500 to-orange-600"
+      }
+    ]
+  },
+  "whatToExpect": {
+    "title": "What to Expect?",
+    "subtitle": "This is typically a two-appointment procedure:",
+    "visits": [
+      {
+        "step": "1",
+        "title": "First Visit",
+        "description": "We clean out the decayed or damaged portion, take precise impressions, and place a temporary restoration.",
+        "gradient": "from-indigo-600 to-purple-600"
+      },
+      {
+        "step": "2",
+        "title": "Second Visit",
+        "description": "Your custom inlay or onlay is bonded to your tooth, polished, and adjusted for a perfect fit and bite.",
+        "gradient": "from-blue-600 to-teal-600"
+      }
+    ],
+    "result": {
+      "icon": "Smile",
+      "title": "Perfect Result",
+      "description": "You'll walk out with a tooth that looks natural, feels strong, and lasts for years."
+    }
+  },
+  "cta": {
+    "title": "Ready to Restore the Right Way?",
+    "image": "hero/Services/restorative/2. Inlays and Onlays/before-after-dental-onlay-case-prudentia.jpg",
+    "description": "If you're looking for a conservative, cosmetic, and long-lasting solution for damaged teeth, inlays and onlays may be the ideal choice.",
+    "callToAction": "Call Prudentia Micro Dental Care, Pimple Saudagar today to schedule your consultation and find out how we can help keep your smile both strong and beautiful, the minimally invasive way.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Schedule Consultation",
+    "buttonIcon": "Calendar"
+  }
+}

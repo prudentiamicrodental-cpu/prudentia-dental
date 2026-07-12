@@ -1,0 +1,119 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "title": "Dental Crowns & Bridges at Prudentia Micro Dental Care",
+    "highlightedText": "Prudentia Micro",
+    "subtitle": "Dental Care",
+    "tags": ["Precision", "Protection", "Performance"],
+    "image": "hero/Services/restorative/3. Crowns and Bridges/zirconia-dental-crowns-bridge-prudentia-pune.jpg"
+  },
+  "introduction": {
+    "text": "When a tooth has suffered significant damage whether due to decay, trauma, or root canal treatment restoring its strength, shape, and function becomes essential. At Prudentia Micro Dental Care, we offer advanced crowns and bridges that combine cutting-edge technology with the highest standards of quality and aesthetics.",
+    "highlightedText": "Prudentia Micro Dental Care"
+  },
+  "crowns": {
+    "title": "What Is a Dental Crown?",
+    "description": "A dental crown is a custom-made cap that covers the entire surface of a weakened or damaged tooth. It restores:",
+    "image": "hero/Services/restorative/3. Crowns and Bridges/digital-dental-crowns-bridge-prudentia-pune.jpg",
+    "features": [
+      {
+        "icon": "Shield",
+        "title": "Strength",
+        "description": "to support chewing and biting forces"
+      },
+      {
+        "icon": "Eye",
+        "title": "Protection",
+        "description": "against further damage or fracture"
+      },
+      {
+        "icon": "Star",
+        "title": "Aesthetics",
+        "description": "to match your natural teeth beautifully"
+      }
+    ],
+    "technology": {
+      "title": "Advanced Technology & Materials",
+      "description": "We work with ISO-certified international labs to craft crowns using:",
+      "items": [
+        {
+          "title": "CAD-CAM Technology",
+          "description": "digital technology for ultra-precise fit"
+        },
+        {
+          "title": "MLS Techniques",
+          "description": "Metal Laser Sintered for enhanced strength"
+        },
+        {
+          "title": "Premium Materials",
+          "description": "metal alloys, ceramics, E-max, and more"
+        }
+      ],
+      "highlight": "Every patient receives a same-day temporary crown to protect the tooth and ensure stability until the final crown is ready."
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us for Your Crowns?",
+    "image": "hero/Services/restorative/3. Crowns and Bridges/dr-bhushan-microscope-crown-bridge-procedure-prudentia.JPG",
+    "mainTitle": "Dental Microscope-Guided Preparation",
+    "subtitle": "We use high-magnification dental microscopes to ensure:",
+    "features": [
+      {
+        "icon": "CheckCircle",
+        "title": "Minimal tooth reduction",
+        "description": "preserving healthy enamel"
+      },
+      {
+        "icon": "Shield",
+        "title": "Meticulous crown fit",
+        "description": "for superior comfort and longevity"
+      },
+      {
+        "icon": "Eye",
+        "title": "30x magnified inspections",
+        "description": "to fine-tune every detail of your restoration"
+      }
+    ],
+    "highlight": "This attention to detail dramatically reduces food lodgment, improves gum health, and minimizes the risk of recurrent decay giving your crown and tooth a longer life."
+  },
+  "bridges": {
+    "title": "What Is a Dental Bridge?",
+    "description": "A dental bridge replaces one or more missing teeth by anchoring to neighboring healthy teeth (or implants) with crowns. Bridges:",
+    "image": "hero/Services/restorative/3. Crowns and Bridges/Digital-zirconia-dental-bridge-prudentia-pune.jpg",
+    "features": [
+      "Restore chewing efficiency",
+      "Maintain the integrity of your bite",
+      "Prevent shifting of adjacent teeth",
+      "Enhance smile aesthetics"
+    ],
+    "closingText": "They're an excellent option, especially when surrounding teeth require crowns themselves allowing for a comprehensive restoration that strengthens your entire smile."
+  },
+  "whyBridgesStandOut": {
+    "title": "Why Our Bridges Stand Out",
+    "features": [
+      {
+        "icon": "Star",
+        "title": "Custom-crafted to precision"
+      },
+      {
+        "icon": "Shield",
+        "title": "Designed for longevity and strength"
+      },
+      {
+        "icon": "Eye",
+        "title": "Seamless integration for natural look and feel"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Think You May Need a Crown or Bridge?",
+    "description": "Whether you're dealing with a damaged tooth, a missing one, or an old crown that just doesn't fit right — we're here to help. Let us restore your confidence, function, and smile.",
+    "callToAction": "Call Prudentia Micro Dental Care, Pimple Saudagar today to schedule a consultation. We'll guide you every step of the way toward a healthy, lasting solution.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Schedule Consultation",
+    "buttonIcon": "Calendar"
+  }
+}

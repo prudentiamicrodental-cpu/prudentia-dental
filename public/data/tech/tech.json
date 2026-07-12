@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Advanced Dental Technology | Prudentia Micro Dental Care",
+    "description": "Experience modern dentistry with minimal pain and maximum precision at Prudentia Micro Dental Care."
+  },
+  "hero": {
+    "titleMain": "Modern Dentistry.",
+    "titleHighlight": "Minimal Pain.",
+    "titleEnd": "Maximum Precision.",
+    "paragraph": "At Prudentia, we combine state-of-the-art dental technology with advanced skills to transform your experience into one that's comfortable, fast, and stress-free.",
+    "button": "Book Your Consultation",
+    "image": "hero/Tech/dr-bhushan-mahajan-microscope-treatment-assistant-precision-dentistry-prudentia-pune.jpg"
+  },
+  "fear": {
+    "title": "Fear of the dentist? You're not alone.",
+    "paragraph1": "For many, just the sound of a dental drill or sight of a needle can trigger anxiety. But dentistry has changed dramatically.",
+    "paragraph2": "From painless dental injections to microscope-assisted precision dentistry, here's how we're redefining modern dental care.",
+    "callToAction": "Call us to discuss your concerns",
+    "promiseTitle": "Our Pain-Free Promise",
+    "promiseItems": [
+      "Needle-free anesthesia options",
+      "Gentle, compassionate care",
+      "Clear explanations at every step",
+      "Calming environment"
+    ]
+  },
+  "featuresSection": {
+    "title": "Advanced Dental Technology",
+    "subtitle": "Discover how our cutting-edge equipment enhances your dental experience"
+  },
+  "features": [
+    {
+      "title": "Dental Operating Microscope",
+      "description": "High-Precision Dentistry You Can See. Magnifies your teeth up to 30x for early diagnosis and minimally invasive treatments.",
+      "benefits": [
+        "Early diagnosis",
+        "Minimally invasive treatments",
+        "Faster healing, less discomfort",
+        "Live video demos"
+      ],
+      "image": "hero/Tech/dental-microscope-collage-precision-painless-treatment-prudentia-dental-care-pimple-saudagar.jpg"
+    },
+    {
+      "title": "Fluorescent Caries Detection",
+      "description": "Spot Cavities Before They Spread. Uses fluorescent light to highlight decay in its earliest stage.",
+      "benefits": [
+        "Accurate cavity detection",
+        "No radiation",
+        "Prevent major dental treatments"
+      ],
+      "image": "hero/Tech/caries-detection-probe-early-cavity-diagnosis-prudentia-dental-technology-pimple-saudagar.jpg"
+    },
+    {
+      "title": "Needle-Free Electronic Anesthesia",
+      "description": "Say Goodbye to Painful Injections. Delivers a mild electrical pulse to numb the area.",
+      "benefits": [
+        "No needle anxiety",
+        "Gentle, pain-free numbing",
+        "Ideal for kids and anxious patients"
+      ],
+      "image": "hero/Tech/electronic-dental-anesthesia-painless-needle-free-treatment-prudentia-dental-care-pimple-saudagar.jpg"
+    },
+    {
+      "title": "Advanced Root Canal Technology",
+      "description": "Safe. Effective. Painless. Offers more accuracy, better cleaning, and faster recovery.",
+      "benefits": [
+        "Higher success rates",
+        "Less discomfort",
+        "Minimal tissue damage"
+      ],
+      "image": "hero/Tech/advanced-endodontic-dental-technology-collage-microscope-endo-motor-prudentia-dental-pune.jpg"
+    },
+    {
+      "title": "Digital X-Rays",
+      "description": "Instant, Safer, Sharper Diagnostics. Reduces radiation exposure by up to 80%.",
+      "benefits": [
+        "Quick image capture",
+        "Enhanced digital analysis",
+        "Better, faster diagnosis",
+        "Safer for all ages"
+      ],
+      "image": "hero/Tech/digital-xray-portable-dental-machine-low-radiation-prudentia-dental-care-pimple-saudagar.jpg"
+    },
+    {
+      "title": "Ultrasonic Cleaning",
+      "description": "Next-Level Dental Hygiene. Removes tough tartar without damaging your enamel.",
+      "benefits": [
+        "Gentle yet thorough cleaning",
+        "Pain-free plaque removal",
+        "Whiter teeth, fresher breath"
+      ],
+      "image": "hero/Tech/ultrasonic-scaler-teeth-cleaning-whitening-prudentia-dental-care-pimple-Saudagar.jpg"
+    }
+  ],
+  "sterilization": {
+    "image": "hero/Tech/dental-sterilization-collage-classb-autoclave-uv-ultrasonic-prudentia-dental-care-pune.jpg",
+    "title": "European-Standard Sterilization Protocols",
+    "paragraph": "Your Safety. Our Priority. We strictly follow IDA and European standards for sterilization.",
+    "items": [
+      { "title": "Ultrasonic Cleaners", "description": "Eliminate contamination from instruments" },
+      { "title": "Class B Autoclaves", "description": "Complete sterilization using vacuum technology" },
+      { "title": "RO + UV filtered water", "description": "Used in all procedures" },
+      { "title": "UV Cabinets", "description": "Ensure sterile storage" }
+    ]
+  },
+  "cta": {
+    "title": "Experience Next-Gen Dentistry at Prudentia Micro Dental Care",
+    "paragraph": "From painless anesthesia to microscope enhanced precision, we're proud to offer one of the most advanced dental experiences in the region.",
+    "cards": [
+      { "title": "Pain-Free Dentistry", "description": "No more fear of needles or pain" },
+      { "title": "Cutting-Edge Equipment", "description": "Latest technology for better results" },
+      { "title": "Faster Healing", "description": "Minimally invasive techniques" },
+      { "title": "Expert-Led Care", "description": "Highly trained professionals" }
+    ],
+    "button": "Book your consultation today"
+  }
+}

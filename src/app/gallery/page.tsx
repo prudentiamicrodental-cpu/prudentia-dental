@@ -1,16 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RowsPhotoAlbum, RenderImageProps, RenderImageContext } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import 'react-photo-album/rows.css';
 import 'yet-another-react-lightbox/styles.css';
 
-import  photos , { ExtendedPhoto } from '@/components/photos';
+import  { ExtendedPhoto, getPhotos } from '@/components/photos';
 import { Image } from '@imagekit/next';
+import Head from 'next/head';
+
 
 export default function GalleryPage() {
   const [index, setIndex] = useState<number>(-1);
+  const [photos, setPhotos] = useState<ExtendedPhoto[]>([]);
+    useEffect(() => {
+      getPhotos().then(setPhotos);
+    }, []);
+
 
   const renderImage = (
     { sizes }: RenderImageProps,
@@ -39,7 +46,12 @@ export default function GalleryPage() {
   );
 
   return (
+    
     <main className="min-h-screen bg-gray-50 py-10 px-4 lg:px-20">
+       <Head>
+        <title>Gallery</title>
+        <meta name="description" content="Gallery of prudentia micro dental" />
+      </Head>
       <h1 className="text-3xl py-15 font-bold text-center  text-gray-800">Our Gallery</h1>
 
       <RowsPhotoAlbum

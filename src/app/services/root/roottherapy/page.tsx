@@ -4,48 +4,127 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
+import Head from 'next/head';
 
-// Sample image URLs - Replace these with your actual images
-const images = [
-  "hero/Services/root/2. Revisional Micro-Root therapy/Infected-tooth-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpeg", // Image 1
-  "hero/Services/root/2. Revisional Micro-Root therapy/Revisional-Cleaning-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 2
-  "hero/Services/root/2. Revisional Micro-Root therapy/dentist-performing-root-canal-under-microscope-prudentia-pune.jpg", // Image 3
-  "hero/Services/root/2. Revisional Micro-Root therapy/advanced-endodontic-equipment-collage-prudentia-micro-dental-care-pune.jpg", // Image 4
-  "hero/Services/root/2. Revisional Micro-Root therapy/Completed-Root-Treatment-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 5 (diagnosis)
-  "hero/Services/root/2. Revisional Micro-Root therapy/Follow-up-after-complete-healing-repeat-root-canal-retreatment-microscope-prudentia-dental-pune.jpg", // Image 6 (instruments)
-  "hero/Services/root/2. Revisional Micro-Root therapy/dentist-holding-tooth-model-patient-education-prudentia-pune.jpg", // Image 7 (smile)
-];
+interface MetaData{
+  title: string;
+  description: string 
+};
+
+interface HeroData {
+  title: string;
+  subtitle: string;
+}
+
+interface IntroData {
+  paragraphs: string[];
+  imageIndex: number;
+}
+
+interface SectionData {
+  title: string;
+  introParagraphs: string[];
+  bullets: string[];
+  outro: string;
+  imageIndex: number;
+}
+
+interface ConclusionData {
+  imageIndex: number;
+  title: string;
+  paragraphs: string[];
+  buttonText: string;
+}
+
+interface RevisionalData {
+  meta: MetaData;
+  hero: HeroData;
+  images: string[];
+  intro: IntroData;
+  sections: SectionData[];
+  conclusion: ConclusionData;
+}
+
+const EMPTY_DATA: RevisionalData = {
+   meta: { title: '', description: '' },
+  hero: { title: '', subtitle: '' },
+  images: [],
+  intro: { paragraphs: [], imageIndex: 0 },
+  sections: [],
+  conclusion: { imageIndex: 0, title: '', paragraphs: [], buttonText: '' },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
 
 export default function RevisionalMicroRootTherapyPage() {
-    const { handleOpenChatbot } = useChatbot();
+  const { handleOpenChatbot } = useChatbot();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [data, setData] = useState<RevisionalData>(EMPTY_DATA);
+
+  useEffect(() => {
+    async function loadData() {
+      const GITHUB_URL =
+        "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/root/revisionalRootTherapy.json";
+
+      const LOCAL_URL = "/data/service/root/revisionalRootTherapy.json";
+
+      try {
+        const res = await fetch(GITHUB_URL);
+
+        if (!res.ok) throw new Error("GitHub fetch failed");
+
+        const data: RevisionalData = await res.json();
+        setData(data);
+      } catch (error) {
+        console.warn("Using local fallback:", error);
+
+        try {
+          const localRes = await fetch(LOCAL_URL);
+
+          if (!localRes.ok) {
+            throw new Error("Local fetch failed");
+          }
+
+          const localData: RevisionalData = await localRes.json();
+          setData(localData);
+        } catch (localError) {
+          console.error("Failed to load local fallback:", localError);
+        }
+      }
+    }
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
     <div className="bg-gray-50 overflow-hidden min-h-screen font-sans">
+       <Head>
+        <title>{data.meta.title}</title>
+        <meta name="description" content={data.meta.description} />
+      </Head>
       {/* Hero Section */}
       <motion.section 
         className="relative bg-gradient-to-r from-purple-900 to-purple-700 text-white py-16"
@@ -61,10 +140,10 @@ export default function RevisionalMicroRootTherapyPage() {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
-              Revisional Micro-Root Therapy
+              <Markdown inline>{data.hero.title}</Markdown>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Saving Previously Treated Teeth with Precision
+              <Markdown inline>{data.hero.subtitle}</Markdown>
             </p>
           </motion.div>
         </div>
@@ -91,252 +170,76 @@ export default function RevisionalMicroRootTherapyPage() {
         >
           {/* Introduction */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <p className="text-lg text-gray-700 mb-8">
-              Not all root canal treatments last a lifetime, especially when the original procedure was incomplete or left
-              untreated issues behind. If a previously treated tooth becomes painful or re-infected, it may be necessary
-              to redo the root canal, a process known as Revisional Micro-Root Therapy.
-            </p>
-            <p className="text-lg text-gray-700 mb-8">
-              At Prudentia Micro Dental Care, we specialize in re-treatment of complex root canal cases using
-              microscope-enhanced precision and advanced disinfection protocols to restore your tooth&apos;s health and
-              function, without the need for extraction.
-            </p>
+            {data.intro.paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-lg text-gray-700 mb-8">
+                <Markdown inline>{paragraph}</Markdown>
+              </p>
+            ))}
           </motion.div>
           
           <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[0]} 
-              alt="Dental microscope" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-         <Image
+            {data.images[data.intro.imageIndex] && (
+              <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[0]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />           
+                src={data.images[data.intro.imageIndex]}
+                alt="Modern denture solutions"
+                fill
+                className="object-contain"
+                priority
+              />
+            )}
           </motion.div>
         </motion.div>
 
-        {/* Why Root Canals Fail */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-purple-900 mb-6">Why Do Root Canal Treatments Fail?</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Even a well-intended root canal can fail over time. The most common causes include:
-            </p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-700">
-              <li>Missed canals or untreated spaces within the tooth</li>
-              <li>Incomplete disinfection during the original procedure</li>
-              <li>Blocked canals that weren&apos;t cleaned to the tip of the root</li>
-              <li>Leaks or reinfection through a poorly sealed restoration</li>
-              <li>Cracks in the tooth, especially when a crown wasn&apos;t placed after the original treatment</li>
-            </ul>
-            <p className="text-lg text-gray-700">
-              These issues are particularly common in back teeth (molars), where anatomy is complex and extra
-              canals are often overlooked.
-            </p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[1]} 
-              alt="Failed root canal" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-         <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[1]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />              
-          
-          </motion.div>
-        </motion.div>
+        {/* Content Sections */}
+        {data.sections.map((section, index) => (
+          <motion.div
+            key={index}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
+          >
+            <motion.div variants={itemVariants} className="lg:col-span-2">
+              <h2 className="text-3xl font-bold text-purple-900 mb-6">
+                <Markdown inline>{section.title}</Markdown>
+              </h2>
+              {section.introParagraphs.map((paragraph, pIndex) => (
+                <p key={pIndex} className="text-lg text-gray-700 mb-4">
+                  <Markdown inline>{paragraph}</Markdown>
+                </p>
+              ))}
+              {section.bullets.length > 0 && (
+                <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-700">
+                  {section.bullets.map((bullet, bIndex) => (
+                    <li key={bIndex}>
+                      <Markdown inline>{bullet}</Markdown>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {section.outro && (
+                <p className="text-lg text-gray-700">
+                  <Markdown inline>{section.outro}</Markdown>
+                </p>
+              )}
+            </motion.div>
 
-        {/* Diagnosis */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-purple-900 mb-6">How We Diagnose the Cause of Failure</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Before recommending re-treatment, Dr. Bhushan will perform a detailed microscopic evaluation of the
-              affected tooth. Using a Dental Operating Microscope (2x–30x magnification), we assess:
-            </p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-700">
-              <li>Signs of cracks or fractures</li>
-              <li>Quality and completeness of the previous root filling</li>
-              <li>Presence of hidden canals or infections</li>
-              <li>Integrity of the tooth&apos;s structure and crown</li>
-            </ul>
-            <p className="text-lg text-gray-700">
-              This careful diagnosis allows us to determine whether retreatment is feasible or if an alternative approach
-              is more suitable.
-            </p>
+            <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+              {data.images[section.imageIndex] && (
+                <Image
+                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                  src={data.images[section.imageIndex]}
+                  alt="Modern denture solutions"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              )}
+            </motion.div>
           </motion.div>
-          
-          <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[4]} 
-              alt="Dental diagnosis" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-         <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[4]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />             
-          </motion.div>
-        </motion.div>
-
-        {/* What is Revisional Therapy */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-purple-900 mb-6">What Is Revisional Micro-Root Therapy?</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Revisional Micro-Root Therapy involves removing the original root filling material, thoroughly disinfecting
-              the canals, and sealing them again using modern biocompatible materials and advanced thermal filling systems.
-            </p>
-            <p className="text-lg text-gray-700 mb-4">
-              The entire process is guided by magnification, illumination, and state-of-the-art micro-instruments, such as:
-            </p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-700">
-              <li>Ultrasonic tips for gentle and precise canal access</li>
-              <li>Electronic apex locators for accurate measurement</li>
-              <li>Advanced rotary endomotors for efficient canal cleaning</li>
-              <li>Sonic irrigation systems for deep-root disinfection</li>
-              <li>Thermal root filling systems to tightly seal the canal space</li>
-            </ul>
-            <p className="text-lg text-gray-700">
-              This technique allows us to preserve natural teeth that would otherwise be considered for extraction.
-            </p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[5]} 
-              alt="Micro instruments" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-         <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[5]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />              
-          </motion.div>
-        </motion.div>
-
-        {/* What to Expect */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-purple-900 mb-6">What to Expect After Treatment</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Most patients report minimal discomfort following Revisional Micro-Root Therapy. While some mild to
-              moderate pain may occur as the anesthesia wears off, this typically resolves within a few days, especially
-              with proper medication for infections or inflammation.
-            </p>
-            <p className="text-lg text-gray-700 mb-4">
-              During healing, we recommend:
-            </p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 text-gray-700">
-              <li>Avoiding chewing on the treated side until pain subsides</li>
-              <li>Maintaining excellent oral hygiene</li>
-              <li>Returning for the recommended definitive crown restoration to protect the tooth</li>
-            </ul>
-            <p className="text-lg text-gray-700">
-              Without a crown, previously treated teeth are more prone to fracture. Once crowned, however, your
-              restored tooth will function and feel just like your other natural teeth.
-            </p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[2]} 
-              alt="Post treatment care" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-         <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[2]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />              
-          </motion.div>
-        </motion.div>
-
-        {/* Alternatives */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-12"
-        >
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-purple-900 mb-6">Are There Alternatives to Revisional Root Canal Treatment?</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              If non-surgical retreatment is not possible, due to severe damage, inaccessible canals, or persistent
-              infection, endodontic microsurgery (such as apicoectomy) may be recommended. This surgical option
-              involves accessing the root tip through a small incision in the gum to remove infected tissue.
-            </p>
-            <p className="text-lg text-gray-700">
-              Dr. Bhushan will explain your treatment options clearly and recommend the least invasive and most
-              effective approach based on your individual case.
-            </p>
-          </motion.div>
-          
-          <motion.div variants={itemVariants} className="order-first lg:order-last relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-            {/* <img 
-              src={images[3]} 
-              alt="Treatment alternatives" 
-              className="rounded-lg shadow-lg w-full object-contain h-64 lg:h-full"
-            /> */}
-                     <Image
-                     urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[3]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />  
-          
-          </motion.div>
-        </motion.div>
+        ))}
 
         {/* Conclusion */}
         <motion.div
@@ -352,38 +255,36 @@ export default function RevisionalMicroRootTherapyPage() {
           >
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-1/3 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                {/* <img 
-                  src={images[6]} 
-                  alt="Healthy smile" 
-                  className="rounded-lg shadow-lg w-full object-contain h-64"
-                /> */}
-         <Image
-         urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                          src={images[6]}
-                           alt="Modern denture solutions"
-                           fill
-                          className="object-contain"
-                          priority
-                        />                 
+                {data.images[data.conclusion.imageIndex] && (
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.images[data.conclusion.imageIndex]}
+                    alt="Modern denture solutions"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                )}
               </div>
               <div className="md:w-2/3">
-                <h2 className="text-3xl font-bold text-purple-900 mb-6">Preserve Your Natural Smile</h2>
-                <p className="text-lg text-gray-700 mb-4">
-                  At Prudentia Micro Dental Care, Pimple Saudagar we believe in saving teeth whenever possible.
-                  Revisional Micro-Root Therapy gives your previously treated tooth a second chance at lasting health,
-                  using cutting-edge technology and clinical excellence.
-                </p>
-                <p className="text-lg text-gray-700 mb-6">
-                  If you&apos;re experiencing pain or symptoms in a root canal-treated tooth, schedule your microscopic
-                  evaluation today, because your natural teeth deserve a second chance, done right.
-                </p>
+                <h2 className="text-3xl font-bold text-purple-900 mb-6">
+                  <Markdown inline>{data.conclusion.title}</Markdown>
+                </h2>
+                {data.conclusion.paragraphs.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className={index < data.conclusion.paragraphs.length - 1 ? "text-lg text-gray-700 mb-4" : "text-lg text-gray-700 mb-6"}
+                  >
+                    <Markdown inline>{paragraph}</Markdown>
+                  </p>
+                ))}
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleOpenChatbot}
                   className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors duration-300"
                 >
-                  Schedule Consultation
+                  {data.conclusion.buttonText}
                 </motion.button>
               </div>
             </div>

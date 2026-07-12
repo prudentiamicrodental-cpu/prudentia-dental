@@ -1,7 +1,19 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useChatbot } from '@/components/chatbotContext';
 import { Image } from '@imagekit/next';
+import Markdown from '@/components/markdown';
+import Head from 'next/head';
+
+
+interface MicroDentistryData {
+  meta: { title: string; description: string };
+  banner: { image: string; title: string; subtitle: string };
+  whyChoose: { title: string; description: string; image: string; listTitle: string; items: string[] };
+  benefits: { title: string; description: string; image: string; items: string[]; note: string };
+  treatments: { title: string; description: string; image: string; items: string[] };
+  cta: { title: string; description: string; button: string; footer: string };
+}
 
 // Helper component for scroll-triggered animations
 const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
@@ -47,16 +59,64 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string 
 
 export default function MicroDentistry() {
   const { handleOpenChatbot } = useChatbot();
-  
+  const [content, setContent] = useState<MicroDentistryData | null>(null);
+
+useEffect(() => {
+  async function loadData() {
+    const GITHUB_URL =
+      "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/whymicrodentistry/microDentistry.json";
+
+    const LOCAL_URL = "/data/whymicrodentistry/microDentistry.json";
+
+    try {
+      const res = await fetch(GITHUB_URL);
+
+      if (!res.ok) throw new Error("GitHub fetch failed");
+
+      const data: MicroDentistryData = await res.json();
+      setContent(data);
+    } catch (error) {
+      console.warn("Using local fallback:", error);
+
+      try {
+        const localRes = await fetch(LOCAL_URL);
+
+        if (!localRes.ok) {
+          throw new Error("Local fetch failed");
+        }
+
+        const localData: MicroDentistryData = await localRes.json();
+        setContent(localData);
+      } catch (localError) {
+        console.error("Failed to load local fallback:", localError);
+      }
+    }
+  }
+
+  loadData();
+}, []);
+
+  if (!content) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="font-inter antialiased text-gray-800 bg-gray-50">
+        <Head>
+        <title>{content.meta.title}</title>
+        <meta name="description" content={content.meta.description} />
+      </Head>
       {/* Main Content */}
       <main>
         {/* Banner Section */}
         <section className="relative h-96 flex items-center justify-center text-white overflow-hidden">
           <Image
             urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-            src="hero/MicroDentistry/zoomed-dental-microscope-prudentia-why-micro-dentistry-page-pimple-saudagar.jpg"
+            src={content.banner.image}
             alt="Micro-Dentistry Banner"
             fill
             className="object-cover z-0"
@@ -67,11 +127,12 @@ export default function MicroDentistry() {
           <div className="absolute inset-0 bg-purple-900 opacity-70 z-10"></div>
           <AnimatedSection className="relative z-20 text-center p-4">
             <h2 className="text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
-              Precision. Prevention. Preservation.
+              <Markdown>{content.banner.title}</Markdown>
             </h2>
-            <p className="mt-4 text-xl md:text-2xl font-medium drop-shadow-md">
-              Experience the Future of Dental Care
-            </p>
+             <Markdown className="mt-4 text-xl md:text-2xl font-medium drop-shadow-md">
+                {content.banner.subtitle}
+              </Markdown>
+          
           </AnimatedSection>
         </section>
 
@@ -79,20 +140,17 @@ export default function MicroDentistry() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <AnimatedSection>
-              <h2 className="text-4xl font-bold text-center text-purple-800 mb-12">Why Choose Micro-Dentistry?</h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
-                Micro-Dentistry is a cutting-edge approach that uses advanced magnification (up to 30x) and intense
-                illumination to detect and treat dental issues with unmatched accuracy. By integrating dental operating
-                microscopes, we can spot early signs of tooth decay, cracked teeth, and gum disease often before they
-                cause pain or visible damage.
-              </p>
+              <h2 className="text-4xl font-bold text-center text-purple-800 mb-12"><Markdown>{content.whyChoose.title}</Markdown></h2>
+              <Markdown className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+                {content.whyChoose.description}</Markdown>
+            
             </AnimatedSection>
 
             <div className="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
                  <Image
             urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-            src="hero/MicroDentistry/Image1.png"
+            src={content.whyChoose.image}
                   alt="Micro-Dentistry Precision"
                   width={600}
                   height={400}
@@ -100,32 +158,16 @@ export default function MicroDentistry() {
                 />
               </AnimatedSection>
               <AnimatedSection className="w-full md:w-1/2">
-                <h3 className="text-2xl font-semibold text-purple-700 mb-6">This minimally invasive technique empowers us to:</h3>
+                <h3 className="text-2xl font-semibold text-purple-700 mb-6"><Markdown>{content.whyChoose.listTitle}</Markdown></h3>
                 <ul className="space-y-4 text-lg text-gray-700">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Detect cavities before they appear on X-rays
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Perform root canal treatments with maximum precision
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Carry out cosmetic dental procedures with minimal tissue damage
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Conserve more of your natural teeth and gums
-                  </li>
+                  {content.whyChoose.items.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      </svg>
+                      <Markdown>{item}</Markdown>
+                    </li>
+                  ))}
                 </ul>
               </AnimatedSection>
             </div>
@@ -136,18 +178,18 @@ export default function MicroDentistry() {
         <section className="py-16 bg-purple-50">
           <div className="container mx-auto px-4 max-w-6xl">
             <AnimatedSection>
-              <h2 className="text-4xl font-bold text-center text-purple-800 mb-12">How You Benefit from Micro-Dentistry</h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
-                Every dental visit becomes an opportunity for early detection and conservative treatment. Whether it&apos;s a
-                minor cavity or a full-mouth restoration, micro-dentistry ensures:
-              </p>
+              <h2 className="text-4xl font-bold text-center text-purple-800 mb-12"><Markdown>{content.benefits.title}</Markdown></h2>
+              <Markdown className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+                {content.benefits.description}
+                </Markdown>
+              
             </AnimatedSection>
 
             <div className="flex flex-col md:flex-row-reverse items-center md:space-x-reverse md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
                  <Image
             urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-            src="hero/MicroDentistry/dentist-patient-treatment-explanation-screen-visual-consultation-prudentia-pune.jpg"
+            src={content.benefits.image}
                   alt="Micro-Dentistry Benefits"
                   width={600}
                   height={400}
@@ -156,43 +198,21 @@ export default function MicroDentistry() {
               </AnimatedSection>
               <AnimatedSection className="w-full md:w-1/2">
                 <ul className="space-y-4 text-lg text-gray-700">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Less pain, faster healing
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Minimal trauma to teeth and gums
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Greater preservation of healthy tooth structure
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Enhanced outcomes using fluorescence technology for early diagnosis
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Real-time video explanations of your treatment
-                  </li>
+                  {content.benefits.items.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      </svg>
+                      <Markdown>{item}</Markdown>
+                    </li>
+                  ))}
                 </ul>
                 <AnimatedSection className="mt-8 text-lg md:text-xl text-gray-700 leading-relaxed">
-                  <p>
-                    By catching problems early, we prevent complex procedures later often avoiding root canals or
-                    extractions altogether. You&aposll experience better oral health, improved hygiene, and more predictable
-                    results.
-                  </p>
+                  
+                   <Markdown>
+                     {content.benefits.note}
+                     </Markdown>
+                  
                 </AnimatedSection>
               </AnimatedSection>
             </div>
@@ -203,17 +223,17 @@ export default function MicroDentistry() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <AnimatedSection>
-              <h2 className="text-4xl font-bold text-center text-purple-800 mb-12">Treatments Performed with Micro-Dentistry</h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
-                Dr. Bhushan is extensively trained in micro-dentistry and uses this high-precision method for:
-              </p>
+              <Markdown className="text-4xl font-bold text-center text-purple-800 mb-12">{content.treatments.title}</Markdown>
+              <Markdown className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+                {content.treatments.description}
+              </Markdown>
             </AnimatedSection>
 
             <div className="flex flex-col md:flex-row items-center md:space-x-12 mt-10">
               <AnimatedSection className="w-full md:w-1/2 mb-8 md:mb-0">
                  <Image
             urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-            src="hero/MicroDentistry/dr-bhushan-microscope-dental-treatment-painless-relaxing-environment-prudentia-pimple-saudagar.jpg"
+            src={content.treatments.image}
                   alt="Micro-Dentistry Treatments"
                   width={600}
                   height={400}
@@ -222,42 +242,14 @@ export default function MicroDentistry() {
               </AnimatedSection>
               <AnimatedSection className="w-full md:w-1/2">
                 <ul className="space-y-4 text-lg text-gray-700">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Early cavity detection and tooth decay treatment
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Root canal therapy and re-treatment of failed root canals
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Dental fillings, crowns, and bridges
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Cosmetic enhancements: veneers, tooth reshaping, stain removal
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    Correction of chipped, discolored, or misaligned teeth
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
-                    General dentistry procedures with minimally invasive techniques
-                  </li>
+                  {content.treatments.items.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      </svg>
+                      <Markdown>{item}</Markdown>
+                    </li>
+                  ))}
                 </ul>
               </AnimatedSection>
             </div>
@@ -268,20 +260,19 @@ export default function MicroDentistry() {
         <section className="py-16 bg-purple-100">
           <div className="container mx-auto px-4 max-w-6xl text-center">
             <AnimatedSection>
-              <h2 className="text-4xl font-bold text-purple-800 mb-8">Experience the Future of Dental Care</h2>
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-3xl mx-auto">
-                At our clinic, micro-dentistry is more than a tool, it&apos;s a philosophy of preservation, comfort, and long-term
-                health. Ready for precise, patient-focused care?
-              </p>
+              <Markdown className="text-4xl font-bold text-purple-800 mb-8">{content.cta.title}</Markdown>
+              <Markdown className="text-lg md:text-xl text-gray-700 leading-relaxed mb-10 max-w-3xl mx-auto">
+                {content.cta.description}
+              </Markdown>
               <button
                 onClick={handleOpenChatbot}
                 className="inline-block bg-purple-700 hover:bg-purple-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                Book your Micro-Consultation today!
+                {content.cta.button}
               </button>
-              <p className="mt-6 text-md text-gray-600">
-                See the difference at Prudentia Micro Dental Care, Pimple Saudagar!
-              </p>
+              <Markdown className="mt-6 text-md text-gray-600">
+                {content.cta.footer}
+              </Markdown>
             </AnimatedSection>
           </div>
         </section>

@@ -1,0 +1,84 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Dental Veneers: A Simple Way to",
+    "titleLine2": "Transform Your Smile",
+    "tagline": "Crafted Smiles with Precision, Art & Technology",
+    "image": "hero/Services/cosmetic/6. Veneers/confident-beautiful-smile-cosmetic-dentistry-prudentia-pune.jpg",
+    "description": "At Prudentia Micro Dental Care, Pimple Saudagar we specialize in enhancing your smile with precision-crafted dental veneers, thin, tooth-colored shells bonded to the front of your teeth to dramatically improve their shape, color, and appearance."
+  },
+  "whatAre": {
+    "title": "What Are Dental Veneers?",
+    "description": "Dental veneers are ultra-thin, custom-made shells, typically made from porcelain or composite resin, that are permanently bonded to the front surface of your teeth. Veneers are an ideal solution for addressing a variety of cosmetic concerns, including:",
+    "concerns": [
+      "Chipped or broken teeth",
+      "Discoloration that doesn't respond to whitening",
+      "Gaps between teeth",
+      "Uneven or small-sized teeth",
+      "Misshapen or pointed teeth"
+    ],
+    "footer": "For most smile makeovers, veneers are applied to the top front 6 to 8 teeth to create a natural, symmetrical appearance.",
+    "image": "hero/Services/cosmetic/6. Veneers/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
+  },
+  "types": {
+    "title": "Types of Dental Veneers",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpeg",
+    "items": [
+      {
+        "icon": "Award",
+        "iconBg": "bg-purple-100",
+        "iconColor": "text-purple-600",
+        "title": "1. Porcelain Veneers:",
+        "description": "Durable, stain-resistant, and known for their natural tooth-like appearance. They typically require slight reshaping of the tooth structure."
+      },
+      {
+        "icon": "Clock",
+        "iconBg": "bg-green-100",
+        "iconColor": "text-green-600",
+        "title": "2. Composite Resin Veneers:",
+        "description": "More conservative and quicker to apply, often completed in a single visit. Ideal for smaller cosmetic corrections."
+      }
+    ],
+    "footer": "There are two main types of veneers we use at Prudentia: Our expert team will assess your needs and recommend the best type of veneer to meet your goals."
+  },
+  "benefits": {
+    "title": "What Are the Benefits of Veneers?",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpg",
+    "intro": "Dental veneers offer a comprehensive cosmetic solution with numerous advantages:",
+    "items": [
+      "Instantly improve tooth shape and color",
+      "Close gaps between teeth",
+      "Correct chips, cracks, and asymmetry",
+      "Provide a natural, bright smile",
+      "Long-lasting results with proper care"
+    ],
+    "footer": "With good oral hygiene and regular dental visits, porcelain veneers can last 10–20 years, offering a long-term solution to common smile concerns."
+  },
+  "rightForYou": {
+    "title": "Are Veneers Right for You?",
+    "image": "hero/Services/cosmetic/6. Veneers/front-teeth-gap-closure-decay-repair-cosmetic-fillings-smile-makeover-prudentia-pimple-saudagar.jpg",
+    "intro": "If you're bothered by cosmetic imperfections in your front teeth, veneers might be your perfect solution. They're ideal for patients looking for:",
+    "items": [
+      "A dramatic yet natural smile transformation",
+      "A minimally invasive alternative to crowns",
+      "A confidence boost from a brighter, more uniform smile"
+    ]
+  },
+  "different": {
+    "title": "What Makes Prudentia Micro Dental Care Different?",
+    "items": [
+      { "icon": "Award", "gradient": "from-pink-500 to-red-500", "title": "The artistry of smile design" },
+      { "icon": "Star", "gradient": "from-purple-500 to-indigo-500", "title": "The precision of advanced dental technology" },
+      { "icon": "Users", "gradient": "from-green-500 to-teal-500", "title": "A holistic, patient-centered approach" }
+    ],
+    "footer": "At Prudentia, we combine: ...to deliver a smile you'll love for years to come."
+  },
+  "cta": {
+    "title": "Ready for a Smile Makeover?",
+    "description": "Whether it's one tooth or a full smile transformation, we can help you achieve a seamless, confident look with veneers. Schedule your Micro-Consultation at Prudentia Micro Dental Care today and take the first step toward your dream smile!",
+    "button": "Schedule Your Consultation"
+  }
+}

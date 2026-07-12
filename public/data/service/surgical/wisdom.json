@@ -1,0 +1,107 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Wisdom Teeth Extraction:",
+    "titleHighlight": "Safe, Comfortable Care for Your Smile",
+    "paragraph": "Wisdom teeth are the third set of molars that typically emerge between the ages of 17 and 25. Due to their late appearance, there's often not enough room in the mouth for them to grow properly, leading to potential complications."
+  },
+  "problems": {
+    "title": "Common Wisdom Teeth Problems:",
+    "image": "hero/Services/surgical/1. Wisdom tooth extraction/painless-wisdom-tooth-extraction-recovery-prudentia-dental-pimple-saudagar.jpg",
+    "items": [
+      {
+        "title": "Damage to Neighboring Teeth",
+        "description": "Wisdom teeth can push against adjacent teeth, causing discomfort or even damage.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-red-600",
+        "color": "bg-red-50 border-red-200"
+      },
+      {
+        "title": "Gum Infection",
+        "description": "The partially erupted wisdom tooth can cause gum irritation and infections.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-orange-600",
+        "color": "bg-orange-50 border-orange-200"
+      },
+      {
+        "title": "Jaw Infections",
+        "description": "If wisdom teeth are impacted, they can lead to painful jaw infections.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-yellow-600",
+        "color": "bg-yellow-50 border-yellow-200"
+      },
+      {
+        "title": "Alignment Disruption",
+        "description": "Impacted wisdom teeth may shift other teeth, affecting the alignment of your smile.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50 border-purple-200"
+      }
+    ],
+    "conclusion": "While not all wisdom teeth require removal, if any of the above issues arise, extraction may be necessary to avoid further complications and preserve your oral health."
+  },
+  "extraction": {
+    "title": "Your Wisdom Teeth Extraction at Prudentia Micro Dental Care",
+    "paragraph": "We understand that wisdom teeth extraction can feel intimidating, but we're here to ensure your experience is as smooth and comfortable as possible.",
+    "expectText": "Here's what you can expect:",
+    "image": "hero/Services/surgical/1. Wisdom tooth extraction/prudentia-dental-operatory-microscope-setup-pimple-saudagar.jpg",
+    "steps": [
+      {
+        "title": "Calm & Relaxing Environment",
+        "description": "We perform the procedure in a stress-free setting to help you feel at ease.",
+        "icon": "Heart",
+        "iconColor": "text-blue-600",
+        "color": "bg-blue-50"
+      },
+      {
+        "title": "Personalized Anesthesia",
+        "description": "Depending on your needs and comfort level, we will administer the appropriate anesthesia to ensure a painless experience.",
+        "icon": "Stethoscope",
+        "iconColor": "text-green-600",
+        "color": "bg-green-50"
+      },
+      {
+        "title": "Gentle Care",
+        "description": "We're committed to addressing any concerns you have before, during, and after the procedure.",
+        "icon": "Shield",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50"
+      },
+      {
+        "title": "Post-Procedure Care",
+        "description": "After your extraction, we'll provide you with detailed instructions on how to care for the extraction site to ensure proper healing.",
+        "icon": "CheckCircle",
+        "iconColor": "text-teal-600",
+        "color": "bg-teal-50"
+      },
+      {
+        "title": "Follow-up Visit",
+        "description": "We'll schedule a follow-up appointment to check on your progress and ensure the healing process is going smoothly.",
+        "icon": "Clock",
+        "iconColor": "text-indigo-600",
+        "color": "bg-indigo-50"
+      }
+    ]
+  },
+  "decision": {
+    "title": "Making the Right Decision for Your Oral Health",
+    "paragraph": "While wisdom tooth extraction can be a big decision, it's an important one for your long-term dental health. If you're experiencing pain or discomfort from your wisdom teeth, we're here to guide you through the process.",
+    "ctaBox": {
+      "title": "Ready to Take Action?",
+      "paragraph": "Don't let wisdom tooth pain affect your quality of life. Our expert team is here to help.",
+      "badges": ["✓ Expert Care", "✓ Pain-Free Experience", "✓ Comprehensive Care"]
+    },
+    "image": "hero/Services/surgical/1. Wisdom tooth extraction/prudentias-dental-operatory-microscope-setup-pimple-saudagar.jpg",
+    "imageCaption": "Professional guidance for your oral health decisions"
+  },
+  "finalCta": {
+    "titleLine": "Take the First Step Toward a",
+    "titleHighlight": "Pain-Free, Healthy Smile",
+    "paragraph": "Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step toward a healthier, pain-free smile!",
+    "buttonText": "Book Your Micro-Root Consultation Today",
+    "footerText": "Your natural smile deserves the best care available"
+  }
+}

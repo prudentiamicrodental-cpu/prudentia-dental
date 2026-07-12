@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "title": "Regenerative Root Therapy | Prudentia Dental",
+    "description": "Advanced biological root regeneration preserving natural teeth through stem cell technology and micro-dentistry"
+  },
+  "hero": {
+    "title": "Regenerative Root Therapy",
+    "subtitle": "Healing from within. Restoring what was lost."
+  },
+  "inserts": [
+    {
+      "id": 1,
+      "title": "Welcome to the Future of Endodontics",
+      "content": "Regenerative Root Procedures use advanced biological approaches to promote natural root development and tissue healing, especially in immature or previously infected teeth.",
+      "bullets": [
+        "Revives the tooth's natural healing potential",
+        "Uses tissue engineering principles",
+        "Essential for young patients needing root growth"
+      ],
+      "image": "hero/Services/root/4. Regenerative Root Procedures/clean-tooth-stock-photo-prudentia-micro-dental-care-pune.jpg",
+      "icon": "🌱"
+    },
+    {
+      "id": 2,
+      "title": "What Is Regenerative Endodontic Therapy?",
+      "content": "A biologically based treatment leveraging advancements in pulp biology and stem cell science to achieve what was once considered impossible: helping teeth heal themselves.",
+      "bullets": [
+        "Stimulates continued root development",
+        "Rebuilds damaged pulp and tissues",
+        "Restores function in infected teeth",
+        "Alternative to extractions/implants"
+      ],
+      "image": "hero/Services/root/4. Regenerative Root Procedures/regenerative-endodontics-natural-tooth-healing-prudentia-dental-pune..jpg",
+      "icon": "⚕️"
+    },
+    {
+      "id": 3,
+      "title": "Why Traditional Methods Fall Short",
+      "content": "Conventional approaches in underdeveloped teeth often compromise long-term dental health:",
+      "bullets": [
+        "Thin, fracture-prone root walls",
+        "Short roots limiting longevity",
+        "Loss of tooth vitality and strength"
+      ],
+      "image": "hero/Services/root/4. Regenerative Root Procedures/regenerative-endodontics-natural-tooth-healing-prudentia-dental-pune.jpg",
+      "icon": "⚠️"
+    },
+    {
+      "id": 4,
+      "title": "Our Regenerative Advantage",
+      "content": "We transform dental care outcomes through biological regeneration:",
+      "bullets": [
+        "Reinforces tooth structure internally",
+        "Activates natural tissue regrowth",
+        "Preserves young patients' natural teeth",
+        "Avoids invasive extractions/implants"
+      ],
+      "image": "hero/Services/root/4. Regenerative Root Procedures/regeneratives-endodontics-natural-tooth-healing-prudentia-dental-pune.jpg",
+      "icon": "✨"
+    },
+    {
+      "id": 5,
+      "title": "Precision Biological Healing",
+      "content": "Our micro-dentistry expertise delivers exceptional results:",
+      "bullets": [
+        "Minimally invasive techniques",
+        "Advanced diagnostic imaging",
+        "Gentle yet effective regeneration",
+        "Long-term structural integrity"
+      ],
+      "image": "hero/Services/root/4. Regenerative Root Procedures/dental-microscope-closeup-precision-treatment-prudentia-dental-pune.jpg",
+      "icon": "🔬"
+    }
+  ],
+  "benefitsTitle": "Who Can Benefit?",
+  "benefits": [
+    { "title": "Young Patients", "description": "Children/adolescents with incomplete root formation", "icon": "👶" },
+    { "title": "Trauma Cases", "description": "Teeth with necrotic pulp or past damage", "icon": "🦷" },
+    { "title": "Natural Advocates", "description": "Patients preferring biological solutions over artificial", "icon": "💚" }
+  ],
+  "cta": {
+    "titleMain": "Don't Rush to Extract.",
+    "titleHighlight": "Regenerate.",
+    "paragraph": "Before considering extractions or implants, explore your natural healing options.",
+    "button": "Schedule Your Micro-Visit Today"
+  },
+  "clinic": {
+    "name": "Prudentia Micro Dental Care",
+    "location": "Pimple Saudagar, Pune",
+    "paragraph": "Specializing in biological dentistry and regenerative techniques to preserve your natural smile."
+  }
+}

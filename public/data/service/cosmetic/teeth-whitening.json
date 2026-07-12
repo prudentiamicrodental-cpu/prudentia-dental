@@ -1,0 +1,44 @@
+{
+   "meta": {
+    "title": "Prudentia Micro Dental Care",
+    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  },
+  "hero": {
+    "titleLine1": "Brighten Your Smile at",
+    "titleLine2": "Prudentia Micro Dental Care",
+    "tagline": "Whiter Teeth. Brighter Confidence. Younger You.",
+    "image": "hero/Services/cosmetic/7. teeth whitening/teeth-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg",
+    "description": "Ready to light up the room with your smile? At Prudentia Micro Dental Care, our professional teeth whitening treatments are designed to remove years of stains and discoloration safely, effectively, and with minimal sensitivity."
+  },
+  "whyChoose": {
+    "title": "Why Choose Professional Teeth Whitening?",
+    "intro": "Whether you're preparing for a big event or simply want to refresh your smile, our whitening treatments can:",
+    "image": "hero/Services/cosmetic/7. teeth whitening/teeths-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg",
+    "benefits": [
+      { "icon": "Star", "text": "Lift stubborn stains caused by coffee, tea, wine, smoking, and more", "color": "bg-purple-100 text-purple-600" },
+      { "icon": "Clock", "text": "Be performed in-office for instant results, or at-home for your convenience", "color": "bg-blue-100 text-blue-600" },
+      { "icon": "Sparkles", "text": "Be tailored to your desired level of brightness", "color": "bg-purple-100 text-purple-600" },
+      { "icon": "Shield", "text": "Offer safe, dentist-supervised whitening with minimal to no sensitivity", "color": "bg-purple-100 text-purple-600" }
+    ],
+    "footer": "Our advanced formulas and precise application methods ensure that your enamel stays strong while your smile becomes visibly whiter."
+  },
+  "safety": {
+    "title": "Is Teeth Whitening Safe?",
+    "highlight": "Absolutely.",
+    "paragraph1": "At Prudentia, your comfort and safety come first. Dr. Bhushan personally ensures that your treatment is customized for your teeth type and aesthetic goals.",
+    "paragraph2": "We use protective barriers to shield your gums and soft tissues and guide you through the entire process from pre-treatment care to post-whitening maintenance."
+  },
+  "sideEffects": {
+    "title": "Are There Any Side Effects?",
+    "description": "Teeth whitening is generally well tolerated, but you may experience temporary sensitivity to hot or cold foods and drinks. This usually resolves within a few days.",
+    "proTipTitle": "Pro Tip:",
+    "proTipText": "We recommend using a sensitivity-friendly toothpaste to ease any discomfort during recovery."
+  },
+  "revealSmile": {
+    "title": "Reveal Your Radiant Smile",
+    "image": "hero/Services/cosmetic/7. teeth whitening/teeth-whitenings-treatment-cosmetic-dentistry-prudentia-pune.jpg",
+    "paragraph": "A brighter smile can take years off your appearance and give your confidence a real boost. If you've been hiding your smile due to discoloration, it's time to rediscover your sparkle.",
+    "ctaText": "Contact us today at Prudentia Micro Dental Care, Pimple Saudagar to schedule your whitening consultation — and get ready to smile with complete confidence!",
+    "ctaButton": "Schedule Consultation"
+  }
+}
