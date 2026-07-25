@@ -1,18 +1,89 @@
 {
   "meta": {
-    "title": "Dentures Treatment | Prudentia Micro Dental Care",
-    "description": "Modern denture solutions including traditional and implant-supported options in Pimple Saudagar"
+    "title": "Best Dentures Near Me in Pimple Saudagar, Pune – Prudentia Micro Dental Care",
+    "description": "Searching for dentures near me in Pimple Saudagar? Prudentia Micro Dental Care offers comfortable, natural-looking, custom dentures near Vision 9 Mall, Kunal Icon Road."
   },
   "hero": {
-    "title": "Dentures at Prudentia Micro Dental Care: A Modern Solution for a Beautiful Smile",
+    "title": "Best Dentures Near Me in Pimple Saudagar, Pune",
     "image": "hero/Services/dentures/premium-custom-dentures-oral-rehabilitation-prudentia-pune.jpg",
-    "description": "Dentures have been a time-tested solution for replacing missing teeth, and today, advancements in technology and design have made dentures even more convenient, comfortable, and natural-looking than ever before. At Prudentia Micro Dental Care, we offer both traditional and implant-supported dentures, ensuring that you can restore your smile and bite without the hassle or discomfort of older denture options."
+    "description": "If you're searching for the best dentures near me in Pimple Saudagar, Prudentia Micro Dental Care offers comfortable, natural-looking, and customized denture solutions to restore your smile and improve your quality of life. Whether you have lost a few teeth or require a full set of dentures, our experienced team provides personalized treatment designed for comfort, function, and confidence. Conveniently located at Vision 9 Mall, Kunal Icon Road, our clinic is trusted by patients from Pimple Saudagar, Pimpri-Chinchwad, Wakad, and Rahatani for high-quality denture treatments using modern techniques and premium materials."
+  },
+  "topRated": {
+    "title": "Top-Rated Dentures Near You in Pimple Saudagar",
+    "description": "Choosing the right dental clinic for dentures can make a significant difference in comfort and long-term satisfaction. At Prudentia Micro Dental Care, we combine expertise, precision, and personalized care to deliver dentures that feel secure and look natural.",
+    "points": [
+      "Trusted by hundreds of satisfied patients",
+      "Modern clinic equipped with advanced dental technology",
+      "Convenient location near Vision 9 Mall",
+      "Easily accessible from Kunal Icon Road and surrounding areas"
+    ],
+    "footnote": "Patients searching for dentures near me choose us for our attention to detail, patient comfort, and reliable treatment outcomes."
+  },
+  "whyChooseLocation": {
+    "title": "Why Choose Prudentia Micro Dental Care for Dentures Near Me?",
+    "features": [
+      {
+        "title": "Custom-Made Dentures",
+        "description": "Every denture is designed specifically for your mouth to ensure a comfortable fit, improved function, and a natural appearance."
+      },
+      {
+        "title": "Comfortable & Natural Fit",
+        "description": "We carefully evaluate your oral condition to provide dentures that fit securely and allow you to speak and chew comfortably."
+      },
+      {
+        "title": "Advanced Dental Technology",
+        "description": "Modern diagnostic tools and precise fabrication techniques help us create durable, high-quality dentures."
+      },
+      {
+        "title": "Safe & Hygienic Environment",
+        "description": "Our clinic follows strict sterilization and hygiene protocols, ensuring every patient receives safe and reliable care."
+      },
+      {
+        "title": "Convenient Location Near You",
+        "description": "Ideal for patients searching for dentures near Kunal Icon Road, Vision 9 Mall, and Pimple Saudagar."
+      }
+    ],
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  },
+  "whatAre": {
+    "title": "What Are Dentures?",
+    "description": "Dentures are removable dental appliances designed to replace missing teeth and restore the appearance and function of your smile. They are custom-made to fit comfortably and help improve everyday activities like eating, speaking, and smiling.",
+    "advantages": [
+      "Restoring missing teeth",
+      "Improving facial appearance",
+      "Better chewing ability",
+      "Clearer speech",
+      "Increased confidence",
+      "Cost-effective tooth replacement"
+    ],
+    "footnote": "If you're looking for a dependable solution for missing teeth, searching for dentures near me is an excellent place to start."
   },
   "candidate": {
     "title": "Are You a Candidate for Dentures?",
     "paragraph1": "If you're missing most or all of your teeth, dentures may be an ideal solution for you. For patients with sporadic tooth loss and a good amount of healthy remaining teeth, partial dentures might be a better choice. If you're seeking a more permanent and durable option, implant-supported dentures are also available.",
     "paragraph2": "During your consultation, we'll thoroughly evaluate your gums, jawbone, and remaining teeth to determine the best option for you. If issues like gum disease or tooth decay are present, we will address them before proceeding with denture treatment.",
     "image": "hero/Services/dentures/premiums-custom-dentures-oral-rehabilitation-prudentia-pune.jpg"
+  },
+  "typesOverview": {
+    "title": "Types of Dentures Available Near You",
+    "items": [
+      {
+        "title": "Complete Dentures",
+        "description": "Designed for patients who have lost all their teeth in the upper or lower jaw."
+      },
+      {
+        "title": "Partial Dentures",
+        "description": "Ideal for replacing several missing teeth while preserving the remaining natural teeth."
+      },
+      {
+        "title": "Flexible Dentures",
+        "description": "Made from lightweight, flexible materials for enhanced comfort and improved aesthetics."
+      },
+      {
+        "title": "Implant-Supported Dentures",
+        "description": "A more stable option that uses dental implants to securely support dentures and improve chewing efficiency."
+      }
+    ]
   },
   "types": {
     "title": "Types of Dentures",
@@ -35,6 +106,31 @@
       }
     ]
   },
+  "process": {
+    "title": "Step-by-Step Denture Treatment Process",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Consultation & Oral Examination",
+        "description": "We evaluate your oral health, discuss your concerns, and recommend the most suitable denture option."
+      },
+      {
+        "number": "2",
+        "title": "Impressions & Measurements",
+        "description": "Precise impressions are taken to ensure your dentures fit comfortably and accurately."
+      },
+      {
+        "number": "3",
+        "title": "Denture Fabrication",
+        "description": "Your dentures are custom-made using high-quality materials to achieve a natural look and comfortable fit."
+      },
+      {
+        "number": "4",
+        "title": "Fitting & Adjustments",
+        "description": "Once ready, the dentures are fitted and adjusted as needed to maximize comfort and functionality."
+      }
+    ]
+  },
   "implantBenefits": {
     "title": "Why Choose Implant-Supported Dentures?",
     "image": "hero/Services/dentures/premium-custom-denturess-oral-rehabilitation-prudentia-pune.jpg",
@@ -45,9 +141,123 @@
       "Long-Term Results: Implants offer a longer-lasting solution, reducing the need for frequent adjustments or replacements."
     ]
   },
+  "benefits": {
+    "title": "Benefits of Choosing Dentures Near Me",
+    "items": [
+      "Restores your smile naturally",
+      "Improves chewing and speaking ability",
+      "Supports facial muscles",
+      "Comfortable and customized fit",
+      "Affordable tooth replacement option",
+      "Boosts confidence in daily life",
+      "Easy to maintain with proper care"
+    ],
+    "footnote": "Dentures remain one of the most effective and economical solutions for replacing missing teeth."
+  },
+  "cost": {
+    "title": "Affordable Denture Cost in Pimple Saudagar",
+    "description": "One of the most common questions when searching for dentures near me is the treatment cost. The cost depends on several factors, including:",
+    "factors": [
+      "Type of denture selected",
+      "Number of teeth being replaced",
+      "Materials used",
+      "Individual treatment requirements"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Customized treatment plans",
+      "High-quality dentures at competitive prices",
+      "Long-term value and comfort"
+    ]
+  },
+  "sameDayConsultation": {
+    "title": "Same-Day Consultation for Dentures Near You",
+    "description": "Missing teeth can affect both your confidence and daily routine. Early treatment helps restore function and improve your overall quality of life.",
+    "items": [
+      "Easy appointment scheduling",
+      "Prompt consultation",
+      "Personalized treatment planning"
+    ],
+    "footnote": "When searching for dentures near me, choose a clinic that prioritizes quality, comfort, and patient satisfaction."
+  },
+  "trustedAreas": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "description": "We proudly provide denture treatment for patients from:",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ],
+    "footnote": "Our convenient location makes us a preferred choice for patients searching for dentures near me in Pune."
+  },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "The dentures fit perfectly and feel very comfortable. Excellent service." },
+      { "quote": "Professional team and clean clinic. My smile looks natural again." },
+      { "quote": "I searched for dentures near me and found the right clinic. Highly recommended." }
+    ],
+    "footnote": "Patient satisfaction continues to inspire us to deliver exceptional dental care."
+  },
+  "whatToExpect": {
+    "title": "What to Expect During Your Visit",
+    "items": [
+      {
+        "title": "Easy Appointment Booking",
+        "description": "Quick and convenient scheduling according to your availability."
+      },
+      {
+        "title": "Comfortable Treatment Experience",
+        "description": "Our team ensures every visit is relaxed, efficient, and patient-friendly."
+      },
+      {
+        "title": "Personalized Denture Solution",
+        "description": "Every treatment plan is customized to match your oral health needs and lifestyle."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions – Dentures Near Me",
+    "items": [
+      {
+        "question": "How long do dentures last?",
+        "answer": "With proper care and regular dental check-ups, dentures can last for several years before requiring replacement or adjustment."
+      },
+      {
+        "question": "Are dentures comfortable?",
+        "answer": "Modern dentures are custom-designed for a comfortable fit. Minor adjustments may be needed initially as you adapt to wearing them."
+      },
+      {
+        "question": "How long does it take to get dentures?",
+        "answer": "The process typically involves multiple appointments for examination, impressions, fabrication, and final fitting."
+      },
+      {
+        "question": "Who is a suitable candidate for dentures?",
+        "answer": "Anyone with multiple missing teeth or complete tooth loss may benefit from dentures after a professional dental evaluation."
+      },
+      {
+        "question": "What is the cost of dentures in Pune?",
+        "answer": "The cost varies depending on the type of denture, materials used, and your individual treatment needs. A consultation provides an accurate estimate."
+      },
+      {
+        "question": "Why should I choose dentures?",
+        "answer": "Dentures restore appearance, improve chewing and speech, support facial structure, and provide an affordable solution for replacing missing teeth."
+      },
+      {
+        "question": "How do I choose the best dentures near me?",
+        "answer": "Look for a dental clinic with experienced professionals, customized treatment options, advanced technology, excellent patient reviews, and a convenient location."
+      }
+    ]
+  },
   "cta": {
     "title": "Ready to Restore Your Smile?",
-    "description": "Whether you're looking for traditional dentures, partial dentures, or a more permanent solution with implant-supported dentures, our team at Prudentia Micro Dental Care, Pimple Saudagar is here to guide you through the process. [Contact us](https://example.com)  today at (9768048056) to schedule a consultation and learn more about the best tooth replacement options for your needs.",
-    "button": "Schedule your consultation today"
+    "description": "Whether you're looking for traditional dentures, partial dentures, or a more permanent solution with implant-supported dentures, our team at Prudentia Micro Dental Care, Pimple Saudagar is here to guide you through the process.",
+    "conclusionTitle": "Your Trusted Choice for Dentures Near Me",
+    "conclusion": "If you're searching for the best dentures near me in Pimple Saudagar, Prudentia Micro Dental Care is committed to helping you restore your smile with comfortable, natural-looking, and long-lasting denture solutions. From your initial consultation to the final fitting, we focus on personalized care, precision, and patient satisfaction. Our convenient location near Vision 9 Mall and Kunal Icon Road makes accessing quality dental care simple and hassle-free.",
+    "button": "Schedule your consultation today",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

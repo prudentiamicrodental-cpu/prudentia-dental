@@ -1,131 +1,327 @@
 {
-   "meta": {
-    "title": "Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  "meta": {
+    "title": "Best Swollen Gums Treatment Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Searching for swollen gums treatment near me in Pimple Saudagar? Prudentia Micro Dental Care offers expert diagnosis and gentle gum treatment near Vision 9 Mall, Kunal Icon Road."
   },
+
   "hero": {
-    "titleLine1": "Gum Disease Treatment:",
-    "titleHighlight": "Protect Your Smile with Proper Care",
+    "titleLine1": "Swollen Gums Treatment Near Me:",
+    "titleHighlight": "Relief, Diagnosis & Long-Term Gum Health",
     "image": "hero/Services/surgical/3. Gum Care/professional-gum-care-cleaning-pune-prudentia-dental.jpg"
   },
+
   "intro": {
-    "paragraph": "Gum disease, also known as gingivitis, is a common oral health issue that can lead to severe damage if left untreated. In its early stages, gingivitis can be managed and reversed, but if it progresses, it can result in tooth loss and other serious complications."
+    "paragraph": "If you are searching for the best swollen gums treatment near me in Pimple Saudagar, you deserve expert dental care that quickly relieves discomfort, treats the underlying cause, and restores your gum health. At Prudentia Micro Dental Care, Vision 9 Mall, Kunal Icon Road, we provide advanced diagnosis and personalized treatment for swollen, inflamed, and bleeding gums."
   },
-  "symptoms": {
-    "title": "Signs and Symptoms of Gum Disease to Watch For:",
-    "image": "hero/Services/surgical/3. Gum Care/gum-disease-treatment-periodontal-therapy-prudentia-dental-pune.jpg",
+
+  "trustBadges": {
+    "title": "Trusted Swollen Gums Treatment Near You",
+    "items": [
+      "Experienced dentists specializing in gum health",
+      "Advanced diagnostic technology",
+      "Gentle and effective gum treatment procedures",
+      "Convenient location near Vision 9 Mall and Kunal Icon Road"
+    ]
+  },
+
+  "whyChoose": {
+    "title": "Why Choose Prudentia Micro Dental Care?",
     "items": [
       {
-        "title": "Bleeding Gums",
-        "description": "Gums that bleed while brushing or flossing are a key sign of gingivitis.",
-        "icon": "AlertTriangle",
+        "title": "Advanced Diagnosis",
+        "description": "Our dentists carefully evaluate your gums using modern diagnostic techniques to identify the exact cause of swelling and recommend the most suitable treatment.",
+        "icon": "Stethoscope",
+        "iconColor": "text-blue-600",
+        "color": "bg-blue-50 border-blue-200"
+      },
+      {
+        "title": "Personalized Treatment Plans",
+        "description": "Every patient receives an individualized treatment plan based on the severity of gum inflammation and overall oral health.",
+        "icon": "Heart",
         "iconColor": "text-red-600",
         "color": "bg-red-50 border-red-200"
       },
       {
-        "title": "Inflamed, Puffy Gums",
-        "description": "Swollen or puffy gums may indicate irritation from bacteria buildup.",
-        "icon": "AlertTriangle",
-        "iconColor": "text-orange-600",
-        "color": "bg-orange-50 border-orange-200"
-      },
-      {
-        "title": "Dark Red or Purple Gums",
-        "description": "Healthy gums should appear light pink; dark red or purple gums may signal infection.",
-        "icon": "AlertTriangle",
+        "title": "Comfortable Dental Care",
+        "description": "We use minimally invasive procedures and modern techniques to ensure a comfortable and stress-free treatment experience.",
+        "icon": "Shield",
         "iconColor": "text-purple-600",
         "color": "bg-purple-50 border-purple-200"
       },
       {
-        "title": "Receding Gum Line",
-        "description": "A receding gum line or teeth that look longer could be a sign of gum damage.",
+        "title": "High Standards of Hygiene",
+        "description": "Strict sterilization protocols and advanced infection control measures ensure safe treatment at every visit.",
+        "icon": "CheckCircle",
+        "iconColor": "text-emerald-600",
+        "color": "bg-emerald-50 border-emerald-200"
+      },
+      {
+        "title": "Convenient Location Near You",
+        "description": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027.",
         "icon": "AlertTriangle",
         "iconColor": "text-yellow-600",
         "color": "bg-yellow-50 border-yellow-200"
       }
-    ],
-    "warning": {
-      "title": "Important Warning",
-      "paragraph": "The early stage of gum disease, gingivitis, is completely reversible and doesn't cause permanent damage. However, if left untreated, it can progress to periodontitis and advanced periodontitis, which may lead to irreversible damage, including loss of gum and bone support, and tooth mobility."
-    }
+    ]
   },
-  "treatmentApproach": {
-    "title": "Our Treatment Approach:",
+
+  "causes": {
+    "title": "What Causes Swollen Gums?",
+    "image": "hero/Services/surgical/3. Gum Care/gum-disease-treatment-periodontal-therapy-prudentia-dental-pune.jpg",
+    "intro": "Swollen gums are often an early warning sign of gum disease or other oral health conditions. Common causes include:",
+    "items": [
+      "Plaque and tartar buildup",
+      "Gingivitis",
+      "Periodontitis",
+      "Gum infections",
+      "Poor oral hygiene",
+      "Vitamin deficiencies",
+      "Hormonal changes",
+      "Ill-fitting dental appliances",
+      "Smoking and tobacco use"
+    ],
+    "footer": "Early professional treatment helps prevent complications and protects your teeth and gums."
+  },
+
+  "signs": {
+    "title": "Signs You May Need Swollen Gums Treatment",
+    "intro": "You should schedule a dental examination if you experience:",
+    "items": [
+      "Red, swollen, or tender gums",
+      "Bleeding while brushing or flossing",
+      "Persistent bad breath",
+      "Gum pain or discomfort",
+      "Receding gums",
+      "Loose teeth",
+      "Pus around the gums",
+      "Pain while chewing"
+    ],
+    "footer": "Ignoring these symptoms can allow gum disease to progress and affect the supporting structures of your teeth."
+  },
+
+  "treatments": {
+    "title": "Swollen Gums Treatments Available Near You",
     "images": [
       "hero/Services/surgical/3. Gum Care/professional-gum-care-cleaning-pune-prudentia-dental.jpeg",
       "hero/Services/surgical/3. Gum Care/gums-disease-treatment-periodontal-therapy-prudentia-dental-pune.jpg"
     ],
-    "paragraph": "At Prudentia Micro Dental Care, Pimple Saudagar we offer deep cleanings to help prevent the progression of gum disease. During this process, we remove plaque, tartar, and harmful bacteria from beneath the gums, stopping the infection and giving your teeth and gums a fresh start.",
-    "treatments": [
+    "paragraph": "At Prudentia Micro Dental Care, Pimple Saudagar, we tailor gum treatment to the severity of your condition, from professional cleaning to comprehensive periodontal care.",
+    "items": [
       {
-        "title": "Deep Cleanings",
-        "description": "We use professional-grade tools to thoroughly clean your teeth, removing harmful substances and giving your smile a polished, glassy finish.",
-        "icon": "Shield",
+        "title": "Professional Dental Cleaning",
+        "description": "Removes plaque and tartar deposits responsible for gum inflammation and helps restore healthy gums.",
+        "icon": "Sparkles",
         "iconColor": "text-blue-600",
         "color": "from-blue-50 to-blue-100"
       },
       {
-        "title": "Medication",
-        "description": "In certain cases, we may provide antibiotics or other medications to help control bacteria and support healing.",
-        "icon": "Stethoscope",
+        "title": "Deep Cleaning (Scaling & Root Planing)",
+        "description": "Recommended for patients with moderate to advanced gum disease to clean below the gumline and promote healing.",
+        "icon": "Shield",
         "iconColor": "text-purple-600",
         "color": "from-purple-50 to-purple-100"
       },
       {
-        "title": "Advanced Gum Disease Treatment",
-        "description": "For more advanced stages of gum disease, we offer periodontal surgery, which may involve additional cleaning of the gums, teeth, and bone to address the underlying infection.",
+        "title": "Gum Infection Treatment",
+        "description": "Targeted treatment to eliminate bacterial infections causing gum swelling and discomfort.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-red-600",
+        "color": "from-red-50 to-red-100"
+      },
+      {
+        "title": "Gum Disease Management",
+        "description": "Comprehensive treatment plans for gingivitis and periodontitis to protect your gums and natural teeth.",
         "icon": "Activity",
-        "iconColor": "text-purple-600",
-        "color": "from-purple-50 to-purple-100"
+        "iconColor": "text-orange-600",
+        "color": "from-orange-50 to-orange-100"
+      },
+      {
+        "title": "Preventive Gum Care",
+        "description": "Routine examinations, professional cleanings, and oral hygiene education to prevent future gum problems.",
+        "icon": "CheckCircle",
+        "iconColor": "text-emerald-600",
+        "color": "from-emerald-50 to-emerald-100"
       }
     ]
   },
-  "whyVisits": {
+
+  "process": {
+    "title": "Step-by-Step Swollen Gums Treatment Procedure",
+    "paragraph": "Every stage of your visit is carefully planned to identify the cause of your gum swelling and treat it effectively.",
+    "steps": [
+      {
+        "title": "Comprehensive Dental Examination",
+        "description": "Your dentist performs a detailed oral examination and may recommend digital X-rays to assess the condition of your gums and supporting bone.",
+        "icon": "Stethoscope",
+        "iconColor": "text-blue-600",
+        "color": "bg-blue-50"
+      },
+      {
+        "title": "Diagnosis",
+        "description": "The underlying cause of the swelling is identified, allowing us to create an effective treatment plan.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-orange-600",
+        "color": "bg-orange-50"
+      },
+      {
+        "title": "Professional Cleaning",
+        "description": "Plaque, tartar, and bacteria are removed from above and below the gumline to reduce inflammation.",
+        "icon": "Sparkles",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50"
+      },
+      {
+        "title": "Specialized Gum Treatment",
+        "description": "Depending on the severity, treatments such as scaling, root planing, medications, or additional periodontal therapy may be recommended.",
+        "icon": "Shield",
+        "iconColor": "text-red-600",
+        "color": "bg-red-50"
+      },
+      {
+        "title": "Home Care Guidance",
+        "description": "Our dentists provide personalized oral hygiene instructions and preventive recommendations to maintain healthy gums.",
+        "icon": "Heart",
+        "iconColor": "text-teal-600",
+        "color": "bg-teal-50"
+      }
+    ]
+  },
+
+  "benefits": {
+    "title": "Benefits of Choosing Swollen Gums Treatment Near Me",
+    "items": [
+      { "title": "Reduces Gum Swelling", "description": "Targeted care to calm inflammation quickly.", "icon": "Shield", "iconColor": "text-blue-600", "color": "bg-blue-50" },
+      { "title": "Eliminates Gum Infection", "description": "Clears bacterial infection at the source.", "icon": "AlertTriangle", "iconColor": "text-red-600", "color": "bg-red-50" },
+      { "title": "Prevents Disease Progression", "description": "Stops gingivitis from advancing to periodontitis.", "icon": "Activity", "iconColor": "text-orange-600", "color": "bg-orange-50" },
+      { "title": "Stops Bleeding Gums", "description": "Healthier gums that no longer bleed easily.", "icon": "Heart", "iconColor": "text-rose-600", "color": "bg-rose-50" },
+      { "title": "Improves Oral Hygiene", "description": "Cleaner teeth and gums, reduced plaque buildup.", "icon": "Sparkles", "iconColor": "text-purple-600", "color": "bg-purple-50" },
+      { "title": "Protects Natural Teeth", "description": "Preserves the structures that support your teeth.", "icon": "CheckCircle", "iconColor": "text-emerald-600", "color": "bg-emerald-50" },
+      { "title": "Reduces Bad Breath", "description": "Addresses a common cause of persistent bad breath.", "icon": "Shield", "iconColor": "text-teal-600", "color": "bg-teal-50" },
+      { "title": "Restores Healthy Gum Tissue", "description": "Supports the natural healing of gum tissue.", "icon": "Heart", "iconColor": "text-pink-600", "color": "bg-pink-50" },
+      { "title": "Supports Long-Term Oral Health", "description": "Preventive care that protects your smile for years.", "icon": "CheckCircle", "iconColor": "text-indigo-600", "color": "bg-indigo-50" }
+    ],
+    "footer": "Timely treatment helps preserve your smile and prevents more complex dental problems."
+  },
+
+  "cost": {
+    "title": "Affordable Swollen Gums Treatment Cost in Pimple Saudagar",
+    "paragraph": "Many patients searching for swollen gums treatment near me want affordable yet high-quality dental care. Treatment costs depend on factors such as:",
+    "factors": [
+      "Severity of gum disease",
+      "Type of treatment required",
+      "Number of affected teeth",
+      "Need for deep cleaning or periodontal therapy",
+      "Follow-up care"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Personalized treatment plans",
+      "Affordable and value-driven dental care"
+    ]
+  },
+
+  "consultation": {
+    "title": "Same-Day Consultation for Swollen Gums Treatment Near You",
+    "paragraph": "If your gums are swollen, bleeding, or painful, don't delay treatment.",
+    "points": [
+      "Quick appointment scheduling",
+      "Same-day consultation available",
+      "Early diagnosis and prompt treatment planning"
+    ]
+  },
+
+  "areasServed": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "paragraph": "Our convenient location makes quality gum care easily accessible for patients throughout Pune.",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ]
+  },
+
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My swollen gums improved within days after treatment. The dentists explained everything clearly." },
+      { "quote": "Excellent clinic with friendly staff and advanced equipment. Highly recommended." },
+      { "quote": "I searched for swollen gums treatment near me and found exceptional care at Prudentia Micro Dental Care." }
+    ]
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What causes swollen gums?",
+        "answer": "Swollen gums are commonly caused by plaque buildup, gingivitis, gum infections, poor oral hygiene, hormonal changes, vitamin deficiencies, or periodontal disease."
+      },
+      {
+        "question": "Can swollen gums heal without treatment?",
+        "answer": "Mild gum irritation may improve with better oral hygiene, but persistent swelling should be evaluated by a dentist to prevent complications."
+      },
+      {
+        "question": "Is swollen gums treatment painful?",
+        "answer": "Most gum treatments are comfortable and performed using gentle techniques. Your dentist will ensure a comfortable experience throughout the procedure."
+      },
+      {
+        "question": "How can I prevent swollen gums?",
+        "answer": "Brush twice daily, floss regularly, schedule routine dental cleanings, eat a balanced diet, and avoid tobacco products to maintain healthy gums."
+      },
+      {
+        "question": "How much does swollen gums treatment cost in Pune?",
+        "answer": "The cost depends on the severity of the condition and the treatment required. A consultation allows your dentist to provide an accurate estimate."
+      },
+      {
+        "question": "When should I visit a dentist for swollen gums?",
+        "answer": "If your gums remain swollen, bleed frequently, are painful, or you notice persistent bad breath or loose teeth, schedule a dental examination as soon as possible."
+      },
+      {
+        "question": "How do I find the best swollen gums treatment near me?",
+        "answer": "Choose a dental clinic with experienced dentists, advanced technology, excellent patient reviews, modern sterilization standards, and a convenient location."
+      }
+    ]
+  },
+
+  "whatToExpect": {
     "image": "hero/Services/surgical/3. Gum Care/professionals-gum-care-cleaning-pune-prudentia-dental.jpg",
     "badges": [
-      {
-        "icon": "CheckCircle",
-        "iconColor": "text-purple-600",
-        "label": "Prevention"
-      },
-      {
-        "icon": "Shield",
-        "iconColor": "text-blue-600",
-        "label": "Protection"
-      },
-      {
-        "icon": "Heart",
-        "iconColor": "text-red-600",
-        "label": "Care"
-      }
+      { "icon": "CheckCircle", "iconColor": "text-purple-600", "label": "Easy Booking" },
+      { "icon": "Shield", "iconColor": "text-blue-600", "label": "Comfort" },
+      { "icon": "Heart", "iconColor": "text-red-600", "label": "Personalized" }
     ],
-    "title": "Why Regular Dental Visits Matter:",
+    "title": "What to Expect During Your Visit",
     "paragraphs": [
-      "Routine dental visits are essential to keep your gums healthy and prevent future complications. Early detection and treatment of gum disease can save your smile and protect your overall oral health.",
-      "We're committed to making every visit comfortable and informative, ensuring that you leave feeling confident about the health of your teeth and gums."
+      "Easy Appointment Booking: Simple scheduling with minimal waiting time.",
+      "Comfortable Treatment Experience: Gentle procedures designed to minimize discomfort and maximize results."
     ],
     "cards": [
       {
         "icon": "CheckCircle",
         "iconColor": "text-purple-600",
-        "title": "Early Detection",
-        "description": "Catch problems before they worsen",
+        "title": "Easy Appointment Booking",
+        "description": "Simple scheduling with minimal waiting time",
         "borderColor": "border-purple-100"
       },
       {
         "icon": "Heart",
         "iconColor": "text-blue-600",
-        "title": "Comfortable Care",
-        "description": "Relaxing and informative visits",
+        "title": "Customized Care",
+        "description": "An individualized treatment plan for your gum condition",
         "borderColor": "border-blue-100"
       }
     ]
   },
+
   "finalCta": {
-    "titleLine": "Take the First Step Toward a",
-    "titleHighlight": "Pain-Free, Healthy Smile",
-    "paragraph": "Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step toward a healthier, pain-free smile!",
-    "buttonText": "Book Your Micro-Root Consultation Today",
-    "footerText": "Your natural smile deserves the best care available"
+    "titleLine": "Take the First Step Toward",
+    "titleHighlight": "Healthier Gums and a Confident Smile",
+    "paragraph": "If you are looking for the best swollen gums treatment near me in Pimple Saudagar, Prudentia Micro Dental Care offers advanced diagnostic technology, experienced dental professionals, and compassionate patient care.",
+    "buttonText": "Book Your Gum Consultation Today",
+    "footerText": "Your healthy gums are the foundation of a confident smile",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

@@ -7,6 +7,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import ServicesDropdown from './ServicesDropdown';
 import MobileServicesDropdown from './MobileServiceDropDown';
 import { useChatbot } from './chatbotContext';
+import MicroDentistryDropdown from './microDentistryDropdown';
+import MobileMicroDentistryDropdown from './MobileMicroDentistryDropDown';
 
 interface NavLink {
   label: string;
@@ -30,14 +32,37 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => {
+ useEffect(() => {
     let isMounted = true;
-    fetch('/data/home/nav-links.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/nav-links.json';
+    const LOCAL_URL = '/data/home/nav-links.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: NavLinks) => {
+          if (isMounted) setNavLinks(data);
+        })
+        .catch((err) => console.error('Failed to load local nav links:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: NavLinks) => {
         if (isMounted) setNavLinks(data);
       })
-      .catch((err) => console.error('Failed to load nav links:', err));
+      .catch((err) => {
+        console.warn('Failed to load nav links from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };
@@ -164,6 +189,7 @@ const Navbar = () => {
             {navLinks.before.map((link) =>
               renderLink(link, "text-gray-800 hover:text-purple-700 font-medium transition-colors duration-200")
             )}
+            <MicroDentistryDropdown/>
             <ServicesDropdown />
             {navLinks.after.map((link) =>
               renderLink(link, "text-gray-800 hover:text-purple-700 font-medium transition-colors duration-200")
@@ -209,6 +235,7 @@ const Navbar = () => {
             {navLinks.before.map((link) =>
               renderLink(link, "block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100")
             )}
+            <MobileMicroDentistryDropdown onClick={() => setIsOpen(false)} />
             <MobileServicesDropdown onClick={() => setIsOpen(false)} />
             {navLinks.after.map((link) =>
               renderLink(link, "block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100")

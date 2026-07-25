@@ -1,103 +1,271 @@
 {
   "meta": {
-    "title": "Micro-Root Treatment | Prudentia Micro Dental Care",
-    "description": "Experience painless, microscope-enhanced root canal treatment with nearly 100% success rate at Prudentia Micro Dental Care."
+    "title": "Best Root Canal Treatment Near Me in Pimple Saudagar, Pune – Prudentia Micro Dental Care",
+    "description": "Searching for root canal treatment near me in Pimple Saudagar? Prudentia Micro Dental Care offers advanced, pain-free root canal treatments near Vision 9 Mall, Kunal Icon Road."
   },
   "hero": {
-    "titleHighlight": "Micro-Root Treatment",
-    "titleRest": ": Root Canal Redefined with Precision",
-    "paragraph": "A modern, microscope-enhanced procedure designed to save infected teeth with minimal discomfort and maximum precision.",
-    "button": "Book Your Consultation",
-    "image": "hero/Services/root/1. Micro-Root Treatment/painless-root-canal-treatment-under-microscope-prudentia-dental-care-pune.jpg",
-    "imageCaption": "Nearly 100% success rate when properly maintained"
+    "title": "Best Root Canal Treatment Near Me in",
+    "highlightedText": "Pimple Saudagar",
+    "subtitle": "Pune",
+    "tags": ["Pain-Free", "Precision", "Tooth-Saving"],
+    "image": "hero/Services/root/1. Micro-Root Treatment/painless-root-canal-treatment-under-microscope-prudentia-dental-care-pune.jpg"
   },
-  "whatIs": {
+  "introduction": {
+    "text": "If you are searching for the best root canal treatment near me in Pimple Saudagar, you deserve expert care that relieves pain, saves your natural tooth, and restores your oral health. At Prudentia Micro Dental Care, we offer advanced, gentle, and precise root canal treatments using modern technology to make your experience as comfortable as possible. Conveniently located at Vision 9 Mall, Kunal Icon Road, our clinic is trusted by patients from Pimple Saudagar, Pimpri-Chinchwad, Wakad, and Rahatani for safe and effective root canal procedures.",
+    "highlightedText": "Prudentia Micro Dental Care"
+  },
+  "topRated": {
+    "title": "Top-Rated Root Canal Treatment Near You in Pimple Saudagar",
+    "description": "Choosing the right dental clinic for a root canal is essential to preserve your natural tooth and eliminate pain effectively. At Prudentia Micro Dental Care, we combine clinical expertise with modern dental technology to provide reliable and comfortable treatment.",
+    "points": [
+      "Trusted by hundreds of satisfied patients",
+      "Advanced dental technology for precise treatment",
+      "Convenient location near Vision 9 Mall",
+      "Easily accessible from Kunal Icon Road and surrounding areas"
+    ],
+    "footnote": "Patients searching for root canal treatment near me choose us for our gentle approach, experienced care, and successful outcomes."
+  },
+  "whyChooseLocation": {
+    "title": "Why Choose Prudentia Micro Dental Care for Root Canal Treatment Near Me?",
+    "features": [
+      {
+        "title": "Advanced Technology & Precision",
+        "description": "We use modern diagnostic tools and advanced endodontic techniques to ensure accurate cleaning and sealing of infected root canals while preserving healthy tooth structure."
+      },
+      {
+        "title": "Comfortable & Pain-Free Experience",
+        "description": "Root canal treatment has become much more comfortable with modern anesthesia and minimally invasive procedures. Our focus is on making every visit stress-free and virtually pain-free."
+      },
+      {
+        "title": "High Standards of Safety & Hygiene",
+        "description": "We maintain strict sterilization protocols and use high-quality equipment to provide a clean, safe, and hygienic treatment environment."
+      },
+      {
+        "title": "Convenient Location Near You",
+        "description": "Easily accessible for patients searching for root canal treatment near Kunal Icon Road, Vision 9 Mall, and Pimple Saudagar."
+      }
+    ],
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  },
+  "whatIsRCT": {
+    "title": "What Is Root Canal Treatment?",
+    "description": "Root canal treatment (RCT) is a dental procedure used to remove infected or damaged pulp from inside a tooth. The canals are thoroughly cleaned, disinfected, and sealed to prevent future infection while preserving your natural tooth.",
+    "items": [
+      "Eliminate severe tooth pain",
+      "Save natural teeth",
+      "Prevent tooth extraction",
+      "Remove infection",
+      "Restore normal chewing function"
+    ],
+    "footnote": "If you're experiencing persistent tooth pain or sensitivity, searching for root canal treatment near me is the first step toward relief."
+  },
+  "signsYouNeed": {
+    "title": "Signs You May Need Root Canal Treatment",
+    "items": [
+      "Persistent toothache",
+      "Sensitivity to hot or cold foods",
+      "Swollen or tender gums",
+      "Tooth discoloration",
+      "Pain while chewing",
+      "Dental abscess or infection"
+    ],
+    "footnote": "Early treatment can prevent complications and help preserve your natural tooth."
+  },
+  "treatmentTypes": {
+    "title": "Types of Root Canal Treatments Available Near You",
+    "items": [
+      {
+        "title": "Single Visit Root Canal Treatment",
+        "description": "Suitable for many patients with uncomplicated infections, allowing treatment to be completed in a single appointment."
+      },
+      {
+        "title": "Multi-Visit Root Canal Treatment",
+        "description": "Recommended for teeth with severe infection or complex root anatomy requiring multiple appointments."
+      },
+      {
+        "title": "Re-Root Canal Treatment",
+        "description": "Performed when a previously treated tooth develops a new infection or fails to heal properly."
+      },
+      {
+        "title": "Root Canal with Dental Crown",
+        "description": "After root canal treatment, a custom dental crown is often placed to strengthen and protect the treated tooth for long-term durability."
+      }
+    ]
+  },
+  "technology": {
+    "title": "Advanced Technology for Precision Root Canal Treatment",
+    "description": "We use modern techniques and advanced equipment to ensure accurate, comfortable, and successful root canal procedures.",
     "image": "hero/Services/root/1. Micro-Root Treatment/magnified-dental-operating-field-under-microscope-prudentia-dental-care-pune.jpg",
-    "titlePrefix": "What is a",
-    "titleHighlight": "Micro-Root Treatment",
-    "titleSuffix": "?",
-    "paragraph": "A root canal performed under a Dental Operating Microscope, combined with advanced technologies like electronic anesthesia and digital imaging for maximum precision and minimal trauma.",
-    "whyChooseTitle": "Why Choose Micro-Root Treatment?",
-    "whyChooseItems": [
-      "Pain-free experience with electronic anesthesia",
-      "Single-visit completion for most cases",
-      "Preserves more natural tooth structure"
+    "features": [
+      {
+        "icon": "Eye",
+        "title": "Dental Microscope",
+        "description": "Up to 30x magnification for precise canal detection and cleaning"
+      },
+      {
+        "icon": "Shield",
+        "title": "Electronic Anesthesia",
+        "description": "Targeted numbing for a virtually pain-free experience"
+      },
+      {
+        "icon": "Star",
+        "title": "Digital Imaging",
+        "description": "Accurate diagnosis and treatment planning"
+      }
     ],
-    "closingParagraph": "Gone are the days of lengthy, uncomfortable root canals. At Prudentia, we deliver high-success-rate treatments ensuring long-term preservation of your natural teeth."
+    "highlight": "Our advanced technology ensures thorough cleaning, precise sealing, and successful outcomes for every root canal treatment."
   },
-  "microscopeAdvantage": {
-    "titlePrefix": "How the Microscope",
-    "titleHighlight": "Enhances Precision",
-    "paragraph": "The Dental Operating Microscope offers up to 30x magnification, illuminating even the tiniest structures within your tooth.",
-    "image": "hero/Services/root/1. Micro-Root Treatment/dental-microscope-magnification-currency-note-demo-prudentia-pune..jpg",
-    "advantagesTitle": "Microscopic Advantages",
-    "advantages": [
-      "Accurately identify and clean all root canals (including hidden ones)",
-      "Minimize removal of healthy tooth tissue",
-      "Avoid complications like untreated areas",
-      "Often eliminates the need for a full crown"
-    ],
-    "invasiveTitle": "Minimally Invasive Endodontics",
-    "invasiveParagraph": "This approach helps preserve the strength and natural structure of your tooth while effectively treating infection."
-  },
-  "specialist": {
-    "titlePrefix": "Why Choose a",
-    "titleHighlight": "Specialist in Microsurgical Endodontics",
-    "titleSuffix": "?",
-    "paragraph": "Every tooth has unique anatomy, especially molars and premolars with multiple curved or hidden canals. Treating these without a microscope risks failed treatments.",
-    "expertiseTitle": "Dr. Bhushan's Expertise",
-    "expertiseItems": [
-      "Complex or curved root canals",
-      "Extra or calcified canals",
-      "Failed previous root treatments",
-      "Fractured instruments in canals"
-    ],
-    "image": "hero/Services/root/1. Micro-Root Treatment/closeup-dr-bhushan-mahajan-working-under-microscope-prudentia-pune.jpg"
-  },
-  "procedure": {
-    "titlePrefix": "What to Expect During",
-    "titleHighlight": "Treatment",
-    "paragraph": "Our Micro-Root Treatment process is designed for comfort and precision",
+  "process": {
+    "title": "Step-by-Step Root Canal Treatment Procedure",
     "steps": [
-      { "title": "Electronic Anesthesia", "description": "Pain-free numbing without traditional injections" },
-      { "title": "Microscopic Examination", "description": "30x magnification identifies all root canals" },
-      { "title": "Ultrasonic Cleaning", "description": "Precision removal of infected tissue" },
-      { "title": "3D Thermal Filling", "description": "Perfect seal prevents reinfection" }
+      {
+        "number": "1",
+        "title": "Consultation & Digital Examination",
+        "description": "A detailed dental examination and X-rays are performed to evaluate the extent of infection and determine the best treatment plan."
+      },
+      {
+        "number": "2",
+        "title": "Local Anesthesia",
+        "description": "The affected area is completely numbed to ensure a comfortable and pain-free procedure."
+      },
+      {
+        "number": "3",
+        "title": "Cleaning the Root Canals",
+        "description": "The infected pulp is carefully removed, and the canals are cleaned, disinfected, and shaped using advanced instruments."
+      },
+      {
+        "number": "4",
+        "title": "Sealing the Tooth",
+        "description": "The cleaned canals are sealed with a specialized filling material to prevent future infection."
+      },
+      {
+        "number": "5",
+        "title": "Final Restoration",
+        "description": "A dental crown or permanent filling is placed to restore the tooth's strength, appearance, and function."
+      }
     ],
-    "painTitle": "Does a Root Canal Hurt?",
-    "painParagraph1": "Thanks to modern anesthetics and technology, the procedure is virtually painless. We use Sunshine USA Electronic Anesthesia for targeted and controlled numbing—a major upgrade over traditional injections.",
-    "painParagraph2": "In rare cases when a tooth is too inflamed, we place temporary calming medication and complete the treatment at a follow-up visit, ensuring your comfort every step."
+    "footnote": "Our advanced techniques ensure a smooth, efficient, and comfortable treatment process."
   },
-  "benefitsSection": {
-    "titlePrefix": "Key Benefits of",
-    "titleHighlight": "Micro-Root Treatment"
+  "benefits": {
+    "title": "Benefits of Choosing Root Canal Treatment Near Me",
+    "items": [
+      "Relieves severe tooth pain",
+      "Saves your natural tooth",
+      "Prevents tooth extraction",
+      "Stops infection from spreading",
+      "Restores normal chewing ability",
+      "Improves oral health",
+      "Long-lasting results with proper care"
+    ],
+    "footnote": "Root canal treatment is one of the most effective ways to preserve your natural smile while eliminating dental infection."
   },
-  "benefits": [
-    { "icon": "FiEye", "title": "Early Diagnosis", "description": "Spot cracks, fractures, or hidden decay before symptoms start" },
-    { "icon": "FiZoomIn", "title": "Precision Treatment", "description": "Clean and seal canals thoroughly with 30x magnification" },
-    { "icon": "FiShield", "title": "Painless Procedure", "description": "Advanced anesthesia and minimally invasive tools" },
-    { "icon": "FiActivity", "title": "Faster Healing", "description": "Less trauma means quicker recovery" },
-    { "icon": "FiClock", "title": "Tooth Preservation", "description": "Often eliminates need for crowns or caps" }
-  ],
-  "comparisonSection": {
-    "titlePrefix": "Micro-Root vs",
-    "titleHighlight": "Conventional Root Canal",
-    "paragraph": "Our advanced technologies dramatically improve outcomes compared to traditional methods",
-    "closingTitle": "Better Than Extraction—Better Than Conventional",
-    "closingParagraph1": "Tooth extraction may seem like an easy fix, but replacing a tooth with a bridge or implant is expensive, more invasive, and never quite the same as keeping your natural tooth.",
-    "closingParagraph2": "A Micro-Root Treatment is your best chance to preserve what nature gave you."
+  "cost": {
+    "title": "Affordable Root Canal Treatment Cost in Pimple Saudagar",
+    "description": "Many patients searching for root canal treatment near me are concerned about treatment costs. The overall cost depends on factors such as:",
+    "factors": [
+      "Tooth location",
+      "Severity of infection",
+      "Number of canals",
+      "Need for a dental crown",
+      "Additional restorative procedures"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Customized treatment plans",
+      "Affordable and value-driven dental care"
+    ]
   },
-  "comparisonData": [
-    { "feature": "Magnification", "micro": "30x with microscope", "conventional": "None or loupes (2-4x)" },
-    { "feature": "Canal Detection", "micro": "Finds all canals (including hidden)", "conventional": "May miss complex anatomy" },
-    { "feature": "Tissue Preservation", "micro": "Minimally invasive", "conventional": "More tooth structure removed" },
-    { "feature": "Success Rate", "micro": "Nearly 100% when maintained", "conventional": "85-90% average" }
-  ],
+  "sameDayConsultation": {
+    "title": "Same-Day Consultation for Root Canal Treatment Near You",
+    "description": "If you are experiencing severe tooth pain, sensitivity, or swelling, early treatment can help prevent further complications.",
+    "items": [
+      "Quick appointment scheduling",
+      "Same-day consultation available",
+      "Prompt diagnosis and treatment planning"
+    ],
+    "footnote": "Searching for root canal treatment near me should lead you to expert care delivered with compassion and efficiency."
+  },
+  "trustedAreas": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "description": "We proudly serve patients from:",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ],
+    "footnote": "Our convenient location allows patients searching for root canal treatment near me in Pune to receive quality dental care without extensive travel."
+  },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My tooth pain disappeared after the root canal. The entire procedure was comfortable." },
+      { "quote": "Excellent dental clinic with caring professionals and modern equipment." },
+      { "quote": "I searched for root canal treatment near me and found outstanding care at Prudentia Micro Dental Care." }
+    ],
+    "footnote": "Our patients trust us for quality treatment, personalized attention, and lasting results."
+  },
+  "whatToExpect": {
+    "title": "What to Expect During Your Visit",
+    "items": [
+      {
+        "title": "Easy Appointment Booking",
+        "description": "Simple and convenient scheduling with minimal waiting time."
+      },
+      {
+        "title": "Comfortable Treatment Experience",
+        "description": "Modern techniques and anesthesia ensure a relaxed and pain-free procedure."
+      },
+      {
+        "title": "Personalized Treatment Plan",
+        "description": "Every patient receives a customized treatment plan based on their dental condition and long-term oral health goals."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions – Root Canal Treatment Near Me",
+    "items": [
+      {
+        "question": "How long does a root canal treatment take?",
+        "answer": "Most root canal treatments are completed in one or two appointments, depending on the complexity of the tooth and the severity of the infection."
+      },
+      {
+        "question": "Is root canal treatment painful?",
+        "answer": "Modern root canal treatment is performed under local anesthesia, making the procedure comfortable. Most patients experience little to no pain during treatment."
+      },
+      {
+        "question": "How long does a root canal-treated tooth last?",
+        "answer": "With proper oral hygiene and regular dental check-ups, a treated tooth can last for many years."
+      },
+      {
+        "question": "Who is a suitable candidate for root canal treatment?",
+        "answer": "Anyone with an infected, damaged, or severely decayed tooth may be a suitable candidate after a dental examination."
+      },
+      {
+        "question": "What is the cost of root canal treatment in Pune?",
+        "answer": "The cost varies depending on the tooth involved, the complexity of treatment, and whether a dental crown is required. A consultation provides an accurate estimate."
+      },
+      {
+        "question": "Why choose root canal treatment instead of tooth extraction?",
+        "answer": "Root canal treatment preserves your natural tooth, maintains proper chewing function, prevents shifting of adjacent teeth, and supports long-term oral health."
+      },
+      {
+        "question": "How do I find the best root canal treatment near me?",
+        "answer": "Choose a dental clinic with experienced dentists, modern equipment, excellent patient reviews, advanced sterilization standards, and a convenient location—qualities that make Prudentia Micro Dental Care a trusted choice in Pimple Saudagar."
+      }
+    ]
+  },
   "cta": {
-    "titlePrefix": "Take the First Step Toward a",
-    "titleHighlight": "Pain-Free, Healthy Smile",
-    "paragraph": "Dr. Bhushan is an expert in microscope-enhanced dental care, with every treatment tailored for comfort, precision, and long-term success.",
-    "button": "Book Your Micro-Root Consultation Today",
-    "footnote": "Your natural smile deserves the best care available"
+    "title": "Take the First Step Toward a Pain-Free Smile",
+    "description": "Whether you're experiencing tooth pain or have been told you need a root canal, our experienced team is here to provide gentle, effective care.",
+    "callToAction": "Call Prudentia Micro Dental Care, Pimple Saudagar today to schedule your consultation and experience root canal treatment with precision and compassion.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Book Your Consultation",
+    "buttonIcon": "Calendar",
+    "conclusionTitle": "Your Trusted Choice for Root Canal Treatment Near Me",
+    "conclusion": "If you are searching for the best root canal treatment near me in Pimple Saudagar, Prudentia Micro Dental Care offers advanced dental technology, experienced professionals, and compassionate patient care. From accurate diagnosis to complete tooth restoration, every stage of treatment is focused on preserving your natural tooth while ensuring maximum comfort and long-term success. With our convenient location near Vision 9 Mall and Kunal Icon Road, accessing high-quality root canal treatment has never been easier. Take the first step toward a healthy, pain-free smile today.",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

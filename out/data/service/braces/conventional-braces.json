@@ -1,36 +1,238 @@
 {
   "meta": {
-    "title": "Conventional Braces Treatment | Prudentia Micro Dental Care",
-    "description": "Professional orthodontic treatment with conventional braces in Pimple Saudagar"
+    "title": "Best Braces Treatment Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Searching for braces treatment near me in Pimple Saudagar? Prudentia Micro Dental Care offers personalized orthodontic treatment near Vision 9 Mall, Kunal Icon Road."
   },
+
   "hero": {
-    "title": "Orthodontic Treatment with Conventional Braces",
-    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
-    "description": "While many people think of orthodontic treatment as just traditional braces, the truth is that today's advancements in design and technology make conventional braces more comfortable and effective than ever before! Traditional braces use metal brackets bonded to the front of your teeth, connected by a flexible archwire, to gradually align your teeth and improve your bite."
+    "title": "Braces Treatment at Prudentia Micro",
+    "highlightedText": "Prudentia Micro",
+    "subtitle": "Dental Care",
+    "tags": [
+      "Straighter, Healthier Smiles",
+      "Personalized Orthodontic Care"
+    ],
+    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg"
   },
-  "duration": {
-    "title": "How Long Does Treatment Take?",
-    "description": "The duration of orthodontic treatment with conventional braces varies based on your unique needs, but on average, treatment typically takes between 12 to 24 months. The exact timeline will depend on your specific orthodontic goals."
+  "introduction": {
+    "paragraph1": "If you're searching for the best braces treatment near me in Pimple Saudagar, you're looking for expert orthodontic care that can help you achieve a straighter, healthier, and more confident smile.",
+    "paragraph2": "At Prudentia Micro Dental Care, we provide personalized braces treatment for children, teenagers, and adults using modern orthodontic techniques designed for comfort, precision, and long-lasting results.",
+    "highlightedText": "Prudentia Micro Dental Care"
   },
-  "types": {
-    "title": "Types of Conventional Braces:",
-    "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-sceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
+
+  "trustBadges": {
+    "title": "Top-Rated Braces Treatment Near You",
     "items": [
+      "Personalized orthodontic treatment plans",
+      "Advanced diagnostic and digital imaging technology",
+      "Comfortable and patient-friendly clinic",
+      "Convenient location near Vision 9 Mall",
+      "Easy accessibility from Kunal Icon Road and nearby areas"
+    ]
+  },
+
+  "whyChoose": {
+    "title": "Why Choose Prudentia Micro Dental Care?",
+    "features": [
       {
-        "title": "Self Ligating Metal Braces",
-        "description": "Traditional metal braces are made with durable stainless steel brackets and archwires. While they may have been bulky in the past, today's metal braces are smaller, lighter, and more comfortable than ever. These braces have a built-in sliding mechanism that adjusts automatically as your teeth shift. This reduces the need for frequent adjustments, making them a comfortable and efficient option for some patients."
+        "icon": "Search",
+        "title": "Comprehensive Orthodontic Evaluation",
+        "description": "We perform detailed examinations, digital X-rays, and smile assessments to understand your dental alignment and create the most suitable treatment plan.",
+        "gradient": "from-purple-500 to-indigo-600"
       },
       {
-        "title": "Ceramic Braces",
-        "description": "For a more discreet look, ceramic braces blend in with the color of your teeth. These braces are an excellent option for those who prefer aesthetics while still receiving effective treatment."
+        "icon": "Heart",
+        "title": "Customized Braces Solutions",
+        "description": "Every smile is different. We offer individualized orthodontic treatment plans based on your age, dental condition, and aesthetic goals.",
+        "gradient": "from-purple-500 to-pink-600"
+      },
+      {
+        "icon": "Smile",
+        "title": "Comfortable Treatment Experience",
+        "description": "Our modern techniques are designed to make orthodontic treatment as comfortable as possible while ensuring efficient tooth movement.",
+        "gradient": "from-purple-500 to-purple-600"
+      },
+      {
+        "icon": "Shield",
+        "title": "High Standards of Hygiene & Safety",
+        "description": "We maintain strict sterilization and infection control protocols, providing a clean, safe, and comfortable environment for every patient.",
+        "gradient": "from-indigo-500 to-purple-600"
+      },
+      {
+        "icon": "MapPin",
+        "title": "Convenient Location Near You",
+        "description": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027.",
+        "gradient": "from-pink-500 to-purple-600"
       }
     ]
   },
+
+  "whatIs": {
+    "title": "What is Braces Treatment?",
+     "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metal-sceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
+    "description": "Braces treatment is an orthodontic procedure used to correct crooked teeth, spacing issues, overcrowding, and bite irregularities. Braces gradually move teeth into their proper positions using gentle and controlled pressure, improving both oral health and smile aesthetics. Braces can help correct:",
+    "goals": [
+      { "icon": "AlertTriangle", "title": "Crooked or misaligned teeth" },
+      { "icon": "Activity", "title": "Gaps between teeth" },
+      { "icon": "RefreshCw", "title": "Overcrowded teeth" },
+      { "icon": "Zap", "title": "Overbite" },
+      { "icon": "Shield", "title": "Underbite" },
+      { "icon": "CheckCircle", "title": "Crossbite" },
+      { "icon": "Smile", "title": "Open bite" }
+    ],
+    "consultationText": "A properly aligned smile not only looks attractive but also makes cleaning teeth easier and improves long-term oral health — every treatment plan at Prudentia Micro Dental Care is built around this goal.",
+    "highlightedText": "Prudentia Micro Dental Care"
+  },
+
+  "whyEssential": {
+    "title": "Who Can Benefit from Braces Treatment?",
+    "highlight": "Braces are suitable for:",
+    "description": "Children with developing teeth, teenagers requiring orthodontic correction, adults seeking smile improvement, patients with bite alignment issues, individuals with crowded or spaced teeth, and anyone looking to improve both function and appearance. Our orthodontic assessment helps determine the ideal treatment plan for every patient."
+  },
+
+  "treatments": {
+    "title": "Types of Braces We Offer",
+    "items": [
+      "Metal Braces – durable, reliable stainless steel brackets and archwires that gradually move teeth into their correct positions, suitable for a wide range of orthodontic cases",
+      "Ceramic Braces – tooth-colored brackets that work like metal braces but blend in with your natural smile for a more discreet appearance",
+      "Self-Ligating Braces – braces with a built-in sliding mechanism that helps move teeth efficiently, often requiring fewer adjustment visits",
+      "Clear Aligner Consultation (where appropriate) – for suitable candidates, we offer a consultation to explore clear aligners as a nearly invisible, removable alternative to traditional braces"
+    ]
+  },
+
+  "process": {
+    "title": "Step-by-Step Braces Treatment Procedure",
+    "steps": [
+      {
+        "title": "Initial Consultation",
+        "description": "We begin with a detailed dental examination, digital imaging, and orthodontic assessment to evaluate your teeth and jaw alignment."
+      },
+      {
+        "title": "Personalized Treatment Planning",
+        "description": "A customized treatment plan is prepared based on your dental condition, treatment goals, and expected duration."
+      },
+      {
+        "title": "Braces Placement",
+        "description": "Brackets are carefully bonded to the teeth, and orthodontic wires are placed to begin gradual tooth movement."
+      },
+      {
+        "title": "Regular Adjustment Visits",
+        "description": "Periodic appointments allow us to monitor progress and make necessary adjustments for effective alignment."
+      },
+      {
+        "title": "Completion & Retainers",
+        "description": "Once your teeth are properly aligned, braces are removed and retainers are provided to help maintain your new smile."
+      }
+    ]
+  },
+
+  "benefits": {
+    "title": "Benefits of Choosing Braces Treatment Near Me",
+    "items": [
+      "Straighter and more attractive smile",
+      "Improved bite alignment",
+      "Better chewing function",
+      "Easier oral hygiene maintenance",
+      "Reduced risk of uneven tooth wear",
+      "Enhanced speech in some cases",
+      "Increased confidence",
+      "Long-lasting orthodontic results"
+    ],
+    "footer": "Braces offer both cosmetic and functional improvements that contribute to lifelong oral health."
+  },
+
+  "cost": {
+    "title": "Affordable Braces Treatment Cost in Pimple Saudagar",
+    "paragraph": "Many patients searching for braces treatment near me want to know the treatment cost. The overall cost depends on factors such as:",
+    "factors": [
+      "Type of braces selected",
+      "Complexity of tooth alignment",
+      "Duration of treatment",
+      "Individual orthodontic requirements"
+    ],
+    "highlights": [
+      "Transparent treatment planning",
+      "Personalized cost estimates",
+      "High-quality orthodontic care with long-term value"
+    ]
+  },
+
+  "consultation": {
+    "title": "Same-Day Consultation for Braces Treatment Near You",
+    "paragraph": "If you've been thinking about straightening your teeth, an early consultation can help you begin your smile transformation.",
+    "points": [
+      "Easy appointment scheduling",
+      "Same-day consultation available",
+      "Personalized orthodontic evaluation",
+      "Customized treatment planning"
+    ]
+  },
+
+  "areasServed": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "paragraph": "Our convenient location makes quality orthodontic care easily accessible for families across Pune.",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ]
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How long does braces treatment take?",
+        "answer": "Treatment duration varies depending on the complexity of the case. During your consultation, your orthodontist will provide a personalized estimate."
+      },
+      {
+        "question": "Are braces painful?",
+        "answer": "Patients may experience mild discomfort after placement or adjustments, but this usually subsides within a few days."
+      },
+      {
+        "question": "Can adults get braces?",
+        "answer": "Yes. Braces are effective for both teenagers and adults seeking improved dental alignment and smile aesthetics."
+      },
+      {
+        "question": "How often are adjustment appointments needed?",
+        "answer": "Most patients visit every 4–8 weeks so the orthodontist can monitor progress and make necessary adjustments."
+      },
+      {
+        "question": "What foods should I avoid while wearing braces?",
+        "answer": "Sticky, hard, and chewy foods should generally be avoided to prevent damage to the braces."
+      },
+      {
+        "question": "How much does braces treatment cost in Pune?",
+        "answer": "The cost depends on the type of braces and your individual treatment requirements. A consultation provides an accurate estimate."
+      },
+      {
+        "question": "Why choose Prudentia Micro Dental Care for braces treatment?",
+        "answer": "Patients choose Prudentia Micro Dental Care for experienced orthodontic care, personalized treatment plans, modern technology, transparent communication, and a convenient location in Pimple Saudagar."
+      }
+    ]
+  },
+
+  "whatToExpect": {
+    "title": "What to Expect During Your Visit",
+    "items": [
+      { "icon": "Calendar", "title": "Easy Appointment Booking", "description": "Flexible scheduling designed around your convenience." },
+      { "icon": "Smile", "title": "Comfortable Orthodontic Care", "description": "Modern techniques and patient-focused treatment ensure a pleasant experience at every visit." },
+      { "icon": "Heart", "title": "Personalized Smile Planning", "description": "Every orthodontic treatment plan is carefully customized to suit your unique smile and goals." }
+    ]
+  },
+
   "cta": {
-    "title": "Transform Your Smile with our Classic Braces",
+    "title": "Your Trusted Choice for Braces Treatment Near Me",
     "image": "hero/Services/braces/1. Conventional Metal And Ceramic Braces/metals-ceramic-braces-aesthetic-teeth-straightening-prudentia-pune.jpg",
-    "description": "While they may be a classic, traditional braces are still an incredibly effective way to straighten teeth and correct bites. Whether you opt for metal, ceramic, or self-ligating braces, we'll create a bespoke treatment plan tailored to your unique needs.",
-    "button": "Schedule Your Consultation",
-    "footer": "Ready to take the next step? Contact us at Prudentia Micro Dental Care, Pimple Saudagar today to schedule your consultation and start your journey toward a beautiful, aligned smile!"
+    "description": "If you're looking for the best braces treatment near me in Pimple Saudagar, Prudentia Micro Dental Care offers comprehensive orthodontic care with advanced technology, personalized treatment planning, and a commitment to exceptional patient care. Whether you're seeking braces for yourself or a family member, our goal is to help you achieve a healthy, beautiful smile that lasts for years.",
+    "callToAction": "Conveniently located near Vision 9 Mall and Kunal Icon Road, we proudly serve patients across Pune with trusted orthodontic care at Prudentia Micro Dental Care, Pimple Saudagar.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Schedule Consultation",
+    "buttonIcon": "Calendar",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }
+

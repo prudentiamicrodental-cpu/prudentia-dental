@@ -24,14 +24,37 @@ const HeroSection = () => {
   const { handleOpenChatbot } = useChatbot();
   const [banners, setBanners] = useState<BannerInfo[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch('/data/home/hero-banners.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/hero-banners.json';
+    const LOCAL_URL = '/data/home/hero-banners.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: BannerInfo[]) => {
+          if (isMounted) setBanners(data);
+        })
+        .catch((err) => console.error('Failed to load local hero banners:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: BannerInfo[]) => {
         if (isMounted) setBanners(data);
       })
-      .catch((err) => console.error('Failed to load hero banners:', err));
+      .catch((err) => {
+        console.warn('Failed to load hero banners from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

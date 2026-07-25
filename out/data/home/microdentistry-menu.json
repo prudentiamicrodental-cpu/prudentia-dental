@@ -1,0 +1,59 @@
+[
+
+  {
+    "category": " Micro Dentistry",
+    "iconPaths": [
+      "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+    ],
+    "items": [
+      {
+        "name": "Cosmetic Dentist Near me",
+        "href": "/whymicrodentistry/cosmetic"
+      },
+      {
+        "name": "Dentist Near Me",
+         "href": "/whymicrodentistry/dentist"
+      },
+      {
+        "name": "Dental Clinic Near Me",
+        "href": "/whymicrodentistry/dentalclinic"
+      },
+       {
+        "name": "Dental Implants Near me",
+        "href": "/whymicrodentistry/dentalimplants"
+      },
+      {
+        "name": "Endodontist Near Me",
+        "href": "/whymicrodentistry/endodontist"
+      },
+      {
+        "name": "Emergency Dental Service Near me",
+        "href": "/whymicrodentistry/emergency"
+      },
+      {
+        "name": "Oral and Maxillofacial Surgeon Near me",
+        "href": "/whymicrodentistry/oralmaxillofacial"
+      },
+      {
+        "name": "Orthodontist Near me",
+        "href": "/whymicrodentistry/orthodontist"
+      },
+      {
+        "name": "Prosthrodontist Near me",
+        "href": "/whymicrodentistry/prosthrodontist"
+      },
+      {
+        "name": "Periodontist Near me",
+        "href": "/whymicrodentistry/periodontist"
+      },
+      {
+        "name": "Pediatric Dentist Near me",
+        "href": "/whymicrodentistry/pediatric"
+      },
+       {
+        "name": "Why Micro Dentistry",
+        "href": "/whymicrodentistry/microDentistry"
+      }
+    ]
+  }
+]

@@ -34,14 +34,37 @@ const TechnologyCard = ({ image, title, description }: TechnologyCardProps) => {
 export default function TechnologySection() {
   const [features, setFeatures] = useState<TechnologyCardProps[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch('/data/home/technology-features.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/technology-features.json';
+    const LOCAL_URL = '/data/home/technology-features.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: TechnologyCardProps[]) => {
+          if (isMounted) setFeatures(data);
+        })
+        .catch((err) => console.error('Failed to load local technology features:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: TechnologyCardProps[]) => {
         if (isMounted) setFeatures(data);
       })
-      .catch((err) => console.error('Failed to load technology features:', err));
+      .catch((err) => {
+        console.warn('Failed to load technology features from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

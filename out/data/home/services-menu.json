@@ -26,6 +26,10 @@
         "href": "/services/root/roottherapy"
       },
       {
+        "name": "Fluoride Treatment",
+        "href": "/services/root/fluoride"
+      },
+      {
         "name": "Micro-Surgical Root Therapy",
         "href": "/services/root/microsurgical"
       },
@@ -49,8 +53,52 @@
         "name": "Enamel Reshaping",
         "href": "/services/cosmetic/enamel"
       },
+       {
+        "name": "Gap Filling",
+        "href": "/services/cosmetic/gap"
+      },
       {
-        "name": "Bonding (Tooth Colored Fillings)",
+        "name": "Bad Breath",
+        "href": "/services/cosmetic/badbreath"
+      },
+      {
+        "name": "Missing Teeth",
+        "href": "/services/cosmetic/missingteeth"
+      },
+      {
+        "name": "Sensitive Teeth",
+        "href": "/services/cosmetic/sensitiveteeth"
+      },
+      {
+        "name": "Tooth Pain",
+        "href": "/services/cosmetic/toothpain"
+      },
+      {
+        "name": "Deep Cleaning",
+        "href": "/services/cosmetic/deepCleaning"
+      },
+      {
+        "name": "Surgical Tooth",
+        "href": "/services/cosmetic/surgicaltooth"
+      },
+      {
+        "name": "Impacted Tooth",
+        "href": "/services/cosmetic/impacttooth"
+      },
+      {
+        "name": "Space Maintainers",
+        "href": "/services/cosmetic/spacemaintainers"
+      },
+      {
+        "name": "Loose Teeth",
+        "href": "/services/cosmetic/looseteeth"
+      },
+      {
+        "name": "Broken Teeth",
+        "href": "/services/cosmetic/brokenteeth"
+      },
+      {
+        "name": "Bonding",
         "href": "/services/cosmetic/bonding"
       },
       {
@@ -62,8 +110,12 @@
         "href": "/services/cosmetic/sealants"
       },
       {
-        "name": "Veneers",
-        "href": "/services/cosmetic/veneers"
+        "name": "Crooked Teeth",
+        "href": "/services/cosmetic/crookedteeth"
+      },
+      {
+        "name": "Veeners",
+        "href": "/services/cosmetic/veeners"
       },
       {
         "name": "Teeth Whitening",
@@ -86,8 +138,16 @@
         "href": "/services/restorative/inlays"
       },
       {
-        "name": "Crowns and Bridges",
+        "name": "Crowns",
         "href": "/services/restorative/crowns"
+      },
+      {
+        "name": "Bridges",
+        "href": "/services/restorative/bridges"
+      },
+      {
+        "name": "Jaw Pain",
+        "href": "/services/restorative/jawpain"
       },
       {
         "name": "Full Mouth Rehabilitation",
@@ -108,6 +168,10 @@
       {
         "name": "Mouth & Sport Guards",
         "href": "/services/preventive/guards"
+      },
+      {
+        "name": "Preventive ",
+        "href": "/services/preventive/preventive"
       },
       {
         "name": "Holistic Dental Treatments",
@@ -145,8 +209,28 @@
         "href": "/services/surgical/implants"
       },
       {
-        "name": "Gum Care",
+        "name": "Single Implant",
+        "href": "/services/surgical/singleimplant"
+      },
+      {
+        "name": "Multiple Implants",
+        "href": "/services/surgical/multipleimplants"
+      },
+      {
+        "name": "All-on-4 Implants",
+        "href": "/services/surgical/allonfourimplants"
+      },
+      {
+        "name": "All-on-6 Implants",
+        "href": "/services/surgical/allonsiximplants"
+      },
+      {
+        "name": "Swallen Gum Care",
         "href": "/services/surgical/gumcare"
+      },
+      {
+        "name": "Bleeding Gum ",
+        "href": "/services/surgical/bleedingGum"
       }
     ]
   },
@@ -158,13 +242,33 @@
     ],
     "items": [
       {
-        "name": "Metal & Ceramic Braces",
+        "name": " Braces",
         "href": "/services/braces/braces"
       },
       {
         "name": "Aligners",
         "href": "/services/braces/aligners"
-      }
+      },
+      {
+        "name": "Invisaligners",
+        "href": "/services/braces/invisalign"
+      }, 
+      {
+        "name": "Ligating Braces",
+        "href": "/services/braces/ligatingbraces"
+      },
+      {
+        "name": "Lingual Braces",
+        "href": "/services/braces/lingualbraces"
+      },
+      {
+        "name": "Ceramic Braces",
+        "href": "/services/braces/ceramicbraces"
+      }, 
+      {
+        "name": "Metal Braces",
+        "href": "/services/braces/metalbraces"
+      }     
     ]
   },
   {

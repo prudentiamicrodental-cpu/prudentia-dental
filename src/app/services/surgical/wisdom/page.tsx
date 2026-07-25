@@ -1,7 +1,20 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, Shield, Heart, CheckCircle, Clock, Stethoscope, LucideIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import {
+  AlertTriangle,
+  Shield,
+  Heart,
+  CheckCircle,
+  Clock,
+  Stethoscope,
+  Search,
+  MapPin,
+  Pill,
+  Smile,
+  ChevronDown,
+  LucideIcon,
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useChatbot } from '@/components/chatbotContext';
 import { FiArrowRight } from 'react-icons/fi';
 import { Image } from '@imagekit/next';
@@ -15,11 +28,16 @@ const iconMap: { [key: string]: LucideIcon } = {
   CheckCircle,
   Clock,
   Stethoscope,
+  Search,
+  MapPin,
+  Pill,
+  Smile,
 };
-interface MetaData{
+
+interface MetaData {
   title: string;
-  description: string 
-};
+  description: string;
+}
 
 interface FeatureItem {
   title: string;
@@ -35,19 +53,71 @@ interface HeroData {
   paragraph: string;
 }
 
-interface ProblemsData {
+interface TrustBadgesData {
   title: string;
-  image: string;
-  items: FeatureItem[];
-  conclusion: string;
+  items: string[];
 }
 
-interface ExtractionData {
+interface WhyChooseData {
+  title: string;
+  items: FeatureItem[];
+}
+
+interface ListSectionData {
+  title: string;
+  intro: string;
+  image?: string;
+  items: string[];
+  footer: string;
+}
+
+interface TreatmentsData {
+  title: string;
+  paragraph: string;
+  items: FeatureItem[];
+}
+
+interface ProcessData {
   title: string;
   paragraph: string;
   expectText: string;
   image: string;
   steps: FeatureItem[];
+}
+
+interface BenefitsData {
+  title: string;
+  items: FeatureItem[];
+  footer: string;
+}
+
+interface CostData {
+  title: string;
+  paragraph: string;
+  factors: string[];
+  highlights: string[];
+}
+
+interface ConsultationData {
+  title: string;
+  paragraph: string;
+  points: string[];
+}
+
+interface AreasServedData {
+  title: string;
+  paragraph: string;
+  areas: string[];
+}
+
+interface TestimonialsData {
+  title: string;
+  items: { quote: string }[];
+}
+
+interface FaqData {
+  title: string;
+  items: { question: string; answer: string }[];
 }
 
 interface CtaBoxData {
@@ -70,22 +140,44 @@ interface FinalCtaData {
   paragraph: string;
   buttonText: string;
   footerText: string;
+  phone: string;
+  address: string;
 }
 
-interface WisdomData {
+interface WisdomPainData {
   meta: MetaData;
   hero: HeroData;
-  problems: ProblemsData;
-  extraction: ExtractionData;
+  trustBadges: TrustBadgesData;
+  whyChoose: WhyChooseData;
+  causes: ListSectionData;
+  signs: ListSectionData;
+  treatments: TreatmentsData;
+  process: ProcessData;
+  benefits: BenefitsData;
+  cost: CostData;
+  consultation: ConsultationData;
+  areasServed: AreasServedData;
+  testimonials: TestimonialsData;
+  faq: FaqData;
   decision: DecisionData;
   finalCta: FinalCtaData;
 }
 
-const EMPTY_DATA: WisdomData = {
+const EMPTY_DATA: WisdomPainData = {
   meta: { title: '', description: '' },
   hero: { titleLine1: '', titleHighlight: '', paragraph: '' },
-  problems: { title: '', image: '', items: [], conclusion: '' },
-  extraction: { title: '', paragraph: '', expectText: '', image: '', steps: [] },
+  trustBadges: { title: '', items: [] },
+  whyChoose: { title: '', items: [] },
+  causes: { title: '', intro: '', items: [], footer: '' },
+  signs: { title: '', intro: '', items: [], footer: '' },
+  treatments: { title: '', paragraph: '', items: [] },
+  process: { title: '', paragraph: '', expectText: '', image: '', steps: [] },
+  benefits: { title: '', items: [], footer: '' },
+  cost: { title: '', paragraph: '', factors: [], highlights: [] },
+  consultation: { title: '', paragraph: '', points: [] },
+  areasServed: { title: '', paragraph: '', areas: [] },
+  testimonials: { title: '', items: [] },
+  faq: { title: '', items: [] },
   decision: {
     title: '',
     paragraph: '',
@@ -93,7 +185,15 @@ const EMPTY_DATA: WisdomData = {
     image: '',
     imageCaption: '',
   },
-  finalCta: { titleLine: '', titleHighlight: '', paragraph: '', buttonText: '', footerText: '' },
+  finalCta: {
+    titleLine: '',
+    titleHighlight: '',
+    paragraph: '',
+    buttonText: '',
+    footerText: '',
+    phone: '',
+    address: '',
+  },
 };
 
 const renderIcon = (name: string, className: string) => {
@@ -102,12 +202,13 @@ const renderIcon = (name: string, className: string) => {
   return <IconComponent className={className} />;
 };
 
-const WisdomTeethExtractionPage = () => {
+const WisdomToothPainTreatmentPage = () => {
   const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
-  const [data, setData] = useState<WisdomData>(EMPTY_DATA);
+  const [data, setData] = useState<WisdomPainData>(EMPTY_DATA);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
- useEffect(() => {
+  useEffect(() => {
     async function loadData() {
       const GITHUB_URL =
         "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/surgical/wisdom.json";
@@ -116,22 +217,15 @@ const WisdomTeethExtractionPage = () => {
 
       try {
         const res = await fetch(GITHUB_URL);
-
         if (!res.ok) throw new Error("GitHub fetch failed");
-
-        const data: WisdomData = await res.json();
+        const data: WisdomPainData = await res.json();
         setData(data);
       } catch (error) {
         console.warn("Using local fallback:", error);
-
         try {
           const localRes = await fetch(LOCAL_URL);
-
-          if (!localRes.ok) {
-            throw new Error("Local fetch failed");
-          }
-
-          const localData: WisdomData = await localRes.json();
+          if (!localRes.ok) throw new Error("Local fetch failed");
+          const localData: WisdomPainData = await localRes.json();
           setData(localData);
         } catch (localError) {
           console.error("Failed to load local fallback:", localError);
@@ -141,7 +235,6 @@ const WisdomTeethExtractionPage = () => {
 
     loadData();
   }, []);
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -184,7 +277,7 @@ const WisdomTeethExtractionPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br overflow-hidden from-purple-500 via-white to-purple-50">
-       <Head>
+      <Head>
         <title>{data.meta.title}</title>
         <meta name="description" content={data.meta.description} />
       </Head>
@@ -193,7 +286,7 @@ const WisdomTeethExtractionPage = () => {
       <section className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-indigo-700 to-purple-700 text-white">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative container mx-auto px-4 py-20 lg:py-32">
-          <div 
+          <div
             className="text-center max-w-5xl mx-auto"
             id="hero"
             data-animate
@@ -201,7 +294,7 @@ const WisdomTeethExtractionPage = () => {
           >
             <div className="flex justify-center mb-8">
               <div className="bg-white bg-opacity-20 p-6 rounded-full backdrop-blur-sm">
-                <Shield className="w-16 h-16 text-black" />
+                <Stethoscope className="w-16 h-16 text-black" />
               </div>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
@@ -216,98 +309,258 @@ const WisdomTeethExtractionPage = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
-      {/* Common Problems Section */}
-      <section className="py-16 lg:py-24">
+      {/* Trust Badges */}
+      <section className="py-10">
+        <div className="container mx-auto px-4">
+          <div
+            className="max-w-5xl mx-auto text-center"
+            id="trust-title"
+            data-animate
+            style={fadeInUp('trust-title')}
+          >
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-8">
+              <Markdown inline>{data.trustBadges.title}</Markdown>
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {data.trustBadges.items.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center bg-white border border-purple-100 rounded-full px-5 py-2 shadow-sm"
+                >
+                  <span className="text-amber-400 mr-2">★</span>
+                  <span className="text-gray-700 text-sm font-medium">
+                    <Markdown inline>{item}</Markdown>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div 
-              className="text-center mb-16"
-              id="problems-title"
+            <div
+              className="text-center mb-12"
+              id="why-choose-title"
               data-animate
-              style={fadeInUp('problems-title')}
+              style={fadeInUp('why-choose-title')}
             >
-              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8">
-                <Markdown inline>{data.problems.title}</Markdown>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800">
+                <Markdown inline>{data.whyChoose.title}</Markdown>
               </h2>
-              {data.problems.image && (
-                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
-                  <Image
-                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src={data.problems.image}
-                    alt="Modern denture solutions"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              )}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {data.problems.items.map((problem, index) => (
-                <div 
+            <div className="grid md:grid-cols-2 gap-8">
+              {data.whyChoose.items.map((item, index) => (
+                <div
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg border-2 ${problem.color} p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
-                  id={`problem-${index}`}
+                  className={`bg-white rounded-2xl shadow-lg border-2 ${item.color} p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
+                  id={`why-choose-${index}`}
                   data-animate
-                  style={index % 2 === 0 ? slideInLeft(`problem-${index}`) : slideInRight(`problem-${index}`)}
+                  style={index % 2 === 0 ? slideInLeft(`why-choose-${index}`) : slideInRight(`why-choose-${index}`)}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="bg-white p-3 rounded-xl shadow-md flex-shrink-0">
-                      {renderIcon(problem.icon, `w-8 h-8 ${problem.iconColor}`)}
+                      {renderIcon(item.icon, `w-8 h-8 ${item.iconColor}`)}
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-800 mb-3">
-                        <Markdown inline>{problem.title}</Markdown>
+                        <Markdown inline>{item.title}</Markdown>
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        <Markdown inline>{problem.description}</Markdown>
+                        <Markdown inline>{item.description}</Markdown>
                       </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div 
-              className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-2xl p-8 text-center"
-              id="problems-conclusion"
+      {/* Causes Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div
+              className="text-center mb-12"
+              id="causes-title"
               data-animate
-              style={fadeInUp('problems-conclusion')}
+              style={fadeInUp('causes-title')}
             >
-              <p className="text-lg text-gray-700 leading-relaxed">
-                <Markdown inline>{data.problems.conclusion}</Markdown>
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+                <Markdown inline>{data.causes.title}</Markdown>
+              </h2>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                <Markdown inline>{data.causes.intro}</Markdown>
               </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              {data.causes.image && (
+                <div
+                  className="relative h-72 md:h-96 w-full rounded-xl overflow-hidden shadow-lg"
+                  id="causes-image"
+                  data-animate
+                  style={slideInLeft('causes-image')}
+                >
+                  <Image
+                    urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                    src={data.causes.image}
+                    alt={data.causes.title}
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              )}
+              <div
+                id="causes-list"
+                data-animate
+                style={slideInRight('causes-list')}
+              >
+                <ul className="space-y-3">
+                  {data.causes.items.map((item, index) => (
+                    <li key={index} className="flex items-start bg-white p-4 rounded-lg shadow-sm">
+                      <AlertTriangle className="w-5 h-5 text-orange-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">
+                        <Markdown inline>{item}</Markdown>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-gray-700 font-medium mt-6">
+                  <Markdown inline>{data.causes.footer}</Markdown>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Your Extraction Experience Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-blue-50">
+      {/* Signs Section */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div
+            className="max-w-4xl mx-auto text-center"
+            id="signs-title"
+            data-animate
+            style={fadeInUp('signs-title')}
+          >
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4">
+              <Markdown inline>{data.signs.title}</Markdown>
+            </h2>
+            <p className="text-lg text-gray-700 mb-10">
+              <Markdown inline>{data.signs.intro}</Markdown>
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4 mb-8">
+            {data.signs.items.map((item, index) => (
+              <div
+                key={index}
+                id={`sign-${index}`}
+                data-animate
+                style={fadeInUp(`sign-${index}`)}
+                className="flex items-start bg-white rounded-lg shadow-sm p-4 border border-purple-100"
+              >
+                <CheckCircle className="w-5 h-5 text-purple-600 mr-3 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">
+                  <Markdown inline>{item}</Markdown>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="max-w-4xl mx-auto bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-2xl p-8 text-center"
+            id="signs-footer"
+            data-animate
+            style={fadeInUp('signs-footer')}
+          >
+            <p className="text-lg text-gray-700 leading-relaxed">
+              <Markdown inline>{data.signs.footer}</Markdown>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Treatments Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-purple-50 to-indigo-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div 
-              className="text-center mb-16"
-              id="extraction-title"
+            <div
+              className="text-center mb-12"
+              id="treatments-title"
               data-animate
-              style={fadeInUp('extraction-title')}
+              style={fadeInUp('treatments-title')}
+            >
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-6">
+                <Markdown inline>{data.treatments.title}</Markdown>
+              </h2>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                <Markdown inline>{data.treatments.paragraph}</Markdown>
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {data.treatments.items.map((item, index) => (
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl shadow-lg border-2 ${item.color} p-8 hover:shadow-xl transition-all duration-300`}
+                  id={`treatment-${index}`}
+                  data-animate
+                  style={index % 2 === 0 ? slideInLeft(`treatment-${index}`) : slideInRight(`treatment-${index}`)}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-white p-3 rounded-xl shadow-md flex-shrink-0">
+                      {renderIcon(item.icon, `w-8 h-8 ${item.iconColor}`)}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">
+                        <Markdown inline>{item.title}</Markdown>
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        <Markdown inline>{item.description}</Markdown>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div
+              className="text-center mb-16"
+              id="process-title"
+              data-animate
+              style={fadeInUp('process-title')}
             >
               <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-8">
-                <Markdown inline>{data.extraction.title}</Markdown>
+                <Markdown inline>{data.process.title}</Markdown>
               </h2>
               <p className="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
-                <Markdown inline>{data.extraction.paragraph}</Markdown>
+                <Markdown inline>{data.process.paragraph}</Markdown>
               </p>
               <p className="text-xl font-semibold text-gray-800 mb-8">
-                <Markdown inline>{data.extraction.expectText}</Markdown>
+                <Markdown inline>{data.process.expectText}</Markdown>
               </p>
-              {data.extraction.image && (
-                <div className="max-w-3xl mx-auto mb-12 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+              {data.process.image && (
+                <div className="max-w-3xl mx-auto mb-4 relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg">
                   <Image
                     urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                    src={data.extraction.image}
-                    alt="Modern denture solutions"
+                    src={data.process.image}
+                    alt={data.process.title}
                     fill
                     className="object-contain"
                     priority
@@ -317,13 +570,13 @@ const WisdomTeethExtractionPage = () => {
             </div>
 
             <div className="space-y-8">
-              {data.extraction.steps.map((step, index) => (
-                <div 
+              {data.process.steps.map((step, index) => (
+                <div
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
-                  id={`care-step-${index}`}
+                  className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  id={`process-step-${index}`}
                   data-animate
-                  style={index % 2 === 0 ? slideInLeft(`care-step-${index}`) : slideInRight(`care-step-${index}`)}
+                  style={index % 2 === 0 ? slideInLeft(`process-step-${index}`) : slideInRight(`process-step-${index}`)}
                 >
                   <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-4 lg:space-y-0 lg:space-x-6">
                     <div className={`${step.color} p-4 rounded-xl shadow-md flex-shrink-0`}>
@@ -331,7 +584,7 @@ const WisdomTeethExtractionPage = () => {
                     </div>
                     <div className="flex-grow">
                       <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                        <Markdown inline>{step.title}</Markdown>
+                        {index + 1}. <Markdown inline>{step.title}</Markdown>
                       </h3>
                       <p className="text-lg text-gray-700 leading-relaxed">
                         <Markdown inline>{step.description}</Markdown>
@@ -345,12 +598,240 @@ const WisdomTeethExtractionPage = () => {
         </div>
       </section>
 
-      {/* Making the Right Decision Section */}
+      {/* Benefits Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div
+              className="text-center mb-12"
+              id="benefits-title"
+              data-animate
+              style={fadeInUp('benefits-title')}
+            >
+              <h2 className="text-3xl lg:text-5xl font-bold text-gray-800">
+                <Markdown inline>{data.benefits.title}</Markdown>
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              {data.benefits.items.map((item, index) => (
+                <div
+                  key={index}
+                  id={`benefit-${index}`}
+                  data-animate
+                  style={fadeInUp(`benefit-${index}`)}
+                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className={`h-14 w-14 ${item.color} rounded-full flex items-center justify-center mb-4 mx-auto`}>
+                    {renderIcon(item.icon, `w-7 h-7 ${item.iconColor}`)}
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 text-center">
+                    <Markdown inline>{item.title}</Markdown>
+                  </h3>
+                  <p className="text-gray-700 text-center text-sm">
+                    <Markdown inline>{item.description}</Markdown>
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="max-w-3xl mx-auto text-center"
+              id="benefits-footer"
+              data-animate
+              style={fadeInUp('benefits-footer')}
+            >
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <Markdown inline>{data.benefits.footer}</Markdown>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost Section */}
       <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div
+            className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start bg-white rounded-2xl shadow-lg p-10"
+            id="cost-section"
+            data-animate
+            style={fadeInUp('cost-section')}
+          >
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                <Markdown inline>{data.cost.title}</Markdown>
+              </h2>
+              <p className="text-lg text-gray-700 mb-6">
+                <Markdown inline>{data.cost.paragraph}</Markdown>
+              </p>
+              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                {data.cost.factors.map((factor, index) => (
+                  <li key={index}>
+                    <Markdown inline>{factor}</Markdown>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-8 space-y-4">
+              {data.cost.highlights.map((highlight, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="text-purple-700 font-bold mr-3">✔</span>
+                  <span className="text-gray-800 font-medium">
+                    <Markdown inline>{highlight}</Markdown>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Same-Day Consultation */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div
+            className="max-w-4xl mx-auto bg-gradient-to-r from-indigo-100 to-purple-100 rounded-2xl p-10 text-center"
+            id="consultation-section"
+            data-animate
+            style={fadeInUp('consultation-section')}
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              <Markdown inline>{data.consultation.title}</Markdown>
+            </h2>
+            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+              <Markdown inline>{data.consultation.paragraph}</Markdown>
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {data.consultation.points.map((point, index) => (
+                <div key={index} className="bg-white px-5 py-3 rounded-lg shadow-sm text-gray-700 font-medium">
+                  <Markdown inline>{point}</Markdown>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Areas Served */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div
+            className="max-w-4xl mx-auto text-center"
+            id="areas-served"
+            data-animate
+            style={fadeInUp('areas-served')}
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              <Markdown inline>{data.areasServed.title}</Markdown>
+            </h2>
+            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+              <Markdown inline>{data.areasServed.paragraph}</Markdown>
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {data.areasServed.areas.map((area, index) => (
+                <span key={index} className="bg-purple-700 text-white px-5 py-2 rounded-full text-sm font-medium">
+                  <Markdown inline>{area}</Markdown>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2
+              className="text-3xl lg:text-4xl font-bold text-gray-800 mb-12 text-center"
+              id="testimonials-title"
+              data-animate
+              style={fadeInUp('testimonials-title')}
+            >
+              <Markdown inline>{data.testimonials.title}</Markdown>
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {data.testimonials.items.map((item, index) => (
+                <div
+                  key={index}
+                  id={`testimonial-${index}`}
+                  data-animate
+                  style={fadeInUp(`testimonial-${index}`)}
+                  className="bg-white rounded-xl shadow-lg p-8"
+                >
+                  <div className="text-amber-400 text-lg mb-4">★★★★★</div>
+                  <p className="text-gray-700 italic">
+                    <Markdown inline>{item.quote}</Markdown>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2
+              className="text-3xl lg:text-4xl font-bold text-gray-800 mb-10 text-center"
+              id="faq-title"
+              data-animate
+              style={fadeInUp('faq-title')}
+            >
+              <Markdown inline>{data.faq.title}</Markdown>
+            </h2>
+
+            <div className="space-y-4">
+              {data.faq.items.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      className="w-full flex justify-between items-center text-left px-6 py-5"
+                    >
+                      <span className="text-lg font-semibold text-gray-800 pr-4">
+                        <Markdown inline>{item.question}</Markdown>
+                      </span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-purple-700 flex-shrink-0 transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="px-6 overflow-hidden"
+                        >
+                          <p className="text-gray-700 pb-5">
+                            <Markdown inline>{item.answer}</Markdown>
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Making the Right Decision Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-gray-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div 
+              <div
                 id="decision-content"
                 data-animate
                 style={slideInLeft('decision-content')}
@@ -361,7 +842,7 @@ const WisdomTeethExtractionPage = () => {
                 <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8">
                   <Markdown inline>{data.decision.paragraph}</Markdown>
                 </p>
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-xl">
+                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-8 rounded-2xl shadow-xl">
                   <h3 className="text-2xl font-bold mb-4">
                     <Markdown inline>{data.decision.ctaBox.title}</Markdown>
                   </h3>
@@ -379,24 +860,24 @@ const WisdomTeethExtractionPage = () => {
                   </div>
                 </div>
               </div>
-              <div 
+              <div
                 className="flex justify-center"
                 id="decision-image"
                 data-animate
                 style={slideInRight('decision-image')}
               >
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative h-80 md:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-8">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden relative h-80 md:h-96 w-full">
                   {data.decision.image && (
                     <Image
                       urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                       src={data.decision.image}
-                      alt="Modern denture solutions"
+                      alt={data.decision.title}
                       fill
                       className="object-contain"
                       priority
                     />
                   )}
-                  <div className="p-6 bg-gradient-to-r from-blue-50 to-purple-50">
+                  <div className="p-6 bg-gradient-to-r from-purple-50 to-indigo-50">
                     <p className="text-lg text-gray-700 font-medium text-center">
                       <Markdown inline>{data.decision.imageCaption}</Markdown>
                     </p>
@@ -408,6 +889,7 @@ const WisdomTeethExtractionPage = () => {
         </div>
       </section>
 
+      {/* Final CTA */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center">
           <motion.div
@@ -417,11 +899,23 @@ const WisdomTeethExtractionPage = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              <Markdown inline>{data.finalCta.titleLine}</Markdown> <span className="text-purple-600"><Markdown inline>{data.finalCta.titleHighlight}</Markdown></span>
+              <Markdown inline>{data.finalCta.titleLine}</Markdown>{' '}
+              <span className="text-purple-600"><Markdown inline>{data.finalCta.titleHighlight}</Markdown></span>
             </h2>
-            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-6 max-w-3xl mx-auto">
               <Markdown inline>{data.finalCta.paragraph}</Markdown>
             </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-lg text-gray-700">
+              <a href={`tel:${data.finalCta.phone}`} className="flex items-center gap-2 hover:underline">
+                📞 Call Now: {data.finalCta.phone}
+              </a>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center gap-2">
+                📍 {data.finalCta.address}
+              </span>
+            </div>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -436,9 +930,8 @@ const WisdomTeethExtractionPage = () => {
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 };
 
-export default WisdomTeethExtractionPage;
+export default WisdomToothPainTreatmentPage;

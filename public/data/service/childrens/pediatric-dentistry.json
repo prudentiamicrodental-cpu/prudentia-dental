@@ -1,16 +1,47 @@
 {
   "meta": {
-    "title": "Pediatric Root Canals | Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+    "title": "Pediatric Dentist Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Gentle, safe, and advanced pediatric dental care for your child at Prudentia Micro Dental Care, Vision 9 Mall, Pimple Saudagar, Pune."
   },
   "hero": {
-    "titleLine1": "Pediatric Dentistry:",
+    "titleLine1": "Pediatric Dentist Near Me:",
     "titleLine2": "Gentle Care for Growing Smiles",
-    "description": "Taking your child to a pediatric dentist is an excellent choice for their oral health. Pediatric dentists are specially trained to provide the best care tailored to children's needs. They make dental visits more comfortable and ensure that young patients maintain healthy smiles as they grow."
+    "description": "Looking for a pediatric dentist near you who provides gentle, safe, and advanced care for your child? At Prudentia Micro Dental Care, Pimple Saudagar, we focus on making every child's visit comfortable, stress-free, and positive, with same-day appointments available.",
+    "phone": "09768048056"
   },
   "introImage": {
     "image": "hero/Services/childrens/kids-dentist-pediatric-dental-care-pimple-saudagar-prudentia-micro-dental-care.jpg",
     "caption": "Creating positive dental experiences for children"
+  },
+  "approach": {
+    "title": "Gentle & Pain-Free Care Your Child Deserves",
+    "intro": "We understand that dental visits can be stressful for kids, which is why we use a calm, friendly, and pain-minimized approach. At Prudentia, we focus on:",
+    "items": [
+      "Gentle handling of children",
+      "Clear communication to reduce fear",
+      "Quick and precise treatment",
+      "Creating a positive first experience"
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Families Choose Prudentia Micro Dental Care",
+    "items": [
+      { "icon": "Microscope", "title": "Advanced Microscope-Assisted Care", "description": "High-magnification technology for accurate diagnosis and minimally invasive treatment." },
+      { "icon": "Smile", "title": "Child-Friendly Environment", "description": "Our clinic is designed to reduce anxiety and make children feel relaxed." },
+      { "icon": "Shield", "title": "Preventive-Focused Approach", "description": "We help prevent issues before they become serious." },
+      { "icon": "MapPin", "title": "Convenient Location", "description": "Located at Vision 9 Mall, easily accessible from nearby areas." },
+      { "icon": "Heart", "title": "Trusted by Parents Across Pune", "description": "Many families choose us when searching for a dependable pediatric dentist near them." }
+    ]
+  },
+  "servicesNearYou": {
+    "title": "Pediatric Dental Services Near You",
+    "intro": "We provide complete care for children under one roof:",
+    "items": [
+      { "title": "Routine Check-Ups for Kids", "description": "Regular visits help detect issues early and maintain healthy teeth." },
+      { "title": "Cavity Treatment", "description": "Safe and aesthetic tooth-colored fillings for treating decay." },
+      { "title": "Fluoride Treatment & Sealants", "description": "Preventive care to protect your child's teeth." },
+      { "title": "Painless Baby Root Canal", "description": "Gentle pulp therapy for deeper infections." }
+    ]
   },
   "procedures": {
     "title": "Common Pediatric Dental Procedures",
@@ -50,6 +81,36 @@
       }
     ]
   },
+  "emergency": {
+    "title": "Emergency Pediatric Dentist Near Me",
+    "intro": "Dental emergencies can happen anytime. If your child is experiencing pain, swelling, or injury, we're here to help immediately with:",
+    "items": [
+      "Same-day appointments",
+      "Quick pain relief",
+      "Immediate care for injuries"
+    ],
+    "footer": "Call now for urgent care.",
+    "phone": "09768048056"
+  },
+  "safety": {
+    "title": "Safe & Hygienic Environment for Children",
+    "intro": "When choosing a pediatric dentist near you, safety is a top concern. We follow strict hygiene protocols to ensure your child is treated in a clean and safe environment. Our clinic includes:",
+    "items": [
+      "Advanced sterilization systems",
+      "Safe and child-friendly materials",
+      "Digital X-rays with reduced radiation"
+    ]
+  },
+  "whenToVisit": {
+    "title": "When Should You Visit a Pediatric Dentist Near Me?",
+    "intro": "Many parents wait until there is pain, but early visits are essential. You should visit when:",
+    "items": [
+      "Your child's first tooth appears",
+      "There are signs of cavities or discomfort",
+      "For routine check-ups every 6 months"
+    ],
+    "footer": "Early care helps prevent major problems and builds good habits."
+  },
   "safeHands": {
     "title": "Your Child's Smile is in Safe Hands",
     "description": "We understand that visiting the dentist can be a big step for children, but our pediatric dental team is here to ensure that your child feels comfortable and well cared for throughout the process. We take a gentle, friendly approach to each procedure, making dental visits a positive experience.",
@@ -57,6 +118,31 @@
       { "icon": "Smile", "title": "Gentle Approach", "description": "Child-friendly techniques" },
       { "icon": "Shield", "title": "Expert Care", "description": "Specialized pediatric training" },
       { "icon": "Star", "title": "Positive Experience", "description": "Making visits enjoyable" }
+    ]
+  },
+  "areasServed": {
+    "title": "Serving Families in Pimple Saudagar & Nearby Areas",
+    "intro": "If you're searching for a pediatric dentist near you, our clinic is conveniently located for families in:",
+    "items": ["Pimple Saudagar", "Wakad", "Baner", "Rahatani", "Aundh"],
+    "footer": "Our location near Kunal Icon Road makes it easy for parents to visit regularly without hassle.",
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  },
+  "testimonials": {
+    "title": "Trusted by 500+ Parents in Pune",
+    "items": [
+      { "quote": "My child had no pain during treatment. Highly recommended pediatric dentist near me.", "author": "Verified Parent" },
+      { "quote": "Very friendly and professional care. Best place for kids.", "author": "Verified Parent" },
+      { "quote": "Quick and smooth treatment. My child was comfortable throughout.", "author": "Verified Parent" }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "What is the right age for a child's first visit?", "answer": "Children should visit when their first tooth appears or by their first birthday." },
+      { "question": "How often should children visit?", "answer": "Every 6 months for regular check-ups and preventive care." },
+      { "question": "Are treatments painful for children?", "answer": "No, we use gentle and pain-minimized techniques to ensure comfort." },
+      { "question": "How do I choose the best pediatric dentist near me?", "answer": "Look for experience, a child-friendly approach, good reviews, and a convenient location." },
+      { "question": "Do you provide emergency care?", "answer": "Yes, we offer same-day appointments for urgent situations." }
     ]
   },
   "contact": {
@@ -67,6 +153,8 @@
       { "icon": "Mail", "title": "Email Us", "description": "Ask Questions" },
       { "icon": "MapPin", "title": "Visit Us", "description": "Pimple Saudagar, Pune" }
     ],
-    "button": "Schedule your consultation today"
+    "button": "Schedule your consultation today",
+    "phone": "09768048056",
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
   }
 }

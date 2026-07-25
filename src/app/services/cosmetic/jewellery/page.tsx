@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
 import { Variants } from "framer-motion";
 import Markdown from '@/components/markdown';
 import Head from "next/head";
+import { ChevronDown } from "lucide-react";
 
 interface JewelleryData {
-   meta: { title: string, description: string};
+  meta: { title: string, description: string};
   hero: {
     title: string;
     subtitle: string;
@@ -38,6 +39,14 @@ interface JewelleryData {
     title: string;
     description: string;
   };
+  testimonials: {
+    title: string;
+    items: { quote: string }[];
+  }
+  faq :{
+    title: string;
+    items: { question: string; answer: string }[];
+  }
   cta: {
     title: string;
     description: string;
@@ -49,7 +58,9 @@ interface JewelleryData {
 export default function DentalJewelry() {
   const { handleOpenChatbot } = useChatbot();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [content, setContent] = useState<JewelleryData | null>(null);
+   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
     async function loadData() {
@@ -119,6 +130,11 @@ const shimmer: Variants = {
     },
   },
 };
+  const staggerDelay = (index: number) => ({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0px)" : "translateY(60px)",
+    transition: `all 1s ease-out ${index * 0.15}s`,
+  });
 
   if (!content) {
     return (
@@ -462,6 +478,75 @@ const shimmer: Variants = {
           </motion.div>
         </div>
       </motion.section>
+            {/* Testimonials */}
+              <section className="mb-32">
+                <div className="text-center mb-16" >
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+                    <Markdown inline>{content.testimonials.title}</Markdown>
+                  </h2>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {content.testimonials.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                      
+                    >
+                      <div className="text-amber-400 text-lg mb-4">★★★★★</div>
+                      <p className="text-gray-700 italic leading-relaxed">
+                        <Markdown inline>{item.quote}</Markdown>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+      
+              {/* FAQ */}
+              <section className="mb-32">
+                <div className="text-center mb-16" >
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+                    <Markdown inline>{content.faq.title}</Markdown>
+                  </h2>
+                </div>
+      
+                <div className="max-w-4xl mx-auto space-y-4">
+                  {content.faq.items.map((item, index) => {
+                    const isOpen = openFaq === index;
+                    return (
+                      <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                        <button
+                          onClick={() => setOpenFaq(isOpen ? null : index)}
+                          className="w-full flex justify-between items-center text-left px-8 py-6"
+                        >
+                          <span className="text-lg font-semibold text-gray-800 pr-4">
+                            <Markdown inline>{item.question}</Markdown>
+                          </span>
+                          <ChevronDown
+                            className={`w-6 h-6 text-purple-700 flex-shrink-0 transition-transform duration-300 ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="px-8 overflow-hidden"
+                            >
+                              <p className="text-gray-700 pb-6 leading-relaxed">
+                                <Markdown inline>{item.answer}</Markdown>
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
 
       {/* Call to Action */}
       <motion.section

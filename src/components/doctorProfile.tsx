@@ -87,14 +87,37 @@ interface DoctorData extends DoctorProfileProps {}
 export default function DoctorsSection() {
   const [doctors, setDoctors] = useState<DoctorData[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch('/data/home/doctors.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/doctors.json';
+    const LOCAL_URL = '/data/home/doctors.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: DoctorData[]) => {
+          if (isMounted) setDoctors(data);
+        })
+        .catch((err) => console.error('Failed to load local doctors data:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: DoctorData[]) => {
         if (isMounted) setDoctors(data);
       })
-      .catch((err) => console.error('Failed to load doctors data:', err));
+      .catch((err) => {
+        console.warn('Failed to load doctors data from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

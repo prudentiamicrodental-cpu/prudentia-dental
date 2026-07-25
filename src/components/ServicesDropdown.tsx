@@ -32,14 +32,37 @@ export default function ServicesDropdown() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch("/data/home/services-menu.json")
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/services-menu.json';
+    const LOCAL_URL = '/data/home/services-menu.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: ServiceCategory[]) => {
+          if (isMounted) setServices(data);
+        })
+        .catch((err) => console.error('Failed to load local services menu:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: ServiceCategory[]) => {
         if (isMounted) setServices(data);
       })
-      .catch((err) => console.error("Failed to load services menu:", err));
+      .catch((err) => {
+        console.warn('Failed to load services menu from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

@@ -31,14 +31,37 @@ const SOCIAL_ICON_PATHS: Record<string, string> = {
 export default function Footer() {
   const [data, setData] = useState<FooterData | null>(null);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch("/data/home/footer.json")
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/footer.json";
+    const LOCAL_URL = "/data/home/footer.json";
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((json: FooterData) => {
+          if (isMounted) setData(json);
+        })
+        .catch((err) => console.error("Failed to load local footer data:", err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((json: FooterData) => {
         if (isMounted) setData(json);
       })
-      .catch((err) => console.error("Failed to load footer data:", err));
+      .catch((err) => {
+        console.warn("Failed to load footer data from GitHub, falling back to local:", err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

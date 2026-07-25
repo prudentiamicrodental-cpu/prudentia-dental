@@ -1,113 +1,253 @@
 {
-   "meta": {
-    "title": "Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  "meta": {
+    "title": "Best Dental Fillings Near Me in Pimple Saudagar, Pune – Prudentia Micro Dental Care",
+    "description": "Searching for dental fillings near me in Pimple Saudagar? Prudentia Micro Dental Care offers advanced, tooth-colored fillings near Vision 9 Mall, Kunal Icon Road."
   },
   "hero": {
-    "title": "Restore Your Smile with Natural-Looking Composite Fillings",
-    "subtitle": "Natural-Looking",
-    "tags": ["Durable", "Aesthetic", "Tooth-Preserving"],
+    "title": "Best Dental Fillings Near Me in",
+    "highlightedText": "Pimple Saudagar",
+    "subtitle": "Pune",
+    "tags": ["Tooth-Colored", "Durable", "Natural-Looking"],
     "image": "hero/Services/restorative/1. Tooth coloured fillings/composite-syringe-dental-fillings-cosmetic-dentistry-prudentia-pune.jpg"
   },
   "introduction": {
-    "text": "At Prudentia Micro Dental Care, Pimple Saudagar we use composite (tooth-colored) fillings to repair teeth affected by decay, cracks, or fractures seamlessly blending with your natural tooth for a strong and beautiful result.",
-    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar"
+    "text": "If you're searching for the best dental fillings near me in Pimple Saudagar, you're looking for an effective solution to repair cavities, restore damaged teeth, and protect your oral health. At Prudentia Micro Dental Care, we provide advanced, tooth-colored dental fillings that restore the strength, appearance, and function of your teeth while ensuring a comfortable treatment experience. Conveniently located at Vision 9 Mall, Kunal Icon Road, our clinic is trusted by patients across Pimple Saudagar, Pimpri-Chinchwad, Wakad, and Rahatani for safe, precise, and modern dental filling treatments.",
+    "highlightedText": "Prudentia Micro Dental Care"
   },
-  "whatAreCompositeFillings": {
-    "title": "What Are Composite Fillings?",
-    "description": "Composite fillings are made from a tooth-colored resin material that bonds directly to your natural tooth. Unlike traditional metal fillings, they offer a more aesthetic and conservative solution. Composite fillings are strong, long-lasting, and ideal for restoring both function and appearance.",
+  "topRated": {
+    "title": "Top-Rated Dental Fillings Near You in Pimple Saudagar",
+    "description": "Choosing the right dental clinic for fillings is important to prevent further tooth damage and maintain a healthy smile. At Prudentia Micro Dental Care, we combine modern techniques with personalized care to deliver long-lasting, natural-looking restorations.",
+    "points": [
+      "Trusted by hundreds of happy patients",
+      "Modern clinic equipped with advanced dental technology",
+      "Convenient location near Vision 9 Mall",
+      "Easy access from Kunal Icon Road and nearby areas"
+    ],
+    "footnote": "Patients searching for dental fillings near me choose us for our precision, gentle care, and durable results."
+  },
+  "whyChooseLocation": {
+    "title": "Why Choose Prudentia Micro Dental Care for Dental Fillings Near Me?",
+    "features": [
+      {
+        "title": "Advanced Tooth-Colored Filling Technology",
+        "description": "We use high-quality composite filling materials that blend naturally with your teeth, providing both strength and aesthetics."
+      },
+      {
+        "title": "Comfortable & Pain-Free Treatment",
+        "description": "Our minimally invasive techniques and modern equipment help ensure a smooth, comfortable experience with minimal discomfort."
+      },
+      {
+        "title": "High Standards of Safety & Hygiene",
+        "description": "We maintain strict sterilization protocols and use advanced dental equipment to provide safe and hygienic treatment."
+      },
+      {
+        "title": "Convenient Location Near You",
+        "description": "Easily accessible for patients searching for dental fillings near Kunal Icon Road, Vision 9 Mall, and Pimple Saudagar."
+      }
+    ],
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  },
+  "whatAreFillings": {
+    "title": "What Are Dental Fillings?",
+    "description": "Dental fillings are restorative treatments used to repair teeth damaged by cavities, minor fractures, or wear. After removing the decayed portion of the tooth, the affected area is filled with a durable material to restore its strength and function.",
+    "items": [
+      "Restore damaged teeth",
+      "Prevent further tooth decay",
+      "Improve chewing ability",
+      "Maintain natural tooth structure",
+      "Enhance the appearance of your smile"
+    ],
+    "footnote": "If you're looking for an effective way to treat cavities, searching for dental fillings near me is the right choice."
+  },
+  "fillingTypes": {
+    "title": "Types of Dental Fillings Available Near You",
+    "items": [
+      {
+        "title": "Composite (Tooth-Colored) Fillings",
+        "description": "A natural-looking solution that matches your existing teeth and is ideal for visible areas."
+      },
+      {
+        "title": "Glass Ionomer Fillings",
+        "description": "Often recommended for children or areas with lower chewing pressure, offering added fluoride protection."
+      },
+      {
+        "title": "Temporary Fillings",
+        "description": "Used as a short-term solution until permanent treatment can be completed."
+      },
+      {
+        "title": "Cosmetic Tooth Fillings",
+        "description": "Ideal for repairing chipped, worn, or slightly damaged teeth while maintaining a natural appearance."
+      }
+    ]
+  },
+  "technology": {
+    "title": "Advanced Technology for Precision Fillings",
+    "description": "We use modern techniques and high-quality materials to ensure durable, natural-looking restorations.",
     "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimetic-composite-filling-natural-tooth-repair-pimple-saudagar.jpg",
     "features": [
       {
-        "title": "Strong",
-        "description": "Durable protection",
         "icon": "Shield",
-        "color": "blue"
+        "title": "Strength",
+        "description": "Durable protection for long-lasting results"
       },
       {
-        "title": "Natural",
-        "description": "Seamless blend",
-        "icon": "Smile",
-        "color": "teal"
+        "icon": "Eye",
+        "title": "Precision",
+        "description": "Meticulous placement for a perfect fit"
       },
       {
-        "title": "Quick",
-        "description": "Single visit",
-        "icon": "Clock",
-        "color": "purple"
-      },
-      {
-        "title": "Aesthetic",
-        "description": "Beautiful results",
         "icon": "Star",
-        "color": "orange"
+        "title": "Aesthetics",
+        "description": "Natural-looking results that blend seamlessly"
       }
-    ]
-  },
-  "recommendations": {
-    "title": "When Are Composite Fillings Recommended?",
-    "subtitle": "Composite fillings are an excellent choice for treating and repairing:",
-    "items": [
-      "Chipped or cracked teeth",
-      "Cavities and tooth decay",
-      "Gaps between teeth",
-      "Worn or eroded teeth",
-      "Minor reshaping or cosmetic corrections"
     ],
-    "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimetics-composite-filling-natural-tooth-repair-pimple-saudagar.jpg"
+    "highlight": "Every filling is carefully placed, shaped, and polished to match your natural tooth color and bite."
   },
-  "procedure": {
-    "title": "How Is the Procedure Done?",
-    "subtitle": "Most composite fillings can be completed in just one comfortable appointment.",
-    "image": "hero/Services/restorative/1. Tooth coloured fillings/biomimeticss-composite-filling-natural-tooth-repair-pimple-saudagar.jpg",
+  "process": {
+    "title": "Step-by-Step Dental Filling Procedure",
     "steps": [
       {
-        "step": "1",
-        "title": "Numbing",
-        "description": "The area is gently numbed to ensure a painless experience."
+        "number": "1",
+        "title": "Consultation & Examination",
+        "description": "A thorough dental examination is performed to identify cavities or damaged areas."
       },
       {
-        "step": "2",
-        "title": "Cleaning",
-        "description": "The decayed or damaged portion of the tooth is carefully removed."
+        "number": "2",
+        "title": "Removal of Decay",
+        "description": "The decayed portion of the tooth is carefully removed while preserving healthy tooth structure."
       },
       {
-        "step": "3",
-        "title": "Preparation",
-        "description": "The tooth is cleaned and prepped. If the decay is close to the nerve, a protective liner may be applied."
-      },
-      {
-        "step": "4",
+        "number": "3",
         "title": "Filling Placement",
-        "description": "The composite material is applied in layers, shaped, hardened with a special light, and polished to perfection — restoring your tooth's natural shape and function."
+        "description": "A high-quality filling material is placed, shaped, and bonded securely to the tooth."
+      },
+      {
+        "number": "4",
+        "title": "Finishing & Polishing",
+        "description": "The filling is adjusted for a comfortable bite and polished to achieve a smooth, natural finish."
+      }
+    ],
+    "footnote": "With advanced techniques, the entire procedure is quick, comfortable, and usually completed in a single visit."
+  },
+  "benefits": {
+    "title": "Benefits of Choosing Dental Fillings Near Me",
+    "items": [
+      "Restores damaged teeth",
+      "Stops cavities from progressing",
+      "Preserves natural tooth structure",
+      "Improves chewing function",
+      "Blends naturally with your smile",
+      "Quick and minimally invasive treatment",
+      "Long-lasting results with proper care"
+    ],
+    "footnote": "Dental fillings are one of the most effective and conservative treatments for repairing cavities and maintaining healthy teeth."
+  },
+  "cost": {
+    "title": "Affordable Dental Filling Cost in Pimple Saudagar",
+    "description": "One of the most common concerns when searching for dental fillings near me is the cost. The price depends on:",
+    "factors": [
+      "Size of the cavity",
+      "Type of filling material used",
+      "Number of teeth requiring treatment",
+      "Complexity of the procedure"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Personalized treatment recommendations",
+      "High-quality care at affordable rates"
+    ]
+  },
+  "sameDayConsultation": {
+    "title": "Same-Day Consultation for Dental Fillings Near You",
+    "description": "If you're experiencing tooth sensitivity, pain, or suspect a cavity, don't delay treatment.",
+    "items": [
+      "Quick appointment scheduling",
+      "Same-day consultation available",
+      "Efficient diagnosis and treatment planning"
+    ],
+    "footnote": "Searching for dental fillings near me should lead you to a clinic that offers prompt, professional care."
+  },
+  "trustedAreas": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "description": "We proudly serve patients from:",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ],
+    "footnote": "Our convenient location makes it easy for anyone searching for dental fillings near me in Pune to receive expert dental care."
+  },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "The filling treatment was quick, painless, and looked completely natural." },
+      { "quote": "Very clean clinic with professional and friendly staff. Highly recommended." },
+      { "quote": "I searched for dental fillings near me and found excellent care at Prudentia Micro Dental Care." }
+    ],
+    "footnote": "Patient satisfaction reflects our dedication to providing exceptional dental care and lasting results."
+  },
+  "whatToExpect": {
+    "title": "What to Expect During Your Visit",
+    "items": [
+      {
+        "title": "Easy Appointment Booking",
+        "description": "Quick and hassle-free scheduling for your convenience."
+      },
+      {
+        "title": "Comfortable Treatment Experience",
+        "description": "Modern equipment and gentle techniques ensure minimal discomfort."
+      },
+      {
+        "title": "Personalized Treatment Plan",
+        "description": "Every treatment is customized according to your dental needs and oral health."
       }
     ]
   },
-  "aftercare": {
-    "title": "Aftercare & Longevity",
-    "subtitle": "With proper care, composite fillings can last for many years.",
-    "tips": [
+  "faq": {
+    "title": "Frequently Asked Questions – Dental Fillings Near Me",
+    "items": [
       {
-        "title": "Maintain good oral hygiene",
-        "description": "brush twice daily and floss regularly"
+        "question": "How long do dental fillings last?",
+        "answer": "Dental fillings can last many years, depending on the material used, oral hygiene, and regular dental check-ups."
       },
       {
-        "title": "Follow healthy eating habits",
-        "description": "limit sugary and acidic foods"
+        "question": "Are dental fillings painful?",
+        "answer": "Modern filling procedures are generally comfortable. Local anesthesia is used when necessary to minimize discomfort."
       },
       {
-        "title": "Schedule regular dental visits",
-        "description": "early detection extends the life of your restorations"
+        "question": "How long does a dental filling appointment take?",
+        "answer": "Most dental filling procedures are completed within 30 to 60 minutes, depending on the size and number of cavities."
+      },
+      {
+        "question": "When do I need a dental filling?",
+        "answer": "If you have tooth decay, small cavities, minor cracks, or worn teeth, your dentist may recommend a filling."
+      },
+      {
+        "question": "What is the cost of dental fillings in Pune?",
+        "answer": "The cost varies depending on the type of filling material and the size of the cavity. A consultation provides an accurate treatment estimate."
+      },
+      {
+        "question": "Are tooth-colored fillings better than silver fillings?",
+        "answer": "Composite tooth-colored fillings provide a natural appearance, bond well to the tooth, and preserve more healthy tooth structure."
+      },
+      {
+        "question": "How do I find the best dental fillings near me?",
+        "answer": "Choose a dental clinic with experienced professionals, modern technology, positive patient reviews, and a convenient location—like Prudentia Micro Dental Care."
       }
-    ],
-    "closingText": "We will provide you with personalized care instructions after your appointment."
+    ]
   },
   "cta": {
-    "title": "Book Your Appointment Today",
-    "description": "Whether it's a minor chip or a new cavity, composite fillings can restore your smile beautifully and discreetly.",
-    "callToAction": "Call us today to schedule your consultation at Prudentia Micro Dental Care where function meets aesthetics, and your smile gets the care it deserves.",
-    "highlightedText": "Prudentia Micro Dental Care",
-    "buttonText": "Schedule Online",
-    "buttonIcon": "Calendar"
+    "title": "Restore Your Healthy Smile with Confidence",
+    "description": "Whether you need to treat a new cavity or replace an old filling, our experienced team is committed to restoring your oral health with durable, natural-looking results.",
+    "callToAction": "Call Prudentia Micro Dental Care, Pimple Saudagar today to schedule your consultation and experience quality dental care you can trust.",
+    "highlightedText": "Prudentia Micro Dental Care, Pimple Saudagar",
+    "buttonText": "Book Your Appointment",
+    "buttonIcon": "Calendar",
+    "conclusionTitle": "Your Trusted Choice for Dental Fillings Near Me",
+    "conclusion": "If you're searching for the best dental fillings near me in Pimple Saudagar, Prudentia Micro Dental Care offers advanced treatment, modern technology, and compassionate patient care. From consultation to treatment completion, every step is carefully planned to ensure durability, comfort, and natural-looking results. Conveniently located near Vision 9 Mall and Kunal Icon Road, quality dental care is always within reach. Restore your healthy smile with confidence.",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

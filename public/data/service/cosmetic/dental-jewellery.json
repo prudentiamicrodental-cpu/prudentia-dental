@@ -53,6 +53,48 @@
     "title": "Safe & Stunning",
     "description": "Rest assured, the jewelry used is safe, and the procedure is gentle and secure. It bonds seamlessly to your tooth, leaving you with a beautiful, lasting addition to your smile without compromising your dental health."
   },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My gums stopped bleeding after the deep cleaning, and my mouth feels so much healthier." },
+      { "quote": "The treatment was gentle, professional, and surprisingly comfortable." },
+      { "quote": "I searched for deep cleaning near me and found excellent care at Prudentia Micro Dental Care." }
+    ]
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How long does deep cleaning take?",
+        "answer": "Treatment usually takes one or two visits depending on the severity of gum disease and the amount of plaque buildup."
+      },
+      {
+        "question": "Is Scaling & Root Planing painful?",
+        "answer": "Most patients experience minimal discomfort. Local anesthesia may be used when deeper cleaning below the gum line is required."
+      },
+      {
+        "question": "How often should I get deep cleaning?",
+        "answer": "Your dentist will recommend the appropriate schedule based on your gum health. Patients with periodontal disease may require regular maintenance visits."
+      },
+      {
+        "question": "Who needs deep cleaning?",
+        "answer": "Patients with gum disease, bleeding gums, deep gum pockets, tartar buildup, or chronic bad breath are often good candidates after a dental examination."
+      },
+      {
+        "question": "What is the cost of deep cleaning in Pune?",
+        "answer": "The cost varies depending on the extent of treatment required and the severity of periodontal disease. A consultation provides an accurate treatment estimate."
+      },
+      {
+        "question": "Why choose deep cleaning instead of regular cleaning?",
+        "answer": "Deep cleaning removes bacteria and tartar below the gum line, helping treat gum disease and prevent tooth loss, whereas regular cleaning mainly removes deposits above the gums."
+      },
+      {
+        "question": "How do I find the best Deep Cleaning (Scaling & Root Planing) near me?",
+        "answer": "Choose a dental clinic with experienced dentists, advanced equipment, excellent patient reviews, modern sterilization standards, and a convenient location."
+      }
+    ]
+  },
   "cta": {
     "title": "Ready to Sparkle?",
     "description": "Want to add a touch of glamour to your smile? Visit Prudentia Micro Dental Care today and let us help you shine brighter than ever before with our luxurious dental jewelry.",

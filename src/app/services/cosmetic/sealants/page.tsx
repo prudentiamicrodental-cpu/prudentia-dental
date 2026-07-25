@@ -58,6 +58,21 @@ interface SealantsData {
     intro: string;
     tips: { icon: string; strong: string | null; text: string }[];
   };
+  whatToExpect: {
+    title: string;
+    items: { icon: string; title: string; description: string }[];
+  };
+  faq: {
+    title: string;
+    items: { question: string; answer: string }[];
+  };
+  conclusion: {
+    title: string;
+    paragraph1: string;
+    paragraph2: string;
+    phone: string;
+    address: string;
+  };
   cta: {
     title: string;
     description: string;
@@ -66,10 +81,11 @@ interface SealantsData {
   };
 }
 
-export default function DentalSealants() {
+export default function PitFissureSealantsPage() {
   const { handleOpenChatbot } = useChatbot();
   const [isLoaded, setIsLoaded] = useState(false);
   const [content, setContent] = useState<SealantsData | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
     async function loadData() {
@@ -211,7 +227,7 @@ export default function DentalSealants() {
                 <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={content.hero.image}
-                  alt="Modern denture solutions"
+                  alt="Pit and fissure sealants"
                   fill
                   className="object-contain"
                   priority
@@ -285,7 +301,7 @@ export default function DentalSealants() {
                 key={index}
                 variants={slideIn}
                 whileHover={{ y: -5 }}
-                className="w-full md:w-1/2 px-4 mb-8"
+                className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8"
               >
                 <div className="bg-white rounded-xl shadow-lg p-8 h-full border-l-4 border-purple-500">
                   <div className="text-purple-600 text-4xl mb-4">{group.icon}</div>
@@ -309,7 +325,7 @@ export default function DentalSealants() {
         </div>
       </motion.section>
 
-      {/* Why Are Sealants Important */}
+      {/* What Are Pit & Fissure Sealants */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -334,7 +350,7 @@ export default function DentalSealants() {
                 <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={content.whyImportant.image}
-                  alt="Modern denture solutions"
+                  alt="What are pit and fissure sealants"
                   fill
                   className="object-contain"
                   priority
@@ -394,7 +410,7 @@ export default function DentalSealants() {
             <Markdown inline>{content.benefits.title}</Markdown>
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {content.benefits.items.map((item, index) => (
               <motion.div
                 key={index}
@@ -511,7 +527,7 @@ export default function DentalSealants() {
                 <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={content.procedure.image}
-                  alt="Modern denture solutions"
+                  alt="Pit and fissure sealant procedure"
                   fill
                   className="object-contain"
                   priority
@@ -551,7 +567,7 @@ export default function DentalSealants() {
                 <Image
                 urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={content.preventionTips.image}
-                  alt="Modern denture solutions"
+                  alt="Oral hygiene tips"
                   fill
                   className="object-contain"
                   priority
@@ -592,6 +608,146 @@ export default function DentalSealants() {
                 ))}
               </ul>
             </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Conclusion */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerChildren}
+        className="py-20 bg-purple-50"
+      >
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <motion.h2
+            variants={fadeIn}
+            className="text-3xl font-bold text-purple-900 mb-8"
+          >
+            <Markdown inline>{content.conclusion.title}</Markdown>
+          </motion.h2>
+
+          <motion.p
+            variants={fadeIn}
+            className="text-lg text-gray-700 leading-relaxed mb-6"
+          >
+            <Markdown inline>{content.conclusion.paragraph1}</Markdown>
+          </motion.p>
+
+          <motion.p
+            variants={fadeIn}
+            className="text-lg text-gray-700 leading-relaxed mb-10"
+          >
+            <Markdown inline>{content.conclusion.paragraph2}</Markdown>
+          </motion.p>
+
+          <motion.div
+            variants={fadeIn}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 text-purple-800 font-medium text-lg"
+          >
+            <a href={`tel:${content.conclusion.phone}`} className="hover:underline">
+              📞 Call Now: {content.conclusion.phone}
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <span>📍 {content.conclusion.address}</span>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* What to Expect */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerChildren}
+        className="py-20 bg-white"
+      >
+        <div className="container mx-auto px-4">
+          <motion.h2
+            variants={fadeIn}
+            className="text-3xl font-bold text-center text-purple-900 mb-16"
+          >
+            <Markdown inline>{content.whatToExpect.title}</Markdown>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {content.whatToExpect.items.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn}
+                whileHover={{ y: -5 }}
+                className="bg-purple-50 rounded-xl shadow-md p-8 text-center"
+              >
+                <div className="text-purple-600 text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold text-purple-900 mb-3">
+                  <Markdown inline>{item.title}</Markdown>
+                </h3>
+                <p className="text-gray-700">
+                  <Markdown inline>{item.description}</Markdown>
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* FAQ */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerChildren}
+        className="py-20 bg-purple-50"
+      >
+        <div className="container mx-auto px-4">
+          <motion.h2
+            variants={fadeIn}
+            className="text-3xl font-bold text-center text-purple-900 mb-16"
+          >
+            <Markdown inline>{content.faq.title}</Markdown>
+          </motion.h2>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {content.faq.items.map((item, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <motion.div
+                  key={index}
+                  variants={fadeIn}
+                  className="bg-white rounded-2xl shadow-md border border-purple-100 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full flex justify-between items-center text-left px-8 py-6"
+                  >
+                    <span className="text-lg font-semibold text-purple-900 pr-4">
+                      <Markdown inline>{item.question}</Markdown>
+                    </span>
+                    <span
+                      className={`flex-shrink-0 text-purple-600 text-2xl leading-none transition-transform duration-300 ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-8 overflow-hidden"
+                    >
+                      <p className="text-gray-700 pb-6 leading-relaxed">
+                        <Markdown inline>{item.answer}</Markdown>
+                      </p>
+                    </motion.div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.section>

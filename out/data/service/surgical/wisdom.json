@@ -1,107 +1,326 @@
 {
-   "meta": {
-    "title": "Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  "meta": {
+    "title": "Best Wisdom Tooth Pain Treatment Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Searching for wisdom tooth pain treatment near me in Pimple Saudagar? Prudentia Micro Dental Care offers fast pain relief, expert diagnosis, and safe extraction near Vision 9 Mall, Kunal Icon Road."
   },
+
   "hero": {
-    "titleLine1": "Wisdom Teeth Extraction:",
-    "titleHighlight": "Safe, Comfortable Care for Your Smile",
-    "paragraph": "Wisdom teeth are the third set of molars that typically emerge between the ages of 17 and 25. Due to their late appearance, there's often not enough room in the mouth for them to grow properly, leading to potential complications."
+    "titleLine1": "Wisdom Tooth Pain Treatment Near Me:",
+    "titleHighlight": "Fast Relief, Expert Care in Pimple Saudagar",
+    "paragraph": "If you're searching for the best wisdom tooth pain treatment near me, you deserve expert dental care that provides fast pain relief and protects your long-term oral health. At Prudentia Micro Dental Care, Vision 9 Mall, Kunal Icon Road, we diagnose and treat wisdom tooth pain using advanced technology in a comfortable, stress-free environment."
   },
-  "problems": {
-    "title": "Common Wisdom Teeth Problems:",
-    "image": "hero/Services/surgical/1. Wisdom tooth extraction/painless-wisdom-tooth-extraction-recovery-prudentia-dental-pimple-saudagar.jpg",
+
+  "trustBadges": {
+    "title": "Top-Rated Wisdom Tooth Pain Treatment Near You",
+    "items": [
+      "Experienced dental professionals",
+      "Digital diagnosis with advanced technology",
+      "Comfortable and minimally invasive treatment",
+      "Convenient location near Vision 9 Mall and Kunal Icon Road"
+    ]
+  },
+
+  "whyChoose": {
+    "title": "Why Choose Prudentia Micro Dental Care?",
     "items": [
       {
-        "title": "Damage to Neighboring Teeth",
-        "description": "Wisdom teeth can push against adjacent teeth, causing discomfort or even damage.",
-        "icon": "AlertTriangle",
-        "iconColor": "text-red-600",
-        "color": "bg-red-50 border-red-200"
+        "title": "Advanced Diagnosis",
+        "description": "We use digital X-rays and comprehensive oral examinations to accurately identify impacted, infected, or partially erupted wisdom teeth.",
+        "icon": "Search",
+        "iconColor": "text-blue-600",
+        "color": "bg-blue-50 border-blue-200"
       },
       {
-        "title": "Gum Infection",
-        "description": "The partially erupted wisdom tooth can cause gum irritation and infections.",
+        "title": "Comfortable & Gentle Treatment",
+        "description": "Modern anesthesia techniques and minimally invasive procedures help ensure maximum comfort throughout your treatment.",
+        "icon": "Heart",
+        "iconColor": "text-rose-600",
+        "color": "bg-rose-50 border-rose-200"
+      },
+      {
+        "title": "High Standards of Hygiene",
+        "description": "We follow strict sterilization protocols and international infection-control standards for a safe treatment environment.",
+        "icon": "Shield",
+        "iconColor": "text-emerald-600",
+        "color": "bg-emerald-50 border-emerald-200"
+      },
+      {
+        "title": "Convenient Location Near You",
+        "description": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027.",
+        "icon": "MapPin",
+        "iconColor": "text-purple-600",
+        "color": "bg-purple-50 border-purple-200"
+      }
+    ]
+  },
+
+  "causes": {
+    "title": "What Causes Wisdom Tooth Pain?",
+    "intro": "Wisdom teeth are the last set of molars to erupt, usually between the ages of 17 and 25. In many cases, there isn't enough space in the jaw for these teeth to emerge properly, leading to pain, swelling, and infection.",
+    "image": "hero/Services/surgical/1. Wisdom tooth extraction/painless-wisdom-tooth-extraction-recovery-prudentia-dental-pimple-saudagar.jpg",
+    "items": [
+      "Impacted wisdom teeth",
+      "Gum infection around the tooth",
+      "Tooth decay",
+      "Food trapping around partially erupted teeth",
+      "Swelling of surrounding gums",
+      "Pressure on neighboring teeth"
+    ],
+    "footer": "Prompt treatment helps relieve pain and prevents future complications."
+  },
+
+  "signs": {
+    "title": "Signs You May Need Wisdom Tooth Treatment",
+    "intro": "You should visit a dentist if you experience:",
+    "items": [
+      "Pain at the back of the mouth",
+      "Swollen or bleeding gums",
+      "Difficulty opening your mouth",
+      "Jaw pain or stiffness",
+      "Bad breath or unpleasant taste",
+      "Swelling around the jaw",
+      "Pain while chewing",
+      "Repeated infections around the wisdom tooth"
+    ],
+    "footer": "Early diagnosis can prevent infection from spreading and reduce the need for more complex treatment."
+  },
+
+  "treatments": {
+    "title": "Wisdom Tooth Pain Treatments Available Near You",
+    "paragraph": "We carefully evaluate your condition and recommend the most suitable treatment, whether it's medication, minor gum treatment, or wisdom tooth removal.",
+    "items": [
+      {
+        "title": "Conservative Pain Management",
+        "description": "For mild discomfort, treatment may include professional cleaning, medication, and advice to reduce inflammation.",
+        "icon": "Pill",
+        "iconColor": "text-teal-600",
+        "color": "bg-teal-50 border-teal-200"
+      },
+      {
+        "title": "Wisdom Tooth Extraction",
+        "description": "When a wisdom tooth is impacted, infected, or damaging nearby teeth, extraction is often the most effective long-term solution.",
         "icon": "AlertTriangle",
         "iconColor": "text-orange-600",
         "color": "bg-orange-50 border-orange-200"
       },
       {
-        "title": "Jaw Infections",
-        "description": "If wisdom teeth are impacted, they can lead to painful jaw infections.",
-        "icon": "AlertTriangle",
-        "iconColor": "text-yellow-600",
-        "color": "bg-yellow-50 border-yellow-200"
+        "title": "Surgical Wisdom Tooth Removal",
+        "description": "Deeply impacted or partially erupted wisdom teeth may require a minor surgical procedure performed under local anesthesia.",
+        "icon": "Stethoscope",
+        "iconColor": "text-indigo-600",
+        "color": "bg-indigo-50 border-indigo-200"
       },
       {
-        "title": "Alignment Disruption",
-        "description": "Impacted wisdom teeth may shift other teeth, affecting the alignment of your smile.",
-        "icon": "AlertTriangle",
-        "iconColor": "text-purple-600",
-        "color": "bg-purple-50 border-purple-200"
+        "title": "Post-Treatment Care",
+        "description": "We provide detailed aftercare instructions to promote quick healing and minimize discomfort after treatment.",
+        "icon": "CheckCircle",
+        "iconColor": "text-green-600",
+        "color": "bg-green-50 border-green-200"
       }
-    ],
-    "conclusion": "While not all wisdom teeth require removal, if any of the above issues arise, extraction may be necessary to avoid further complications and preserve your oral health."
+    ]
   },
-  "extraction": {
-    "title": "Your Wisdom Teeth Extraction at Prudentia Micro Dental Care",
-    "paragraph": "We understand that wisdom teeth extraction can feel intimidating, but we're here to ensure your experience is as smooth and comfortable as possible.",
+
+  "process": {
+    "title": "Step-by-Step Wisdom Tooth Treatment Procedure",
+    "paragraph": "We understand that wisdom tooth treatment can feel intimidating, but we're here to ensure your experience is as smooth and comfortable as possible.",
     "expectText": "Here's what you can expect:",
     "image": "hero/Services/surgical/1. Wisdom tooth extraction/prudentia-dental-operatory-microscope-setup-pimple-saudagar.jpg",
     "steps": [
       {
-        "title": "Calm & Relaxing Environment",
-        "description": "We perform the procedure in a stress-free setting to help you feel at ease.",
-        "icon": "Heart",
+        "title": "Dental Consultation & Digital X-rays",
+        "description": "We examine your mouth and take digital X-rays to determine the position and condition of the wisdom tooth.",
+        "icon": "Search",
         "iconColor": "text-blue-600",
         "color": "bg-blue-50"
       },
       {
-        "title": "Personalized Anesthesia",
-        "description": "Depending on your needs and comfort level, we will administer the appropriate anesthesia to ensure a painless experience.",
+        "title": "Personalized Treatment Plan",
+        "description": "Based on your diagnosis, we recommend the most suitable treatment option.",
         "icon": "Stethoscope",
         "iconColor": "text-green-600",
         "color": "bg-green-50"
       },
       {
-        "title": "Gentle Care",
-        "description": "We're committed to addressing any concerns you have before, during, and after the procedure.",
+        "title": "Comfortable Local Anesthesia",
+        "description": "The treatment area is numbed thoroughly to ensure a pain-free procedure.",
         "icon": "Shield",
         "iconColor": "text-purple-600",
         "color": "bg-purple-50"
       },
       {
-        "title": "Post-Procedure Care",
-        "description": "After your extraction, we'll provide you with detailed instructions on how to care for the extraction site to ensure proper healing.",
-        "icon": "CheckCircle",
-        "iconColor": "text-teal-600",
-        "color": "bg-teal-50"
+        "title": "Wisdom Tooth Removal (If Required)",
+        "description": "The tooth is carefully removed using advanced instruments with minimal trauma to surrounding tissues.",
+        "icon": "Heart",
+        "iconColor": "text-rose-600",
+        "color": "bg-rose-50"
       },
       {
-        "title": "Follow-up Visit",
-        "description": "We'll schedule a follow-up appointment to check on your progress and ensure the healing process is going smoothly.",
+        "title": "Recovery & Follow-Up",
+        "description": "We provide medications, recovery guidance, and follow-up care to ensure proper healing.",
         "icon": "Clock",
         "iconColor": "text-indigo-600",
         "color": "bg-indigo-50"
       }
     ]
   },
+
+  "benefits": {
+    "title": "Benefits of Choosing Wisdom Tooth Pain Treatment Near Me",
+    "items": [
+      {
+        "title": "Immediate Relief from Pain",
+        "description": "Fast, effective treatment to stop discomfort quickly.",
+        "icon": "CheckCircle",
+        "iconColor": "text-green-600",
+        "color": "bg-green-50"
+      },
+      {
+        "title": "Prevents Recurring Infections",
+        "description": "Timely care stops infections before they return.",
+        "icon": "Shield",
+        "iconColor": "text-emerald-600",
+        "color": "bg-emerald-50"
+      },
+      {
+        "title": "Protects Nearby Healthy Teeth",
+        "description": "Prevents damage or crowding of adjacent teeth.",
+        "icon": "Heart",
+        "iconColor": "text-rose-600",
+        "color": "bg-rose-50"
+      },
+      {
+        "title": "Reduces Gum Swelling",
+        "description": "Targeted treatment calms inflamed, tender gums.",
+        "icon": "AlertTriangle",
+        "iconColor": "text-orange-600",
+        "color": "bg-orange-50"
+      },
+      {
+        "title": "Improves Chewing Comfort",
+        "description": "Eat and chew without pain or hesitation.",
+        "icon": "Smile",
+        "iconColor": "text-yellow-600",
+        "color": "bg-yellow-50"
+      },
+      {
+        "title": "Prevents Jaw Complications",
+        "description": "Reduces the risk of jaw stiffness and infection.",
+        "icon": "Stethoscope",
+        "iconColor": "text-indigo-600",
+        "color": "bg-indigo-50"
+      },
+      {
+        "title": "Enhances Overall Oral Health",
+        "description": "A healthier mouth supports your long-term wellbeing.",
+        "icon": "CheckCircle",
+        "iconColor": "text-teal-600",
+        "color": "bg-teal-50"
+      }
+    ],
+    "footer": "Timely wisdom tooth treatment helps avoid future dental problems and restores your comfort."
+  },
+
+  "cost": {
+    "title": "Affordable Wisdom Tooth Pain Treatment Cost in Pimple Saudagar",
+    "paragraph": "Many patients searching for wisdom tooth pain treatment near me are concerned about treatment costs. The overall cost depends on:",
+    "factors": [
+      "Position of the wisdom tooth",
+      "Degree of impaction",
+      "Complexity of extraction",
+      "Need for surgical removal",
+      "Additional medications or procedures"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Personalized treatment plans",
+      "Affordable, quality dental care"
+    ]
+  },
+
+  "consultation": {
+    "title": "Same-Day Consultation for Wisdom Tooth Pain Near You",
+    "paragraph": "If you are experiencing severe wisdom tooth pain, swelling, or infection, early treatment can prevent complications.",
+    "points": [
+      "Quick appointment scheduling",
+      "Same-day consultation available",
+      "Prompt diagnosis and treatment planning"
+    ]
+  },
+
+  "areasServed": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "paragraph": "Our convenient location allows patients searching for wisdom tooth pain treatment near me in Pune to receive quality dental care close to home.",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ]
+  },
+
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My wisdom tooth pain was unbearable, but the treatment was quick and comfortable." },
+      { "quote": "The dentist explained everything clearly and made the extraction completely stress-free." },
+      { "quote": "I searched for wisdom tooth pain treatment near me and found excellent care at Prudentia Micro Dental Care." }
+    ]
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How do I know if my wisdom tooth needs treatment?",
+        "answer": "Persistent pain, swelling, jaw stiffness, difficulty chewing, or repeated infections may indicate that your wisdom tooth requires professional evaluation."
+      },
+      {
+        "question": "Is wisdom tooth removal painful?",
+        "answer": "No. The procedure is performed under local anesthesia, making the treatment comfortable. Mild soreness afterward is normal and usually resolves within a few days."
+      },
+      {
+        "question": "When should a wisdom tooth be removed?",
+        "answer": "Removal is recommended when the tooth is impacted, infected, causing pain, damaging nearby teeth, or leading to recurring gum problems."
+      },
+      {
+        "question": "How long does recovery take after wisdom tooth removal?",
+        "answer": "Most patients recover within a few days, while complete healing generally occurs over the following weeks depending on the complexity of the procedure."
+      },
+      {
+        "question": "What is the cost of wisdom tooth treatment in Pune?",
+        "answer": "The cost depends on the position of the tooth, whether it is impacted, and whether surgical extraction is required. A consultation allows us to provide an accurate estimate."
+      },
+      {
+        "question": "Can wisdom tooth pain go away without treatment?",
+        "answer": "Temporary relief is possible, but the underlying issue often remains. Delaying treatment may increase the risk of infection, swelling, and damage to nearby teeth."
+      },
+      {
+        "question": "How do I find the best wisdom tooth pain treatment near me?",
+        "answer": "Choose a dental clinic with experienced dentists, advanced diagnostic technology, excellent patient reviews, strict sterilization protocols, and a convenient location."
+      }
+    ]
+  },
+
   "decision": {
     "title": "Making the Right Decision for Your Oral Health",
-    "paragraph": "While wisdom tooth extraction can be a big decision, it's an important one for your long-term dental health. If you're experiencing pain or discomfort from your wisdom teeth, we're here to guide you through the process.",
+    "paragraph": "While wisdom tooth treatment can feel like a big decision, it's an important one for your long-term dental health. If you're experiencing pain or discomfort, we're here to guide you through the process.",
     "ctaBox": {
       "title": "Ready to Take Action?",
       "paragraph": "Don't let wisdom tooth pain affect your quality of life. Our expert team is here to help.",
-      "badges": ["✓ Expert Care", "✓ Pain-Free Experience", "✓ Comprehensive Care"]
+      "badges": ["✓ Expert Care", "✓ Pain-Free Experience", "✓ Same-Day Consultation"]
     },
     "image": "hero/Services/surgical/1. Wisdom tooth extraction/prudentias-dental-operatory-microscope-setup-pimple-saudagar.jpg",
-    "imageCaption": "Professional guidance for your oral health decisions"
+    "imageCaption": "Professional guidance for your wisdom tooth pain treatment"
   },
+
   "finalCta": {
     "titleLine": "Take the First Step Toward a",
-    "titleHighlight": "Pain-Free, Healthy Smile",
-    "paragraph": "Contact Prudentia Micro Dental Care today to schedule your consultation and take the next step toward a healthier, pain-free smile!",
-    "buttonText": "Book Your Micro-Root Consultation Today",
-    "footerText": "Your natural smile deserves the best care available"
+    "titleHighlight": "Healthy, Pain-Free Smile",
+    "paragraph": "If you are searching for the best wisdom tooth pain treatment near me in Pimple Saudagar, Prudentia Micro Dental Care offers experienced dentists, advanced technology, and compassionate patient care to help you find lasting relief.",
+    "buttonText": "Book Your Consultation Today",
+    "footerText": "Your comfort and long-term oral health are our priority",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

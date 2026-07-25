@@ -15,7 +15,7 @@ interface TermsData {
 }
 
 // Primary source — your live API
-const API_URL = "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/privacy-policy.json";
+const API_URL = "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/terms-and-conditions.json";
 // Fallback source — bundled/local copy, e.g. inside public/data/
 const LOCAL_URL = "/data/home/terms-and-conditions.json";
 

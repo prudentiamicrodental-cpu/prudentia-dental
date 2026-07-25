@@ -5,6 +5,7 @@ import { useChatbot } from "@/components/chatbotContext";
 import { Image } from "@imagekit/next";
 import Markdown from '@/components/markdown';
 import Head from "next/head";
+import { AnimatePresence, motion } from "framer-motion";
 
 type VisibilityState = {
   [key: string]: boolean;
@@ -51,6 +52,15 @@ interface PersonalizedData {
   image: string;
   paragraph: string;
 }
+interface TestimonialsData {
+  title: string;
+  items: { quote: string }[];
+}
+
+interface FaqData {
+  title: string;
+  items: { question: string; answer: string }[];
+}
 
 interface CtaData {
   title: string;
@@ -66,6 +76,8 @@ interface OralData {
   guidelines: Guideline[];
   whyMatters: WhyMattersData;
   personalized: PersonalizedData;
+  testimonials: TestimonialsData;
+  faq: FaqData;
   cta: CtaData;
 }
 
@@ -77,6 +89,8 @@ const EMPTY_DATA: OralData = {
   guidelines: [],
   whyMatters: { title: "", image: "", paragraph: "" },
   personalized: { title: "", image: "", paragraph: "" },
+  testimonials: {title: '',items:[]},
+  faq: {title: '',items:[]},
   cta: { title: "", paragraph: "", buttonText: "" },
 };
 
@@ -84,6 +98,7 @@ export default function OralHygieneInstructions() {
   const { handleOpenChatbot } = useChatbot();
   const [isVisible, setIsVisible] = useState<VisibilityState>({});
   const [data, setData] = useState<OralData>(EMPTY_DATA);
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
 
  useEffect(() => {
     async function loadData() {
@@ -358,6 +373,76 @@ export default function OralHygieneInstructions() {
             </div>
           </div>
         </div>
+         {/* Testimonials */}
+                              <section className="mb-32">
+                                <div className="text-center mb-16" >
+                                  <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+                                    <Markdown inline>{data.testimonials.title}</Markdown>
+                                  </h2>
+                                </div>
+                                <div className="grid md:grid-cols-3 gap-8">
+                                  {data.testimonials.items.map((item, index) => (
+                                    <div
+                                      key={index}
+                                      className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+                                      
+                                    >
+                                      <div className="text-amber-400 text-lg mb-4">★★★★★</div>
+                                      <p className="text-gray-700 italic leading-relaxed">
+                                        <Markdown inline>{item.quote}</Markdown>
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </section>
+                      
+                              {/* FAQ */}
+                              <section className="mb-32">
+                                <div className="text-center mb-16" >
+                                  <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+                                    <Markdown inline>{data.faq.title}</Markdown>
+                                  </h2>
+                                </div>
+                      
+                                <div className="max-w-4xl mx-auto space-y-4">
+                                  {data.faq.items.map((item, index) => {
+                                    const isOpen = openFaq === index;
+                                    return (
+                                      <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                                        <button
+                                          onClick={() => setOpenFaq(isOpen ? null : index)}
+                                          className="w-full flex justify-between items-center text-left px-8 py-6"
+                                        >
+                                          <span className="text-lg font-semibold text-gray-800 pr-4">
+                                            <Markdown inline>{item.question}</Markdown>
+                                          </span>
+                                          <ChevronDown
+                                            className={`w-6 h-6 text-purple-700 flex-shrink-0 transition-transform duration-300 ${
+                                              isOpen ? "rotate-180" : ""
+                                            }`}
+                                          />
+                                        </button>
+                                        <AnimatePresence initial={false}>
+                                          {isOpen && (
+                                            <motion.div
+                                              initial={{ height: 0, opacity: 0 }}
+                                              animate={{ height: "auto", opacity: 1 }}
+                                              exit={{ height: 0, opacity: 0 }}
+                                              transition={{ duration: 0.3 }}
+                                              className="px-8 overflow-hidden"
+                                            >
+                                              <p className="text-gray-700 pb-6 leading-relaxed">
+                                                <Markdown inline>{item.answer}</Markdown>
+                                              </p>
+                                            </motion.div>
+                                          )}
+                                        </AnimatePresence>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </section>
+        
 
         {/* Call to Action */}
         <div

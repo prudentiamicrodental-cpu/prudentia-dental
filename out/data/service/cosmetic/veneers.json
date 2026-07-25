@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Veneers Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Correct chips, stains, gaps, and uneven teeth with advanced, natural-looking dental veneers at Prudentia Micro Dental Care, Vision 9 Mall, Pimple Saudagar, Pune."
+  },
+  "hero": {
+    "titleLine1": "Dental Veneers Near Me: A Natural Way to",
+    "titleLine2": "Transform Your Smile",
+    "tagline": "Crafted Smiles with Precision, Art & Technology",
+    "image": "hero/Services/cosmetic/6. Veneers/confident-beautiful-smile-cosmetic-dentistry-prudentia-pune.jpg",
+    "description": "At Prudentia Micro Dental Care, Pimple Saudagar, we provide advanced dental veneer treatments designed to correct chips, stains, gaps, and uneven teeth, giving you a flawless and confident smile using modern cosmetic techniques and customized smile design."
+  },
+  "whatAre": {
+    "title": "What Are Dental Veneers?",
+    "description": "Dental veneers are thin, custom-made shells placed on the front surface of teeth to improve their appearance. They are designed to enhance color, shape, size, and alignment. Veneers help:",
+    "concerns": [
+      "Fix chipped or broken teeth",
+      "Cover stains and discoloration",
+      "Close small gaps between teeth",
+      "Improve smile symmetry",
+      "Enhance overall facial aesthetics"
+    ],
+    "footer": "If you're searching for veneers near you, this treatment is one of the most effective smile makeover solutions available today.",
+    "image": "hero/Services/cosmetic/6. Veneers/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
+  },
+  "signs": {
+    "title": "Who Can Benefit from Dental Veneers?",
+    "intro": "Veneers are ideal for individuals who:",
+    "items": [
+      "Have chipped, cracked, or worn teeth",
+      "Want to improve smile aesthetics",
+      "Have permanent tooth discoloration",
+      "Have gaps between teeth",
+      "Want a long-lasting cosmetic solution",
+      "Desire a complete smile makeover"
+    ],
+    "footer": "A consultation helps determine the most suitable veneer type for your smile."
+  },
+  "types": {
+    "title": "Types of Dental Veneers",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpeg",
+    "items": [
+      {
+        "icon": "Award",
+        "iconBg": "bg-purple-100",
+        "iconColor": "text-purple-600",
+        "title": "1. Porcelain Veneers",
+        "description": "Durable, stain-resistant, and known for their natural tooth-like appearance. They typically require slight reshaping of the tooth structure."
+      },
+      {
+        "icon": "Clock",
+        "iconBg": "bg-green-100",
+        "iconColor": "text-green-600",
+        "title": "2. Composite Resin Veneers",
+        "description": "More conservative and quicker to apply, often completed in a single visit. Ideal for smaller cosmetic corrections."
+      }
+    ],
+    "footer": "There are two main types of veneers we use at Prudentia. Our expert team will assess your needs and recommend the best type of veneer to meet your goals."
+  },
+  "procedure": {
+    "title": "Step-by-Step Veneers Procedure",
+    "image": "hero/Services/cosmetic/6. Veneers/front-teeth-gap-closure-decay-repair-cosmetic-fillings-smile-makeover-prudentia-pimple-saudagar.jpg",
+    "steps": [
+      { "title": "Consultation & Smile Analysis", "description": "The dentist evaluates your teeth and discusses your smile goals in detail." },
+      { "title": "Tooth Preparation", "description": "A minimal amount of enamel is gently shaped to fit the veneer comfortably." },
+      { "title": "Impressions & Design", "description": "Digital or physical impressions are taken to design your custom veneers." },
+      { "title": "Veneer Placement", "description": "The final veneers are bonded to your teeth with precision for a natural finish." },
+      { "title": "Final Adjustments", "description": "Bite and aesthetics are checked to ensure perfect comfort and appearance." }
+    ],
+    "footer": "Most veneer treatments are completed in 2 to 3 dental visits."
+  },
+  "benefits": {
+    "title": "Benefits of Dental Veneers Near Me",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpg",
+    "intro": "Dental veneers offer a comprehensive cosmetic solution with numerous advantages:",
+    "items": [
+      "Instantly improves smile appearance",
+      "Long-lasting cosmetic solution",
+      "Natural-looking results",
+      "Resistant to staining, especially porcelain veneers",
+      "Minimally invasive procedure",
+      "Boosts self-confidence",
+      "Custom-designed for every patient"
+    ],
+    "footer": "With good oral hygiene and regular dental visits, porcelain veneers can last 10-20 years, offering a long-term solution to common smile concerns."
+  },
+  "cost": {
+    "title": "Veneers Cost in Pimple Saudagar",
+    "intro": "The price of veneers depends on:",
+    "factors": [
+      "Type of veneers (porcelain or composite)",
+      "Number of teeth being treated",
+      "Complexity of smile design",
+      "Aesthetic goals of the patient"
+    ],
+    "footer": "We provide transparent treatment planning, personalized cost estimation, and affordable cosmetic dentistry solutions."
+  },
+  "rightForYou": {
+    "title": "Are Veneers Right for You?",
+    "image": "hero/Services/cosmetic/6. Veneers/front-teeth-gap-closure-decay-repair-cosmetic-fillings-smile-makeover-prudentia-pimple-saudagar.jpg",
+    "intro": "If you're bothered by cosmetic imperfections in your front teeth, veneers might be your perfect solution. They're ideal for patients looking for:",
+    "items": [
+      "A dramatic yet natural smile transformation",
+      "A minimally invasive alternative to crowns",
+      "A confidence boost from a brighter, more uniform smile"
+    ]
+  },
+  "different": {
+    "title": "What Makes Prudentia Micro Dental Care Different?",
+    "items": [
+      { "icon": "Award", "gradient": "from-pink-500 to-red-500", "title": "The artistry of smile design" },
+      { "icon": "Star", "gradient": "from-purple-500 to-indigo-500", "title": "The precision of advanced dental technology" },
+      { "icon": "Users", "gradient": "from-green-500 to-teal-500", "title": "A holistic, patient-centered approach" }
+    ],
+    "footer": "At Prudentia, we combine artistry, precision, and genuine care to deliver a smile you'll love for years to come."
+  },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My smile completely changed after veneers treatment.", "author": "Verified Patient" },
+      { "quote": "Natural-looking results and a very comfortable experience.", "author": "Verified Patient" },
+      { "quote": "Best clinic for veneers near me in Pimple Saudagar.", "author": "Verified Patient" }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "How long do dental veneers last?", "answer": "Porcelain veneers can last 10 to 15 years or more with proper care and oral hygiene." },
+      { "question": "Is the veneers procedure painful?", "answer": "No, the procedure is minimally invasive and usually comfortable with little to no pain." },
+      { "question": "Do veneers look natural?", "answer": "Yes, veneers are custom-designed to match your natural teeth in color and shape." },
+      { "question": "How long does the treatment take?", "answer": "Most veneer treatments are completed in 2 to 3 dental visits." },
+      { "question": "Who is suitable for veneers?", "answer": "Anyone with healthy teeth and gums looking to improve smile aesthetics is generally a good candidate." },
+      { "question": "Are veneers permanent?", "answer": "Veneers are a long-term solution, but they may need replacement after many years." },
+      { "question": "How much do veneers cost in Pune?", "answer": "Cost depends on the number of teeth and type of veneer. A consultation provides an exact estimate." },
+      { "question": "Why choose veneers instead of whitening or braces?", "answer": "Veneers offer faster, more dramatic cosmetic improvements by correcting shape, color, and alignment together." }
+    ]
+  },
+  "cta": {
+    "title": "Ready for a Smile Makeover?",
+    "description": "Whether it's one tooth or a full smile transformation, we can help you achieve a seamless, confident look with veneers. Schedule your Micro-Consultation at Prudentia Micro Dental Care today and take the first step toward your dream smile!",
+    "button": "Schedule Your Consultation",
+    "phone": "09768048056",
+    "address": "Shop No. 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  }
+}

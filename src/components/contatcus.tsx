@@ -20,14 +20,37 @@ const ContactUs = () => {
   const { handleOpenChatbot } = useChatbot();
   const [info, setInfo] = useState<ContactInfo | null>(null);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch('/data/contact/contact-info.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/contact/contact-info.json';
+    const LOCAL_URL = '/data/contact/contact-info.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: ContactInfo) => {
+          if (isMounted) setInfo(data);
+        })
+        .catch((err) => console.error('Failed to load local contact info:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: ContactInfo) => {
         if (isMounted) setInfo(data);
       })
-      .catch((err) => console.error('Failed to load contact info:', err));
+      .catch((err) => {
+        console.warn('Failed to load contact info from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "title": "Crooked Teeth Treatment in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Advanced orthodontic solutions for crooked, crowded, or misaligned teeth at Prudentia Micro Dental Care, Vision 9 Mall, Pimple Saudagar, Pune."
+  },
+  "hero": {
+    "titleLine1": "Crooked Teeth Treatment: A Path to a",
+    "titleLine2": "Straighter, More Confident Smile",
+    "tagline": "Advanced Orthodontic Care, Personalized for You",
+    "image": "hero/Services/cosmetic/6. Veneers/confident-beautiful-smile-cosmetic-dentistry-prudentia-pune.jpg",
+    "description": "At Prudentia Micro Dental Care, Pimple Saudagar we offer advanced orthodontic solutions to help you achieve a straighter, healthier, and more confident smile. Whether your teeth are mildly misaligned or significantly crowded, our experienced team creates personalized treatment plans that improve both appearance and oral function."
+  },
+  "whatIs": {
+    "title": "What Is Crooked Teeth Treatment?",
+    "description": "Crooked teeth treatment involves correcting the alignment and positioning of teeth using orthodontic techniques such as braces or clear aligners. Properly aligned teeth don't just enhance your smile, they also improve chewing, speech, and overall oral health. Treatment can help you:",
+    "concerns": [
+      "Straighten misaligned teeth",
+      "Correct overcrowding",
+      "Improve bite alignment",
+      "Enhance facial aesthetics",
+      "Make brushing and flossing easier",
+      "Reduce long-term dental complications"
+    ],
+    "footer": "If you've been searching for crooked teeth treatment near you, our experienced team is here to help you achieve lasting results.",
+    "image": "hero/Services/cosmetic/6. Veneers/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
+  },
+  "signs": {
+    "title": "Signs You May Need Treatment",
+    "intro": "You may benefit from orthodontic treatment if you experience:",
+    "items": [
+      "Crooked or overlapping teeth",
+      "Gaps between teeth",
+      "Crowded teeth",
+      "Difficulty chewing food",
+      "Jaw discomfort",
+      "An uneven bite",
+      "Teeth that are difficult to clean properly",
+      "Low confidence due to your smile"
+    ],
+    "footer": "Early evaluation can simplify treatment and improve your long-term oral health."
+  },
+  "types": {
+    "title": "Types of Crooked Teeth Treatments",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpeg",
+    "items": [
+      {
+        "icon": "Award",
+        "iconBg": "bg-purple-100",
+        "iconColor": "text-purple-600",
+        "title": "1. Traditional Metal Braces",
+        "description": "Reliable and highly effective for correcting mild to severe alignment problems, with decades of proven results."
+      },
+      {
+        "icon": "Star",
+        "iconBg": "bg-yellow-100",
+        "iconColor": "text-yellow-600",
+        "title": "2. Ceramic Braces",
+        "description": "Designed to blend in with your natural teeth while delivering the same excellent orthodontic results as metal braces."
+      },
+      {
+        "icon": "Clock",
+        "iconBg": "bg-green-100",
+        "iconColor": "text-green-600",
+        "title": "3. Clear Aligners",
+        "description": "Virtually invisible, removable aligners that gradually move teeth into place with greater comfort and convenience."
+      },
+      {
+        "icon": "Users",
+        "iconBg": "bg-indigo-100",
+        "iconColor": "text-indigo-600",
+        "title": "4. Retainers",
+        "description": "Worn after active treatment to maintain your new smile and prevent teeth from shifting back over time."
+      }
+    ],
+    "footer": "Our team will assess your bite, alignment, and lifestyle to recommend the treatment option best suited to your goals."
+  },
+  "procedure": {
+    "title": "Step-by-Step Treatment Process",
+    "image": "hero/Services/cosmetic/6. Veneers/front-teeth-gap-closure-decay-repair-cosmetic-fillings-smile-makeover-prudentia-pimple-saudagar.jpg",
+    "steps": [
+      { "title": "Initial Consultation", "description": "A detailed examination along with digital scans or X-rays to evaluate your teeth and bite." },
+      { "title": "Personalized Treatment Planning", "description": "Based on your dental condition, we recommend the most appropriate orthodontic treatment." },
+      { "title": "Treatment Begins", "description": "Braces or clear aligners are placed according to your customized treatment plan." },
+      { "title": "Regular Progress Visits", "description": "Periodic appointments allow us to monitor tooth movement and make necessary adjustments." },
+      { "title": "Smile Completion & Retention", "description": "Once the desired alignment is achieved, retainers are provided to maintain your beautiful new smile." }
+    ],
+    "footer": "Every stage is guided by our experienced orthodontic team, using modern diagnostics and a patient-first approach."
+  },
+  "benefits": {
+    "title": "Benefits of Crooked Teeth Treatment",
+    "image": "hero/Services/cosmetic/6. Veneers/porcelain-veneers-smile-makeover-cosmetic-dentistry-pune.jpg",
+    "intro": "Orthodontic treatment is an investment in both your smile and your overall dental health:",
+    "items": [
+      "A straighter, more attractive smile",
+      "Improved bite function",
+      "Better chewing efficiency",
+      "Easier oral hygiene",
+      "Reduced risk of tooth decay and gum disease",
+      "Enhanced self-confidence",
+      "Improved long-term oral health",
+      "Long-lasting results with proper care"
+    ],
+    "footer": "With good oral hygiene and regular check-ups, the results of orthodontic treatment can last a lifetime."
+  },
+  "cost": {
+    "title": "Affordable Treatment Costs",
+    "intro": "Treatment costs may vary depending on a few key factors:",
+    "factors": [
+      "Severity of misalignment",
+      "Type of braces or aligners selected",
+      "Duration of treatment",
+      "Individual orthodontic needs"
+    ],
+    "footer": "We provide transparent pricing, customized treatment plans, and affordable orthodontic solutions for every patient."
+  },
+  "different": {
+    "title": "What Makes Prudentia Micro Dental Care Different?",
+    "items": [
+      { "icon": "Award", "gradient": "from-pink-500 to-red-500", "title": "Advanced orthodontic technology" },
+      { "icon": "Star", "gradient": "from-purple-500 to-indigo-500", "title": "Personalized smile correction plans" },
+      { "icon": "Users", "gradient": "from-green-500 to-teal-500", "title": "A comfortable, patient-first approach" }
+    ],
+    "footer": "At Prudentia, we combine precise diagnostics, modern treatment options, and genuine care to deliver a smile you'll love for years to come."
+  },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My smile has completely transformed, and I feel much more confident.", "author": "Verified Patient" },
+      { "quote": "The dentists explained every step of the treatment and made me feel comfortable throughout.", "author": "Verified Patient" },
+      { "quote": "I searched for crooked teeth treatment near me and found excellent care at Prudentia Micro Dental Care.", "author": "Verified Patient" }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "How long does crooked teeth treatment take?", "answer": "Treatment duration varies depending on the severity of misalignment, but most orthodontic treatments take between 12 and 24 months." },
+      { "question": "Are braces painful?", "answer": "You may experience mild discomfort for a few days after braces are fitted or adjusted, but this usually subsides quickly." },
+      { "question": "Can adults get crooked teeth treatment?", "answer": "Yes. Orthodontic treatment is effective for both teenagers and adults, and many adults choose clear aligners for a more discreet option." },
+      { "question": "What are clear aligners?", "answer": "Clear aligners are transparent, removable trays that gradually straighten teeth without the appearance of traditional braces." },
+      { "question": "How much does crooked teeth treatment cost in Pune?", "answer": "The cost depends on the complexity of the case and the type of orthodontic treatment recommended. A consultation allows us to provide an accurate estimate." },
+      { "question": "Do I need retainers after treatment?", "answer": "Yes. Retainers help maintain the corrected alignment and prevent teeth from shifting over time." },
+      { "question": "How do I choose the best crooked teeth treatment near me?", "answer": "Look for a clinic with experienced orthodontic professionals, advanced technology, strong patient reviews, transparent pricing, and personalized treatment plans." }
+    ]
+  },
+  "cta": {
+    "title": "Ready for a Straighter Smile?",
+    "description": "Whether you need braces, ceramic braces, or clear aligners, our team is dedicated to helping you achieve a healthier, straighter smile with comfortable and effective treatment. Schedule your consultation at Prudentia Micro Dental Care today.",
+    "button": "Schedule Your Consultation",
+    "phone": "09768048056",
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
+  }
+}

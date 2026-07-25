@@ -1,44 +1,210 @@
 {
-   "meta": {
-    "title": "Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+  "meta": {
+    "title": "Best Yellow Teeth Treatment Near Me in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Searching for yellow teeth treatment near me in Pimple Saudagar? Prudentia Micro Dental Care offers professional whitening and stain removal near Vision 9 Mall, Kunal Icon Road."
   },
+
   "hero": {
-    "titleLine1": "Brighten Your Smile at",
+    "titleLine1": "Yellow Teeth Treatment at",
     "titleLine2": "Prudentia Micro Dental Care",
-    "tagline": "Whiter Teeth. Brighter Confidence. Younger You.",
+    "tagline": "Brighter Teeth. Renewed Confidence. Radiant Smile.",
     "image": "hero/Services/cosmetic/7. teeth whitening/teeth-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg",
-    "description": "Ready to light up the room with your smile? At Prudentia Micro Dental Care, our professional teeth whitening treatments are designed to remove years of stains and discoloration safely, effectively, and with minimal sensitivity."
+    "description": "If you're searching for the best yellow teeth treatment near me in Pimple Saudagar, Prudentia Micro Dental Care offers advanced cosmetic dental solutions to help you achieve a brighter, whiter, and more confident smile using safe, effective whitening and stain removal treatments."
   },
+
+  "trustBadges": {
+    "title": "Top-Rated Yellow Teeth Treatment Near You",
+    "items": [
+      "Professional teeth whitening solutions",
+      "Advanced cosmetic dental technology",
+      "Experienced and gentle dental professionals",
+      "Convenient location near Vision 9 Mall and Kunal Icon Road"
+    ]
+  },
+
   "whyChoose": {
-    "title": "Why Choose Professional Teeth Whitening?",
-    "intro": "Whether you're preparing for a big event or simply want to refresh your smile, our whitening treatments can:",
+    "title": "Why Choose Prudentia Micro Dental Care?",
+    "intro": "A bright smile creates a lasting impression. Our clinic combines expertise with modern technology to deliver noticeable improvements in your smile:",
     "image": "hero/Services/cosmetic/7. teeth whitening/teeths-whitening-treatment-cosmetic-dentistry-prudentia-pune.jpg",
     "benefits": [
-      { "icon": "Star", "text": "Lift stubborn stains caused by coffee, tea, wine, smoking, and more", "color": "bg-purple-100 text-purple-600" },
-      { "icon": "Clock", "text": "Be performed in-office for instant results, or at-home for your convenience", "color": "bg-blue-100 text-blue-600" },
-      { "icon": "Sparkles", "text": "Be tailored to your desired level of brightness", "color": "bg-purple-100 text-purple-600" },
-      { "icon": "Shield", "text": "Offer safe, dentist-supervised whitening with minimal to no sensitivity", "color": "bg-purple-100 text-purple-600" }
+      { "icon": "Shield", "text": "Advanced Whitening Technology — safe, clinically proven whitening systems that remove deep stains without damaging your enamel", "color": "bg-purple-100 text-purple-600" },
+      { "icon": "Star", "text": "Customized Treatment Plans — we evaluate your teeth carefully before recommending the most suitable whitening or cosmetic treatment", "color": "bg-blue-100 text-blue-600" },
+      { "icon": "Sparkles", "text": "Comfortable & Safe Procedures — treatments designed to minimize sensitivity while providing visible whitening results", "color": "bg-purple-100 text-purple-600" },
+      { "icon": "Clock", "text": "High Standards of Hygiene — strict sterilization and infection control protocols using premium-quality materials", "color": "bg-purple-100 text-purple-600" }
     ],
-    "footer": "Our advanced formulas and precise application methods ensure that your enamel stays strong while your smile becomes visibly whiter."
+    "footer": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027 — easily accessible for patients across Pune."
   },
+
+  "whatIs": {
+    "title": "What Is Yellow Teeth Treatment?",
+    "description": "Yellow teeth treatment includes professional cosmetic dental procedures that remove stains, discoloration, and yellowing from the teeth to restore a brighter appearance. Depending on the cause of discoloration, treatment may involve:",
+    "points": [
+      "Professional teeth whitening",
+      "Dental polishing",
+      "Stain removal",
+      "Cosmetic veneers (for severe discoloration)",
+      "Oral hygiene improvement"
+    ],
+    "footer": "Professional treatment provides safer, faster, and more effective results compared to over-the-counter whitening products."
+  },
+
+  "causes": {
+    "title": "Common Causes of Yellow Teeth",
+    "intro": "Your teeth may become yellow due to:",
+    "items": [
+      "Coffee and tea consumption",
+      "Smoking or tobacco use",
+      "Poor oral hygiene",
+      "Aging",
+      "Certain medications",
+      "Excess fluoride exposure",
+      "Food stains",
+      "Natural enamel thinning"
+    ],
+    "footer": "Our dentists identify the underlying cause before recommending the most suitable treatment."
+  },
+
+  "signs": {
+    "title": "Signs You May Benefit from Yellow Teeth Treatment",
+    "intro": "You may benefit from treatment if you notice:",
+    "items": [
+      "Yellow or stained teeth",
+      "Dark spots on teeth",
+      "Discoloration from coffee or tea",
+      "Tobacco stains",
+      "Uneven tooth color",
+      "Dull-looking smile",
+      "Reduced confidence while smiling"
+    ],
+    "footer": "Professional whitening can significantly improve your smile while maintaining healthy enamel."
+  },
+
+  "treatmentTypes": {
+    "title": "Types of Yellow Teeth Treatments Available Near You",
+    "items": [
+      { "title": "Professional Teeth Whitening", "description": "A safe in-clinic whitening procedure that lightens teeth several shades in a single appointment." },
+      { "title": "Dental Polishing", "description": "Removes surface stains caused by food, beverages, and plaque buildup to restore natural shine." },
+      { "title": "Cosmetic Veneers", "description": "For severe or permanent discoloration, porcelain veneers can create a brighter, uniform smile." },
+      { "title": "Combination Smile Enhancement", "description": "Some patients benefit from a combination of whitening, polishing, and cosmetic treatments for optimal results." }
+    ]
+  },
+
+  "process": {
+    "title": "Step-by-Step Yellow Teeth Treatment Procedure",
+    "steps": [
+      { "title": "Consultation & Smile Assessment", "description": "Our dentist examines your teeth to determine the cause of discoloration and recommends the best treatment option." },
+      { "title": "Professional Cleaning", "description": "Plaque and tartar are removed to prepare your teeth for whitening." },
+      { "title": "Whitening Treatment", "description": "A professional whitening gel is carefully applied using advanced techniques to safely brighten your teeth." },
+      { "title": "Final Evaluation", "description": "The whitening results are assessed, and additional sessions may be recommended if required." },
+      { "title": "Aftercare Guidance", "description": "You'll receive personalized instructions to help maintain your brighter smile for as long as possible." }
+    ]
+  },
+
   "safety": {
     "title": "Is Teeth Whitening Safe?",
     "highlight": "Absolutely.",
-    "paragraph1": "At Prudentia, your comfort and safety come first. Dr. Bhushan personally ensures that your treatment is customized for your teeth type and aesthetic goals.",
+    "paragraph1": "At Prudentia, your comfort and safety come first. Our dentists personally ensure that your treatment is customized for your teeth type and aesthetic goals.",
     "paragraph2": "We use protective barriers to shield your gums and soft tissues and guide you through the entire process from pre-treatment care to post-whitening maintenance."
   },
+
   "sideEffects": {
     "title": "Are There Any Side Effects?",
-    "description": "Teeth whitening is generally well tolerated, but you may experience temporary sensitivity to hot or cold foods and drinks. This usually resolves within a few days.",
+    "description": "Teeth whitening is generally well tolerated, but you may experience temporary sensitivity to hot or cold foods and drinks. This usually subsides within a short period after treatment.",
     "proTipTitle": "Pro Tip:",
     "proTipText": "We recommend using a sensitivity-friendly toothpaste to ease any discomfort during recovery."
   },
+
+  "benefits": {
+    "title": "Benefits of Choosing Yellow Teeth Treatment Near Me",
+    "items": [
+      "Brighter, whiter smile",
+      "Improved confidence",
+      "Safe and effective stain removal",
+      "Fast visible results",
+      "Long-lasting whitening",
+      "Better overall appearance",
+      "Enhanced oral hygiene awareness"
+    ],
+    "footer": "A professionally whitened smile can make you look healthier, younger, and more confident."
+  },
+
+  "cost": {
+    "title": "Affordable Yellow Teeth Treatment Cost in Pimple Saudagar",
+    "paragraph": "Many patients searching for yellow teeth treatment near me want to understand the treatment cost. The overall cost depends on factors such as:",
+    "factors": [
+      "Degree of discoloration",
+      "Type of whitening procedure",
+      "Number of sessions required",
+      "Additional cosmetic treatments (if needed)"
+    ],
+    "highlights": [
+      "Transparent pricing",
+      "Personalized treatment plans",
+      "Affordable cosmetic dentistry solutions"
+    ]
+  },
+
+  "consultation": {
+    "title": "Same-Day Consultation for Yellow Teeth Treatment Near You",
+    "paragraph": "If you're unhappy with stained or yellow teeth, don't wait to improve your smile.",
+    "points": [
+      "Quick appointment scheduling",
+      "Same-day consultation",
+      "Personalized smile evaluation",
+      "Immediate treatment planning"
+    ]
+  },
+
+  "areasServed": {
+    "title": "Trusted by Patients Across Nearby Areas",
+    "paragraph": "Our convenient location allows patients throughout Pune to receive professional cosmetic dental care close to home.",
+    "areas": [
+      "Pimple Saudagar",
+      "Pimpri-Chinchwad",
+      "Wakad",
+      "Rahatani",
+      "Areas near Kunal Icon Road"
+    ]
+  },
+
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My teeth look so much brighter after the whitening treatment. I'm much more confident smiling now." },
+      { "quote": "Excellent clinic with friendly staff and modern equipment. The results exceeded my expectations." },
+      { "quote": "I searched for yellow teeth treatment near me and found outstanding care at Prudentia Micro Dental Care." }
+    ]
+  },
+
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "How long does professional teeth whitening take?", "answer": "Most in-clinic whitening procedures are completed within 45–90 minutes, depending on the treatment selected." },
+      { "question": "Is professional teeth whitening safe?", "answer": "Yes. Professional whitening performed by a qualified dentist is safe, effective, and designed to protect your tooth enamel." },
+      { "question": "How long do whitening results last?", "answer": "Results can last from several months to a few years, depending on oral hygiene, diet, and lifestyle habits." },
+      { "question": "Does teeth whitening cause sensitivity?", "answer": "Some patients may experience temporary sensitivity, which usually subsides within a short period after treatment." },
+      { "question": "What is the cost of yellow teeth treatment in Pune?", "answer": "The cost depends on the type of whitening procedure and the level of discoloration. A consultation allows us to provide an accurate treatment estimate." },
+      { "question": "Can yellow teeth become completely white?", "answer": "Many cases respond extremely well to professional whitening. However, the final result depends on the cause and severity of discoloration." },
+      { "question": "How do I choose the best yellow teeth treatment near me?", "answer": "Choose a dental clinic with experienced dentists, advanced cosmetic technology, excellent patient reviews, strict hygiene standards, and a convenient location." }
+    ]
+  },
+
+  "whatToExpect": {
+    "title": "What to Expect During Your Visit",
+    "items": [
+      { "title": "Easy Appointment Booking", "description": "Simple scheduling with minimal waiting time." },
+      { "title": "Comfortable Treatment Experience", "description": "Gentle procedures designed for maximum comfort and minimal sensitivity." },
+      { "title": "Personalized Smile Care", "description": "Every treatment plan is customized according to your dental condition, goals, and expectations." }
+    ]
+  },
+
   "revealSmile": {
     "title": "Reveal Your Radiant Smile",
     "image": "hero/Services/cosmetic/7. teeth whitening/teeth-whitenings-treatment-cosmetic-dentistry-prudentia-pune.jpg",
-    "paragraph": "A brighter smile can take years off your appearance and give your confidence a real boost. If you've been hiding your smile due to discoloration, it's time to rediscover your sparkle.",
+    "paragraph": "A brighter smile can take years off your appearance and give your confidence a real boost. If you've been hiding your smile due to yellow or stained teeth, it's time to rediscover your sparkle.",
     "ctaText": "Contact us today at Prudentia Micro Dental Care, Pimple Saudagar to schedule your whitening consultation — and get ready to smile with complete confidence!",
-    "ctaButton": "Schedule Consultation"
+    "ctaButton": "Schedule Consultation",
+    "phone": "09768048056",
+    "address": "Vision 9 Mall, Pimple Saudagar, Pune"
   }
 }

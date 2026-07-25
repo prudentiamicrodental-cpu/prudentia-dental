@@ -22,14 +22,37 @@ const ThemeCarousel = () => {
   const cardsTrackRef = useRef<HTMLDivElement>(null);
   const [serviceCards, setServiceCards] = useState<ServiceCardData[]>([]);
 
-  useEffect(() => {
+useEffect(() => {
     let isMounted = true;
-    fetch('/data/home/service-cards.json')
-      .then((res) => res.json())
+
+    const GITHUB_URL =
+      'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/service-cards.json';
+    const LOCAL_URL = '/data/home/service-cards.json';
+
+    const loadLocal = () =>
+      fetch(LOCAL_URL)
+        .then((res) => {
+          if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+          return res.json();
+        })
+        .then((data: ServiceCardData[]) => {
+          if (isMounted) setServiceCards(data);
+        })
+        .catch((err) => console.error('Failed to load local service cards:', err));
+
+    fetch(GITHUB_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+        return res.json();
+      })
       .then((data: ServiceCardData[]) => {
         if (isMounted) setServiceCards(data);
       })
-      .catch((err) => console.error('Failed to load service cards:', err));
+      .catch((err) => {
+        console.warn('Failed to load service cards from GitHub, falling back to local:', err);
+        return loadLocal();
+      });
+
     return () => {
       isMounted = false;
     };

@@ -1,58 +1,202 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import {
+  Shield,
+  Eye,
+  CheckCircle,
+  Star,
+  Calendar,
+  MapPin,
+  Phone,
+  ChevronDown,
+  Quote,
+} from "lucide-react";
+import { useChatbot } from "@/components/chatbotContext";
+import { Image } from "@imagekit/next";
+import Markdown from "@/components/markdown";
+import Head from "next/head";
 
-'use client'
-import { useState, useEffect } from 'react';
-import Head from 'next/head';
-import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheck, FiZoomIn, FiShield, FiActivity, FiClock, FiEye } from 'react-icons/fi';
-import { useChatbot } from '@/components/chatbotContext';
-import { Image } from '@imagekit/next';
-import Markdown from '@/components/markdown';
-
-
-const iconMap: Record<string, React.ReactElement> = {
-  FiEye: <FiEye className="text-2xl sm:text-3xl text-purple-600" />,
-  FiZoomIn: <FiZoomIn className="text-2xl sm:text-3xl text-purple-600" />,
-  FiShield: <FiShield className="text-2xl sm:text-3xl text-purple-600" />,
-  FiActivity: <FiActivity className="text-2xl sm:text-3xl text-purple-600" />,
-  FiClock: <FiClock className="text-2xl sm:text-3xl text-purple-600" />,
-};
-
-interface Benefit {
+interface Feature {
   icon: string;
   title: string;
   description: string;
 }
 
-interface ProcedureStep {
+interface SimpleFeature {
   title: string;
   description: string;
 }
 
-interface ComparisonRow {
-  feature: string;
-  micro: string;
-  conventional: string;
+interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
 }
 
-interface MicroRootData {
+interface Testimonial {
+  quote: string;
+}
+
+interface ExpectItem {
+  title: string;
+  description: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface RootCanalData {
   meta: { title: string; description: string };
-  hero: { titleHighlight: string; titleRest: string; paragraph: string; button: string; image: string; imageCaption: string };
-  whatIs: { image: string; titlePrefix: string; titleHighlight: string; titleSuffix: string; paragraph: string; whyChooseTitle: string; whyChooseItems: string[]; closingParagraph: string };
-  microscopeAdvantage: { titlePrefix: string; titleHighlight: string; paragraph: string; image: string; advantagesTitle: string; advantages: string[]; invasiveTitle: string; invasiveParagraph: string };
-  specialist: { titlePrefix: string; titleHighlight: string; titleSuffix: string; paragraph: string; expertiseTitle: string; expertiseItems: string[]; image: string };
-  procedure: { titlePrefix: string; titleHighlight: string; paragraph: string; steps: ProcedureStep[]; painTitle: string; painParagraph1: string; painParagraph2: string };
-  benefitsSection: { titlePrefix: string; titleHighlight: string };
-  benefits: Benefit[];
-  comparisonSection: { titlePrefix: string; titleHighlight: string; paragraph: string; closingTitle: string; closingParagraph1: string; closingParagraph2: string };
-  comparisonData: ComparisonRow[];
-  cta: { titlePrefix: string; titleHighlight: string; paragraph: string; button: string; footnote: string };
+  hero: {
+    title: string;
+    highlightedText: string;
+    subtitle: string;
+    tags: string[];
+    image: string;
+  };
+  introduction: {
+    text: string;
+    highlightedText: string;
+  };
+  topRated: {
+    title: string;
+    description: string;
+    points: string[];
+    footnote: string;
+  };
+  whyChooseLocation: {
+    title: string;
+    features: SimpleFeature[];
+    address: string;
+  };
+  whatIsRCT: {
+    title: string;
+    description: string;
+    items: string[];
+    footnote: string;
+  };
+  signsYouNeed: {
+    title: string;
+    items: string[];
+    footnote: string;
+  };
+  treatmentTypes: {
+    title: string;
+    items: SimpleFeature[];
+  };
+  technology: {
+    title: string;
+    description: string;
+    image: string;
+    features: Feature[];
+    highlight: string;
+  };
+  process: {
+    title: string;
+    steps: ProcessStep[];
+    footnote: string;
+  };
+  benefits: {
+    title: string;
+    items: string[];
+    footnote: string;
+  };
+  cost: {
+    title: string;
+    description: string;
+    factors: string[];
+    highlights: string[];
+  };
+  sameDayConsultation: {
+    title: string;
+    description: string;
+    items: string[];
+    footnote: string;
+  };
+  trustedAreas: {
+    title: string;
+    description: string;
+    areas: string[];
+    footnote: string;
+  };
+  testimonials: {
+    title: string;
+    items: Testimonial[];
+    footnote: string;
+  };
+  whatToExpect: {
+    title: string;
+    items: ExpectItem[];
+  };
+  faq: {
+    title: string;
+    items: FaqItem[];
+  };
+  cta: {
+    title: string;
+    description: string;
+    callToAction: string;
+    highlightedText: string;
+    buttonText: string;
+    buttonIcon: string;
+    conclusionTitle: string;
+    conclusion: string;
+    phone: string;
+    address: string;
+  };
 }
 
-const MicroRootTreatmentPage = () => {
-    const { handleOpenChatbot } = useChatbot();
-  const [content, setContent] = useState<MicroRootData | null>(null);
+const iconMap: { [key: string]: React.ComponentType<any> } = {
+  Shield,
+  Eye,
+  CheckCircle,
+  Star,
+  Calendar,
+  MapPin,
+};
+
+const featureIconColors: { [key: string]: string } = {
+  Shield: "from-blue-500 to-indigo-600",
+  Eye: "from-purple-500 to-violet-600",
+  Star: "from-yellow-500 to-orange-600",
+  CheckCircle: "from-green-500 to-emerald-600",
+};
+
+export default function RootCanal() {
+  const { handleOpenChatbot } = useChatbot();
+  const [isVisible, setIsVisible] = useState(false);
+  const [content, setContent] = useState<RootCanalData | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
+    function isValidSchema(data: any): data is RootCanalData {
+      return (
+        !!data &&
+        typeof data === "object" &&
+        !!data.meta &&
+        !!data.hero &&
+        !!data.introduction &&
+        !!data.topRated &&
+        !!data.whyChooseLocation &&
+        !!data.whatIsRCT &&
+        !!data.signsYouNeed &&
+        !!data.treatmentTypes &&
+        !!data.technology &&
+        !!data.process &&
+        !!data.benefits &&
+        !!data.cost &&
+        !!data.sameDayConsultation &&
+        !!data.trustedAreas &&
+        !!data.testimonials &&
+        !!data.whatToExpect &&
+        !!data.faq &&
+        !!data.cta
+      );
+    }
+
     async function loadData() {
       const GITHUB_URL =
         "https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/service/root/microroot.json";
@@ -64,7 +208,12 @@ const MicroRootTreatmentPage = () => {
 
         if (!res.ok) throw new Error("GitHub fetch failed");
 
-        const data: MicroRootData = await res.json();
+        const data: RootCanalData = await res.json();
+
+        if (!isValidSchema(data)) {
+          throw new Error("GitHub JSON is stale / missing expected fields");
+        }
+
         setContent(data);
       } catch (error) {
         console.warn("Using local fallback:", error);
@@ -76,10 +225,17 @@ const MicroRootTreatmentPage = () => {
             throw new Error("Local fetch failed");
           }
 
-          const localData: MicroRootData = await localRes.json();
+          const localData: RootCanalData = await localRes.json();
+
+          if (!isValidSchema(localData)) {
+            console.error("Local data missing fields:");
+            throw new Error("Local JSON is stale / missing expected fields");
+          }
+
           setContent(localData);
         } catch (localError) {
-          console.error("Failed to load local fallback:", localError);
+          console.error("Failed to load valid root canal data:", localError);
+          setLoadError(true);
         }
       }
     }
@@ -87,445 +243,632 @@ const MicroRootTreatmentPage = () => {
     loadData();
   }, []);
 
+  useEffect(() => {
+    if (content) {
+      setIsVisible(true);
+    }
+  }, [content]);
+
   if (!content) {
     return (
-      <div className="min-h-screen flex justify-center items-center">
-        Loading...
+      <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-purple-50 via-white to-purple-50">
+        <div className="text-center">
+          {loadError ? (
+            <div>
+              <p className="text-gray-600 text-lg px-4 mb-4">
+                We couldn't load this page's content right now. Please refresh,
+                or try again shortly.
+              </p>
+              <button
+                onClick={() => window.location.reload()}
+                className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                Refresh Page
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-600 mx-auto mb-4"></div>
+              <p className="text-gray-600 text-lg">Loading...</p>
+            </>
+          )}
+        </div>
       </div>
     );
   }
 
-  const benefits = content.benefits;
-  const procedureSteps = content.procedure.steps;
-  const comparisonData = content.comparisonData;
+  const fadeInUp = {
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0px)" : "translateY(50px)",
+    transition: "all 0.9s ease-out",
+  };
+
+  const staggerDelay = (index: number) => ({
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateY(0px)" : "translateY(50px)",
+    transition: `all 0.9s ease-out ${index * 0.2}s`,
+  });
 
   return (
-    <>
+    <div className="min-h-screen overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-50">
       <Head>
         <title>{content.meta.title}</title>
         <meta name="description" content={content.meta.description} />
       </Head>
 
-      <div className="min-h-screen py-16 sm:py-10 overflow-hidden bg-gradient-to-b from-purple-50 to-white">
-        {/* Hero Section */}
-        <section className="relative py-8 sm:py-12 lg:py-20 overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col lg:flex-row items-center">
-              <motion.div 
-                className="lg:w-1/2 mb-8 lg:mb-0"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  <span className="text-purple-600"><Markdown inline>{content.hero.titleHighlight}</Markdown></span><Markdown inline>{content.hero.titleRest}</Markdown>
-                </h1>
-                <Markdown className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
-                  {content.hero.paragraph}
-                </Markdown>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleOpenChatbot}
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 flex items-center w-full sm:w-auto justify-center"
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-slate-800 via-purple-900 to-purple-800 text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="text-center space-y-8" style={fadeInUp}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <Markdown inline>{content.hero.title}</Markdown>{" "}
+              <span className="text-purple-400">
+                <Markdown inline>{content.hero.highlightedText}</Markdown>
+              </span>
+              ,<br />
+              <Markdown inline>{content.hero.subtitle}</Markdown>
+            </h1>
+            <div className="flex text-black flex-wrap justify-center gap-6 text-xl md:text-2xl font-semibold">
+              {content.hero.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="bg-white bg-opacity-15 px-6 py-3 rounded-full backdrop-blur-sm border border-white/20"
                 >
-                  {content.hero.button} <FiArrowRight className="ml-2" />
-                </motion.button>
-              </motion.div>
-
-              <motion.div 
-                className="lg:w-1/2 lg:pl-12 w-full"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl shadow-lg mb-4 sm:mb-8 overflow-hidden">
-                  <Image
+                  <Markdown inline>{tag}</Markdown>
+                </span>
+              ))}
+            </div>
+            <div className="mt-12">
+              <div className="bg-white bg-opacity-10 rounded-3xl p-8 backdrop-blur-sm border border-white/20 max-w-4xl mx-auto relative h-80 md:h-96 w-full overflow-hidden shadow-lg mb-8">
+                <Image
                   urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
                   src={content.hero.image}
-                    alt="Modern micro-root treatment"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-cover"
-                    priority
-                  />                    
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 sm:p-6">
-                    <p className="text-white text-sm sm:text-base lg:text-lg font-medium">{content.hero.imageCaption}</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* What Is Section */}
-        <section className="py-12 sm:py-16 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="flex flex-col lg:flex-row items-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10 w-full">
-                <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
-                  <Image
-                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src={content.whatIs.image}
-                    alt="Microscope in root canal treatment"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-contain"
-                    priority
-                  />                     
-                </div>
+                  alt="Root canal treatment near me in Pimple Saudagar"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <div className="lg:w-1/2">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  <Markdown inline>{content.whatIs.titlePrefix}</Markdown> <span className="text-purple-600"><Markdown inline>{content.whatIs.titleHighlight}</Markdown></span><Markdown inline>{content.whatIs.titleSuffix}</Markdown>
-                </h2>
-                <Markdown inline className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                  {content.whatIs.paragraph}
-                </Markdown>
-                <div className="bg-purple-50 p-4 sm:p-6 rounded-xl border border-purple-100 mb-6 sm:mb-8">
-                  <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3"><Markdown>{content.whatIs.whyChooseTitle}</Markdown></h3>
-                  <ul className="space-y-2">
-                    {content.whatIs.whyChooseItems.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Markdown inline className="text-gray-600 text-sm sm:text-base">
-                  {content.whatIs.closingParagraph}
-                </Markdown>
-              </div>
-            </motion.div>
+            </div>
           </div>
-        </section>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+      </section>
 
-        {/* Microscope Advantage */}
-        <section className="py-12 sm:py-20 bg-gray-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="text-center mb-12 sm:mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                <Markdown inline>{content.microscopeAdvantage.titlePrefix}</Markdown> <span className="text-purple-600">
-                  <Markdown inline>{content.microscopeAdvantage.titleHighlight}</Markdown></span>
-              </h2>
-              <Markdown inline className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                {content.microscopeAdvantage.paragraph}
-              </Markdown>
-            </motion.div>
-
-            <div className="flex flex-col lg:flex-row items-center">
-              <motion.div 
-                className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10 w-full"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
-                  <Image
-                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src={content.microscopeAdvantage.image}
-                    alt="Microscope precision in root canal"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-contain"
-                    priority
-                  />   
-                </div>
-              </motion.div>
-              <motion.div 
-                className="lg:w-1/2"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="space-y-6">
-                  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3"><Markdown>{content.microscopeAdvantage.advantagesTitle}</Markdown></h3>
-                    <ul className="space-y-3">
-                      {content.microscopeAdvantage.advantages.map((item, index) => (
-                        <li key={index} className="flex items-start">
-                          <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                          <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="bg-purple-50 p-4 sm:p-6 rounded-xl border border-purple-100">
-                    <h3 className="text-lg sm:text-xl font-semibold text-purple-800 mb-3"><Markdown inline>{content.microscopeAdvantage.invasiveTitle}</Markdown></h3>
-                    <Markdown inline className="text-gray-700 text-sm sm:text-base">
-                      {content.microscopeAdvantage.invasiveParagraph}
-                    </Markdown>
-                  </div>
-                </div>
-              </motion.div>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        {/* Introduction */}
+        <section className="mb-28">
+          <div className="text-center max-w-6xl mx-auto" style={staggerDelay(1)}>
+            <div className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-purple-100">
+              <p className="text-lg md:text-2xl text-purple-700 leading-relaxed">
+                <Markdown inline>
+                  {content.introduction.text.split(content.introduction.highlightedText)[0]}
+                </Markdown>
+                <span className="font-bold text-purple-600">
+                  <Markdown inline>{content.introduction.highlightedText}</Markdown>
+                </span>
+                <Markdown inline>
+                  {content.introduction.text.split(content.introduction.highlightedText)[1]}
+                </Markdown>
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Specialist Section */}
-        <section className="py-12 sm:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col lg:flex-row items-center">
-              <motion.div 
-                className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-10"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  <Markdown inline>{content.specialist.titlePrefix}</Markdown> 
-                  <span className="text-purple-600">
-                    <Markdown inline>{content.specialist.titleHighlight}</Markdown>
-                    </span>
-                    <Markdown inline>{content.specialist.titleSuffix}</Markdown>
-                </h2>
-                <Markdown inline className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                  {content.specialist.paragraph}
-                </Markdown>
-                <div className="bg-gray-50 p-4 sm:p-6 rounded-xl">
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4">{content.specialist.expertiseTitle}</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {content.specialist.expertiseItems.map((item, index) => (
-                      <div key={index} className="flex items-start">
-                        <FiCheck className="text-purple-600 mt-1 mr-2 flex-shrink-0 text-sm sm:text-base" />
-                        <span className="text-sm sm:text-base"><Markdown inline>{item}</Markdown></span>
-                      </div>
-                    ))}
-                  </div>
+        {/* Top Rated */}
+        <section className="mb-28">
+          <div
+            className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-purple-100"
+            style={staggerDelay(2)}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-8 text-center">
+              <Markdown inline>{content.topRated.title}</Markdown>
+            </h2>
+            <p className="text-lg text-purple-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+              <Markdown inline>{content.topRated.description}</Markdown>
+            </p>
+            <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-10">
+              {content.topRated.points.map((point, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Star className="w-6 h-6 text-yellow-400 fill-yellow-400 flex-shrink-0 mt-1" />
+                  <p className="text-purple-700 text-lg font-medium">
+                    <Markdown inline>{point}</Markdown>
+                  </p>
                 </div>
-              </motion.div>
-              <motion.div 
-                className="lg:w-1/2 w-full"
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 w-full rounded-xl overflow-hidden shadow-lg">
-                 <Image
-                  urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
-                  src={content.specialist.image}
-                    alt="Specialist performing micro-root treatment"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-cover"
-                    priority
-                  />   
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Procedure Steps */}
-        <section className="py-12 sm:py-20 bg-gray-50">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="text-center mb-12 sm:mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                <Markdown inline>{content.procedure.titlePrefix}</Markdown> <span className="text-purple-600"><Markdown inline>{content.procedure.titleHighlight}</Markdown></span>
-              </h2>
-              <Markdown inline className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                {content.procedure.paragraph}
-              </Markdown>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {procedureSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 text-center"
-                >
-                  <div className="text-purple-600 font-bold text-2xl sm:text-3xl mb-4">{index + 1}</div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3"><Markdown inline>{step.title}</Markdown></h3>
-                  <p className="text-gray-600 text-sm sm:text-base"><Markdown inline>{step.description}</Markdown></p>
-                </motion.div>
               ))}
             </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 sm:mt-16 bg-purple-600 text-white p-6 sm:p-8 rounded-xl max-w-4xl mx-auto"
-            >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4">{content.procedure.painTitle}</h3>
-              <Markdown inline className="mb-4 text-sm sm:text-base">
-                {content.procedure.painParagraph1}
-             </Markdown>
-              <Markdown inline className="text-sm sm:text-base">
-                {content.procedure.painParagraph2}
-              </Markdown>
-            </motion.div>
+            <p className="text-purple-600 italic text-center leading-relaxed">
+              <Markdown inline>{content.topRated.footnote}</Markdown>
+            </p>
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section className="py-12 sm:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="text-center mb-12 sm:mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                <Markdown inline>
-                  {content.benefitsSection.titlePrefix} 
-                  </Markdown>
-                <span className="text-purple-600">
-                  <Markdown inline>{content.benefitsSection.titleHighlight}</Markdown>
-                  </span>
+        {/* Why Choose Location */}
+        <section className="mb-28">
+          <div className="text-center mb-12" style={staggerDelay(3)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.whyChooseLocation.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {content.whyChooseLocation.features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+                style={staggerDelay(4 + index)}
+              >
+                <h3 className="text-xl font-bold text-purple-800 mb-3">
+                  <Markdown inline>{feature.title}</Markdown>
+                </h3>
+                <p className="text-purple-700 leading-relaxed">
+                  <Markdown inline>{feature.description}</Markdown>
+                </p>
               </div>
-            </motion.div>
+            ))}
+          </div>
+          <div
+            className="bg-gradient-to-r from-slate-800 to-purple-800 rounded-2xl p-8 text-white text-center flex flex-col sm:flex-row items-center justify-center gap-4"
+            style={staggerDelay(9)}
+          >
+            <MapPin className="w-7 h-7 flex-shrink-0" />
+            <p className="text-lg font-medium">
+              <Markdown inline>{content.whyChooseLocation.address}</Markdown>
+            </p>
+          </div>
+        </section>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div
+        {/* What Is Root Canal Treatment */}
+        <section className="mb-28">
+          <div
+            className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-purple-100"
+            style={staggerDelay(10)}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-8 text-center">
+              <Markdown inline>{content.whatIsRCT.title}</Markdown>
+            </h2>
+            <p className="text-lg text-purple-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+              <Markdown inline>{content.whatIsRCT.description}</Markdown>
+            </p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+              {content.whatIsRCT.items.map((item, index) => (
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-50 p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200 text-center"
+                  className="bg-purple-50 rounded-xl p-5 text-center text-purple-700 font-medium"
                 >
-                  <div className="flex justify-center mb-4">
-                    {iconMap[benefit.icon]}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2"><Markdown inline>{benefit.title}</Markdown></h3>
-                  <p className="text-gray-600 text-sm sm:text-base"><Markdown inline>{benefit.description}</Markdown></p>
-                </motion.div>
+                  <Markdown inline>{item}</Markdown>
+                </div>
               ))}
+            </div>
+            <p className="text-purple-600 italic text-center leading-relaxed">
+              <Markdown inline>{content.whatIsRCT.footnote}</Markdown>
+            </p>
+          </div>
+        </section>
+
+        {/* Signs You Need Root Canal */}
+        <section className="mb-28">
+          <div className="text-center mb-12" style={staggerDelay(11)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.signsYouNeed.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            {content.signsYouNeed.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-lg border border-purple-100 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center"
+                style={staggerDelay(12 + index)}
+              >
+                <div className="bg-gradient-to-r from-purple-500 to-cyan-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <p className="text-purple-700 font-medium">
+                  <Markdown inline>{item}</Markdown>
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-purple-600 italic text-center leading-relaxed">
+            <Markdown inline>{content.signsYouNeed.footnote}</Markdown>
+          </p>
+        </section>
+
+        {/* Treatment Types */}
+        <section className="mb-28">
+          <div className="text-center mb-12" style={staggerDelay(16)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.treatmentTypes.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.treatmentTypes.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 text-center"
+                style={staggerDelay(17 + index)}
+              >
+                <h3 className="text-lg font-bold text-purple-800 mb-3">
+                  <Markdown inline>{item.title}</Markdown>
+                </h3>
+                <p className="text-purple-700 text-sm leading-relaxed">
+                  <Markdown inline>{item.description}</Markdown>
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Technology Section */}
+        <section className="mb-28">
+          <div className="text-center mb-16" style={staggerDelay(21)}>
+            <h2 className="text-4xl md:text-6xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.technology.title}</Markdown>
+            </h2>
+
+            <div className="bg-white rounded-3xl p-8 shadow-xl inline-block mb-12 border border-purple-100 relative h-80 md:h-96 w-full overflow-hidden shadow-lg mb-8">
+              <Image
+                urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
+                src={content.technology.image}
+                alt="Root canal treatment technology"
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            <p className="text-xl text-purple-700 max-w-5xl mx-auto leading-relaxed mb-16">
+              <Markdown inline>{content.technology.description}</Markdown>
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {content.technology.features.map((feature, index) => {
+              const IconComponent = iconMap[feature.icon];
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-8 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300"
+                  style={staggerDelay(22 + index)}
+                >
+                  <div className="bg-gradient-to-r from-purple-500 to-cyan-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    {IconComponent && <IconComponent className="w-8 h-8 text-white" />}
+                  </div>
+                  <h3 className="text-2xl font-bold text-purple-800 mb-4 text-center">
+                    <Markdown inline>{feature.title}</Markdown>
+                  </h3>
+                  <p className="text-purple-700 text-center leading-relaxed">
+                    <Markdown inline>{feature.description}</Markdown>
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div
+            className="bg-gradient-to-r from-slate-800 to-purple-800 rounded-3xl p-10 md:p-16 text-white"
+            style={staggerDelay(25)}
+          >
+            <div className="bg-purple-500 bg-opacity-20 rounded-2xl p-8 border border-purple-400/30">
+              <p className="text-lg text-center leading-relaxed">
+                <Markdown inline>{content.technology.highlight}</Markdown>
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Technology Comparison */}
-        <section className="py-12 sm:py-20 bg-purple-600 text-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
-              className="text-center mb-12 sm:mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-2xl sm:text-3xl font-bold mb-4">
-                <Markdown inline>
-                  {content.comparisonSection.titlePrefix} 
-                  </Markdown>
-                <span className="text-purple-200">
-                  <Markdown inline>{content.comparisonSection.titleHighlight}</Markdown></span>
-              </div>
-              <Markdown inline className="text-lg sm:text-xl max-w-3xl mx-auto">
-                {content.comparisonSection.paragraph}
-             </Markdown>
-            </motion.div>
-
-            <div className="bg-white text-gray-900 rounded-xl overflow-hidden shadow-2xl max-w-4xl mx-auto overflow-x-auto">
-              <div className="min-w-full">
-                <div className="grid grid-cols-3 border-b border-gray-200 font-semibold min-w-full">
-                  <div className="p-3 sm:p-4 text-sm sm:text-base">Feature</div>
-                  <div className="p-3 sm:p-4 text-purple-600 text-center text-sm sm:text-base">Micro-Root</div>
-                  <div className="p-3 sm:p-4 text-gray-600 text-center text-sm sm:text-base">Conventional</div>
+        {/* Process */}
+        <section className="mb-28">
+          <div className="text-center mb-16" style={staggerDelay(26)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.process.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+            {content.process.steps.map((step, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 text-center"
+                style={staggerDelay(27 + index)}
+              >
+                <div className="bg-gradient-to-r from-purple-500 to-cyan-600 w-14 h-14 rounded-full flex items-center justify-center mb-4 mx-auto text-white text-xl font-bold">
+                  {step.number}
                 </div>
-                {comparisonData.map((row, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`grid grid-cols-3 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
+                <h3 className="text-lg font-bold text-purple-800 mb-3">
+                  <Markdown inline>{step.title}</Markdown>
+                </h3>
+                <p className="text-purple-700 text-sm leading-relaxed">
+                  <Markdown inline>{step.description}</Markdown>
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-purple-600 italic text-center leading-relaxed max-w-3xl mx-auto">
+            <Markdown inline>{content.process.footnote}</Markdown>
+          </p>
+        </section>
+
+        {/* Benefits */}
+        <section className="mb-28">
+          <div className="text-center mb-12" style={staggerDelay(32)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.benefits.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {content.benefits.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-lg border border-purple-100 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 text-center"
+                style={staggerDelay(33 + index)}
+              >
+                <Star className="w-7 h-7 text-purple-600 mx-auto mb-3" />
+                <p className="text-purple-700 font-medium">
+                  <Markdown inline>{item}</Markdown>
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-purple-600 italic text-center leading-relaxed max-w-3xl mx-auto">
+            <Markdown inline>{content.benefits.footnote}</Markdown>
+          </p>
+        </section>
+
+        {/* Cost */}
+        <section className="mb-28">
+          <div
+            className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-purple-100"
+            style={staggerDelay(37)}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-8 text-center">
+              <Markdown inline>{content.cost.title}</Markdown>
+            </h2>
+            <p className="text-lg text-purple-700 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+              <Markdown inline>{content.cost.description}</Markdown>
+            </p>
+            <div className="grid md:grid-cols-2 gap-10">
+              <div>
+                <h3 className="text-xl font-bold text-purple-800 mb-6">
+                  Factors Affecting Cost
+                </h3>
+                <div className="space-y-4">
+                  {content.cost.factors.map((factor, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-1" />
+                      <p className="text-purple-700">
+                        <Markdown inline>{factor}</Markdown>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-purple-50 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-purple-800 mb-6">
+                  What We Provide
+                </h3>
+                <div className="space-y-4">
+                  {content.cost.highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-1" />
+                      <p className="text-purple-700 font-medium">
+                        <Markdown inline>{highlight}</Markdown>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Same Day Consultation */}
+        <section className="mb-28">
+          <div
+            className="bg-gradient-to-r from-slate-800 to-purple-800 rounded-3xl p-10 md:p-16 text-white text-center"
+            style={staggerDelay(38)}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              <Markdown inline>{content.sameDayConsultation.title}</Markdown>
+            </h2>
+            <p className="text-lg leading-relaxed mb-10 opacity-95 max-w-3xl mx-auto">
+              <Markdown inline>{content.sameDayConsultation.description}</Markdown>
+            </p>
+            <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
+              {content.sameDayConsultation.items.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 justify-center">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-1" />
+                  <p className="font-medium">
+                    <Markdown inline>{item}</Markdown>
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="opacity-90 italic leading-relaxed">
+              <Markdown inline>{content.sameDayConsultation.footnote}</Markdown>
+            </p>
+          </div>
+        </section>
+
+        {/* Trusted Areas */}
+        <section className="mb-28">
+          <div className="text-center" style={staggerDelay(39)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-8">
+              <Markdown inline>{content.trustedAreas.title}</Markdown>
+            </h2>
+            <p className="text-lg text-purple-700 leading-relaxed mb-10">
+              <Markdown inline>{content.trustedAreas.description}</Markdown>
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-10">
+              {content.trustedAreas.areas.map((area, index) => (
+                <span
+                  key={index}
+                  className="bg-white shadow-md border border-purple-100 text-purple-700 font-semibold px-8 py-4 rounded-full text-lg"
+                >
+                  <Markdown inline>{area}</Markdown>
+                </span>
+              ))}
+            </div>
+            <p className="text-purple-600 italic leading-relaxed">
+              <Markdown inline>{content.trustedAreas.footnote}</Markdown>
+            </p>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="mb-28">
+          <div className="text-center mb-16" style={staggerDelay(40)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.testimonials.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            {content.testimonials.items.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+                style={staggerDelay(41 + index)}
+              >
+                <Quote className="w-9 h-9 text-purple-300 mb-4" />
+                <p className="text-purple-700 leading-relaxed italic mb-6">
+                  <Markdown inline>{testimonial.quote}</Markdown>
+                </p>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-purple-600 italic text-center leading-relaxed">
+            <Markdown inline>{content.testimonials.footnote}</Markdown>
+          </p>
+        </section>
+
+        {/* What to Expect */}
+        <section className="mb-28">
+          <div className="text-center mb-16" style={staggerDelay(44)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.whatToExpect.title}</Markdown>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {content.whatToExpect.items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-xl border border-purple-100 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 text-center"
+                style={staggerDelay(45 + index)}
+              >
+                <h3 className="text-xl font-bold text-purple-800 mb-4">
+                  <Markdown inline>{item.title}</Markdown>
+                </h3>
+                <p className="text-purple-700 leading-relaxed">
+                  <Markdown inline>{item.description}</Markdown>
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-28">
+          <div className="text-center mb-16" style={staggerDelay(48)}>
+            <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-12">
+              <Markdown inline>{content.faq.title}</Markdown>
+            </h2>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-5">
+            {content.faq.items.map((item, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden"
+                  style={staggerDelay(49 + index)}
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between gap-4 text-left px-8 py-6"
                   >
-                    <div className="p-3 sm:p-4 font-medium text-sm sm:text-base"><Markdown>{row.feature}</Markdown></div>
-                    <div className="p-3 sm:p-4 text-purple-600 text-center text-xs sm:text-sm"><Markdown>{row.micro}</Markdown></div>
-                    <div className="p-3 sm:p-4 text-gray-600 text-center text-xs sm:text-sm"><Markdown>{row.conventional}</Markdown></div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 sm:mt-16 bg-white/10 p-6 sm:p-8 rounded-xl max-w-4xl mx-auto backdrop-blur-sm"
-            >
-              <h3 className="text-lg sm:text-xl font-semibold mb-4">{content.comparisonSection.closingTitle}</h3>
-              <Markdown inline className="mb-4 text-sm sm:text-base">
-                {content.comparisonSection.closingParagraph1}
-              </Markdown>
-              <Markdown inline className="font-medium text-sm sm:text-base">
-                {content.comparisonSection.closingParagraph2}
-              </Markdown>
-            </motion.div>
+                    <span className="text-lg md:text-xl font-semibold text-purple-800">
+                      <Markdown inline>{item.question}</Markdown>
+                    </span>
+                    <ChevronDown
+                      className={`w-6 h-6 text-purple-600 flex-shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-8 pb-6">
+                      <p className="text-purple-700 leading-relaxed">
+                        <Markdown inline>{item.answer}</Markdown>
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 sm:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                <Markdown inline>
-                  {content.cta.titlePrefix} 
-                  </Markdown>
-                <span className="text-purple-600"><Markdown inline>{content.cta.titleHighlight}</Markdown></span>
-              </h2>
-              <Markdown className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto">
-                {content.cta.paragraph}
+        <section className="text-center">
+          <div
+            className="bg-white rounded-3xl p-10 md:p-16 shadow-2xl border border-purple-100"
+            style={staggerDelay(56)}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-purple-800 mb-8">
+              <Markdown inline>{content.cta.title}</Markdown>
+            </h2>
+
+            <p className="text-lg md:text-xl text-purple-700 leading-relaxed mb-8 max-w-4xl mx-auto">
+              <Markdown inline>{content.cta.description}</Markdown>
+            </p>
+
+            <p className="text-lg text-purple-700 leading-relaxed mb-10 max-w-4xl mx-auto">
+              <Markdown inline>
+                {content.cta.callToAction.split(content.cta.highlightedText)[0]}
               </Markdown>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <span className="font-bold text-purple-600">
+                <Markdown inline>{content.cta.highlightedText}</Markdown>
+              </span>
+              <Markdown inline>
+                {content.cta.callToAction.split(content.cta.highlightedText)[1]}
+              </Markdown>
+            </p>
+
+            <div className="bg-gradient-to-r from-slate-800 to-purple-800 rounded-2xl p-8 text-white max-w-3xl mx-auto mb-10 text-left">
+              <h3 className="text-2xl font-bold mb-4 text-center">
+                <Markdown inline>{content.cta.conclusionTitle}</Markdown>
+              </h3>
+              <p className="leading-relaxed mb-6 opacity-95">
+                <Markdown inline>{content.cta.conclusion}</Markdown>
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-lg font-medium">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-6 h-6" />
+                  <a href={`tel:${content.cta.phone}`}>{content.cta.phone}</a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-6 h-6" />
+                  <Markdown inline>{content.cta.address}</Markdown>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button
                 onClick={handleOpenChatbot}
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 flex items-center mx-auto text-base sm:text-lg w-full sm:w-auto justify-center"
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-4 rounded-full text-lg font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
               >
-                {content.cta.button} <FiArrowRight className="ml-2" />
-              </motion.button>
-              <Markdown className="text-gray-500 mt-4 sm:mt-6 text-sm sm:text-base">
-                {content.cta.footnote}
-            </Markdown>
-            </motion.div>
+                <Calendar className="w-6 h-6" />
+                <Markdown inline>{content.cta.buttonText}</Markdown>
+              </button>
+            </div>
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
-};
-
-export default MicroRootTreatmentPage;
+}

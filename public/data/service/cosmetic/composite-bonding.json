@@ -1,40 +1,86 @@
 {
   "meta": {
-    "title": "Prudentia Micro Dental Care",
-    "description": "Discreet and comfortable teeth straightening with clear aligners in Pimple Saudagar"
+    "title": "Dental Bonding in Pimple Saudagar, Pune | Prudentia Micro Dental Care",
+    "description": "Repair chipped teeth, close small gaps, and enhance your smile with fast, affordable dental bonding at Prudentia Micro Dental Care, Vision 9 Mall, Pimple Saudagar, Pune."
   },
   "hero": {
-    "title": "Composite Bonding",
-    "subtitle": "Are discolored, uneven, or chipped front teeth making you feel self-conscious? Composite bonding is a quick, affordable, and effective solution to transform your smile and restore your confidence. This cosmetic dental treatment can address a wide range of imperfections, leaving you with a natural, radiant smile without the need for invasive procedures.",
+    "title": "Dental Bonding",
+    "subtitle": "Are discolored, uneven, or chipped front teeth making you feel self-conscious? Dental bonding is a quick, affordable, and effective solution to transform your smile and restore your confidence, all in a single visit and with minimal tooth preparation.",
     "button": "Schedule Consultation",
     "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.JPG"
   },
   "whatIs": {
-    "title": "What Is Composite Bonding?",
-    "paragraph1": "Composite bonding is a non-invasive cosmetic treatment that uses a tooth-colored resin to reshape, rebuild, and restore your teeth. Whether it's covering discoloration, fixing chips, closing gaps, or correcting crooked teeth, this treatment enhances your smile with minimal tooth alteration.",
-    "paragraph2": "It's one of the most conservative and effective methods to improve the color, shape, and overall appearance of your teeth particularly for the front teeth, which have the most impact on your smile.",
+    "title": "What Is Dental Bonding?",
+    "paragraph1": "Dental bonding is a cosmetic dental procedure in which a tooth-colored composite resin is carefully applied, sculpted, hardened with a special curing light, and polished to improve the appearance of a tooth.",
+    "paragraph2": "It's commonly used to repair chipped or cracked teeth, close small gaps, improve tooth shape, cover discoloration, protect exposed tooth roots, and enhance your smile naturally, often in a single, quick appointment.",
     "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/composite-syringes-light-curing-dental-fillings-prudentia-pune.jpg"
   },
-  "discoloredTeeth": {
-    "title": "How Does Composite Bonding Fix Discolored Teeth?",
-    "intro": "Teeth discoloration is a common issue caused by:",
-    "causes": [
-      { "icon": "☕", "title": "Food & Lifestyle", "description": "Coffee, wine, and smoking" },
-      { "icon": "💊", "title": "Medical", "description": "Medication side effects" },
-      { "icon": "🪥", "title": "Hygiene", "description": "Poor oral hygiene" }
+  "signs": {
+    "title": "Signs You May Benefit from Dental Bonding",
+    "intro": "Dental bonding may be a good fit for you if you have:",
+    "items": [
+      "Chipped or broken teeth",
+      "Small gaps between teeth",
+      "Minor cracks",
+      "Discolored teeth",
+      "Uneven tooth edges",
+      "Worn teeth",
+      "Misshapen teeth",
+      "Exposed tooth roots due to gum recession"
     ],
-    "footer": "If you find yourself with yellowed or stained front teeth but aren't ready for costly whitening treatments, composite bonding is the perfect alternative. The resin used in bonding can effectively conceal discoloration, restoring the whiteness and brightness of your smile without damaging your natural enamel."
+    "footer": "A dental consultation will determine whether bonding is the most appropriate treatment for your smile."
   },
-  "improveSmile": {
-    "title": "How Does Bonding Improve Your Smile?",
-    "intro": "Crooked, misaligned, or gapped teeth can affect more than just your appearance, they can lower your self-esteem. Composite bonding offers a non-invasive, rapid solution to correct imperfections like:",
-    "points": [
-      "Crooked or rotated teeth",
-      "Teeth with gaps",
-      "Chipped or fractured teeth"
+  "types": {
+    "title": "Types of Dental Bonding Treatments",
+    "intro": "We offer several bonding approaches, matched to your specific concern:",
+    "items": [
+      { "icon": "✨", "title": "Cosmetic Dental Bonding", "description": "Improves the appearance of chipped, uneven, or stained teeth to create a brighter, more attractive smile." },
+      { "icon": "↔", "title": "Gap Closure Bonding", "description": "Closes small spaces between teeth without the need for orthodontic treatment in suitable cases." },
+      { "icon": "◐", "title": "Tooth Reshaping & Contouring", "description": "Enhances tooth size, symmetry, and shape for a more balanced smile." },
+      { "icon": "🛡", "title": "Restorative Dental Bonding", "description": "Repairs teeth affected by minor decay, fractures, or wear, while preserving natural tooth structure." }
     ],
-    "footer": "This simple procedure allows you to reshape your teeth for a more harmonious, confident smile, all without the need for extensive dental work. Once complete, you'll have a beautiful, natural-looking smile that you'll want to show off at every opportunity!",
-    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg"
+    "footer": "Our dentists will recommend the right type of bonding, or a combination, based on your smile goals."
+  },
+  "procedure": {
+    "title": "Step-by-Step Dental Bonding Procedure",
+    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/cosmetic-front-teeth-issues-collage-prudentia-dental-care-pimple-saudagar.jpg",
+    "steps": [
+      { "title": "Consultation & Smile Evaluation", "description": "Your dentist examines your teeth, discusses your goals, and determines whether bonding is right for you." },
+      { "title": "Shade Selection", "description": "A composite resin shade is selected to closely match your natural teeth for a seamless appearance." },
+      { "title": "Tooth Preparation", "description": "The tooth surface is gently prepared, and a conditioning liquid is applied to improve bonding." },
+      { "title": "Resin Application", "description": "The tooth-colored composite material is carefully applied, shaped, and sculpted to achieve the desired look." },
+      { "title": "Curing & Polishing", "description": "A special curing light hardens the material before the tooth is polished to a smooth, natural finish." }
+    ],
+    "footer": "Most dental bonding procedures are completed in a single visit."
+  },
+  "benefits": {
+    "title": "Benefits of Choosing Dental Bonding",
+    "intro": "Dental bonding offers one of the fastest and most cost-effective ways to improve your smile:",
+    "points": [
+      "Repairs chipped and cracked teeth",
+      "Improves smile aesthetics",
+      "Closes small gaps",
+      "Natural-looking results",
+      "Quick single-visit treatment",
+      "Minimally invasive procedure",
+      "Affordable cosmetic solution",
+      "Preserves natural tooth structure",
+      "Boosts confidence",
+      "Immediate smile enhancement"
+    ],
+    "footer": "With good oral hygiene and regular check-ups, bonded teeth can look great for years to come.",
+    "image": "hero/Services/cosmetic/3. Bonding (Permanant tooth Coloured fillings)/front-tooth-missing-fiber-reinforced-bridge-no-drill-smile-restoration-prudentia-pimple-saudagar.jpg"
+  },
+  "cost": {
+    "title": "Affordable Dental Bonding Cost",
+    "intro": "The overall cost depends on a few key factors:",
+    "factors": [
+      "Number of teeth treated",
+      "Extent of cosmetic correction required",
+      "Complexity of the procedure",
+      "Additional dental treatments if needed"
+    ],
+    "footer": "We provide transparent pricing, customized treatment plans, and affordable cosmetic dentistry with excellent long-term value."
   },
   "gallery": {
     "title": "Transform Your Smile",
@@ -57,10 +103,32 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "Real Patient Experiences",
+    "items": [
+      { "quote": "My chipped front tooth looks completely natural after dental bonding.", "author": "Verified Patient" },
+      { "quote": "The treatment was quick, painless, and my smile looks amazing.", "author": "Verified Patient" },
+      { "quote": "I searched for dental bonding near me and found excellent cosmetic care at Prudentia Micro Dental Care.", "author": "Verified Patient" }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "question": "How long does dental bonding take?", "answer": "Most dental bonding treatments are completed in a single appointment, usually within 30 to 60 minutes per tooth." },
+      { "question": "Is dental bonding painful?", "answer": "Dental bonding is generally painless and usually requires little or no anesthesia because very little tooth structure is removed." },
+      { "question": "How long does dental bonding last?", "answer": "With proper oral hygiene and regular dental check-ups, dental bonding can last several years before needing maintenance or replacement." },
+      { "question": "Who is a suitable candidate for dental bonding?", "answer": "Anyone with chipped, cracked, stained, uneven, or slightly gapped teeth may be a suitable candidate after a dental examination." },
+      { "question": "What is the cost of dental bonding in Pune?", "answer": "The cost depends on the number of teeth being treated, the complexity of the procedure, and your individual treatment requirements. A consultation provides an accurate estimate." },
+      { "question": "What are the advantages of dental bonding over veneers?", "answer": "Dental bonding is more affordable, minimally invasive, usually completed in one visit, and preserves more of your natural tooth structure." },
+      { "question": "How do I find the best dental bonding near me?", "answer": "Choose a dental clinic with experienced cosmetic dentists, modern technology, high-quality materials, excellent patient reviews, and a convenient location." }
+    ]
+  },
   "cta": {
     "title": "Ready to Enhance Your Smile?",
-    "description": "Your front teeth are crucial to your appearance, and composite bonding is one of the fastest and most affordable ways to correct any imperfections and achieve a flawless smile. At Prudentia Micro Dental Care, Pimple Saudagar we specialize in providing quick, precise, and effective bonding treatments to enhance your smile and your confidence.",
+    "description": "Your front teeth are crucial to your appearance, and dental bonding is one of the fastest and most affordable ways to correct imperfections and achieve a flawless smile. At Prudentia Micro Dental Care, Pimple Saudagar, we specialize in quick, precise, and effective bonding treatments.",
     "button": "Schedule your consultation today",
-    "footer": "Take the first step toward the smile you deserve."
+    "footer": "Take the first step toward the smile you deserve.",
+    "phone": "09768048056",
+    "address": "Shop no 172, First Floor, Vision 9 Mall, Kunal Icon Rd, Pimple Saudagar, Pune, Pimpri-Chinchwad, Maharashtra 411027"
   }
 }

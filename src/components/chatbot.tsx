@@ -29,14 +29,37 @@ const AppointmentChatbot: React.FC<AppointmentChatbotProps> = ({ onClose, isOpen
 
     const [services, setServices] = useState<string[]>([]);
 
-    useEffect(() => {
+useEffect(() => {
         let isMounted = true;
-        fetch('/data/home/chatbot-services.json')
-            .then((res) => res.json())
+
+        const GITHUB_URL =
+            'https://raw.githubusercontent.com/prudentiamicrodental-cpu/Content/main/home/chatbot-services.json';
+        const LOCAL_URL = '/data/home/chatbot-services.json';
+
+        const loadLocal = () =>
+            fetch(LOCAL_URL)
+                .then((res) => {
+                    if (!res.ok) throw new Error(`Local fetch failed: ${res.status}`);
+                    return res.json();
+                })
+                .then((data: string[]) => {
+                    if (isMounted) setServices(data);
+                })
+                .catch((err) => console.error('Failed to load local chatbot services:', err));
+
+        fetch(GITHUB_URL)
+            .then((res) => {
+                if (!res.ok) throw new Error(`GitHub fetch failed: ${res.status}`);
+                return res.json();
+            })
             .then((data: string[]) => {
                 if (isMounted) setServices(data);
             })
-            .catch((err) => console.error('Failed to load chatbot services:', err));
+            .catch((err) => {
+                console.warn('Failed to load chatbot services from GitHub, falling back to local:', err);
+                return loadLocal();
+            });
+
         return () => {
             isMounted = false;
         };
